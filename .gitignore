@@ -16,9 +16,11 @@ Thumbs.db
 
 # Generated outputs
 results/
-outputs/
 outputs/*
+!outputs/*.json
 !outputs/*.jsonl
+!outputs/*.csv
+!outputs/*.png
 !outputs/.gitkeep
 logs/
 checkpoints/
