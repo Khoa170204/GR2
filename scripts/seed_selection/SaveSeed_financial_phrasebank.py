@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import json
-from datasets import load_dataset
+# from datasets import load_dataset
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
 from sklearn.metrics import pairwise_distances_argmin_min
@@ -12,16 +12,51 @@ from sklearn.model_selection import train_test_split
 SAMPLES_PER_CLASS = 35
 USE_CLASS_BALANCED_CLUSTERING = True
 SEED = 24266
-SAVE_PATH = "../../outputs/seed_data.jsonl"
+SAVE_PATH = "./outputs/seed_phrasebank_data.jsonl"
 
 def set_seed(seed=SEED):
     import random
     random.seed(seed)
     np.random.seed(seed)
 
+# def load_data():
+#     # dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree", split="train", trust_remote_code=True)
+#     dataset = load_dataset(
+#     "takala/financial_phrasebank",
+#     "sentences_allagree",
+#     split="train"
+# )
+#     return pd.DataFrame(dataset)
+
 def load_data():
-    dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree", split="train", trust_remote_code=True)
-    return pd.DataFrame(dataset)
+    print("Loading full dataset...")
+
+    file_path = "data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+
+    data = []
+
+    with open(file_path, "r", encoding="latin-1") as f:
+        for line in f:
+            line = line.strip()
+
+            if not line:
+                continue
+
+            # Financial PhraseBank format:
+            # sentence@label
+            sentence, label = line.rsplit("@", 1)
+
+            data.append({
+                "sentence": sentence,
+                "label": label
+            })
+
+    df = pd.DataFrame(data)
+
+    print(f"Loaded {len(df)} samples")
+    print(df["label"].value_counts())
+
+    return df
 
 def stratified_split(data):
     train_df, temp_df = train_test_split(data, test_size=0.2, stratify=data["label"], random_state=SEED)
@@ -56,7 +91,11 @@ def select_seed_data(df):
     return seed_df
 
 def convert_to_instruction_format(row):
-    label_map = {0: "Negative", 1: "Neutral", 2: "Positive"}
+    label_map = {
+        "negative": "Negative",
+        "neutral": "Neutral",
+        "positive": "Positive"
+    }
     return {
         "instruction": "Classify the sentiment of the financial sentence.",
         "input": row["sentence"],

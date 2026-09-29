@@ -40,20 +40,78 @@ def set_seed(seed: int) -> None:
     np.random.seed(seed)
 
 
+# def load_phrasebank(seed: int) -> pd.DataFrame:
+#     print("Loading Financial PhraseBank...")
+#     dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree", split="train")
+#     df = pd.DataFrame(dataset)
+
+#     train_df, temp_df = train_test_split(
+#         df, test_size=0.2, stratify=df["label"], random_state=seed
+#     )
+#     val_df, test_df = train_test_split(
+#         temp_df, test_size=0.5, stratify=temp_df["label"], random_state=seed
+#     )
+
+#     return test_df.reset_index(drop=True)
+
 def load_phrasebank(seed: int) -> pd.DataFrame:
     print("Loading Financial PhraseBank...")
-    dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree", split="train")
-    df = pd.DataFrame(dataset)
+
+    file_path = (
+        "data/financial_phrasebank/"
+        "FinancialPhraseBank-v1.0/"
+        "Sentences_AllAgree.txt"
+    )
+
+    data = []
+
+    with open(file_path, "r", encoding="latin-1") as f:
+        for line in f:
+            line = line.strip()
+
+            if not line:
+                continue
+
+            sentence, label = line.rsplit("@", 1)
+
+            data.append({
+                "sentence": sentence,
+                "label": label.lower()
+            })
+
+    df = pd.DataFrame(data)
+
+    # Keep numeric IDs internally for evaluation
+    label_map = {
+        "negative": 0,
+        "neutral": 1,
+        "positive": 2,
+    }
+
+    df["label"] = df["label"].map(label_map)
+
+    if df["label"].isna().any():
+        raise ValueError("Unexpected label found in Financial PhraseBank.")
+
+    df["label"] = df["label"].astype(int)
+
+    print(f"Loaded {len(df)} samples")
 
     train_df, temp_df = train_test_split(
-        df, test_size=0.2, stratify=df["label"], random_state=seed
+        df,
+        test_size=0.2,
+        stratify=df["label"],
+        random_state=seed
     )
+
     val_df, test_df = train_test_split(
-        temp_df, test_size=0.5, stratify=temp_df["label"], random_state=seed
+        temp_df,
+        test_size=0.5,
+        stratify=temp_df["label"],
+        random_state=seed
     )
 
     return test_df.reset_index(drop=True)
-
 
 def load_twitter(seed: int) -> pd.DataFrame:
     print("Loading Twitter Financial News Sentiment...")

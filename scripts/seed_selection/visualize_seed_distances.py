@@ -24,7 +24,7 @@ SAVE_BBOX = 'tight'
 SAVE_PAD  = 0.03  # smaller = thinner white border
 LIM_PAD_FRAC = 0.06  # padding around min/max to avoid clipping markers
 
-os.makedirs("../outputs", exist_ok=True)
+os.makedirs("./outputs", exist_ok=True)
 
 def set_seed(seed=24266):
     import random
@@ -68,10 +68,61 @@ def _expand_limits(vmin, vmax, frac=LIM_PAD_FRAC):
     return vmin - pad, vmax + pad
 
 # === FUNCTIONS ===
+# def load_data():
+#     dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree",
+#                            split="train", trust_remote_code=True)
+#     return pd.DataFrame(dataset)
+
 def load_data():
-    dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree",
-                           split="train", trust_remote_code=True)
-    return pd.DataFrame(dataset)
+    print("Loading data...")
+
+    file_path = "data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+
+    label_map = {
+        "negative": 0,
+        "neutral": 1,
+        "positive": 2
+    }
+
+    data = []
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                data.append({
+                    "sentence": sentence,
+                    "label": label_map[label.lower()]
+                })
+
+    except UnicodeDecodeError:
+        with open(file_path, "r", encoding="latin-1") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                data.append({
+                    "sentence": sentence,
+                    "label": label_map[label.lower()]
+                })
+
+    df = pd.DataFrame(data)
+
+    print(f"Loaded {len(df)} samples")
+    print("\nLabel distribution:")
+    print(df["label"].value_counts().sort_index())
+
+    return df
 
 def generate_embeddings(sentences):
     model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
@@ -112,10 +163,10 @@ def plot_distance_histogram(distances):
     plt.xlabel("Euclidean Distance")
     plt.ylabel("Number of Samples")
     plt.grid(True)
-    plt.savefig("../outputs/seed_distance_histogram.png", dpi=SAVE_DPI,
+    plt.savefig("./outputs/seed_distance_histogram.png", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.show()
-    print("Saved: ../outputs/seed_distance_histogram.png")
+    print("Saved: ./outputs/seed_distance_histogram.png")
 
 def plot_tsne_projection(df, seed_indices, embeddings):
     reduced = TSNE(n_components=2, random_state=SEED).fit_transform(embeddings)
@@ -143,10 +194,10 @@ def plot_tsne_projection(df, seed_indices, embeddings):
     plt.title("t-SNE Projection of Embeddings with Seed Samples by Class", fontsize=TITLE_FONTSIZE)
     plt.legend(fontsize=LEGEND_FONTSIZE)
     plt.grid(True)
-    plt.savefig("../outputs/tsne_projection_labeled.png", dpi=SAVE_DPI,
+    plt.savefig("./outputs/tsne_projection_labeled.png", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.show()
-    print("Saved: ../outputs/tsne_projection_labeled.png")
+    print("Saved: ./outputs/tsne_projection_labeled.png")
 
     # return padded limits for consistency downstream
     return reduced, (x_min, x_max), (y_min, y_max)
@@ -170,7 +221,7 @@ def plot_tsne_projection_per_class(df, seed_indices, reduced, xlim, ylim):
         plt.title(f"t-SNE Projection : {LABEL_NAMES[label]}", fontsize=TITLE_FONTSIZE)
         plt.legend(fontsize=LEGEND_FONTSIZE)
         plt.grid(True)
-        fname = f"../outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered.png"
+        fname = f"./outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.show()
         print(f"Saved: {fname}")
@@ -199,10 +250,10 @@ def plot_tsne_combined_real_synthetic(real_df, synthetic_df):
     plt.title("t-SNE Projection: Real vs. Synthetic Data", fontsize=TITLE_FONTSIZE)
     plt.legend(fontsize=LEGEND_FONTSIZE)
     plt.grid(True)
-    plt.savefig("../outputs/tsne_projection_real_vs_synthetic.png", dpi=SAVE_DPI,
+    plt.savefig("./outputs/tsne_projection_real_vs_synthetic.png", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.show()
-    print("Saved: ../outputs/tsne_projection_real_vs_synthetic.png")
+    print("Saved: ./outputs/tsne_projection_real_vs_synthetic.png")
 
 def plot_tsne_per_class_real_synthetic(real_df, synthetic_df):
     for label in sorted(real_df['label'].unique()):
@@ -232,7 +283,7 @@ def plot_tsne_per_class_real_synthetic(real_df, synthetic_df):
         plt.title(f"t-SNE Projection: {LABEL_NAMES[label]} – Real vs Synthetic", fontsize=TITLE_FONTSIZE)
         plt.legend(fontsize=LEGEND_FONTSIZE)
         plt.grid(True)
-        fname = f"../outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}.png"
+        fname = f"./outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.show()
         print(f"Saved: {fname}")
@@ -277,7 +328,7 @@ def plot_tsne_per_class_real_synthetic_with_seed_overlay(real_df, synthetic_df, 
         plt.title(f"t-SNE Projection: {LABEL_NAMES[label]} – Real, Synthetic, Seed", fontsize=TITLE_FONTSIZE)
         plt.legend(fontsize=LEGEND_FONTSIZE)
         plt.grid(True)
-        fname = f"../outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}_with_seed_overlay.png"
+        fname = f"./outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}_with_seed_overlay.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.show()
         print(f"Saved: {fname}")
@@ -296,7 +347,7 @@ if __name__ == "__main__":
     plot_tsne_projection_per_class(data, seed_indices, reduced, xlim, ylim)
 
     print("Loading synthetic data...")
-    with open("../outputs/synthetic_data_from_Seed.jsonl", "r", encoding="utf-8") as f:
+    with open("./outputs/synthetic_data_from_Seed.jsonl", "r", encoding="utf-8") as f:
         synthetic_lines = [json.loads(line.strip()) for line in f]
 
     synthetic_df = pd.DataFrame([

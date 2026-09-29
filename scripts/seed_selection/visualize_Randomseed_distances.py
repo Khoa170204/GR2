@@ -23,13 +23,13 @@ LIM_PAD_FRAC = 0.06  # padding around min/max to avoid clipping markers
 
 # Preferred local paths; fallback to /mnt/data if present
 SEED_JSONL_CANDIDATES = [
-    "../outputs/seed_data.jsonl"
+    "./outputs/seed_data_phrasebank_random.jsonl"
 ]
 SYN_JSONL_CANDIDATES = [
-    "../outputs/synthetic_data_from_Seed.jsonl"
+    "./outputs/synthetic_data_from_Seed.jsonl"
 ]
 
-os.makedirs("../outputs", exist_ok=True)
+os.makedirs("./outputs", exist_ok=True)
 
 def set_seed(seed=24266):
     import random
@@ -51,14 +51,56 @@ plt.rcParams.update({
 })
 
 # === LABELS & COLORS ===
-LABEL_NAMES = {0: "Negative", 1: "Neutral", 2: "Positive"}
-COLOR_ALL = {0: 'lightcoral', 1: 'lightblue', 2: 'lightgreen'}
-COLOR_SEED = {0: '#E41A1C', 1: '#377EB8', 2: '#4DAF4A'}
-COLOR_SEED_PC = {0: 'darkred', 1: 'darkblue', 2: 'darkgreen'}
+# LABEL_NAMES = {0: "Negative", 1: "Neutral", 2: "Positive"}
+# COLOR_ALL = {0: 'lightcoral', 1: 'lightblue', 2: 'lightgreen'}
+# COLOR_SEED = {0: '#E41A1C', 1: '#377EB8', 2: '#4DAF4A'}
+# COLOR_SEED_PC = {0: 'darkred', 1: 'darkblue', 2: 'darkgreen'}
 
-COLOR_REAL = {0: 'skyblue', 1: 'lightgray', 2: 'lightgreen'}
-COLOR_SYN  = {0: 'blue',     1: 'black',     2: 'green'}
-COLOR_SEED_X = {0: 'red', 1: 'orange', 2: 'purple'}
+# COLOR_REAL = {0: 'skyblue', 1: 'lightgray', 2: 'lightgreen'}
+# COLOR_SYN  = {0: 'blue',     1: 'black',     2: 'green'}
+# COLOR_SEED_X = {0: 'red', 1: 'orange', 2: 'purple'}
+
+LABEL_NAMES = {
+    "negative": "Negative",
+    "neutral": "Neutral",
+    "positive": "Positive"
+}
+
+COLOR_ALL = {
+    "negative": "lightcoral",
+    "neutral": "lightblue",
+    "positive": "lightgreen"
+}
+
+COLOR_SEED = {
+    "negative": "#E41A1C",
+    "neutral": "#377EB8",
+    "positive": "#4DAF4A"
+}
+
+COLOR_SEED_PC = {
+    "negative": "darkred",
+    "neutral": "darkblue",
+    "positive": "darkgreen"
+}
+
+COLOR_REAL = {
+    "negative": "skyblue",
+    "neutral": "lightgray",
+    "positive": "lightgreen"
+}
+
+COLOR_SYN = {
+    "negative": "blue",
+    "neutral": "black",
+    "positive": "green"
+}
+
+COLOR_SEED_X = {
+    "negative": "red",
+    "neutral": "orange",
+    "positive": "purple"
+}
 
 # === HELPERS ===
 def _new_fig():
@@ -96,7 +138,12 @@ def load_seed_jsonl(path):
             if "input" in obj and "output" in obj:
                 sent = str(obj["input"]).strip()
                 out = str(obj["output"]).strip()
-                label = {"Negative": 0, "Neutral": 1, "Positive": 2}.get(out, None)
+                # label = {"Negative": 0, "Neutral": 1, "Positive": 2}.get(out, None)
+                label = {
+                    "Negative": "negative",
+                    "Neutral": "neutral",
+                    "Positive": "positive"
+                }.get(out, None)
                 if label is not None:
                     rows.append({"sentence": sent, "label": label})
             # else: skip (likely {"seed_used": ...})
@@ -119,7 +166,12 @@ def load_synth_jsonl(path):
             if "input" in obj and "output" in obj:
                 sent = str(obj["input"]).strip()
                 out = str(obj["output"]).strip()
-                label = {"Negative": 0, "Neutral": 1, "Positive": 2}.get(out, None)
+                # label = {"Negative": 0, "Neutral": 1, "Positive": 2}.get(out, None)
+                label = {
+                    "Negative": "negative",
+                    "Neutral": "neutral",
+                    "Positive": "positive"
+                }.get(out, None)
                 if label is not None:
                     rows.append({"sentence": sent, "label": label})
     if not rows:
@@ -127,10 +179,55 @@ def load_synth_jsonl(path):
     return pd.DataFrame(rows)
 
 # === DATA FUNCTIONS ===
+# def load_data():
+#     dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree",
+#                            split="train", trust_remote_code=True)
+#     return pd.DataFrame(dataset)
+
 def load_data():
-    dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree",
-                           split="train", trust_remote_code=True)
-    return pd.DataFrame(dataset)
+    print("Loading data...")
+
+    file_path = "data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+
+    data = []
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                data.append({
+                    "sentence": sentence,
+                    "label": label
+                })
+
+    except UnicodeDecodeError:
+        with open(file_path, "r", encoding="latin-1") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                data.append({
+                    "sentence": sentence,
+                    "label": label
+                })
+
+    df = pd.DataFrame(data)
+
+    print(f"Loaded {len(df)} samples")
+    print("\nLabel distribution:")
+    print(df["label"].value_counts())
+
+    return df
 
 def generate_embeddings(sentences):
     model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")

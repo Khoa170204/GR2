@@ -6,6 +6,8 @@ import torch.nn.functional as F
 import pandas as pd
 import gradio as gr
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from dotenv import load_dotenv
+load_dotenv()
 
 LABEL_NAMES = ["Negative", "Neutral", "Positive"]
 

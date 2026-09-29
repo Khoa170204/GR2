@@ -9,21 +9,66 @@ from sklearn.model_selection import train_test_split
 SAMPLES_PER_CLASS = 35          # random samples per class
 USE_CLASS_BALANCED_SAMPLING = True
 SEED = 24266 #24266 #26413 #36273
-SAVE_PATH = "../../outputs/seed_data_random.jsonl"   # fixed typo: random
+SAVE_PATH = "./outputs/seed_data_phrasebank_random.jsonl"   # fixed typo: random
 
 def set_seed(seed=SEED):
     import random
     random.seed(seed)
     np.random.seed(seed)
 
+# def load_data():
+#     dataset = load_dataset(
+#         "takala/financial_phrasebank",
+#         "sentences_allagree",
+#         split="train",
+#         trust_remote_code=True
+#     )
+#     return pd.DataFrame(dataset)
+
 def load_data():
-    dataset = load_dataset(
-        "takala/financial_phrasebank",
-        "sentences_allagree",
-        split="train",
-        trust_remote_code=True
-    )
-    return pd.DataFrame(dataset)
+    print("Loading full dataset...")
+
+    file_path = "data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+
+    data = []
+
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                data.append({
+                    "sentence": sentence,
+                    "label": label
+                })
+
+    except UnicodeDecodeError:
+        with open(file_path, "r", encoding="latin-1") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                data.append({
+                    "sentence": sentence,
+                    "label": label
+                })
+
+    df = pd.DataFrame(data)
+
+    print(f"Loaded {len(df)} samples")
+    print("\nLabel distribution:")
+    print(df["label"].value_counts())
+
+    return df
 
 def stratified_split(data):
     train_df, temp_df = train_test_split(
@@ -57,7 +102,11 @@ def select_seed_data(df):
     return seed_df
 
 def convert_to_instruction_format(row):
-    label_map = {0: "Negative", 1: "Neutral", 2: "Positive"}
+    label_map = {
+        "negative": "Negative",
+        "neutral": "Neutral",
+        "positive": "Positive"
+    }
     return {
         "instruction": "Classify the sentiment of the financial sentence.",
         "input": row["sentence"],
