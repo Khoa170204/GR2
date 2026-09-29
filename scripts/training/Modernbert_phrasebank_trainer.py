@@ -390,7 +390,7 @@ def parse_args():
     parser.add_argument("--early-stopping-patience", type=int, default=10)
 
     parser.add_argument("--model-name", type=str, default=MODEL_NAME)
-    parser.add_argument("--output-dir", type=str, default="./outputs")
+    parser.add_argument("--output-dir", type=str, default="./outputs/modernbert_phrasebank")
     parser.add_argument("--seed", type=int, default=SEED)
 
     return parser.parse_args()
@@ -430,11 +430,11 @@ if __name__ == "__main__":
         per_device_eval_batch_size=args.eval_batch_size,
         num_train_epochs=args.num_epochs,
         weight_decay=args.weight_decay,
-        label_smoothing_factor=args.label_smoothing,
+        label_smoothing_factor=0.0, #args.label_smoothing,
         load_best_model_at_end=True,
         metric_for_best_model="accuracy",
         greater_is_better=True,
-        logging_dir=os.path.join(args.output_dir, "logs"),
+        # logging_dir=os.path.join(args.output_dir, "logs"),
         logging_strategy="epoch",
         save_total_limit=1,
     )
@@ -455,7 +455,8 @@ if __name__ == "__main__":
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=val_dataset,
-        tokenizer=tokenizer,
+        #tokenizer=tokenizer,
+        processing_class=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics,
         callbacks=trainer_callbacks,
