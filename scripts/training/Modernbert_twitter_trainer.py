@@ -392,6 +392,16 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
+    if args.mode == "full":
+        args.output_dir = os.path.join(
+            args.output_dir,
+            "full"
+        )
+    else:
+        args.output_dir = os.path.join(
+            args.output_dir,
+            "seed_synthetic"
+        )
     set_seed(args.seed)
 
     if torch.cuda.is_available():
