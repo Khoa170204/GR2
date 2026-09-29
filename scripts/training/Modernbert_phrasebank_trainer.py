@@ -357,7 +357,7 @@ def parse_args():
     parser.add_argument("--early-stopping-patience", type=int, default=10)
 
     parser.add_argument("--model-name", type=str, default=MODEL_NAME)
-    parser.add_argument("--output-dir", type=str, default="../outputs")
+    parser.add_argument("--output-dir", type=str, default="./outputs")
     parser.add_argument("--seed", type=int, default=SEED)
 
     return parser.parse_args()
