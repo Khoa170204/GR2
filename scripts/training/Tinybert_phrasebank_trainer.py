@@ -44,7 +44,7 @@ def set_seed(seed: int = SEED):
 def clean_text(text):
     if not isinstance(text, str):
         return text
-    text = text.replace("\\", "\")
+    text = text.replace("\\", "")
     try:
         text = bytes(text, "utf-8").decode("unicode_escape")
     except Exception:
@@ -89,17 +89,50 @@ def plot_training_metrics(callback, save_path, csv_path):
     print(f"CSV saved to {csv_path}")
 
 
-def load_phrasebank() -> pd.DataFrame:
-    dataset = load_dataset(
-        "takala/financial_phrasebank",
-        "sentences_allagree",
-        split="train",
-        trust_remote_code=True,
-    )
-    df = pd.DataFrame(dataset)
-    df["sentence"] = df["sentence"].astype(str).apply(clean_text)
-    return df
+# def load_phrasebank() -> pd.DataFrame:
+#     dataset = load_dataset(
+#         "takala/financial_phrasebank",
+#         "sentences_allagree",
+#         split="train",
+#         trust_remote_code=True,
+#     )
+#     df = pd.DataFrame(dataset)
+#     df["sentence"] = df["sentence"].astype(str).apply(clean_text)
+#     return df
 
+def load_phrasebank() -> pd.DataFrame:
+    path = "./data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+
+    rows = []
+
+    with open(path, "r", encoding="latin-1") as f:
+        for line in f:
+            line = line.strip()
+
+            if not line:
+                continue
+
+            sentence, label = line.rsplit("@", 1)
+
+            rows.append({
+                "sentence": clean_text(sentence),
+                "label": label.strip().lower(),
+            })
+
+    df = pd.DataFrame(rows)
+
+    label_map = {
+        "negative": 0,
+        "neutral": 1,
+        "positive": 2,
+    }
+
+    df["label"] = df["label"].map(label_map)
+
+    df = df.dropna(subset=["label"]).reset_index(drop=True)
+    df["label"] = df["label"].astype(int)
+
+    return df
 
 def stratified_split(data: pd.DataFrame, seed: int):
     train_df, temp_df = train_test_split(

@@ -48,7 +48,7 @@ def set_seed(seed: int = SEED):
 def clean_text(text):
     if not isinstance(text, str):
         return text
-    text = text.replace("\\", "\")
+    text = text.replace("\\", "")
     try:
         text = bytes(text, "utf-8").decode("unicode_escape")
     except Exception:
