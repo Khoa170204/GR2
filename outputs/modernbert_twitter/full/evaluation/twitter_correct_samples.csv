@@ -1,0 +1,1069 @@
+idx,sentence,true_id,true_label,pred_id,pred_label,prob_bearish,prob_bullish,prob_neutral,pred_confidence
+0,"Spanish companies, households snap up state-backed emergency credit  #Stock #MarketScreener https://t.co/o9iBDZEijE https://t.co/FQyY8WaORo",2,Neutral,2,Neutral,0.0035559148527681828,0.0017879308434203267,0.9946562051773071,0.9946562051773071
+1,1 China Travel Stock Every Investor Should Watch,2,Neutral,2,Neutral,3.215718243154697e-05,0.00010263365402352065,0.9998651742935181,0.9998651742935181
+2,âThe Democrats are getting hit and slammed on Impeachment. It is getting less and less popular by the day.â @kilmeade @foxandfriends,2,Neutral,2,Neutral,0.0014082958223298192,0.00014463037950918078,0.9984471201896667,0.9984471201896667
+3,$SLF - Sun Life Financial goes ex-dividend tomorrow https://t.co/7IaFK66cQR,2,Neutral,2,Neutral,0.0010081003420054913,0.0010772165842354298,0.997914731502533,0.997914731502533
+5,Casino Operator Wynn Resorts Is Losing Up To $2.6 Million Per Day From Coronavirus Shutdown,0,Bearish,0,Bearish,0.9369214177131653,0.0026191682554781437,0.06045938655734062,0.9369214177131653
+6,$DSKE: Daseke names Chris Easter CEO https://t.co/5B89m5AOzJ,2,Neutral,2,Neutral,0.0003864625177811831,0.000193234664038755,0.9994202852249146,0.9994202852249146
+7,Budget 2020 Provides âDiscreet And Consideredâ Stimulus: Finance Minister,2,Neutral,2,Neutral,0.00021387603192124516,0.00024735162151046097,0.999538779258728,0.999538779258728
+8,"Demand for HK Property Is Very Strong, Says Midland Realty's Lau",1,Bullish,1,Bullish,0.004761386197060347,0.979824960231781,0.015413552522659302,0.979824960231781
+9,"Medical Properties FFO in-line, misses on revenue",2,Neutral,2,Neutral,0.00040506626828573644,9.582396887708455e-05,0.9994990825653076,0.9994990825653076
+10,Malaysian Prime Minister Mahathir Mohamad has said the country could soon settle with Goldman Sachs over its role iâ¦ https://t.co/NCe8E36JTe,2,Neutral,2,Neutral,0.0014511692570522428,0.0016435583820566535,0.9969052672386169,0.9969052672386169
+11,"With the shackles of OPEC's output limits thrown off and a price war under way, the group's biggest oil producers aâ¦ https://t.co/9UIxhworZ3",2,Neutral,2,Neutral,0.044891368597745895,0.02283439226448536,0.9322742223739624,0.9322742223739624
+13,Pinduoduo stock sinks on heavy volume after earnings,0,Bearish,0,Bearish,0.9996862411499023,7.149942393880337e-05,0.00024223444052040577,0.9996862411499023
+14,$VSTM - Verastem submits marketing application in Europe for Copiktra https://t.co/mQYcMbts2u,2,Neutral,2,Neutral,0.002434737281873822,0.0044515179470181465,0.9931136965751648,0.9931136965751648
+15,Oil Stocks: What I Got Right (and Wrong) About the Oil Market in 2019,2,Neutral,2,Neutral,0.007938997820019722,0.008447820320725441,0.983613133430481,0.983613133430481
+16,Stock futures move higher as trade deal hopes rise #economy #MarketScreener https://t.co/ccieGNw97o https://t.co/4L2S3ERepE,1,Bullish,1,Bullish,0.0007871335255913436,0.9988473653793335,0.0003654769097920507,0.9988473653793335
+17,Magnolia Oil & Gas started at overweight with $14 stock price target at KeyBanc Capital,1,Bullish,1,Bullish,0.0030222604982554913,0.9949231743812561,0.002054576762020588,0.9949231743812561
+18,Cynata Therapeutics : CYP Files Application to Commence Phase 2 CLI Clinical Trial #CynataTherapeutics #Stockâ¦ https://t.co/WcFhiKZF2S,2,Neutral,2,Neutral,0.0020231767557561398,0.0035330893006175756,0.9944437146186829,0.9944437146186829
+19,EUR/USD Daily Forecast â Euro Near 4-Month Low Ahead of NFP Report,0,Bearish,0,Bearish,0.9660059213638306,0.0035627498291432858,0.030431406572461128,0.9660059213638306
+20,"Macy's lowers full-year sales guidance, now sees same-store sales down 1.5% to down 1%",0,Bearish,0,Bearish,0.9988287091255188,0.0006903935573063791,0.00048092601355165243,0.9988287091255188
+21,Business owner sues Target for copyright infringement,0,Bearish,0,Bearish,0.9996336698532104,3.463795655989088e-05,0.0003316494985483587,0.9996336698532104
+22,Saudi Aramco Set to Pay Banks Only $64 Million for Record IPO,2,Neutral,2,Neutral,0.01841541938483715,0.003692129161208868,0.9778924584388733,0.9778924584388733
+23,"Fiat Chrysler EPS beats by â¬0.02, beats on revenue",1,Bullish,1,Bullish,0.0006287850555963814,0.9987564086914062,0.0006148827378638089,0.9987564086914062
+24,TD sees no rate hikes by G-10 central banks next year,2,Neutral,2,Neutral,0.0004501098010223359,0.00029028559220023453,0.9992596507072449,0.9992596507072449
+25,$OYST: Cowen starts at Outperform,1,Bullish,1,Bullish,0.0012231784639880061,0.9976710677146912,0.001105756964534521,0.9976710677146912
+26,Halliburton started at buy with $26 stock price target at Deutsche Bank,1,Bullish,1,Bullish,0.0021763781551271677,0.9965174198150635,0.0013061282224953175,0.9965174198150635
+27,"$XPO - XPO Logistics EPS beats by $0.11, misses on revenue https://t.co/XW7WhvXpJ7",2,Neutral,2,Neutral,0.0013392692198976874,0.0007275709649547935,0.9979331493377686,0.9979331493377686
+28,1/3 of all women in the world have experienced some kind of violence. Here's how @UN_Women is working to end thaâ¦ https://t.co/PPmZ6wtfUF,2,Neutral,2,Neutral,0.001115976832807064,0.0007757126586511731,0.9981082677841187,0.9981082677841187
+29,GBP/USD Price Forecast â British Pound Fails To Break Major Barrier,0,Bearish,0,Bearish,0.9959625601768494,0.0010162052931264043,0.0030212777201086283,0.9959625601768494
+30,What can be done to improve #GenderEquality around the world? Watch @KGeorgievaâs conversation w/ @PoliticoRyan  ââ¦ https://t.co/GFNBc4nrEa,2,Neutral,2,Neutral,0.00017936545191332698,0.00019038497703149915,0.9996302127838135,0.9996302127838135
+33,Ebay stock up 5.4%in Monday premarket trading,1,Bullish,1,Bullish,0.0004751397646032274,0.9992560744285583,0.0002686896186787635,0.9992560744285583
+34,Amazon Teams Up With China Upstart for Black Friday Sale,2,Neutral,2,Neutral,0.001751668518409133,0.003616737900301814,0.9946315288543701,0.9946315288543701
+35,Lifeblood of Amazon merchants threatened as coronavirus infects Chinese workers,0,Bearish,0,Bearish,0.9434356689453125,0.00027742708334699273,0.056286878883838654,0.9434356689453125
+37,Emerald Resources NL : Voluntary Suspension #EmeraldResourcesNL #Stock #MarketScreener https://t.co/zefjhT7YbV https://t.co/0f5IRUY68q,2,Neutral,2,Neutral,0.0006498597213067114,0.0005438098451122642,0.998806357383728,0.998806357383728
+38,"HP down 5% after Xerox bid rejection, counter offer hints",0,Bearish,0,Bearish,0.9999195337295532,2.4979968657135032e-05,5.5447337217628956e-05,0.9999195337295532
+39,6 Ways to Boost Your Savings in 2020,2,Neutral,2,Neutral,4.024138979730196e-05,0.0002500479167792946,0.9997096657752991,0.9997096657752991
+40,The Committee also directs the Desk to continue conducting term and overnight repurchase agreement operations at lâ¦ https://t.co/1W8onnWjru,2,Neutral,2,Neutral,0.0006158201722428203,0.0007539827493019402,0.998630166053772,0.998630166053772
+41,Is Inflation Really Under Control? https://t.co/B86ntFUj2h,2,Neutral,2,Neutral,0.0024212095886468887,0.0010455501032993197,0.9965332746505737,0.9965332746505737
+42,"$SPSK - Islamic Bond ETF Covers Unique ESG Market, For A Price.Â https://t.co/ykp5jaMkCjÂ #investing #markets #trading",2,Neutral,2,Neutral,0.0011102138087153435,0.001173272728919983,0.9977165460586548,0.9977165460586548
+44,Justin Fox on Christmas's New York Roots (Podcast),2,Neutral,2,Neutral,0.00019696807430591434,0.00016545236576348543,0.9996376037597656,0.9996376037597656
+45,Vodafone to Hand Management of Ghana Unit to Africa Operation,2,Neutral,2,Neutral,0.0006619303021579981,0.0002441817196086049,0.9990938901901245,0.9990938901901245
+46,European stocks decline amid weak data and coronavirus concerns,0,Bearish,0,Bearish,0.9998252987861633,7.396135333692655e-05,0.0001007588070933707,0.9998252987861633
+47,"Hundreds of Nike employees march to protest its treatment of women, reports https://t.co/iuqjWaEFen",2,Neutral,2,Neutral,0.0009650331339798868,0.0004493786836974323,0.99858558177948,0.99858558177948
+49,London Stock Exchange : Notice Regarding Contemplated Redemption of Notes #LondonStockExchange #Stockâ¦ https://t.co/UPXKZvW5er,2,Neutral,2,Neutral,2.163411772926338e-05,1.4029380508873146e-05,0.9999643564224243,0.9999643564224243
+50,Highlight: 'We're really in this for the long run' One Medical CEO Amir Dan Rubin says about announcing their IPO... https://t.co/UWmcKv0INF,2,Neutral,2,Neutral,0.0006362011772580445,0.00042834534542635083,0.9989354014396667,0.9989354014396667
+51,PulteGroup declares $0.12 dividend,2,Neutral,2,Neutral,0.00014820322394371033,2.2566491679754108e-05,0.9998291730880737,0.9998291730880737
+52,Is iRobot Corporation's (NASDAQ:IRBT) ROE Of 13% Impressive?,2,Neutral,2,Neutral,0.0023527240846306086,0.00048347629490308464,0.9971638321876526,0.9971638321876526
+53,Edited Transcript of NTR.TO earnings conference call or presentation 5-Nov-19 3:00pm GMT,2,Neutral,2,Neutral,1.6165460010597599e-06,6.625843980145874e-07,0.9999977350234985,0.9999977350234985
+55,$EFX - Four Chinese military hackers charged in Equifax breach https://t.co/QmmOX866Ey,2,Neutral,2,Neutral,0.005722069647163153,0.0005374164902605116,0.9937404990196228,0.9937404990196228
+56,SunPower's stock sinks after plans to sell 22 million shares to the public,0,Bearish,0,Bearish,0.9995381832122803,0.00013023175415582955,0.0003315827052574605,0.9995381832122803
+57,$BHP $SLGGF $NCMGF - BHP buys additional stake in SolGold for $22M https://t.co/076XRNBkSi,2,Neutral,2,Neutral,0.0016858970047906041,0.0015118899755179882,0.9968022108078003,0.9968022108078003
+58,UPDATE 2-Canada's labor union says no progress in talks with CN Rail; strike threatens grain exports,2,Neutral,2,Neutral,0.18721231818199158,0.004665606655180454,0.8081220984458923,0.8081220984458923
+59,Edited Transcript of TTMI earnings conference call or presentation 30-Oct-19 8:30pm GMT,2,Neutral,2,Neutral,1.3526204156733002e-06,5.392428761297197e-07,0.9999980926513672,0.9999980926513672
+60,"Breaking Out of a Four-Month Stretch, Visa Stock Can Reach $200 - Investorplace.com",1,Bullish,1,Bullish,0.005706104449927807,0.9881607294082642,0.006133160088211298,0.9881607294082642
+62,"$WKHS Electric Trucks: What Tesla, Rivian, The Big 3 Are Bringing To Market https://t.co/AZGxC1e9bi via @YahooFinance",2,Neutral,2,Neutral,0.0054649170488119125,0.0032104814890772104,0.9913246631622314,0.9913246631622314
+63,Three Things You Should Check Before Buying Avery Dennison Corporation (NYSE:AVY) For Its Dividend,2,Neutral,2,Neutral,0.0001313098327955231,0.00020608447084669024,0.9996626377105713,0.9996626377105713
+64,GERMAN SPD BACKS DEMANDS FOR TALKS TO STAY IN MERKEL COALITION,2,Neutral,2,Neutral,0.0026740937028080225,0.0009152000420726836,0.9964106678962708,0.9964106678962708
+66,Trump's $4.8 trillion budget likely to get thumbs-down from Congress,2,Neutral,2,Neutral,0.0021377175580710173,0.0010606844443827868,0.9968016147613525,0.9968016147613525
+67,Senate to vote on calling witnesses in Trump impeachment https://t.co/xAUA1gGpXv,2,Neutral,2,Neutral,0.00023327810049522668,0.000117583287646994,0.999649167060852,0.999649167060852
+68,Emerging-economy central banks from India to Brazil still enjoy the firepower to shore up the global economy https://t.co/cTVUGNf4vM,2,Neutral,2,Neutral,0.0032498440705239773,0.003105559851974249,0.9936445951461792,0.9936445951461792
+69,Great Grandmotherâs Will,2,Neutral,2,Neutral,0.0007426300435326993,0.0001633068750379607,0.9990941286087036,0.9990941286087036
+71,Would TD Bank benefit from a Schwab-Ameritrade deal? https://t.co/4ouJlCnZof,2,Neutral,2,Neutral,0.000988753861747682,0.0005170374060980976,0.9984941482543945,0.9984941482543945
+72,CNA Financial Corp (CNA) Q4 2019 Earnings Call Transcript,2,Neutral,2,Neutral,1.136623541242443e-05,1.0036265848611947e-05,0.9999785423278809,0.9999785423278809
+73,$SO - Final containment ring placed for Georgia Power's Vogtle nuclear expansion https://t.co/gTNtdx755r,2,Neutral,2,Neutral,0.000629627553280443,0.0005796381155960262,0.9987908005714417,0.9987908005714417
+75,CORRECT: Tapestry Q2 adj. EPS $1.10; FactSet consensus 99 cents,2,Neutral,2,Neutral,0.004007942974567413,0.008082250133156776,0.9879097938537598,0.9879097938537598
+77,"$BZH (+0.0% pre) Beazer Homes Announces Preliminary Operating Results - BW
+
+https://t.co/k8WmDPkaeC",1,Bullish,1,Bullish,0.0007795463316142559,0.9987794756889343,0.00044101887033320963,0.9987794756889343
+78,Wednesday's economic calendar,2,Neutral,2,Neutral,0.0005516006494872272,0.0008500422700308263,0.9985983967781067,0.9985983967781067
+79,Americans' outlook on the economy faltered significantly last month as the coronavirus crisis began to take hold inâ¦ https://t.co/5jeCXLXrrR,0,Bearish,0,Bearish,0.999316930770874,0.0003728836018126458,0.0003101976471953094,0.999316930770874
+81,Edited Transcript of YGYI earnings conference call or presentation 18-Nov-19 9:15pm GMT,2,Neutral,2,Neutral,7.806804092069797e-07,2.4528679887225735e-07,0.999998927116394,0.999998927116394
+83,$GEL - Genesis Energy (GEL) Presents At RBC Capital Markets Midstream Conference - Slideshow. Sign up for updates oâ¦ https://t.co/HLgr9igXC2,2,Neutral,2,Neutral,3.449869836913422e-05,1.4450858543568756e-05,0.9999510049819946,0.9999510049819946
+84,PutWrite Strategies Offer a Buffer Against Losses | NASDAQ https://t.co/WX1cg8svBO,2,Neutral,2,Neutral,0.017555272206664085,0.020754264667630196,0.9616904854774475,0.9616904854774475
+85,Progyny started at overweight with $26 stock price target at J.P. Morgan,1,Bullish,1,Bullish,0.0015545465284958482,0.9947485327720642,0.0036969997454434633,0.9947485327720642
+87,âAnal cancer may be one of the most rapidly accelerating causes of cancer incidence and mortality in the U.S. https://t.co/d0VXzuZaIu,2,Neutral,2,Neutral,0.002702279482036829,0.005253414157778025,0.9920443296432495,0.9920443296432495
+88,"With coronavirus ravaging the US economy, the Federal Reserve may have to get creative. CNN Business'â¦ https://t.co/wqKtHN3mVC",2,Neutral,2,Neutral,0.15873849391937256,0.003917851019650698,0.8373436331748962,0.8373436331748962
+90,"We should never underestimate the political commitment to the euro, says Financial Timesâ @martinwolf_ to our hostâ¦ https://t.co/j7hXUWAcau",2,Neutral,2,Neutral,0.0007591273752041161,0.0006645734538324177,0.998576283454895,0.998576283454895
+92,JPMorgan out bullish on Uber's upside potential,1,Bullish,1,Bullish,0.0006453442038036883,0.9991232752799988,0.00023138617689255625,0.9991232752799988
+93,At the open (2/10/2020) https://t.co/MKqcLqq18K,2,Neutral,2,Neutral,0.0010889716213569045,0.0012256306363269687,0.997685432434082,0.997685432434082
+94,"Did Hedge Funds Drop The Ball On Intellia Therapeutics, Inc. (NTLA) ?",2,Neutral,2,Neutral,0.0004816626606043428,0.0001442310749553144,0.9993740916252136,0.9993740916252136
+95,Amazon blames holiday delivery delays on winter storms and high demand https://t.co/TjLnFZBE44,0,Bearish,0,Bearish,0.9996675252914429,0.0001540542725706473,0.00017844791000243276,0.9996675252914429
+96,Analysts See 18% Gains Ahead For The Holdings Of The First Trust Dow Jones Internet Index Fund ETF,1,Bullish,1,Bullish,0.0028741247951984406,0.9957787990570068,0.0013470669509842992,0.9957787990570068
+97,Huawei initiates legal action against Verizon,0,Bearish,0,Bearish,0.9996381998062134,0.00017645358457230031,0.00018530928355176002,0.9996381998062134
+98,$CTRC $KODK $TEN - Eastman Kodak among consumer gainers; China Automotive Systems only loser https://t.co/MZg3YLMrpU,2,Neutral,2,Neutral,0.029815316200256348,0.0013735616812482476,0.9688110947608948,0.9688110947608948
+99,"This is the best answer I ever received to the question, Tell me about yourself. (via @CNBCMakeIt) https://t.co/O328RzdGIU",2,Neutral,2,Neutral,0.0003849482745863497,0.00033775591873563826,0.9992772936820984,0.9992772936820984
+100,Fidelity National to buy FGL Holdings in a deal valued at $2.7 billion,2,Neutral,2,Neutral,0.001677451771683991,0.0012848995393142104,0.9970376491546631,0.9970376491546631
+101,$RH clears prior high of 192 after gapping up over its 50-day on volume. On watch how it acts around 200. https://t.co/sF9WRJc7Bo,1,Bullish,1,Bullish,0.002734885783866048,0.994818389415741,0.002446815138682723,0.994818389415741
+102,Why This Multiple Sclerosis Studyâs Positive Results May Not Be Enough,2,Neutral,2,Neutral,0.11862680315971375,0.0719829574227333,0.8093902468681335,0.8093902468681335
+103,Religare Group To Sell Equity In Health Insurance Arm To Kedaara Group For Rs 400 Crore,2,Neutral,2,Neutral,0.00014392094453796744,6.0800870414823294e-05,0.9997952580451965,0.9997952580451965
+104,Week ahead on Wall Street #economy #MarketScreener https://t.co/gSr3hoOMQT https://t.co/sNnufj18DG,2,Neutral,2,Neutral,0.0012644773814827204,0.0010876235319301486,0.9976479411125183,0.9976479411125183
+105,SunPower launches 22M-share public offering,2,Neutral,2,Neutral,0.012337782420217991,0.015344028361141682,0.972318172454834,0.972318172454834
+107,"Federal pension fund says bill banning China investment is discriminatory
+https://t.co/lu8hGlQOng https://t.co/zEyhfoysF9",2,Neutral,2,Neutral,0.004257405176758766,0.0015254811150953174,0.994217038154602,0.994217038154602
+108,Jeremy Corbyn is a controversial leader even in his own party. Here's why https://t.co/iXYhL6ruuN,2,Neutral,2,Neutral,0.0006267124554142356,0.0004044546512886882,0.9989688396453857,0.9989688396453857
+109,Here's Why Athenex Stock Is Sliding Today,0,Bearish,0,Bearish,0.9996116757392883,0.00012285480624996126,0.00026550714392215014,0.9996116757392883
+110,Tyson Foods's stock falls 1.6% premarket after Q1 results,0,Bearish,0,Bearish,0.9997451901435852,8.761978097027168e-05,0.00016715042875148356,0.9997451901435852
+111,China's Pinduoduo posts bigger loss as costs surge; shares tumble,0,Bearish,0,Bearish,0.9995891451835632,0.00014202810416463763,0.00026876968331635,0.9995891451835632
+112,Hedge Funds Are Disconnecting From Boingo Wireless Inc (WIFI),0,Bearish,0,Bearish,0.9997149109840393,0.00012721850362140685,0.0001579655217938125,0.9997149109840393
+113,$SCANX: Gapping up https://t.co/I0UV1lISJU,1,Bullish,1,Bullish,0.0026294300332665443,0.9520654678344727,0.04530509188771248,0.9520654678344727
+114,How the USMCA Affects U.S. Steelmakers and Auto Manufacturers,2,Neutral,2,Neutral,0.0006387315806932747,0.0005098182591609657,0.9988514184951782,0.9988514184951782
+116,"3M : Science, Technology & Sustainability Committee #3M #Stock #MarketScreener https://t.co/v00aEuNutb https://t.co/wMEmDMgf3i",2,Neutral,2,Neutral,0.0007224848959594965,0.0010275066597387195,0.9982499480247498,0.9982499480247498
+117,$BGNE: BeiGene reports clinical data on Tislelizumab https://t.co/f1bfcfhxoh,2,Neutral,2,Neutral,0.0001313242973992601,0.0003808869223576039,0.9994877576828003,0.9994877576828003
+118,Thai Minister Sorry For Saying Tourists Not Wearing Masks Should Be âKicked Outâ,2,Neutral,2,Neutral,0.0007571663009002805,0.0003182863292749971,0.9989245533943176,0.9989245533943176
+119,Why Shake Shack Stock Gained 13% in January,1,Bullish,1,Bullish,0.0006408643093891442,0.9990308284759521,0.0003282897814642638,0.9990308284759521
+120,"TODAY: Donât miss our first Healthy Communities event, bringing together health, housing and community developmentâ¦ https://t.co/TWNVafN4wT",2,Neutral,2,Neutral,0.0006335707730613649,0.0005862975376658142,0.9987801909446716,0.9987801909446716
+121,$EDU - New Oriental -4% after rival discloses employee wrongdoing https://t.co/KWUtDIdiBI,0,Bearish,0,Bearish,0.999576985836029,0.00015832936333026737,0.0002646823413670063,0.999576985836029
+122,"Highlight: @jessicaasmith8 on impeachment: 'At 1pm today, they are set to start debating on the call for witnesses.... https://t.co/bmlxbClUk2",2,Neutral,2,Neutral,0.0006281830137595534,0.0004744160105474293,0.9988974332809448,0.9988974332809448
+123,"What Kind Of Shareholders Own Newater Technology, Inc. (NASDAQ:NEWA)?",2,Neutral,2,Neutral,0.0007349644438363612,0.0005218546721152961,0.9987432360649109,0.9987432360649109
+124,AE Industrial Partners buys American Pacific from Jon M Huntsman family office,2,Neutral,2,Neutral,0.0008505801670253277,0.0004664047446567565,0.9986830353736877,0.9986830353736877
+125,5 things to know before the stock market opens Monday https://t.co/DZf8F02elz,2,Neutral,2,Neutral,0.0003999632317572832,0.003396812593564391,0.9962032437324524,0.9962032437324524
+126,Havilah Resources : Quarterly Activities & Cashflow Reports - Ending 31/10/19 #HavilahResources #Stockâ¦ https://t.co/LaPh5EuvzI,2,Neutral,2,Neutral,0.0004556136846076697,0.0003770679177250713,0.9991673231124878,0.9991673231124878
+127,"The Bank of Korea is taking unprecedented action in the face of coronavirus-Ânot about the rate decision itself, butâ¦ https://t.co/CmxUuSBiab",2,Neutral,2,Neutral,0.0008112891810014844,0.00042240580660291016,0.998766303062439,0.998766303062439
+128,"$VRNS - Varonis EPS beats by $0.01, beats on revenue https://t.co/6V8ZD0QTzO",1,Bullish,1,Bullish,0.0005478098173625767,0.9988625049591064,0.0005896175280213356,0.9988625049591064
+129,A toxic foam caused by sewage overflow is settling on roads and water in New Delhi https://t.co/5oEvBRtZVg,2,Neutral,2,Neutral,0.0012142068007960916,0.000504620373249054,0.9982812404632568,0.9982812404632568
+130,$APOP on scans.,2,Neutral,2,Neutral,0.028351115062832832,0.004839886445552111,0.9668089747428894,0.9668089747428894
+131,$EH - IPO Update: EHang Holdings Files IPO Proposed Terms. Sign up for updates on Seeking Alpha!â¦ https://t.co/5wlB0I3L4N,2,Neutral,2,Neutral,0.0004848614626098424,0.00048097860417328775,0.9990341663360596,0.9990341663360596
+132,Deutsche Bank shares soar after new shareholder steps in,1,Bullish,1,Bullish,0.0004191579355392605,0.9994431138038635,0.000137684604851529,0.9994431138038635
+134,When Will Amarin Stock Sell-Off Be Over?,2,Neutral,2,Neutral,0.015024307183921337,0.00447514932602644,0.9805005788803101,0.9805005788803101
+135,EU not allow epidemic to boost euro zone divergence - EU's Gentiloni https://t.co/uEaHvDaHtR https://t.co/M5RNGQVEtY,2,Neutral,2,Neutral,0.002463246462866664,0.0017991014756262302,0.9957376718521118,0.9957376718521118
+136,$MDXG - MiMedx settles VA pricing investigation; shares up 6% https://t.co/JIh2YleryF,1,Bullish,1,Bullish,0.0009308546432293952,0.9985275268554688,0.0005416144849732518,0.9985275268554688
+137,"$MPAA - Motorcar Parts of America, Inc. (MPAA) CEO Selwyn Joffe on Q3 2020 Results - Earnings Call Transcript.â¦ https://t.co/U4Ws1FPtFt",2,Neutral,2,Neutral,4.671487840823829e-05,2.7513562599779107e-05,0.9999257326126099,0.9999257326126099
+138,"If You Invested $10,000 in Chesapeake Energy's IPO, This Is How Much Money You'd Have Now",2,Neutral,2,Neutral,0.0014000930823385715,0.0013849874958395958,0.9972149133682251,0.9972149133682251
+139,$SPY $DIA $QQQ $MDCO $NVS $ALNY $ARWR $DRNA $UBER,2,Neutral,2,Neutral,0.018517272546887398,0.015041958540678024,0.966440737247467,0.966440737247467
+140,I think Billions jumped the shark a season ago.,2,Neutral,2,Neutral,0.010621977038681507,0.09416982531547546,0.8952081799507141,0.8952081799507141
+141,Concern about the spread of the coronavirus has energy stocks falling along with the broader market. @TonyTheStreetâ¦ https://t.co/qMg13i1f9F,0,Bearish,0,Bearish,0.9539949297904968,0.0017917820950970054,0.04421331360936165,0.9539949297904968
+142,US Treasury To Ask For $200 Billion More In Small Business Loans https://t.co/MpQKXdG9Xt,2,Neutral,2,Neutral,0.009028795175254345,0.006220277398824692,0.9847509860992432,0.9847509860992432
+145,"Dybeck Happe, who joins $GE from A.P Moller-Maersk, the world's biggest container shipping group, will take over foâ¦ https://t.co/vcvvxSpbkP",2,Neutral,2,Neutral,0.0031019560992717743,0.0032785548828542233,0.9936195015907288,0.9936195015907288
+146,Prime Minister Defends Citizenship Amendment Act; Says His Government Kept Prices Under Check,2,Neutral,2,Neutral,0.00017897930229082704,0.0002565905451774597,0.9995644688606262,0.9995644688606262
+148,How a chat with Chuck Schwab inspired a bold S&P 500 call https://t.co/DqWD1kFHBJ,2,Neutral,2,Neutral,0.002458857838064432,0.001638050889596343,0.9959030747413635,0.9959030747413635
+149,Web inventor has an ambitious plan to take back the net https://t.co/lG9L25hCdU https://t.co/fYm3NaW1YO,2,Neutral,2,Neutral,0.0019007966620847583,0.0019989495631307364,0.9961001873016357,0.9961001873016357
+150,Banque national de Belgique : Press release - Business confidence indicator (2019-11) PDF ...â¦ https://t.co/GpWUf01E3a,2,Neutral,2,Neutral,6.460396252805367e-05,5.2603554649977013e-05,0.9998828172683716,0.9998828172683716
+151,Kylie Jenner Sells $600 Million Stake in Beauty Line to Coty,2,Neutral,2,Neutral,0.001682800822891295,0.0004929805872961879,0.9978241920471191,0.9978241920471191
+152,"Heard on the Street: The Fed may need banks to lever up to absorb more activity, but it needs to do so in a way thaâ¦ https://t.co/m6nXfI4or7",2,Neutral,2,Neutral,0.0034824719186872244,0.0015937265707179904,0.9949238896369934,0.9949238896369934
+153,Will Lowe's Raise Its Dividend in 2020?,2,Neutral,2,Neutral,0.00025465499493293464,0.00010623945127008483,0.9996391534805298,0.9996391534805298
+155,$UMRX nice volume this morning. Confirming the possible short-term bottom.,1,Bullish,1,Bullish,0.001538073061965406,0.9968268275260925,0.0016351487720385194,0.9968268275260925
+156,La Jolla Pharmaceutical to initiate executive search,2,Neutral,2,Neutral,0.0006140164332464337,0.0006718237418681383,0.9987142086029053,0.9987142086029053
+158,CBS is sued by an investor who is seeking files on the $11.7 billion Viacom deal https://t.co/ervelXnx3T,0,Bearish,0,Bearish,0.9997081160545349,8.599122520536184e-05,0.00020577784744091332,0.9997081160545349
+159,$BRKS - Brooks Automation (BRKS) Investor Presentation - Slideshow. Get more updates here: https://t.co/5agFZ1mXOhâ¦ https://t.co/1zs7gcr8uR,2,Neutral,2,Neutral,1.1931573681067675e-05,1.0637168088578619e-05,0.9999774694442749,0.9999774694442749
+161,It looks like $CPHI could be a stock that deserves your attention going forward.,1,Bullish,1,Bullish,0.0022476688027381897,0.983740508556366,0.014011872000992298,0.983740508556366
+163,Lighthizer Scores a Trifecta of Wins for Trump's Trade Agenda,2,Neutral,2,Neutral,0.0006368369795382023,0.0010816773865371943,0.9982814788818359,0.9982814788818359
+164,"Unlock our award-winning LIVE #investmentresearch, fundamental and #technicalanalysis, #market flow, #earnings coveâ¦ https://t.co/1G5gqkLBzM",2,Neutral,2,Neutral,0.0001402939815307036,0.00014729319082107395,0.9997124075889587,0.9997124075889587
+165,Vans parent VF Corp. says 60% of China owned and partnered stores are closed over coronavirus,0,Bearish,0,Bearish,0.9946787357330322,0.00047969899605959654,0.004841566551476717,0.9946787357330322
+166,Bear Signal Calls BIG Stockâs Rally Reversal,0,Bearish,0,Bearish,0.5332048535346985,0.045823171734809875,0.42097195982933044,0.5332048535346985
+168,Averages edges higher https://t.co/LROFMPI1Jy,1,Bullish,1,Bullish,0.0014850826701149344,0.9959968328475952,0.002518042456358671,0.9959968328475952
+169,These are the best business schools in Canada https://t.co/ISxIByPtxp,2,Neutral,2,Neutral,0.00017045224376488477,0.00025771636865101755,0.9995718598365784,0.9995718598365784
+170,Corporate Affairs  Ministry Moves NCLT To Reopen CG Power Books For FY15-19,2,Neutral,2,Neutral,0.0037281615659594536,0.004647277761250734,0.9916245341300964,0.9916245341300964
+171,HEICO Q4 2019 Earnings Preview,2,Neutral,2,Neutral,1.313691541326989e-06,6.702555310766911e-07,0.9999979734420776,0.9999979734420776
+172,REPAY Announces the Acquisition of Ventanex,2,Neutral,2,Neutral,0.00021715337061323225,0.0003917310095857829,0.9993910789489746,0.9993910789489746
+173,$AKAM - Akamai Q4 2019 Earnings Preview https://t.co/coM9VnoTwQ,2,Neutral,2,Neutral,4.594544407154899e-06,3.144561333101592e-06,0.9999922513961792,0.9999922513961792
+174,"Mitch McConnell says voting on the USMCA won't happen next week. 
+
+That will have to come up, in all likelihood, râ¦ https://t.co/rjqIpJPU3i",2,Neutral,2,Neutral,0.0024914254900068045,0.0010228934697806835,0.996485710144043,0.996485710144043
+175,Zee Entertainmentâs Subhash Chandra Resigns As Chairman,2,Neutral,2,Neutral,0.003765279660001397,0.0009491923847235739,0.9952855706214905,0.9952855706214905
+176,Did Business Growth Power Retractable Technologies's (NYSEMKT:RVP) Share Price Gain of 103%?,2,Neutral,2,Neutral,0.0021634644363075495,0.0003789936890825629,0.9974575638771057,0.9974575638771057
+177,"Price of Gold Fundamental Weekly Forecast â Underpinned by Weaker Dollar, Cautious Response to Trade Deal",2,Neutral,2,Neutral,0.004037037026137114,0.0022185989655554295,0.993744432926178,0.993744432926178
+178,I am going to microsoft you just doesn't carry the same spark as I will bloomberg you,2,Neutral,2,Neutral,0.0063619473949074745,0.0010349436197429895,0.9926031231880188,0.9926031231880188
+179,Stock Market Update: Stock market lifted by mega-cap tech,1,Bullish,1,Bullish,0.001111696707084775,0.9974760413169861,0.0014123121509328485,0.9974760413169861
+180,"Heavy coffee drinkers live longer, study says. â: https://t.co/90JAiq6Dpo https://t.co/dZAiT3pjsb",2,Neutral,2,Neutral,0.002030505333095789,0.004364450927823782,0.9936050772666931,0.9936050772666931
+181,Europeâs Climate Moonshot Runs Into Instant Trouble Over Costs,2,Neutral,2,Neutral,0.2082616537809372,0.024086426943540573,0.7676519751548767,0.7676519751548767
+182,6 Gold Companies Investors Canât Ignore In 2020,2,Neutral,2,Neutral,0.00030025094747543335,0.0002627846843097359,0.9994369149208069,0.9994369149208069
+183,$ES - Eversource Energy declares $0.535 dividend https://t.co/hgU90swNYW,2,Neutral,2,Neutral,0.00010451534762978554,2.5902963898261078e-05,0.9998695850372314,0.9998695850372314
+184,"Should You Be Pleased About The CEO Pay At F5 Networks, Inc.'s (NASDAQ:FFIV)",2,Neutral,2,Neutral,0.00034598365891724825,0.0003741851251106709,0.999279797077179,0.999279797077179
+185,Edited Transcript of CNO earnings conference call or presentation 6-Nov-19 4:00pm GMT,2,Neutral,2,Neutral,2.5246945369872265e-06,8.658185493004567e-07,0.9999966621398926,0.9999966621398926
+186,WATCH: News conference is held in Washington to introduce the turkeys that will receive a presidential pardon https://t.co/fBOaUvIYMN,2,Neutral,2,Neutral,0.00011672981781885028,6.985921208979562e-05,0.9998133778572083,0.9998133778572083
+187,Did The Fed's QEternity Just Kill A Fiscal Stimulus Deal?  https://t.co/a8f6L67zgl,2,Neutral,2,Neutral,0.0018506188644096255,0.0010645503643900156,0.9970847964286804,0.9970847964286804
+188,"Safety Insurance Group, Inc. (SAFT): Are Hedge Funds Right About This Stock?",2,Neutral,2,Neutral,0.0017701275646686554,0.0005782166263088584,0.9976516366004944,0.9976516366004944
+189,$COMDX: Energy Settlement Prices https://t.co/y70kOScE0a,2,Neutral,2,Neutral,0.000615791417658329,0.0032427655532956123,0.9961414933204651,0.9961414933204651
+190,Cruise Ship Passengers in New Jersey Screened for Coronavirus,2,Neutral,2,Neutral,0.00032354690483771265,0.0001734046236379072,0.9995030164718628,0.9995030164718628
+191,"$MU $WDC - Bull sees 2020 upsides for MU, WDC https://t.co/65zGfs82xI",1,Bullish,1,Bullish,0.0010475425515323877,0.9979514479637146,0.0010010945843532681,0.9979514479637146
+193,Empty LNG tankers are idling off Qatar as China slows imports amid the virus outbreak https://t.co/Vhf6L9WRYU,0,Bearish,0,Bearish,0.9892969727516174,0.0017402428202331066,0.008962792344391346,0.9892969727516174
+194,Vishay Intertechnology declares $0.095 dividend,2,Neutral,2,Neutral,3.36642078764271e-05,3.808614792433218e-06,0.999962568283081,0.999962568283081
+195,"ð· Children will experience more health problems like diarrhea than their parents as a result of global warming, accâ¦ https://t.co/Tl96heeZ8I",2,Neutral,2,Neutral,0.0007334711262956262,0.0007278562407009304,0.9985387325286865,0.9985387325286865
+196,Fed's National Activity Index Plunges To 2-Year Low https://t.co/8EuearHROW,0,Bearish,0,Bearish,0.4976135492324829,0.0173170305788517,0.4850693643093109,0.4976135492324829
+197,$SQNS - Sequans Communications S.A. (SQNS) CEO Georges Karam on Q4 2019 Results - Earnings Call Transcript.â¦ÃÂ https://t.co/Gowb7wv4QM,2,Neutral,2,Neutral,5.3858530009165406e-05,3.052479587495327e-05,0.999915599822998,0.999915599822998
+199,"Activision, Take-Two charts look 'constructive' as Wells Fargo gets bullish on video game plays: Trader $ATVI $TTWOâ¦ https://t.co/1s0WRleA2n",1,Bullish,1,Bullish,0.0022847172804176807,0.9966643452644348,0.001050888211466372,0.9966643452644348
+200,Looking Through The Smoke To Altriaâs Future,2,Neutral,2,Neutral,0.00043895444832742214,0.00022032456763554364,0.9993407130241394,0.9993407130241394
+201,Pro-democracy candidates make big gains in Hong Kong local elections https://t.co/WyTV8xgGTo,2,Neutral,2,Neutral,0.0005004621925763786,0.0004099397046957165,0.9990895986557007,0.9990895986557007
+203,"Gold on track for a fourth straight gain, buoyed by coronavirus outbreak https://t.co/cpi5yGY54R",1,Bullish,1,Bullish,0.0014408709248527884,0.9980731010437012,0.00048606740892864764,0.9980731010437012
+204,PG&E loses half of financial backing for bankruptcy plan,0,Bearish,0,Bearish,0.9990609288215637,0.0001653491926845163,0.00077383394818753,0.9990609288215637
+205,WiLAN signs wireless license with LG; shares +7% PM,1,Bullish,1,Bullish,0.0013761349255219102,0.9961580634117126,0.002465887228026986,0.9961580634117126
+206,Trump calls meeting with Powell 'very good' and 'cordial',2,Neutral,2,Neutral,0.001063136151060462,0.04896260052919388,0.9499742388725281,0.9499742388725281
+207,"Canada Goose Holdings EPS beats by C$0.01, beats on revenue",1,Bullish,1,Bullish,0.0002848425356205553,0.9994509816169739,0.00026416004402562976,0.9994509816169739
+208,LVMH/Tiffany: diamond geezer https://t.co/0PTxd9ySFX,2,Neutral,2,Neutral,0.0010959866922348738,0.0003441095759626478,0.9985598921775818,0.9985598921775818
+209,Oil slides as Russia reportedly may not seek deeper cuts at OPEC meeting,0,Bearish,0,Bearish,0.9988909363746643,0.00021084696345496923,0.0008981507853604853,0.9988909363746643
+210,"Millennials 'are seeing their health decline faster' than Gen X, worrying experts",2,Neutral,2,Neutral,0.005170884542167187,0.0006932218675501645,0.994135856628418,0.994135856628418
+211,"âI think there are important things we have to offer for free for people who need basic health care, basic educatioâ¦ https://t.co/1P7soFMbfF",2,Neutral,2,Neutral,0.00038765574572607875,0.0003119207394775003,0.9993003606796265,0.9993003606796265
+212,State Street stock price target raised to $84 from $73 at Buckingham,1,Bullish,1,Bullish,0.00036801749956794083,0.9994027614593506,0.00022927903046365827,0.9994027614593506
+213,"$PD - PagerDuty, Inc. (PD) CEO Jennifer Tejada on Q3 2020 Results - Earnings Call Transcript. Get more updates hereâ¦ https://t.co/XzWKTWTrRk",2,Neutral,2,Neutral,3.026906597369816e-05,1.2863346455560531e-05,0.9999568462371826,0.9999568462371826
+214,Retirement Portfolio With Many Sector And Global Funds. https://t.co/G0aDmuRZaR #stocks #finance #investing,2,Neutral,2,Neutral,0.0006547645898535848,0.0012049294309690595,0.9981403350830078,0.9981403350830078
+215,Medicines : Novartis to buy U.S. biotech The Medicines Co. for $9.7 billion #Medicines #Stock #MarketScreenerâ¦ https://t.co/TA05wVBHcd,2,Neutral,2,Neutral,0.0017922500846907496,0.004470111336559057,0.9937375783920288,0.9937375783920288
+216,Consummate New York City insider Kriegel dies at 79 https://t.co/iCYz8QnhNV,2,Neutral,2,Neutral,0.0017067521112039685,0.0004689411725848913,0.9978243112564087,0.9978243112564087
+217,Did IDEX Corporation's (NYSE:IEX) Recent Earnings Growth Beat The Trend?,2,Neutral,2,Neutral,0.0012694374890998006,0.0003385708841960877,0.9983919262886047,0.9983919262886047
+218,Exclusive: Ryanair marketing chief Kenny Jacobs to leave company https://t.co/nwgXVhuG1c https://t.co/9GGfRVYiTb,2,Neutral,2,Neutral,0.00021904244204051793,5.9731723013101146e-05,0.9997212290763855,0.9997212290763855
+220,DSV Panalpina A/S reports FY results,2,Neutral,2,Neutral,6.714425921927614e-07,6.35899155554398e-08,0.9999992847442627,0.9999992847442627
+221,Acura Pharmaceuticals reports Q2 results,2,Neutral,2,Neutral,1.043616634888167e-06,6.181107892189175e-07,0.9999983310699463,0.9999983310699463
+222,$ASHTF - Ashtead Group PLC's (ASHTF) CEO Brendan Horgan on Q2 2020 Results - Earnings Call Transcript. Subscribe toâ¦ https://t.co/DzsUSW8rg9,2,Neutral,2,Neutral,6.871053483337164e-05,3.096190994256176e-05,0.9999003410339355,0.9999003410339355
+223,John Bercow reveals Boris Johnsonâs tennis trick https://t.co/tNmicgcYVJ,2,Neutral,2,Neutral,0.0004962910315953195,0.00013497260806616396,0.9993687272071838,0.9993687272071838
+224,"Pantone's 2020 Color of the Year is Classic Blue, chosen for its calming, reassuring vibes https://t.co/Z0KQG6EDZu",2,Neutral,2,Neutral,0.0011327893007546663,0.001038978691212833,0.9978281855583191,0.9978281855583191
+225,Blackstone set for good return through $2.7bn FGL buyout by Fidelity National,2,Neutral,2,Neutral,0.01489859540015459,0.012114337645471096,0.9729870557785034,0.9729870557785034
+227,"The Fed may lower the rate on its support facility for money market funds, strategists say https://t.co/FrLrivydji",2,Neutral,2,Neutral,0.0007553276955150068,0.0004270311037544161,0.9988176226615906,0.9988176226615906
+228,Alkermes acquires Rodin Therapeutics for up to $950M,2,Neutral,2,Neutral,0.002420709701254964,0.003052142448723316,0.9945271611213684,0.9945271611213684
+229,Imagination TV announces new share buyback program,1,Bullish,1,Bullish,0.0005709162214770913,0.9984689354896545,0.0009601247147656977,0.9984689354896545
+230,Molina Healthcare stock price target raised to $165 from $155 at SunTrust RH,1,Bullish,1,Bullish,0.0003181124047841877,0.9995391368865967,0.00014272460248321295,0.9995391368865967
+232,"Estimating The Fair Value Of Avid Bioservices, Inc. (NASDAQ:CDMO)",2,Neutral,2,Neutral,0.0002729439875110984,0.00032902706880122423,0.9993979930877686,0.9993979930877686
+233,$FET - Forum Energy Technologies: International Operations Can Provide The Relief. Read more:â¦ https://t.co/1M2SpoUuJS,2,Neutral,2,Neutral,0.0009798358660191298,0.002666716929525137,0.9963535070419312,0.9963535070419312
+234,Former PM Blair: Don't hold your breath for UK-U.S. trade deal https://t.co/z1Dgv1wuu8 https://t.co/gGZHw8JLbf,2,Neutral,2,Neutral,0.0009725048439577222,0.0006854430539533496,0.9983420372009277,0.9983420372009277
+235,Bank of Queensland : Trading Halt #BankofQueensland #Stock #MarketScreener https://t.co/P7JUKMwkZ1 https://t.co/AYwhOiYQbV,2,Neutral,2,Neutral,0.0004978994838893414,0.0001777435390977189,0.9993243217468262,0.9993243217468262
+236,The 5 Best Finance Stocks of the Decade,2,Neutral,2,Neutral,1.2488510947150644e-05,1.6728103219065815e-05,0.9999707937240601,0.9999707937240601
+237,"Goldman's Marcus aims to lure home buyers, sellers to its personal loan platform",2,Neutral,2,Neutral,0.0012314228806644678,0.0011418565409258008,0.9976267218589783,0.9976267218589783
+238,$SRNE (+36.3% pre) Sorrento Therapeutics shares soar 25% after it rejects offer from two companies - MW https://t.co/5WB1nxwKVn,1,Bullish,1,Bullish,0.0006744387210346758,0.9991747736930847,0.00015081204765010625,0.9991747736930847
+239,Mercury General : Insurance Urges Americans to Take Extra Precautions to Secure Home Netwo... #MercuryGeneralâ¦ https://t.co/f7Z75o2Yj7,2,Neutral,2,Neutral,0.00046408225898630917,0.0006799964467063546,0.9988559484481812,0.9988559484481812
+241,Fed minutes to tell a story,2,Neutral,2,Neutral,0.00041367547237314284,0.000288614712189883,0.9992977380752563,0.9992977380752563
+242,"Shanghai has a long way to go before it can claim to be a global financial centre, says European business group",2,Neutral,2,Neutral,0.005936086177825928,0.0033896276727318764,0.9906743168830872,0.9906743168830872
+244,Has the Job Market Cooled Off?,2,Neutral,2,Neutral,0.0014239519368857145,0.0005933319916948676,0.9979827404022217,0.9979827404022217
+245,"Did you know Black Friday starts today?
+
+Probably OK to delete every email today site-unseen https://t.co/4FQDCI44Uj",2,Neutral,2,Neutral,0.0017860042862594128,0.0007803058833815157,0.9974337220191956,0.9974337220191956
+246,"S&P 500, Nasdaq hit record closing highs; Chinese workers return",1,Bullish,1,Bullish,0.0009242620435543358,0.998324453830719,0.0007512852898798883,0.998324453830719
+247,Trump Calls Hong Kong Protests 'Complicating Factor' in Trade Talks -- Update #economy #MarketScreenerâ¦ https://t.co/l2ydO9abR7,2,Neutral,2,Neutral,0.0007786512724123895,0.0026466415729373693,0.9965747594833374,0.9965747594833374
+248,$XOM $HES $CEO - Guyana aims for agreement with Exxon on pricing before first oil export https://t.co/yVP8puMRtP,2,Neutral,2,Neutral,0.0028940471820533276,0.022714106366038322,0.9743918776512146,0.9743918776512146
+249,Bernie Sanders Campaign Calls for Recalculation of Iowa Caucus Results,2,Neutral,2,Neutral,0.0001587751612532884,0.00023240645532496274,0.9996088147163391,0.9996088147163391
+250,Japanâs Justice Minister Says No Need to Ban All Cruise Ships Due toÂ Virus Fears,2,Neutral,2,Neutral,0.0006541613838635385,0.0003202501975465566,0.9990255832672119,0.9990255832672119
+251,Stephen Poloz to step down as Bank of Canada governor https://t.co/OCK1beah3N,2,Neutral,2,Neutral,0.0007907932158559561,0.00021845173614565283,0.9989907145500183,0.9989907145500183
+252,Changyou.Com Ltd  (CYOU): Hedge Funds Are Snapping Up,1,Bullish,1,Bullish,0.005177943967282772,0.9890963435173035,0.005725635215640068,0.9890963435173035
+253,"XFL Players Who Kneel During the Anthem Will Face 'Consequences', Commissioner Says",2,Neutral,2,Neutral,0.00041084690019488335,0.000245063187321648,0.9993440508842468,0.9993440508842468
+254,Firsthand Technology Value Fund and Itau CorpBanca among Financial gainers; Mmtec and Jupai among losers,2,Neutral,2,Neutral,0.0012360461987555027,0.00019067492394242436,0.9985733032226562,0.9985733032226562
+255,NYSE Closing Bell ð: Executives and guests of Greek American Issuer Day ring the bell https://t.co/hTmUsYaZrE,2,Neutral,2,Neutral,0.000307544250972569,6.28175403107889e-05,0.9996296167373657,0.9996296167373657
+256,Yum Brands Q4 KFC same-store sales up 3%; FactSet consensus up 2.7%,1,Bullish,1,Bullish,0.001185716362670064,0.9978693723678589,0.0009448506170883775,0.9978693723678589
+257,Best feeling ever is helping others reach their goals. #stocks #options $ADXS $SPY $SHOP $ULTA $GS $BIG $TSLA https://t.co/bn3mQh3tcE,2,Neutral,2,Neutral,0.0012369835749268532,0.004437510389834642,0.9943254590034485,0.9943254590034485
+258,IMF African Department Director Abebe Aemro Selassie will be on @CNBCAfrica today at 5pm Lagos Time (12pm DC Time)â¦ https://t.co/xMWhTEke42,2,Neutral,2,Neutral,0.0002986306499224156,0.00016721365682315081,0.9995341300964355,0.9995341300964355
+259,"Chess: did the international master trap, or was he trapped? https://t.co/S3LS7lEtHF",2,Neutral,2,Neutral,0.008130318485200405,0.000983620760962367,0.9908860921859741,0.9908860921859741
+260,Hanesbrands declares $0.15 dividend,2,Neutral,2,Neutral,0.00010103917884407565,1.1024825653294101e-05,0.9998879432678223,0.9998879432678223
+261,3 Steps Every Senior Must Take to Safeguard Themselves Against Financial Abuse,2,Neutral,2,Neutral,5.2374063670868054e-05,6.34441603324376e-05,0.9998841285705566,0.9998841285705566
+262,Latrobe Magnesium : Community Briefing for Latrobe Valley Magnesium Plant #LatrobeMagnesium #Stock #MarketScreenerâ¦ https://t.co/Ve0JkYHFVY,2,Neutral,2,Neutral,5.979327397653833e-05,3.120852852589451e-05,0.9999090433120728,0.9999090433120728
+263,The ServiceSource International (NASDAQ:SREV) Share Price Is Down 71% So Some Shareholders Are Rather Upset,0,Bearish,0,Bearish,0.9915885329246521,0.0036689371336251497,0.004742549266666174,0.9915885329246521
+264,Tekla World Healthcare Fund declares $0.1167 dividend,2,Neutral,2,Neutral,0.00010552776075201109,2.3536660592071712e-05,0.9998708963394165,0.9998708963394165
+265,"ð¤What does the rhythm of Sydney sound like? 
+
+ð° From our Australia offices, the #NasdaqFam is setting the pace andâ¦ https://t.co/hFU6Y6EU1t",2,Neutral,2,Neutral,0.00048111684736795723,0.00040615227771922946,0.9991126656532288,0.9991126656532288
+266,AM Best Places Credit Rating of Armour Secure Insurance S.A. de C.V. Under Review With Developing Implicationsâ¦ https://t.co/gg8ANRXgpT,2,Neutral,2,Neutral,0.0011145473690703511,0.0015503159957006574,0.9973351359367371,0.9973351359367371
+269,$JEC - Jacobs Engineering Q4 2019 Earnings Preview https://t.co/ktdTe05cWt,2,Neutral,2,Neutral,5.4344382078852504e-06,2.5799388367886422e-06,0.9999920129776001,0.9999920129776001
+270,Mnuchin: President is willing to cut tariffs but as part of phase 2,2,Neutral,2,Neutral,0.00022782159794587642,0.00032910247682593763,0.9994431138038635,0.9994431138038635
+271,Edited Transcript of VLA.PA earnings conference call or presentation 31-Oct-19 1:00pm GMT,2,Neutral,2,Neutral,7.409082627418684e-07,3.502651395592693e-07,0.999998927116394,0.999998927116394
+272,"$BIMI - BOQI Medical latest to capture coronavirus money flow, up 44% https://t.co/bAQX4nKz2g",1,Bullish,1,Bullish,0.001533686532638967,0.9971659779548645,0.0013003665953874588,0.9971659779548645
+273,Arrowhead Pharma up 5% after Medicines Co. sale,1,Bullish,1,Bullish,0.0006126154330559075,0.9990149736404419,0.00037234972114674747,0.9990149736404419
+275,McChip Resources declares C$0.02 dividend,2,Neutral,2,Neutral,0.00014114011719357222,2.326125104445964e-05,0.9998356103897095,0.9998356103897095
+276,Should You Be Impressed By Masimo Corporation's (NASDAQ:MASI) ROE?,2,Neutral,2,Neutral,0.00014154869131743908,0.000147631173604168,0.999710738658905,0.999710738658905
+277,Economic data controversies in Sweden and Denmark renew debate on statistics https://t.co/RrISenUoBk,2,Neutral,2,Neutral,0.00033891943166963756,0.0003076563880313188,0.9993534684181213,0.9993534684181213
+278,"Canada's De Havilland inks order for 20 turboprops; bets on Middle East, Africa",2,Neutral,2,Neutral,0.03048880025744438,0.0070829372853040695,0.9624282121658325,0.9624282121658325
+279,"Ubiquiti EPS misses by $0.06, misses on revenue",0,Bearish,0,Bearish,0.9998419284820557,3.932954859919846e-05,0.00011874638585140929,0.9998419284820557
+280,"Tesla's made-in-China cars will qualify for subsidies there, a potential boon for the company https://t.co/7jDzEbGCsP",2,Neutral,2,Neutral,0.01678432710468769,0.033812571316957474,0.9494031071662903,0.9494031071662903
+281,Labour sets out advanced worldâs harshest corporate tax regime https://t.co/wOzEGxOe4E,2,Neutral,2,Neutral,0.0006501841126009822,0.0010593258775770664,0.998290479183197,0.998290479183197
+282,These People Own the Most Land in America,2,Neutral,2,Neutral,6.4845285123737995e-06,1.707816954876762e-05,0.999976396560669,0.999976396560669
+283,"$CLDR - Cloudera, Inc. (CLDR) CEO Martin Cole on Q3 2020 Results - Earnings Call Transcript. Read more and get updaâ¦ https://t.co/zgmQ7X8gvp",2,Neutral,2,Neutral,2.204304837505333e-05,1.045183580572484e-05,0.9999674558639526,0.9999674558639526
+284,GoldON Resources : Grants Incentive Stock Options #GoldONResources #Stock #MarketScreener https://t.co/NSJSFEXYPN https://t.co/w9eP0xA6r1,2,Neutral,2,Neutral,0.0039302147924900055,0.002160545438528061,0.9939092397689819,0.9939092397689819
+285,$AZO - AutoZone: Becoming More Constructive On Valuation. https://t.co/HKLnPbnAr5 #trading #stocks #economy,1,Bullish,1,Bullish,0.0012494297698140144,0.9562865495681763,0.04246397316455841,0.9562865495681763
+286,Renascor Resources : Expiry of Unlisted Options #RenascorResources #Stock #MarketScreener https://t.co/zX9UuLOB1Z https://t.co/em7Rvh6Evk,2,Neutral,2,Neutral,0.00022274661750998348,0.00019052345305681229,0.9995867609977722,0.9995867609977722
+288,QEP Resources Completes Redemption of Its 6.8% Senior Notes Due 2020  https://t.co/IiLYzqpUDu,2,Neutral,2,Neutral,0.0015492832753807306,0.001413974678143859,0.9970368146896362,0.9970368146896362
+289,J&J retests baby powder days after asbestos finding,2,Neutral,2,Neutral,0.030778465792536736,0.005196424666792154,0.96402508020401,0.96402508020401
+290,"AUD/USD, NZD/USD, USD/CNY â Markets Quiet as Investors Look for Trade Talk Clues",2,Neutral,2,Neutral,0.005045546684414148,0.00883688684552908,0.9861175417900085,0.9861175417900085
+291,"Gold gains for a second straight day, up 6% in biggest daily rise in 11 years https://t.co/ijqZlh8kjF",1,Bullish,1,Bullish,0.0005313439760357141,0.9992731213569641,0.00019562669331207871,0.9992731213569641
+292,$BWAY - Brainsway Ltd. (BWAY) CEO David Zacut on Q3 2019 Results - Earnings Call Transcript. Continue reading:â¦ https://t.co/LfgDeAMECr,2,Neutral,2,Neutral,3.41174854838755e-05,1.2366578630462755e-05,0.9999535083770752,0.9999535083770752
+293,China suspends planned tariffs scheduled for Dec. 15 on some U.S. goods,1,Bullish,1,Bullish,0.02235851250588894,0.8533393144607544,0.12430209666490555,0.8533393144607544
+294,Resonant prices underwritten equity offering,2,Neutral,2,Neutral,0.0003824056766461581,0.0020555907394737005,0.997562050819397,0.997562050819397
+295,"My wife is 61 and earns $50,000. Iâm 65 and earn $400,000 and will work until 71. Should my wife take her Social Seâ¦ https://t.co/XBkIQCDPzD",2,Neutral,2,Neutral,0.00318954442627728,0.003171689109876752,0.9936386942863464,0.9936386942863464
+296,LIVE: Senate impeachment trial continues with debate over allowing witnesses https://t.co/hr2ky3aRFy,2,Neutral,2,Neutral,0.00030052298097871244,0.00020380938076414168,0.9994956254959106,0.9994956254959106
+297,"Felix Rohatyn, Banker Who Helped Rescue New York, Dies at 91",2,Neutral,2,Neutral,0.0004058422346133739,0.00025340684805996716,0.9993407130241394,0.9993407130241394
+298,Is Sistema Public Joint Stock Financial Corporation (MCX:AFKS) Trading At A 47% Discount?,2,Neutral,2,Neutral,0.00032847622060216963,4.9522495828568935e-05,0.9996219873428345,0.9996219873428345
+299,"Mid-Morning Market Update: Markets Open Higher; Schwab, TD Ameritrade Confirm $26B Merger",1,Bullish,1,Bullish,0.0036242720670998096,0.9780012369155884,0.01837451569736004,0.9780012369155884
+301,$VNOM - Viper Energy Q4 2019 Earnings Preview https://t.co/eLKwaPXolo,2,Neutral,2,Neutral,1.3070884051558096e-05,1.2241217518749181e-05,0.9999747276306152,0.9999747276306152
+303,Luckin Coffee buzzing and looking to the future,2,Neutral,2,Neutral,0.007685635704547167,0.007145224139094353,0.9851691722869873,0.9851691722869873
+304,"Prince Gets His $2 Trillion Aramco, But Victory Comes at a Cost",2,Neutral,2,Neutral,0.0015874637756496668,0.0005417209467850626,0.9978708028793335,0.9978708028793335
+306,"China Crypto Crackdown Elicits Binance, Tron Weibo Appeal",2,Neutral,2,Neutral,0.003778439247980714,0.0011476627551019192,0.9950738549232483,0.9950738549232483
+307,"Aramco IPO: It's a thanks, but no thanks from Malaysia's Petronas #economy #MarketScreener https://t.co/RYnK2fQCtv https://t.co/GhmXBphTxX",2,Neutral,2,Neutral,0.0012968770461156964,0.0003055017732549459,0.9983976483345032,0.9983976483345032
+308,The Federal Reserve Bank of New York added liquidity to financial markets Thursday in what is effectively a short-tâ¦ https://t.co/XWjrSLEXbj,2,Neutral,2,Neutral,0.0071900770999491215,0.005007868632674217,0.9878020882606506,0.9878020882606506
+309,Sampo Oyj reports Q4 results,2,Neutral,2,Neutral,5.69499320590694e-07,5.674703018598848e-08,0.9999994039535522,0.9999994039535522
+310,Westlake Chemical stock price target raised to $65 vs. $64 at BofA Merrill Lynch,1,Bullish,1,Bullish,0.00042535780812613666,0.999376118183136,0.00019862382032442838,0.999376118183136
+311,Property Lenders Surge After India Central Bank Eases Cash Rules,2,Neutral,2,Neutral,0.001326416153460741,0.0009749824530445039,0.9976986050605774,0.9976986050605774
+313,Wow this Dallas team sucks #DALvsCHI,2,Neutral,2,Neutral,0.24144242703914642,0.0014221160672605038,0.7571354508399963,0.7571354508399963
+315,"The smog in Sydney is forcing offices to evacuate, as it's rated 11x worse than the hazardous level.â¦ https://t.co/dFw6VfXpc9",2,Neutral,2,Neutral,0.004371821414679289,0.0021479851566255093,0.9934802055358887,0.9934802055358887
+316,"$UMRX 3x daily avg volume. Volume precedes price, just saying.....",2,Neutral,2,Neutral,0.46432867646217346,0.021635625511407852,0.5140357613563538,0.5140357613563538
+317,"Highlight: 'Exxon definitely kind of has a counter-cyclical investment strategy right now,Ã¢â¬Â @EdwardJones Analyst Je... https://t.co/IKlyfjyNHn",2,Neutral,2,Neutral,0.0018461205763742328,0.005710390396416187,0.9924435019493103,0.9924435019493103
+319,Audentes Therapeutics stock price target raised to $40 from $34 at Evercore ISI,1,Bullish,1,Bullish,0.0003495698038022965,0.9994000196456909,0.0002504742005839944,0.9994000196456909
+320,Vodafone moving key operations to Google Cloud,2,Neutral,2,Neutral,0.004949106834828854,0.004838166292756796,0.9902127385139465,0.9902127385139465
+322,The Best Cities for Frequent Flyers â 2019 Edition,2,Neutral,2,Neutral,1.5326690117944963e-05,2.488740392436739e-05,0.9999598264694214,0.9999598264694214
+323,Nokia posts surprise fourth-quarter profit rise on cost cuts,1,Bullish,1,Bullish,0.001287091989070177,0.9983304142951965,0.0003824853047262877,0.9983304142951965
+324,What Kind Of Shareholders Own Public Joint Stock Company Gazprom (MCX:GAZP)?,2,Neutral,2,Neutral,0.00023828573466744274,0.00015746449935249984,0.9996042847633362,0.9996042847633362
+325,"This ratio suggests the U.S. stock market will take a âbrief pauseâ then climb higher, analyst says - MarketWatch",1,Bullish,1,Bullish,0.0036118458956480026,0.9914180040359497,0.004970143083482981,0.9914180040359497
+326,Blockbuster comes back to life with NYC pop-up shop,2,Neutral,2,Neutral,0.005342576187103987,0.0037334111984819174,0.990924060344696,0.990924060344696
+327,Can The U.K. General Election End Brexit Uncertainty?. Follow this and any other stock on Seeking Alpha!â¦ https://t.co/eKBct0Rdjv,2,Neutral,2,Neutral,0.000795441388618201,0.00041308600339107215,0.998791515827179,0.998791515827179
+328,Aramco shares inch up in early Sunday trade,1,Bullish,1,Bullish,0.0004991315654478967,0.9976365566253662,0.0018643582006916404,0.9976365566253662
+329,Dow- Chemically Speaking,2,Neutral,2,Neutral,0.000267721654381603,0.0003706971474457532,0.9993615746498108,0.9993615746498108
+331,Cboe's Q4 results slide on lower market volatility,0,Bearish,0,Bearish,0.9994176626205444,8.4835643065162e-05,0.0004975833580829203,0.9994176626205444
+332,"Cities around the world are banning or restricting electric scooters after deadly accidents, littering problems andâ¦ https://t.co/HXsq2qGf85",2,Neutral,2,Neutral,0.0007230308838188648,0.000253232050454244,0.9990237951278687,0.9990237951278687
+333,U.S. consumer sentiment rose to a seven-month high https://t.co/yAvqleN0hA,1,Bullish,1,Bullish,0.0006101804901845753,0.9991320967674255,0.00025769416242837906,0.9991320967674255
+334,Edited Transcript of NSPR earnings conference call or presentation 12-Nov-19 1:30pm GMT,2,Neutral,2,Neutral,2.614162895042682e-06,1.235392119269818e-06,0.9999961853027344,0.9999961853027344
+336,"Applied Materials, Inc. Reported Earnings Last Week And Analysts Are Already Upgrading Their Estimates",1,Bullish,1,Bullish,0.001366127748042345,0.9970666766166687,0.0015671143773943186,0.9970666766166687
+337,Fox Says Super Bowl Ads Sold Out at Record $5.6 Million Each,2,Neutral,2,Neutral,0.005948452744632959,0.00394281093031168,0.9901087284088135,0.9901087284088135
+339,Yestar Healthcare : Next Day Disclosure Returns #YestarHealthcare #Stock #MarketScreener https://t.co/k6srQHazpf https://t.co/oW9KRoFuxU,2,Neutral,2,Neutral,0.0009600185439921916,0.0008907985757105052,0.9981491565704346,0.9981491565704346
+340,DFND,2,Neutral,2,Neutral,0.0039852336049079895,0.0017152081709355116,0.9942995309829712,0.9942995309829712
+341,Philippine nickel miners and Chinese battery makers are exploring a potential collaboration ahead of Indonesiaâs baâ¦ https://t.co/qZ01YKBl0Z,2,Neutral,2,Neutral,0.0008161808364093304,0.0005488836904987693,0.9986348748207092,0.9986348748207092
+342,Stock Market Heads Off A Correction â For Now.,1,Bullish,1,Bullish,0.008323777467012405,0.9819252490997314,0.009750989265739918,0.9819252490997314
+343,FAA chief weighs changes to plane approval process: WSJ,2,Neutral,2,Neutral,0.00047853763680905104,0.00039780669612810016,0.9991236329078674,0.9991236329078674
+344,Greatest trade part deux? Icahn shorts mall debt,2,Neutral,2,Neutral,0.0008484518039040267,0.0004957629716955125,0.9986557960510254,0.9986557960510254
+345,Aker Solutions ASA reports Q4 results,2,Neutral,2,Neutral,5.409906975728518e-07,1.1650820397335337e-07,0.9999992847442627,0.9999992847442627
+346,$MARK strong into the close..... news coming?,1,Bullish,1,Bullish,0.0010071423603221774,0.9976598024368286,0.0013330576475709677,0.9976598024368286
+347,$FLOW: SPX FLOW confirms deal to sell substantial portion of former Power and Energy reportable segment to Apollo... https://t.co/THAiKLuD8X,2,Neutral,2,Neutral,0.002298144856467843,0.0044747041538357735,0.9932271838188171,0.9932271838188171
+348,WRAPUP-Airbus dominates second day of Dubai show as Boeing wins MAX order,2,Neutral,2,Neutral,0.006708808708935976,0.005747946910560131,0.9875432252883911,0.9875432252883911
+349,"Monday will be the first chance for insiders to sell stock from Crowdstrike since June's IPO, but the CEO says hisâ¦ https://t.co/tK5sTy39mg",2,Neutral,2,Neutral,0.0013352924725040793,0.0006780666881240904,0.9979866743087769,0.9979866743087769
+350,HSBC Plans Third Overhaul in a Decade With Investors Seething,2,Neutral,2,Neutral,0.0031935973092913628,0.0012573838466778398,0.9955490827560425,0.9955490827560425
+351,$HG1:COM $FCX $TECK - Copper pops to biggest gain in six years on stimulus bet https://t.co/RMjaEyvsZ8,1,Bullish,1,Bullish,0.0024217204190790653,0.9967448711395264,0.0008334053563885391,0.9967448711395264
+353,.@realDonaldTrump has repeatedly touted his friendship with China's President Xi. @JimCramer says @BernieSanders woâ¦ https://t.co/ixnYugXsRX,2,Neutral,2,Neutral,0.00034666561987251043,0.0004857031162828207,0.9991676807403564,0.9991676807403564
+354,Merkel Party Leader Gets Unanimous Backing for Thuringia Plan,2,Neutral,2,Neutral,0.0009241720545105636,0.0004985734121873975,0.9985772371292114,0.9985772371292114
+355,EU trade chief Hogan returns to Washington as auto tariffs loom,2,Neutral,2,Neutral,0.002045638393610716,0.0019148794235661626,0.9960395097732544,0.9960395097732544
+356,Fed Unveils Major Expansion of Market Intervention -- 4th Update #economy #MarketScreener https://t.co/2bnBJUcxTD https://t.co/0RgMApfhO8,2,Neutral,2,Neutral,0.000913982221391052,0.0014841819647699594,0.9976018071174622,0.9976018071174622
+358,Athenex down 17% on oral paclitaxel data,0,Bearish,0,Bearish,0.9998817443847656,3.449861105764285e-05,8.37786792544648e-05,0.9998817443847656
+359,Fed nominee Judy Shelton faces bipartisan concerns in Senate https://t.co/av7l6k1mk7,2,Neutral,2,Neutral,0.0009968664962798357,0.0004737945564556867,0.998529314994812,0.998529314994812
+360,Mesa Air reiterated as outperform at Cowen,1,Bullish,1,Bullish,0.001048579579219222,0.9984442591667175,0.0005071097984910011,0.9984442591667175
+361,Wynnchurch follows impressive $2.27bn fund close by hiring industry veteran Bob Linscott,2,Neutral,2,Neutral,0.0037705511786043644,0.001147882780060172,0.9950815439224243,0.9950815439224243
+362,M&T Bank declares $1.10 dividend,2,Neutral,2,Neutral,0.00010984543769154698,1.7193668099935167e-05,0.9998729228973389,0.9998729228973389
+363,Jobs heatmap https://t.co/it2tmRBNZv,2,Neutral,2,Neutral,0.0006038511637598276,0.00032172485953196883,0.9990744590759277,0.9990744590759277
+365,The Fed will launch a barrage of programs aimed at helping markets function more efficiently in the wake of the corâ¦ https://t.co/kSh6hJKgyo,2,Neutral,2,Neutral,0.0012436037650331855,0.0005523186409845948,0.9982041120529175,0.9982041120529175
+366,Nokia stock price target raised to $6.00 from $5.50 at MKM Partners,1,Bullish,1,Bullish,0.0004181374388281256,0.9994364380836487,0.00014537830429617316,0.9994364380836487
+367,Hoxton Ventures ups goal for sophomore fundraise after powering towards initial target,2,Neutral,2,Neutral,0.009715992026031017,0.009171458892524242,0.9811124801635742,0.9811124801635742
+368,$AIHS reversal is taking place. Could pop over 70c.,1,Bullish,1,Bullish,0.11667220294475555,0.7667925953865051,0.11653520911931992,0.7667925953865051
+369,"The coronavirus crisis will leave 3 long-term scars, even if the economy recovers in the fourth quarter, Pimco warns https://t.co/zMcT4xckIZ",0,Bearish,0,Bearish,0.9948654770851135,0.001440785126760602,0.0036936653777956963,0.9948654770851135
+370,HSBCâs top duo put futures on line with radical overhaul https://t.co/DGGmFfOccb,2,Neutral,2,Neutral,0.0368773527443409,0.2148304432630539,0.7482922077178955,0.7482922077178955
+371,"Snap On EPS in-line, misses on revenue",2,Neutral,2,Neutral,0.00024162237241398543,4.8192476242547855e-05,0.9997101426124573,0.9997101426124573
+373,Honeywell reaffirms guidance,2,Neutral,2,Neutral,0.010201611556112766,0.26016005873680115,0.7296383380889893,0.7296383380889893
+374,4 Observations From The First Ever 'Cannabis Investor Day',2,Neutral,2,Neutral,4.517409252002835e-05,0.00010256911627948284,0.999852180480957,0.999852180480957
+375,AT&T $T says 'it has a strong cash position' and will continue to pay a quarterly dividend.  https://t.co/VjFTjHqash,1,Bullish,1,Bullish,0.0016433799173682928,0.9960700273513794,0.0022866299841552973,0.9960700273513794
+376,"Mutual Fund Misfires of the Market - February 06, 2020",2,Neutral,2,Neutral,0.0008354214951395988,0.0007836911827325821,0.9983808994293213,0.9983808994293213
+377,Bluebird bio downgraded to in line from outperform at Evercore ISI,0,Bearish,0,Bearish,0.9992539286613464,0.00017505935102235526,0.0005709538236260414,0.9992539286613464
+379,Biggest challenges CEO Bob Iger could face in 2020,2,Neutral,2,Neutral,3.194069358869456e-05,1.4319829460873734e-05,0.9999537467956543,0.9999537467956543
+380,What Percentage Of Brown-Forman Corporation (NYSE:BF.B) Shares Do Insiders Own?,2,Neutral,2,Neutral,0.0007472042343579233,0.00015925413754303008,0.9990935325622559,0.9990935325622559
+381,"NYC HEALTH SPOKESMAN: NO CONFIRMED, SUSPECTED CORONAVIRUS CASES",2,Neutral,2,Neutral,0.0005685004289261997,0.0002956932585220784,0.9991357922554016,0.9991357922554016
+382,AMD Option Traders Turn Bullish Following Second Analyst Target Hike,1,Bullish,1,Bullish,0.0019324383465573192,0.99741530418396,0.000652306480333209,0.99741530418396
+383,"The U.S. should declare a 3-month break for nonessential businesses, says St. Louis Fed president https://t.co/vsE3wjGyHk",2,Neutral,2,Neutral,0.0017267585499212146,0.003640431445091963,0.9946328401565552,0.9946328401565552
+384,Twitter stock falls after downgrade,0,Bearish,0,Bearish,0.999922513961792,2.28067729040049e-05,5.472182238008827e-05,0.999922513961792
+386,"I am happy with him, I really think he's caught up,Â Trump said of Fed Chair Jerome Powell at the White Houseâ¦ https://t.co/8jASKLBath",2,Neutral,2,Neutral,0.0004872811841778457,0.0005910808104090393,0.9989216327667236,0.9989216327667236
+387,TJX Q3 same-store sales up 4%; FactSet consensus up 2.3%,1,Bullish,1,Bullish,0.0007482333458028734,0.998777449131012,0.000474321044748649,0.998777449131012
+388,LVMH agreed to buy Tiffany for more than $16 billion in the largest luxury-goods deal ever https://t.co/gfzUFgNgxI,2,Neutral,2,Neutral,0.005579609889537096,0.006700871512293816,0.9877195358276367,0.9877195358276367
+391,Colombia Faces More Protests as Police Tactics Enrage Marchers,2,Neutral,2,Neutral,0.0005047509912401438,0.00046024550101719797,0.9990350008010864,0.9990350008010864
+392,Home Depot Q3 comparable-store sales in U.S. up 3.8%,1,Bullish,1,Bullish,0.0012620928464457393,0.9977067708969116,0.0010310962097719312,0.9977067708969116
+393,Industry Experts at Infiniti Research Weigh the Pros and Cons of Medical Device Outsourcing in Their Latest Article,2,Neutral,2,Neutral,0.0010549734579399228,0.0005841533420607448,0.998360812664032,0.998360812664032
+394,$EARN - Ellington Residential Mortgage REIT reports Q4 results https://t.co/VyLG9T1ATd,2,Neutral,2,Neutral,0.00010330301302019507,9.789668547455221e-05,0.9997988343238831,0.9997988343238831
+395,Avaya names Bartolo chief product officer,2,Neutral,2,Neutral,0.00029768963577225804,0.0002141650184057653,0.999488115310669,0.999488115310669
+396,Trump's Republican supporters may be less committed than they seem https://t.co/Ah8YjgksnW via @bopinion,2,Neutral,2,Neutral,0.0016231242334470153,0.00031821822631172836,0.9980586171150208,0.9980586171150208
+397,STURGEON: BREXITEERS `MESSED IT UP',2,Neutral,2,Neutral,0.04664808139204979,0.09366361796855927,0.8596882820129395,0.8596882820129395
+398,"$BHF - Brighthouse Financial EPS beats by $0.27, beats on revenue https://t.co/hMLskSiNCP",1,Bullish,1,Bullish,0.0003745990397874266,0.9992467164993286,0.000378734664991498,0.9992467164993286
+399,Commodities trader Trafigura reports a record year in oil and metals https://t.co/8l4XoE7kMC,1,Bullish,1,Bullish,0.007585595361888409,0.9737135171890259,0.01870097406208515,0.9737135171890259
+400,Eastman Chemical stock price target raised to $85 vs. $82 at BofA Merrill Lynch,1,Bullish,1,Bullish,0.00037864752812311053,0.9994518160820007,0.00016955180035438389,0.9994518160820007
+401,"New Jersey Resources EPS misses by $0.33, misses on revenue",0,Bearish,0,Bearish,0.9995612502098083,4.3455263948999345e-05,0.0003952142142225057,0.9995612502098083
+402,TSX futures rise on hopes of U.S.-China phase-one trade deal #economy #MarketScreener https://t.co/ZGSZaHdknG https://t.co/4H9FG45VLT,1,Bullish,1,Bullish,0.0017991614295169711,0.9972010850906372,0.0009996863082051277,0.9972010850906372
+403,"Wayfair price target lowered to $110 from $120 at Stifel, buy rating maintained",0,Bearish,0,Bearish,0.988532543182373,0.00604798411950469,0.005419428925961256,0.988532543182373
+404,Malaysia Plans to Vaccinate Overseas Visitors to Combat Polio,2,Neutral,2,Neutral,0.0001496093609603122,0.00048375711776316166,0.9993667006492615,0.9993667006492615
+406,Barrick Gold denies Freeport-McMoran tie-up in the works,2,Neutral,2,Neutral,0.1066775992512703,0.0029621708672493696,0.8903602361679077,0.8903602361679077
+407,$BFIN - BankFinancial declares $0.10 dividend https://t.co/0cEqXfar7n,2,Neutral,2,Neutral,8.809659630060196e-05,1.9162578610121273e-05,0.9998927116394043,0.9998927116394043
+409,Nasdaq opens 34 points or 0.4% higher,1,Bullish,1,Bullish,0.000431004271376878,0.999423623085022,0.00014537533570546657,0.999423623085022
+410,"it is the fear of infection, not the ultimate death rate, which is the most likely cause of economic damage - MK",2,Neutral,2,Neutral,0.0016236075898632407,0.00030416567460633814,0.9980721473693848,0.9980721473693848
+411,Lincoln Minerals : Director Resignation #LincolnMinerals #Stock #MarketScreener https://t.co/pXmTEUfQd5 https://t.co/ywLdXfDZEy,2,Neutral,2,Neutral,0.00016696802049409598,8.684601925779134e-05,0.9997461438179016,0.9997461438179016
+413,PECK,2,Neutral,2,Neutral,0.004932851064950228,0.0023844523821026087,0.9926827549934387,0.9926827549934387
+414,SFL publiceert recordresultaten voor 2019,2,Neutral,2,Neutral,0.00333233829587698,0.0028297549579292536,0.9938378930091858,0.9938378930091858
+415,Bluebird bio stock price target cut to $86 from $172 at Evercore ISI,0,Bearish,0,Bearish,0.9995701909065247,0.0001100138615584001,0.00031986270914785564,0.9995701909065247
+417,Janet Yellen says second-quarter GDP could decline by 30% and unemployment is already at 12%-13% https://t.co/9d7jmffI3B,0,Bearish,0,Bearish,0.9985411167144775,0.001117275096476078,0.00034158097696490586,0.9985411167144775
+418,RPT-ASIA COPPER WEEK-Freeport sees sharp drop in copper treatment charges next year,2,Neutral,2,Neutral,0.19692876935005188,0.0260783638805151,0.776992917060852,0.776992917060852
+419,At*&T raises quarterly dividend by 2% to 52 cents a share,1,Bullish,1,Bullish,0.00022084287775214761,0.9996570348739624,0.000122197947348468,0.9996570348739624
+421,"$OLLI - Ollie's Bargain Outlet EPS beats by $0.03, beats on revenue https://t.co/hgb3KCVBXc",1,Bullish,1,Bullish,0.0008389041759073734,0.9986000657081604,0.0005610885564237833,0.9986000657081604
+422,Vital conversations happen all around the Eighth Federal Reserve District. One of the ways we listen is through ourâ¦ https://t.co/tsLMen6MSn,2,Neutral,2,Neutral,0.0003599021292757243,0.0006557084270752966,0.9989843964576721,0.9989843964576721
+423,USCIB United States Council for International Bu : Urges Resolution to Impasse Over Appellate Body at WTO #USCIBâ¦ https://t.co/8oHB9yGZQ3,2,Neutral,2,Neutral,0.0004408108361531049,0.0006128717213869095,0.9989463686943054,0.9989463686943054
+424,Here's What Analysts Are Saying About Hong Kong Stocks for 2020,2,Neutral,2,Neutral,0.00013430007675196975,5.2621064241975546e-05,0.9998131394386292,0.9998131394386292
+425,Short seller David Einhorn continued his spat with Elon Muskâs Tesla saying he was âbeginning to wonder whether youâ¦ https://t.co/qRMNMbPHz8,2,Neutral,2,Neutral,0.003539478173479438,0.0007234540535137057,0.9957370758056641,0.9957370758056641
+427,$DBD - Diebold Nixdorf Q4 2019 Earnings Preview https://t.co/fbABq6ow2F,2,Neutral,2,Neutral,2.7600457542575896e-05,1.7581369320396334e-05,0.9999548196792603,0.9999548196792603
+428,"Tyson Foods EPS misses by $0.01, misses on revenue",0,Bearish,0,Bearish,0.9998290538787842,3.9479924453189597e-05,0.0001314937399001792,0.9998290538787842
+429,"Qudian EPS misses by $0.04, beats on revenue",2,Neutral,2,Neutral,0.0018383142305538058,0.00028520997148007154,0.9978765249252319,0.9978765249252319
+430,Ericsson Pulls Out of Biggest Mobile Industry Event Due to Virus,2,Neutral,2,Neutral,0.02785252034664154,0.0024029244668781757,0.9697445034980774,0.9697445034980774
+431,AVITA Medical names David McIntyre as CFO,2,Neutral,2,Neutral,0.0002202736068284139,0.00010321170702809468,0.9996765851974487,0.9996765851974487
+432,Ghana Charges Ex-Finance Minister After Collapse of Bank,2,Neutral,2,Neutral,0.0008633129182271659,0.00029432764858938754,0.9988424181938171,0.9988424181938171
+433,"Cashless kiosks are leaving out many of those unbanked.
+
+For McDonalds, cashless self-order kiosks are leaving outâ¦ https://t.co/eD0Y4vG25W",2,Neutral,2,Neutral,0.01595749892294407,0.001846899394877255,0.9821956753730774,0.9821956753730774
+434,Fortinet stock price target raised to $115 from $104 at BMO Capital,1,Bullish,1,Bullish,0.00032316482975147665,0.9995125532150269,0.00016429524112027138,0.9995125532150269
+435,"Job Growth Surges In January, Beating Wall Street Expectations",1,Bullish,1,Bullish,0.0006401511491276324,0.9989960789680481,0.0003637656045611948,0.9989960789680481
+437,"$SUMRX: Asian Markets Close: Nikkei +0.8%, Hang Seng +1.5%, Shanghai +0.7% https://t.co/Z2UYTyWAwU",1,Bullish,1,Bullish,0.0015466607874259353,0.9972760081291199,0.001177299185656011,0.9972760081291199
+438,Stock Market Update: WTI crude rises on trade deal,1,Bullish,1,Bullish,0.0005185696063563228,0.9988987445831299,0.0005826593842357397,0.9988987445831299
+439,Banca Carige S p A Cassa di Risparmio di Genova e Imperia : Ordinary Shareholders' Meeting... #Stock... https://t.co/5wiIhJSPgD,2,Neutral,2,Neutral,0.00022452347911894321,0.0001635945081943646,0.9996119141578674,0.9996119141578674
+440,Flurry of retailer earnings on tap,2,Neutral,2,Neutral,0.015001206658780575,0.002957034157589078,0.9820418357849121,0.9820418357849121
+441,U.S. Stocks Were Resilient Last Week As Coronavirus Roils China. https://t.co/FEUhSbItjZ #business #stocks #trading,1,Bullish,1,Bullish,0.004887942690402269,0.9925146698951721,0.0025973792653530836,0.9925146698951721
+442,iHeartMedia announces private offering of senior secured notes due 2028,2,Neutral,2,Neutral,6.346643931465223e-05,2.2564530809177086e-05,0.9999139308929443,0.9999139308929443
+443,"Starting next year, jet fuel suppliers in Norway must blend 0.5% of biofuel in all their aviation fuel, a policy thâ¦ https://t.co/qE7kEu9aEv",2,Neutral,2,Neutral,0.0026491491589695215,0.005021413788199425,0.9923294186592102,0.9923294186592102
+444,Edgewell Personal Care is ditching its bid to acquire shaving-supply maker Harry's -- reminding big consumer companâ¦ https://t.co/WIlJz1fbNc,2,Neutral,2,Neutral,0.019676392897963524,0.0013812772231176496,0.978942334651947,0.978942334651947
+445,L BRANDS MEETING WITH BANKS TO CONSIDER ALTERNATIVES: THE DEAL... to the Victoria Secret show?,2,Neutral,2,Neutral,0.0003172946162521839,0.00011889133020304143,0.9995637536048889,0.9995637536048889
+446,"Utilities 'the most underappreciated sector,' T. Rowe Price analyst says",2,Neutral,2,Neutral,0.005529777612537146,0.0020830805879086256,0.9923871755599976,0.9923871755599976
+447,The Federal Reserve assured the nation that the Central Bank has an essentially limitless ability to provide liquidâ¦ https://t.co/43Z7zVmKtL,2,Neutral,2,Neutral,0.0014629242941737175,0.0015214239247143269,0.9970157146453857,0.9970157146453857
+448,Diamond Hill Capital Trades Devon for Chevron,2,Neutral,2,Neutral,0.04801493138074875,0.013914239592850208,0.9380707740783691,0.9380707740783691
+449,"Nodal Exchange Successfully Completes Migration of U.S. Power Open Interest from Nasdaq Futures, Inc.",2,Neutral,2,Neutral,0.0012040914734825492,0.010247127152979374,0.988548755645752,0.988548755645752
+450,"The Impeachment Scam is driving Republican Poll Numbers UP, UP, UP! Thank you Shifty.",2,Neutral,2,Neutral,0.0017459711525589228,0.0036140945740044117,0.9946399331092834,0.9946399331092834
+451,Is Colliers International Group Inc (CIGI) Going to Burn These Hedge Funds?,2,Neutral,2,Neutral,0.0004645745502784848,8.41501823742874e-05,0.999451220035553,0.999451220035553
+452,"QIWI plc EPS beats by $0.15, beats on revenue",1,Bullish,1,Bullish,0.00032711110543459654,0.9994086027145386,0.00026427762350067496,0.9994086027145386
+453,Bank of Ireland : to make branch network changes in response to COVID-19 #BankofIreland #Stock #MarketScreenerâ¦ https://t.co/2rKs52jf1Y,2,Neutral,2,Neutral,0.0006031314260326326,0.0005415999912656844,0.9988552331924438,0.9988552331924438
+454,What Is Holding Gold Back. https://t.co/G7nYRY2yUI #finance #stockmarket #economy,2,Neutral,2,Neutral,0.010867930948734283,0.0070556653663516045,0.9820764064788818,0.9820764064788818
+455,$OXY up more than a percent on reports Carl Icahn was looking to nominate as many as 10 directors  https://t.co/TM6zoisxqi,1,Bullish,1,Bullish,0.0010070039425045252,0.9983735084533691,0.0006194659508764744,0.9983735084533691
+456,Trump: Here's My New Plan For Your Student Loans,2,Neutral,2,Neutral,9.371170017402619e-05,0.00024078853311948478,0.9996654987335205,0.9996654987335205
+458,Monetary Policy: Dasâ Draghi Encore Comes With Risks,2,Neutral,2,Neutral,0.0013857263838872313,0.0004904234665445983,0.998123824596405,0.998123824596405
+460,It's going to be tough for us white guys in America when they call #HunterBiden,2,Neutral,2,Neutral,0.0026713290717452765,0.0001192075724247843,0.9972094893455505,0.9972094893455505
+461,"#5things
+-China IP concession
+-Hong Kong election
+-Loads of corporate news
+-Markets rise
+-Coming up...â¦ https://t.co/aSJjULIOt3",2,Neutral,2,Neutral,0.0035242042504251003,0.0017118119867518544,0.994763970375061,0.994763970375061
+463,Equinor fourth-quarter profit beats forecast amid oilfield startup,1,Bullish,1,Bullish,0.0010183611884713173,0.9982325434684753,0.0007490442949347198,0.9982325434684753
+464,EVI Industries to acquire Commercial Laundry Equipment Company,2,Neutral,2,Neutral,0.0003338935784995556,0.0005249337991699576,0.9991410970687866,0.9991410970687866
+465,Bernie Sanders has unveiled a plan to expand broadband internet access as part of a push to boost the economy and râ¦ https://t.co/ioo9NksE4f,2,Neutral,2,Neutral,0.0006688728462904692,0.0010368363000452518,0.9982942938804626,0.9982942938804626
+466,Taking A Look At OHB SE's (ETR:OHB) ROE,2,Neutral,2,Neutral,0.00033207706292159855,0.0001592264452483505,0.9995087385177612,0.9995087385177612
+467,Stericycle offloads environmental unit to Harsco,2,Neutral,2,Neutral,0.001716597005724907,0.0007764118490740657,0.9975070357322693,0.9975070357322693
+468,Correction to Story on Stock Market Activity on Friday #index #MarketScreener https://t.co/vguUSN9j0g https://t.co/niOhx6bSDO,2,Neutral,2,Neutral,0.00038515686173923314,0.0003495127020869404,0.9992653727531433,0.9992653727531433
+469,You might not need as much sleep as you think. https://t.co/yNOZtR3uPP,2,Neutral,2,Neutral,0.0018021389842033386,0.0031633591279387474,0.9950345754623413,0.9950345754623413
+470,$XOM - Exxon's Baton Rouge refinery cuts production on low demand - Reuters https://t.co/xRIss6avLy,0,Bearish,0,Bearish,0.999030590057373,0.0004637793463189155,0.0005056507070548832,0.999030590057373
+471,J&J launches innovative study for expanded use of Invokana,2,Neutral,2,Neutral,0.0005690560792572796,0.0007081743679009378,0.9987227320671082,0.9987227320671082
+473,New Hampshire Debate Marks New Phase in Democratic Battle,2,Neutral,2,Neutral,0.00030317201162688434,0.0005306394887156785,0.9991662502288818,0.9991662502288818
+474,Golf legend @jacknicklausâs original 18-karat gold Rolex will be auctioned off today at Manhattanâs Phillip Auctionâ¦ https://t.co/32uoCyWt9K,2,Neutral,2,Neutral,0.0012411561328917742,0.0005011335015296936,0.9982576966285706,0.9982576966285706
+475,WP Engine Designa a Lisa Box Vicepresidenta SÃÆÃÂ©nior de Desarrollo Corporativo,2,Neutral,2,Neutral,0.0003358392568770796,0.00012022731243632734,0.9995438456535339,0.9995438456535339
+476,Brazil Caps Record-Breaking Easing Cycle With Final Rate Cut,2,Neutral,2,Neutral,0.005342073738574982,0.005237762350589037,0.9894201755523682,0.9894201755523682
+477,CYL: Joint Venture with St Barbara on Drummartin project #StBarbara #Stock #MarketScreener https://t.co/XpAPQX0LAj https://t.co/GChQDreykw,2,Neutral,2,Neutral,0.0006122594932094216,0.0005780084757134318,0.9988096952438354,0.9988096952438354
+478,The Best Company to Work for in Every State,2,Neutral,2,Neutral,6.442912854254246e-05,0.0002954523079097271,0.9996401071548462,0.9996401071548462
+479,Pharmaron Beijing : An announcement has just been published by the issuer in the Chinese s... #PharmaronBeijingâ¦ https://t.co/En8DrmZYTm,2,Neutral,2,Neutral,0.0002573804522398859,0.00022085195814725012,0.9995217323303223,0.9995217323303223
+480,Specialized ETFs may end up owning half of some companies' total shares one day soon. Here's a test case for what t... https://t.co/T1OcEulURv,2,Neutral,2,Neutral,0.00893975980579853,0.002772360108792782,0.9882878661155701,0.9882878661155701
+481,$CUI $APT $FRTA - BOQI International Medical and CUI Global among Industrial gainers; Beazer Homes and Hovnanian En... https://t.co/1rj1ptnfIh,2,Neutral,2,Neutral,0.0008250667015090585,0.0004497433255892247,0.9987251162528992,0.9987251162528992
+482,The Catch-22 in a $50 Billion 5G Airwaves Fight,2,Neutral,2,Neutral,0.002320634899660945,0.00146814389154315,0.9962112903594971,0.9962112903594971
+483,"$ADRO - Aduro adds to rally as bargain hunters move in, shares up 18% https://t.co/LJGEhTKbha",1,Bullish,1,Bullish,0.00048147147754207253,0.9993404746055603,0.0001779869489837438,0.9993404746055603
+484,OneMain Holdings declares $0.33 dividend,2,Neutral,2,Neutral,2.197309186158236e-05,2.8879849196528085e-06,0.9999750852584839,0.9999750852584839
+485,"Namibia has its first woman presidential candidate. Meet Esther Muinjangue, the first elected female leader of a poâ¦ https://t.co/3qosy3cpuP",2,Neutral,2,Neutral,0.00010727340850280598,7.655992521904409e-05,0.9998162388801575,0.9998162388801575
+486,$ACB (+0.4% pre) Aurora Cannabis sets early conversion price - SA https://t.co/3CJO7WKWyx,1,Bullish,1,Bullish,0.0009466439369134605,0.9987441301345825,0.00030925089959055185,0.9987441301345825
+487,One Medical parent 1Life Healthcare stock soars 38% in early debut trading https://t.co/dRNcVEH6ob,1,Bullish,1,Bullish,0.0007562890532426536,0.9989954829216003,0.00024821882834658027,0.9989954829216003
+488,$MELI - MercadoLibre slips after margin miss https://t.co/1lZIGxchpa,0,Bearish,0,Bearish,0.9921445250511169,0.0005391883896663785,0.007316266652196646,0.9921445250511169
+489,$HEP - Holly Energy Partners: Another 12% High-Yield Play. Sign up for updates on Seeking Alpha!â¦ https://t.co/mz8hnvjl98,2,Neutral,2,Neutral,0.004672858864068985,0.005308892112225294,0.9900182485580444,0.9900182485580444
+490,Deutsche Bank Adds Capital Group as Investor in Lift for Sewing,2,Neutral,2,Neutral,0.001859180862084031,0.0006792155327275395,0.9974615573883057,0.9974615573883057
+491,"Gundlach, who nailed Trump's 2016 election, says he'll win again 'if economy holds' https://t.co/7VpbVtA6Jf byâ¦ https://t.co/5c0lQ7uJwZ",2,Neutral,2,Neutral,0.001853743102401495,0.0013693004148080945,0.9967769980430603,0.9967769980430603
+492,Biogen stock price target raised to $410 from $350 at SVB Leerink,1,Bullish,1,Bullish,0.0003440676082391292,0.9994741082191467,0.00018181449559051543,0.9994741082191467
+493,$SKYY - First Trust Cloud Computing ETF Should Benefit From Near-Term Surge In Demand Due To COVID-19.â¦ https://t.co/8KCBxqqonH,1,Bullish,1,Bullish,0.005752983037382364,0.9923427700996399,0.0019042297499254346,0.9923427700996399
+494,Our Take On The Brink's Company's (NYSE:BCO) CEO Salary,2,Neutral,2,Neutral,0.0001161788241006434,0.00010117837518919259,0.9997826218605042,0.9997826218605042
+495,Deutsche Bank welcomes Capital Group with 3.1% stake,2,Neutral,2,Neutral,0.002820368390530348,0.008872843347489834,0.9883068203926086,0.9883068203926086
+496,Stock Market Update: TJX remains bright spot in retail space today,1,Bullish,1,Bullish,0.001349175232462585,0.9898421168327332,0.008808738552033901,0.9898421168327332
+497,Boston Scientific $BSX more bullish flow with 5000 May $30 puts being sold $0.72 and the August $40 calls bought $1.30,1,Bullish,1,Bullish,0.0016505756648257375,0.9976370334625244,0.0007123404648154974,0.9976370334625244
+498,Today and tomorrow room is open for all! https://t.co/fd0acPKbT4 Click link to join into VIP. https://t.co/Fp2vUFtUZQ,2,Neutral,2,Neutral,0.0007334303809329867,0.0010394317796453834,0.9982271790504456,0.9982271790504456
+499,$NWXPF - Newport Exploration Ltd. declares CAD 0.01 dividend https://t.co/Pxx7QAzDVr,2,Neutral,2,Neutral,6.515711720567197e-05,2.1590389224002138e-05,0.999913215637207,0.999913215637207
+500,Here are the best analyst calls of the week on Wall Street including Disney and a satellite play https://t.co/u9r1QPQli5,2,Neutral,2,Neutral,7.321416342165321e-05,5.388798308558762e-05,0.9998729228973389,0.9998729228973389
+501,British Airways agrees pay deal to end strikes https://t.co/sJelgqJFhA,2,Neutral,2,Neutral,0.004813035484403372,0.013991431333124638,0.9811955690383911,0.9811955690383911
+502,"And a big thanks to @carlquintanilla on catching the market typo to end them all:
+
+- Dow 654.01 points 
+- Nasdaq upâ¦ https://t.co/SHXdy0pMc1",1,Bullish,1,Bullish,0.021683992817997932,0.7829831838607788,0.19533276557922363,0.7829831838607788
+503,Nasdaq Composite retreats 0.5% at the start of trade,0,Bearish,0,Bearish,0.9996351003646851,0.000118484407721553,0.00024642725475132465,0.9996351003646851
+504,Real estate secondaries: Deals where âboth parties walk away happyâ,2,Neutral,2,Neutral,0.0007478235638700426,0.001147351460531354,0.9981048107147217,0.9981048107147217
+505,Home Depot 3Q sales miss expectations,0,Bearish,0,Bearish,0.9962627291679382,0.00030166664510034025,0.003435565857216716,0.9962627291679382
+506,This sustainable fund already doesn't invest in fossil fuels. Now it wants all portfolio companies to align with th... https://t.co/vcxPmt4JUL,2,Neutral,2,Neutral,0.002144798869267106,0.0023928603623062372,0.9954623579978943,0.9954623579978943
+507,"Fed Provides More Liquidity; Phase 1 Trade Deal, But No Corroboration On Jobs Report",2,Neutral,2,Neutral,0.0006238279165700078,0.0008116007084026933,0.9985645413398743,0.9985645413398743
+508,"JinkoSolar Holding EPS beats by $0.056, beats on revenue",1,Bullish,1,Bullish,0.0003859474090859294,0.9991844296455383,0.0004296292900107801,0.9991844296455383
+509,India Unveils Steps for Bad Loan-Laden Banks to Boost Credit,2,Neutral,2,Neutral,0.004481633193790913,0.0028094856534153223,0.9927088022232056,0.9927088022232056
+510,Nike's Vaporfly running sneakers to be allowed in 2020 Olympics https://t.co/zokAlame0K,2,Neutral,2,Neutral,0.00038200843846425414,0.00024372553161811084,0.9993743300437927,0.9993743300437927
+511,Flu Season Is Starting Off Early: 10 Things You Need to Know,2,Neutral,2,Neutral,0.00029071778408251703,0.0009602222708053887,0.9987490177154541,0.9987490177154541
+512,"Hedge Funds Are Souring On Compass Minerals International, Inc. (CMP)",0,Bearish,0,Bearish,0.9997538924217224,9.559260797686875e-05,0.00015050449292175472,0.9997538924217224
+513,Avantor Q4 non-GAAP EPS up 90%,1,Bullish,1,Bullish,0.0008639873121865094,0.9980304837226868,0.001105521572753787,0.9980304837226868
+514,$MGM $GXYEF $GIGNF - MGM officially in pursuit of Osaka casino https://t.co/W1gsScdOoh,2,Neutral,2,Neutral,0.001200051628984511,0.00029301547328941524,0.9985069632530212,0.9985069632530212
+515,Alternus Energy reports Q3 results,2,Neutral,2,Neutral,2.9677744350919966e-07,5.810140635276184e-08,0.9999996423721313,0.9999996423721313
+516,"MSC Industrial Direct Co., Inc. (NYSE:MSM): Should The Recent Earnings Drop Worry You?",2,Neutral,2,Neutral,0.0011161296861246228,0.0008535647648386657,0.9980302453041077,0.9980302453041077
+517,Here's a Blue-Chip Stock You'd Probably Never Guess Would Profit From Marijuana Legalization,2,Neutral,2,Neutral,0.004230304155498743,0.024381903931498528,0.9713878035545349,0.9713878035545349
+518,Bernstein turns bullish on VMware's valuation,1,Bullish,1,Bullish,0.0015425607562065125,0.9980758428573608,0.0003815634117927402,0.9980758428573608
+519,"No 'phase two' U.S.-China deal on the horizon, officials say - Reuters
+
+https://t.co/cktQrn4j9f",2,Neutral,2,Neutral,0.0020174749661237,0.0038227136246860027,0.9941598176956177,0.9941598176956177
+520,Facebook rejects AG Barr's request to stop encryption plans for messaging apps https://t.co/Tkyy7abxUi,2,Neutral,2,Neutral,0.015448682010173798,0.0007561524980701506,0.983795166015625,0.983795166015625
+521,Bank of England activates emergency liquidity measure https://t.co/FvgTR5d5eg https://t.co/FZWcMjZddZ,2,Neutral,2,Neutral,0.0009084909106604755,0.00045690243132412434,0.9986346364021301,0.9986346364021301
+524,"$OKTA - Okta, Inc. 2020 Q3 - Results - Earnings Call Presentation. Subscribe to Seeking Alpha for more:â¦ https://t.co/JShKmdSTJ5",2,Neutral,2,Neutral,3.910500709025655e-06,3.552404905349249e-06,0.9999924898147583,0.9999924898147583
+526,"EOS, Ethereum and Rippleâs XRP â Daily Tech Analysis â 07/02/20",2,Neutral,2,Neutral,0.0008736877352930605,0.00024291424779221416,0.9988834261894226,0.9988834261894226
+528,Is IQE (LON:IQE) Using Too Much Debt?,2,Neutral,2,Neutral,0.001298470189794898,0.00031882041366770864,0.9983826875686646,0.9983826875686646
+529,The latest marker of Chinese interest in African fintech is a $120 million funding round for OPay,2,Neutral,2,Neutral,0.0006746798171661794,0.0003566405503079295,0.9989687204360962,0.9989687204360962
+530,Becton Dickinson's stock tumbles 11% premarket after Q1 results,0,Bearish,0,Bearish,0.9998077750205994,7.106397242750973e-05,0.00012118712766095996,0.9998077750205994
+531,"China Cuts Tariffs, Lagardeâs Concern, U.S. Jobs: Eco Day",2,Neutral,2,Neutral,0.0065285745076835155,0.004188235383480787,0.9892832040786743,0.9892832040786743
+532,'A lot of people feel defeated...Trump always wins. It seems like nothing can stop him.' Danny Villazon  @nytimesâ¦ https://t.co/qr7pY4rjma,2,Neutral,2,Neutral,0.001469130045734346,0.0007787575013935566,0.9977521300315857,0.9977521300315857
+535,Avnet stock price target raised to $37 vs. $35 at SunTrust Robinson Humphrey,1,Bullish,1,Bullish,0.00043095965520478785,0.9993563294410706,0.0002128286869265139,0.9993563294410706
+538,NIH Director weighs in on coronavirus,2,Neutral,2,Neutral,0.0007174666970968246,0.00011832665040856227,0.9991642236709595,0.9991642236709595
+539,Digital Realty Trust declares $1.08 dividend,2,Neutral,2,Neutral,3.800154445343651e-05,1.4074028513277881e-05,0.9999479055404663,0.9999479055404663
+540,Takeaway declares $7.8 billion Just Eat takeover unconditional #ProsusNV #Stock #MarketScreener... https://t.co/pFgYopW23P,2,Neutral,2,Neutral,0.002912854542955756,0.001578421681188047,0.9955086708068848,0.9955086708068848
+541,The Â£3bn hole in the Tory manifesto https://t.co/eSWRQRRDEL,2,Neutral,2,Neutral,0.0024426814634352922,0.0004717448609881103,0.9970856308937073,0.9970856308937073
+542,Chinaâs BAIC Mulls Raising Daimler Stake to Almost 10%,2,Neutral,2,Neutral,0.1156347319483757,0.0688943862915039,0.8154708743095398,0.8154708743095398
+543,Lowe's stock falls 2.0% premarket in wake of Home Depot's disappointing Q3 report,0,Bearish,0,Bearish,0.9998739957809448,5.3401465265778825e-05,7.25297795725055e-05,0.9998739957809448
+544,Southwest Airlines declares $0.18 dividend,2,Neutral,2,Neutral,4.30062718805857e-05,6.301303073996678e-06,0.999950647354126,0.999950647354126
+545,Teekay Tankers upped two notches to Buy at BAML,1,Bullish,1,Bullish,0.0010752328671514988,0.9981677532196045,0.000757011934183538,0.9981677532196045
+546,$SES BINGO !!!!!!!!,2,Neutral,2,Neutral,0.0045316400937736034,0.004141499754041433,0.9913268685340881,0.9913268685340881
+547,"Wells Fargo analyst Dori Kesten lifted her rating on Marriott $MAR to overweight, noting that the hotel chain's shaâ¦ https://t.co/9TLXzYZjUs",1,Bullish,1,Bullish,0.004483617842197418,0.9861816167831421,0.009334753267467022,0.9861816167831421
+549,Cancom SE Just Recorded A 42% EPS Beat: Here's What Analysts Are Forecasting Next,1,Bullish,1,Bullish,0.044831812381744385,0.8984124064445496,0.05675581097602844,0.8984124064445496
+550,NICE Provides Dial-in Details for Its Fourth Quarter and Full Year 2019 Results Teleconference,2,Neutral,2,Neutral,7.34602363081649e-05,0.0002411550667602569,0.9996854066848755,0.9996854066848755
+552,"Nasdaq rises 42 points, or 0.5%",1,Bullish,1,Bullish,0.0005945386365056038,0.9991676807403564,0.00023771349515300244,0.9991676807403564
+553,CymaBay Therapeutics shares down 77% premarket after resuming trade following halt,0,Bearish,0,Bearish,0.9997145533561707,7.968837599037215e-05,0.00020574209338519722,0.9997145533561707
+555,The Dutch government wants to shrink the nation's hog industry to improve air quality https://t.co/V30pjV7pi6,2,Neutral,2,Neutral,0.004629787988960743,0.002127811312675476,0.9932423233985901,0.9932423233985901
+556,$POLA $OSS - StoneCo and i3 Verticals among Tech gainers; VirnetX and Pure Storage among losers https://t.co/50gLpRA4mu,2,Neutral,2,Neutral,0.012425328604876995,0.0012896186672151089,0.9862850904464722,0.9862850904464722
+557,$DIS (+0.6% pre) âFrozen 2â Walt Disney Animation Studiosâ Highest Grossing Debut Ever https://t.co/SksjdnI6s7,1,Bullish,1,Bullish,0.0018329140730202198,0.9969602227210999,0.0012068782234564424,0.9969602227210999
+558,.@Sweetgreen is taking a different approach to winning the delivery space. Here's what co-founder and CEO Jonathanâ¦ https://t.co/KBbLEmsoQC,2,Neutral,2,Neutral,0.0009432274964638054,0.0006398566183634102,0.9984169006347656,0.9984169006347656
+559,Canadian National Technology Guru Departing,2,Neutral,2,Neutral,0.0023516500368714333,0.0019079563207924366,0.9957404136657715,0.9957404136657715
+560,$LJPC (halted pre) La Jolla Pharmaceutical (LJPC) to Reassess Continued Development of LJPC-401 Based on Recent Mixâ¦ https://t.co/8wDkULKz7f,2,Neutral,2,Neutral,0.001959779765456915,0.0013661837438121438,0.9966740608215332,0.9966740608215332
+561,3 Ways to Calculate How Much to Save for Retirement,2,Neutral,2,Neutral,4.00001481466461e-05,9.776023216545582e-05,0.9998621940612793,0.9998621940612793
+562,$ELY - Callaway Golf declares $0.01 dividend https://t.co/EnRdwwSBCR,2,Neutral,2,Neutral,0.00013870527618564665,3.6207668017596006e-05,0.9998250603675842,0.9998250603675842
+563,"All major indexes finished the day in the green, as the number of new coronavirus cases in the U.S. appeared to sloâ¦ https://t.co/Y8vffZuRWl",1,Bullish,1,Bullish,0.14565956592559814,0.8030403256416321,0.05130007863044739,0.8030403256416321
+564,Global military spending hit a post-Cold War high of $1.8 trillion in 2018. With a growing U.S.-China rivalry and fâ¦ https://t.co/XNeINcYeYG,2,Neutral,2,Neutral,0.015380888245999813,0.22682736814022064,0.7577916979789734,0.7577916979789734
+565,"Hedge Funds Have Never Been This Bullish On Fastly, Inc. (FSLY)",1,Bullish,1,Bullish,0.0018173808930441737,0.9978576302528381,0.0003250166482757777,0.9978576302528381
+566,"Tapestry, Inc. Reports Fiscal 2020 Second Quarter Results",2,Neutral,2,Neutral,4.1779218008741736e-05,5.241762482910417e-05,0.9999058246612549,0.9999058246612549
+567,"Trump says he talked about interest rates, dollar strength with Powell",2,Neutral,2,Neutral,0.0001661821297602728,0.0003908680519089103,0.999442994594574,0.999442994594574
+568,"$MDCO (+22.6% pre) Novartis $NVS to Swallow Up The Medicines Company for $9.7 Billion - TheStreet
+
+https://t.co/vH7LO4WqmY",1,Bullish,1,Bullish,0.0016846179496496916,0.9974209070205688,0.0008944604196585715,0.9974209070205688
+569,"Amazon com : seeks to depose Trump, Esper in lawsuit over cloud computing contract #Amazoncom #Stockâ¦ https://t.co/VV5RlkaAZd",2,Neutral,2,Neutral,0.07780921459197998,0.0006915084086358547,0.9214993119239807,0.9214993119239807
+570,$DDF $LGI - Equity CEFs: The Insanity Of CEF Investors. Get more info on Seeking Alpha: https://t.co/w0sP4U67WYâ¦ https://t.co/xw3MKEFK0U,2,Neutral,2,Neutral,0.0035282447934150696,0.0010837588924914598,0.9953879714012146,0.9953879714012146
+571,Fortinet +2% after investor day guidance,1,Bullish,1,Bullish,0.0018140480387955904,0.9978464841842651,0.00033951972727663815,0.9978464841842651
+572,3 Top Value Stocks to Buy in February,2,Neutral,2,Neutral,4.051077667099889e-06,9.208395567839034e-06,0.9999867677688599,0.9999867677688599
+573,"Hedge Funds Dropped The Ball On Molecular Templates, Inc. (MTEM)",2,Neutral,2,Neutral,0.006243319250643253,0.0016559227369725704,0.9921007752418518,0.9921007752418518
+574,Michael Gove warns the logistics industry to prepare for strict border controls between Britain and the EU after Brâ¦ https://t.co/CE4krhmkBO,2,Neutral,2,Neutral,0.002292611636221409,0.0006628449773415923,0.9970445036888123,0.9970445036888123
+575,One of the World's Best Investors Just Upped His Big Bet on Discovery,2,Neutral,2,Neutral,0.0008857881184667349,0.0005428172298707068,0.9985713958740234,0.9985713958740234
+576,$VMD - Viemed Healthcare (VMD) Investor Presentation - Slideshow. Follow this and any other stock on Seeking Alpha!â¦ https://t.co/73LaruXZgL,2,Neutral,2,Neutral,1.5750183592899702e-05,1.9361958038643934e-05,0.9999648332595825,0.9999648332595825
+577,Nokia and Ericsson both advance after Barr says U.S. firms should buy stakes,1,Bullish,1,Bullish,0.0031281723640859127,0.995824933052063,0.0010468874825164676,0.995824933052063
+578,British pound slumps against dollar intraday Monday as U.K. Prime Minister Boris Johnson moved to ICU with coronaviâ¦ https://t.co/ZxkNNE7JQi,0,Bearish,0,Bearish,0.9614201188087463,0.0010357913561165333,0.03754403442144394,0.9614201188087463
+579,$EVI - EVI reports Q2 results https://t.co/JORsCDM5m7,2,Neutral,2,Neutral,1.8403269450573134e-06,1.0622733270793105e-06,0.9999971389770508,0.9999971389770508
+580,Grom Social Enterprises reports Q3 results,2,Neutral,2,Neutral,6.508802471216768e-06,2.9349364467634587e-06,0.9999905824661255,0.9999905824661255
+581,"Stock-index futures extend losses after jobless claims, producer price data",0,Bearish,0,Bearish,0.9986934065818787,0.00036870429175905883,0.000937863951548934,0.9986934065818787
+582,Arex Capital ramps up pressure on Zagg,2,Neutral,2,Neutral,0.15603506565093994,0.053569987416267395,0.7903949618339539,0.7903949618339539
+583,"Does Home Bancshares, Inc. (Conway, AR) (NASDAQ:HOMB) Have A Good P/E Ratio?",2,Neutral,2,Neutral,0.0011341398349031806,0.0006889430223964155,0.9981769323348999,0.9981769323348999
+586,U.S. dollar down 0.1% at 109.88 Japanese yen,0,Bearish,0,Bearish,0.9996418952941895,0.00022675633954349905,0.0001313270186074078,0.9996418952941895
+588,The U.S. and China are reportedly taking steps to delay the next round of American tariffs set for Sunday as they sâ¦ https://t.co/HWzU8RAkIt,2,Neutral,2,Neutral,0.007024119608104229,0.022155053913593292,0.9708207845687866,0.9708207845687866
+589,"GOING EXTINCT: The last Sumatran rhinoceros in Malaysia has died, leaving their worldwide population at about 80 https://t.co/oqPF8uPUN9",2,Neutral,2,Neutral,0.0010945529211312532,0.0004004748770967126,0.9985049962997437,0.9985049962997437
+590,"Oil prices, which had skyrocketed nearly 4%, appear to have stabilized around 3% higher.
+https://t.co/QDUbA31bl0",1,Bullish,1,Bullish,0.0011341493809595704,0.9981424808502197,0.0007233574870042503,0.9981424808502197
+591,$SGEN - Seattle Genetics earns drug approval in Canada https://t.co/Q1co2SGurS,1,Bullish,1,Bullish,0.0014941669069230556,0.9884137511253357,0.010092136450111866,0.9884137511253357
+592,"Patrick Harker, President of the Philly Fed, is due to speak now.",2,Neutral,2,Neutral,0.00029975653160363436,0.00014996468962635845,0.9995502829551697,0.9995502829551697
+593,SoftBank to go ahead with WeWork stock tender offer this week #economy #MarketScreener https://t.co/MQFbUV0mnl https://t.co/l4UmkBixZV,2,Neutral,2,Neutral,0.0005854286137036979,0.0003996487648691982,0.9990148544311523,0.9990148544311523
+594,SoftBank launches robotic vacuum in U.S.,2,Neutral,2,Neutral,0.0024331521708518267,0.002558864187449217,0.9950079917907715,0.9950079917907715
+595,Jatenergy : Letters to Securityholders - Rights Issue #Jatenergy #Stock #MarketScreener https://t.co/MX24abcdO4 https://t.co/fIU7fwFauZ,2,Neutral,2,Neutral,1.5078542674018536e-05,1.1702676601998974e-05,0.9999731779098511,0.9999731779098511
+596,$SCANX: Small cap notable movers of interest -- Mesoblast (MESO) gains on clearance of remestemcel-L IND https://t.co/FqB2q8XaFw,1,Bullish,1,Bullish,0.016340989619493484,0.9731760025024414,0.01048299204558134,0.9731760025024414
+597,"Stocks making the biggest moves midday: Coty, Workday, Splunk, Five Below & more",2,Neutral,2,Neutral,0.0006190685671754181,0.0008454283233731985,0.9985355138778687,0.9985355138778687
+598,Walmart Marks A Five-Year Streak Of Quarterly Sales Gains And Turns To A Robotic Future,1,Bullish,1,Bullish,0.017169896513223648,0.9702306985855103,0.012599319219589233,0.9702306985855103
+600,8 Cannabis Stocks With Wall Street Buzz,2,Neutral,2,Neutral,3.726434806594625e-05,2.7639189283945598e-05,0.9999351501464844,0.9999351501464844
+601,Hollywood Box Office Booms Even as Americans Stay Home and Chill,2,Neutral,2,Neutral,0.0012390553019940853,0.00045988152851350605,0.998301088809967,0.998301088809967
+602,$COMDX: EIA petroleum data for the week ended December 6 https://t.co/7I8u7u0QY6,2,Neutral,2,Neutral,0.00031858377042226493,0.0006106541259214282,0.9990707635879517,0.9990707635879517
+603,"Affimed EPS misses by â¬0.03, misses on revenue",0,Bearish,0,Bearish,0.999718964099884,2.6157436877838336e-05,0.0002549499331507832,0.999718964099884
+604,The Fed sidesteps a bickering Congress with sweeping rescue plan https://t.co/SBxYPhDR2q,2,Neutral,2,Neutral,0.0035239900462329388,0.0008908096351660788,0.9955852031707764,0.9955852031707764
+605,Magmatic Resources : Appendix 3B #MagmaticResources #Stock #MarketScreener https://t.co/0yolhdScTL https://t.co/UUAn1nIln4,2,Neutral,2,Neutral,0.0006851801881566644,0.0007566908025182784,0.9985581040382385,0.9985581040382385
+606,IAEA International Atomic Energy Agency : Fostering the Safe and Secure Transport of Spent... #IAEA #economyâ¦ https://t.co/dBAPsbsguv,2,Neutral,2,Neutral,0.0004444287624210119,0.002001052489504218,0.9975546002388,0.9975546002388
+607,Troy Income & Growth Trust : Publication of Suppl.Prospcts  #Stock #MarketScreener https://t.co/6rYHq9nvYb https://t.co/0jjvKVppPI,2,Neutral,2,Neutral,0.0002972678921651095,0.00042494398076087236,0.9992777705192566,0.9992777705192566
+608,Adamas down 40% as investors react to Gocovri effect in MS study,0,Bearish,0,Bearish,0.9995610117912292,0.00012885118485428393,0.0003102248883806169,0.9995610117912292
+609,"Dow, S&P 500 turn positive",1,Bullish,1,Bullish,0.001236321753822267,0.9975312948226929,0.0012323500122874975,0.9975312948226929
+610,"It's okay Greg, your insurance will cover it.",2,Neutral,2,Neutral,0.002723734127357602,0.038304973393678665,0.9589712619781494,0.9589712619781494
+611,Fantasia : FURTHER INFORMATION IN RELATION TO THE CO-OPERATION AGREEMENT WITH SHENGYUAN  #Stock #MarketScreenerâ¦ https://t.co/NkBhcbaRvs,2,Neutral,2,Neutral,0.00027519522700458765,0.00020175750250928104,0.9995230436325073,0.9995230436325073
+612,Nokia posts surprise quarterly profit rise on cost cuts,1,Bullish,1,Bullish,0.0007877938915044069,0.9989824891090393,0.000229674915317446,0.9989824891090393
+613,$SPY $IWM $TNA - Small caps aim to retake some ground https://t.co/lRTT9N8kdA,2,Neutral,2,Neutral,0.0027368718292564154,0.0026081728283315897,0.9946550130844116,0.9946550130844116
+614,WATCH: Protesters took to the streets of Rome demanding the Italian government take action to stop violence againstâ¦ https://t.co/Wj0iILxBD1,2,Neutral,2,Neutral,0.00027694026357494295,0.00015705625992268324,0.9995660185813904,0.9995660185813904
+615,Top 5 Buys of John Rogers' Ariel Investment,2,Neutral,2,Neutral,5.331521242624149e-05,3.071159517276101e-05,0.9999159574508667,0.9999159574508667
+616,Sanders Says He Had Campaign Best $25 Million Haul in January,2,Neutral,2,Neutral,0.0005615971167571843,0.0005091475904919207,0.9989292025566101,0.9989292025566101
+618,"Hasbro upgraded to buy from neutral at UBS, price target $117",1,Bullish,1,Bullish,0.0003171833814121783,0.9995421171188354,0.00014072215708438307,0.9995421171188354
+619,SoftBank-backed Paytm raises $1 billion in fresh funding https://t.co/lYCXkrozmW https://t.co/988P07IWob,2,Neutral,2,Neutral,0.009199343621730804,0.005344869568943977,0.9854558110237122,0.9854558110237122
+621,Hedge Fund CIO: We Are Playing The Game Called Institutional Investor https://t.co/oiQjnbJBj7,2,Neutral,2,Neutral,0.0013983453391119838,0.0008099669357761741,0.9977916479110718,0.9977916479110718
+622,Here is What Hedge Funds Think About Focus Financial Partners Inc. (FOCS),2,Neutral,2,Neutral,0.00023270932433661073,0.00010648663010215387,0.999660849571228,0.999660849571228
+623,"Micron Analysts Expect Lukewarm Q1, But Project Coming Inflection In Memory Pricing",2,Neutral,2,Neutral,0.008491604588925838,0.004870887380093336,0.9866374731063843,0.9866374731063843
+624,5 Insurance Stocks That Should Rise in 2020,2,Neutral,2,Neutral,2.5172455934807658e-05,0.0001029683553497307,0.9998718500137329,0.9998718500137329
+625,"It's been a year of buzzkills for the legal cannabis industry. Here are this year's biggest offenders (and yes, Canâ¦ https://t.co/eGnsYfczFC",2,Neutral,2,Neutral,0.0014392026932910085,0.0010173834161832929,0.9975433945655823,0.9975433945655823
+626,Europe's richest man is spending $1 billion on a department store in Paris https://t.co/xjoMyN7BqA,2,Neutral,2,Neutral,0.0030284353997558355,0.0009393803775310516,0.996032178401947,0.996032178401947
+627,Credicorp reports Q4 results,2,Neutral,2,Neutral,3.6311888607087894e-07,6.529526785925555e-08,0.9999995231628418,0.9999995231628418
+628,We're Keeping An Eye On Entera Bio's (NASDAQ:ENTX) Cash Burn Rate,2,Neutral,2,Neutral,0.0014868059661239386,0.0013367938809096813,0.9971764087677002,0.9971764087677002
+629,$QTRH - WiLAN signs wireless license with LG; shares +7% PM https://t.co/LBIZqbgJv0,1,Bullish,1,Bullish,0.0019854018464684486,0.9862879514694214,0.011726658791303635,0.9862879514694214
+630,$PLNT $PTON - Gym-off trade unwinds a bit https://t.co/6KQrxKSjLE,2,Neutral,2,Neutral,0.036522310227155685,0.049248188734054565,0.9142295122146606,0.9142295122146606
+631,Elders : Ceasing to be a substantial holder from MQG #Elders #Stock #MarketScreener https://t.co/BhNTyQlNmj https://t.co/MPjUMFeaI9,2,Neutral,2,Neutral,0.0001601143303560093,0.00013573910109698772,0.9997040629386902,0.9997040629386902
+632,LHC,2,Neutral,2,Neutral,0.0056558470241725445,0.001651388593018055,0.9926927089691162,0.9926927089691162
+633,The US economy just gave Trump leverage https://t.co/YizTeFwaJ3 by @ScottSaloway https://t.co/L8YWDV0w4f,2,Neutral,2,Neutral,0.0025660526007413864,0.0015127175720408559,0.99592125415802,0.99592125415802
+635,"Activism Engulfs Japan as Firms Go Hostile, Investors Speak Out",2,Neutral,2,Neutral,0.00014122460561338812,6.754197966074571e-05,0.9997912049293518,0.9997912049293518
+636,Ambu A/S Just Beat EPS By 19%: Here's What Analysts Think Will Happen Next,1,Bullish,1,Bullish,0.0009896296542137861,0.9981789588928223,0.000831420358736068,0.9981789588928223
+637,Home Depot's stock selloff a 78-point drag on the Dow,0,Bearish,0,Bearish,0.599810004234314,0.29295191168785095,0.10723809152841568,0.599810004234314
+638,Wipro Wins Multi-Year Strategic IT Deal From Marelli,2,Neutral,2,Neutral,0.0018514826660975814,0.013733206316828728,0.9844152331352234,0.9844152331352234
+639,"Cameco EPS beats by $0.13, misses on revenue",2,Neutral,2,Neutral,0.0005265597137622535,0.0001047838813974522,0.9993687272071838,0.9993687272071838
+640,40% YTD Return On 18 Stocks: Andersen Capital Mgmt. (Radio),2,Neutral,2,Neutral,0.0116293178871274,0.009054952301084995,0.9793157577514648,0.9793157577514648
+642,The family behind Krispy Kreme Doughnuts and Panera Bread is adding a member of the Kardashian clan to its portfolio https://t.co/0h1f7I0IyY,2,Neutral,2,Neutral,0.0011013743933290243,0.0005595212569460273,0.998339056968689,0.998339056968689
+643,Your Warren Buffett Update: 48 Stocks With 33 Paying Dividends As Of December. Follow this and any other stock on Sâ¦ https://t.co/HQFoQXVOqe,2,Neutral,2,Neutral,0.0015680883079767227,0.0008816544432193041,0.9975503087043762,0.9975503087043762
+644,$BONDX: Overnight Treasury Market Summary https://t.co/OLdJFxTwjs,2,Neutral,2,Neutral,7.19904201105237e-05,8.331028948305175e-05,0.9998446702957153,0.9998446702957153
+645,$AMTD: TD Ameritrade Investor Movement Index: IMX hits seven-year low in March https://t.co/XkKpBQrqPw,0,Bearish,0,Bearish,0.9978731870651245,0.0008770516142249107,0.0012497138231992722,0.9978731870651245
+646,$LDOS - Leidos wins DoE contract https://t.co/DACUA3kFd3,2,Neutral,2,Neutral,0.006210244260728359,0.04804087057709694,0.9457488656044006,0.9457488656044006
+647,"Is SiteOne Landscape Supply, Inc. (SITE) A Good Stock To Buy?",2,Neutral,2,Neutral,0.00022222586267162114,0.00011411879677325487,0.9996637105941772,0.9996637105941772
+648,Vans parent VF Corp. says mainland China accounted for 6% of total revenue in FY19,2,Neutral,2,Neutral,0.00957768689841032,0.026701677590608597,0.9637206196784973,0.9637206196784973
+649,IRA Taxes in 2020: What You Need to Know,2,Neutral,2,Neutral,4.3473377445479855e-05,0.00036758003989234567,0.9995889067649841,0.9995889067649841
+650,$APLS - Apellis Pharmaceuticals (APLS) Investor Presentation - Slideshow. Read more and get updates on any stock!â¦ https://t.co/wJLXS3OeNb,2,Neutral,2,Neutral,1.0391962860012427e-05,1.2537814654933754e-05,0.9999771118164062,0.9999771118164062
+651,Lattice Semiconductor Q4 Earnings Preview,2,Neutral,2,Neutral,5.46438400306215e-07,9.708481485404263e-08,0.9999994039535522,0.9999994039535522
+652,EIA Natural Gas Report is due in 5 minutes and the Petroleum Report is due 30 minutes after that.,2,Neutral,2,Neutral,0.025562990456819534,0.006411250680685043,0.9680257439613342,0.9680257439613342
+654,The moment the windows get smashed on Tesla's new cybertruck https://t.co/5kQPPbnE80 https://t.co/KwO0J3m29O,2,Neutral,2,Neutral,0.12011880427598953,0.0012615573359653354,0.8786196708679199,0.8786196708679199
+655,HSBC : Terms of Reference of Nomination & Corporate Governance Committee #HSBC #Stock #MarketScreenerâ¦ https://t.co/ZAdqozoyZG,2,Neutral,2,Neutral,5.219939339440316e-05,0.00010075648606289178,0.9998470544815063,0.9998470544815063
+656,Trump has asked the Supreme Court to stop Deutsche Bank and Capital One from handing over his financial records toâ¦ https://t.co/ljpUQlkKhr,2,Neutral,2,Neutral,0.001237005926668644,0.0003392557264305651,0.99842369556427,0.99842369556427
+657,China's Xi Visits Hospital in Beijing,2,Neutral,2,Neutral,3.8713824324076995e-05,2.4831371774780564e-05,0.9999364614486694,0.9999364614486694
+659,Bank of Ireland : Gov Co - 7 KB #BankofIreland #Stock #MarketScreener https://t.co/lPLIZQTwme https://t.co/iFkjaIFL5u,2,Neutral,2,Neutral,0.00035085578565485775,0.00013441513874568045,0.9995146989822388,0.9995146989822388
+661,$LOW - Lowe's racks up another positive rating despite recession risk https://t.co/ekx4f6aqIK,1,Bullish,1,Bullish,0.0037473721895366907,0.9950005412101746,0.001252067624591291,0.9950005412101746
+662,Poland has brought home about 100 tons of gold from the Bank of England in a bid to demonstrate the strength of itsâ¦ https://t.co/oVUu5Nuvtf,2,Neutral,2,Neutral,0.0016128135612234473,0.0017354391748085618,0.9966517090797424,0.9966517090797424
+664,Anglo Australian Resources NL : Exploration Update for Mandilla Gold Discovery #AngloAustralianResourcesNL #Stockâ¦ https://t.co/QRvualHOf5,2,Neutral,2,Neutral,0.00011400813673390076,0.00013104372192174196,0.9997549653053284,0.9997549653053284
+665,"Godfrey Gao, actor and model, 1984-2019 https://t.co/98EpQrcoUe",2,Neutral,2,Neutral,0.0002784931566566229,0.00010656290396582335,0.999614953994751,0.999614953994751
+666,LendingTree price target cut to $350 from $400 at SunTrust Robinson Humphrey,0,Bearish,0,Bearish,0.9996398687362671,0.00010354142432333902,0.0002566055045463145,0.9996398687362671
+667,Achieve Life Sciences down 34% after pricing equity offering,0,Bearish,0,Bearish,0.9991647005081177,8.608950884081423e-05,0.0007491519208997488,0.9991647005081177
+669,"Going cashless may be convenient for some people, but for others, it makes businesses inaccessible.â¦ https://t.co/HvFfdRDt7f",2,Neutral,2,Neutral,0.0017994940280914307,0.0005497559905052185,0.9976508021354675,0.9976508021354675
+670,Harsco (HSC) to Buy Stericycle's Environmental Solutions,2,Neutral,2,Neutral,0.0011747130192816257,0.0012080708984285593,0.9976171851158142,0.9976171851158142
+671,"Ending joint filing would lead to a 15.5 percentage point jump in women's labor-force participation, the IMF foundâ¦ https://t.co/5PW14HOPY2",1,Bullish,1,Bullish,0.007875991053879261,0.9469572901725769,0.04516676440834999,0.9469572901725769
+673,"What Does Crown Holdings, Inc.'s (NYSE:CCK) P/E Ratio Tell You?",2,Neutral,2,Neutral,0.0002922196581494063,0.00015541070024482906,0.999552309513092,0.999552309513092
+674,"Introducing Highway Holdings (NASDAQ:HIHO), The Stock That Slid 59% In The Last Year",0,Bearish,0,Bearish,0.9986118078231812,0.000424304511398077,0.0009639004711061716,0.9986118078231812
+675,Edited Transcript of ESI.TO earnings conference call or presentation 12-Nov-19 9:00pm GMT,2,Neutral,2,Neutral,1.4531217402691254e-06,5.268632889965374e-07,0.9999979734420776,0.9999979734420776
+676,GS MLP Income Opportunities Fund declares $0.21 dividend,2,Neutral,2,Neutral,7.735067629255354e-05,1.9070810594712384e-05,0.9999035596847534,0.9999035596847534
+677,Mexico Removes the Actual Jet From Its Presidential Jet Raffle,2,Neutral,2,Neutral,0.00017042261606547982,0.00023598437837790698,0.9995935559272766,0.9995935559272766
+678,"Should You Buy Weis Markets, Inc. (WMK)?",2,Neutral,2,Neutral,0.00030329221044667065,0.00023154570953920484,0.9994651675224304,0.9994651675224304
+679,"Directing Savings To Specific Investments Is Old-Fashioned, Says Finance Minister",2,Neutral,2,Neutral,0.0004535390471573919,0.00027967081405222416,0.9992668032646179,0.9992668032646179
+680,Stocks bounced today on positive coronavirus news -Â here's what 3 market experts had to say.  Follow along with thâ¦ https://t.co/25AXp5RFFD,1,Bullish,1,Bullish,0.0020601435098797083,0.9967743754386902,0.001165464404039085,0.9967743754386902
+684,"U.S Mortgage Rates Were on the Rise, with More Likely to Come",2,Neutral,2,Neutral,0.020561102777719498,0.12359429150819778,0.8558446168899536,0.8558446168899536
+685,Wall Street's 7 Highest-Rated Stocks to Buy,2,Neutral,2,Neutral,0.00044310453813523054,0.004619836341589689,0.9949370622634888,0.9949370622634888
+686,#Oil #markets react in a hefty way to short-term news. The #coronavirus panic has made many already inexpensiveâ¦ https://t.co/YSqUQAY02J,2,Neutral,2,Neutral,0.16055192053318024,0.01458568125963211,0.8248623609542847,0.8248623609542847
+688,Hedge Funds Are Warming Up To First Bancorp (NASDAQ:FBNC),1,Bullish,1,Bullish,0.0016743320738896728,0.9977567791938782,0.0005688845412805676,0.9977567791938782
+689,Stock Market Update: Netflix remains among today's winners,1,Bullish,1,Bullish,0.00214855233207345,0.9756945371627808,0.022156989201903343,0.9756945371627808
+691,"Home Depot stock is still a good investment despite rare misstep: analysts
+https://t.co/qlN2H3v7I4 by @BrianSozzi https://t.co/SxTiA8QZoZ",1,Bullish,1,Bullish,0.006454684771597385,0.9908332228660583,0.0027121214661747217,0.9908332228660583
+692,"U.S. banks cram for Fed risk test, with ripple effects in repo #economy #MarketScreener https://t.co/Hvz8lXjRl0 https://t.co/Dg0f2nRHHP",2,Neutral,2,Neutral,0.18450534343719482,0.009982083924114704,0.8055126070976257,0.8055126070976257
+693,$BAM $BPY $PVVLF - Investing With Brookfield: Achieving Attractive Risk/Reward And High Yield Simultaneously.â¦ https://t.co/sIPdqv37EU,2,Neutral,2,Neutral,0.0013942588120698929,0.009290175512433052,0.9893156290054321,0.9893156290054321
+695,$CEI Long-term chart. Everything is possible here. Full of shorts. Can run 400% like in July or doing nothing. Butâ¦ https://t.co/JJMEup4XH3,2,Neutral,2,Neutral,0.027194038033485413,0.10914766788482666,0.8636583089828491,0.8636583089828491
+697,These are best performing IPOs of 2019,2,Neutral,2,Neutral,0.000305138441035524,0.0015824895817786455,0.9981123208999634,0.9981123208999634
+698,"Highlight: 'When it comes to private investing or investing in general, the earlier a company is, the higher the ri... https://t.co/MHh1YT2DWr",2,Neutral,2,Neutral,0.0020348106045275927,0.0016482359496876597,0.9963169097900391,0.9963169097900391
+699,FedEx stock price target raised to $168 from $163 at BofA Securities,1,Bullish,1,Bullish,0.0005004588165320456,0.9989614486694336,0.0005380193470045924,0.9989614486694336
+700,We asked FT readers about New Yorkâs best spots for a morning meeting. Hereâs what you told us: https://t.co/NSYfUvvkHM,2,Neutral,2,Neutral,0.0003499544400256127,0.0001573768095113337,0.9994926452636719,0.9994926452636719
+701,"Earning $40,000 a year in Omaha used to be enough to make rent comfortably. Not anymore. https://t.co/5CPNzcaT2y",2,Neutral,2,Neutral,0.01523412112146616,0.035220760852098465,0.9495450854301453,0.9495450854301453
+703,"More than half of Generation Z is already saving for a home, according to Bank of America's 2019 Fall Homebuyer Insâ¦ https://t.co/G20gBc8DMo",2,Neutral,2,Neutral,0.0037630468141287565,0.0022755549289286137,0.9939613938331604,0.9939613938331604
+704,'Frozen 2' Sets Another Box Office Record For Disney This Year,2,Neutral,2,Neutral,0.0017589536728337407,0.0042685652151703835,0.9939724802970886,0.9939724802970886
+706,"Chicken Soup for the Soul Entertainment, Inc. Third-Quarter Results: Here's What Analysts Are Forecasting For Next Year",2,Neutral,2,Neutral,0.0005373724852688611,0.0003696268831845373,0.9990930557250977,0.9990930557250977
+708,Telenor says Huawei will still play role in 5G rollout,2,Neutral,2,Neutral,0.00299958442337811,0.011669137515127659,0.9853312969207764,0.9853312969207764
+709,Uber Technologies : Safety Report Details Sexual Assaults in U.S. Over Two Years -- Update... #UberTechnologiesâ¦ https://t.co/ysgIsoXwoK,2,Neutral,2,Neutral,0.00012196142779430375,0.000188109275768511,0.9996899366378784,0.9996899366378784
+710,"The world's two richest people, Jeff Bezos and Bill Gates, could soon find themselves worth less than Bernard Arnauâ¦ https://t.co/5WnKUyJ1nc",2,Neutral,2,Neutral,0.00046112117706798017,0.00014640284643974155,0.9993925094604492,0.9993925094604492
+711,.@JimCramer's latest thought on U.S.-China trade negotiations? I think it's time to walk away. Read his full reasâ¦ https://t.co/mCqYMLgt6S,2,Neutral,2,Neutral,0.0005306645762175322,0.001045013777911663,0.9984242916107178,0.9984242916107178
+712,"Weekend reads: Earn $100,000 a year and pay no federal income tax https://t.co/i73wJLTBNn",2,Neutral,2,Neutral,0.0058198352344334126,0.012250883504748344,0.9819292426109314,0.9819292426109314
+713,"U.S. Payrolls, German Recession Risk, BOEâs Mystery: Eco Day",2,Neutral,2,Neutral,0.03151131793856621,0.008144291117787361,0.9603443741798401,0.9603443741798401
+714,"Fed is watching virus effects, flags 'elevated' business debt in report",2,Neutral,2,Neutral,0.004433324560523033,0.0017755660228431225,0.9937911629676819,0.9937911629676819
+715,$WORK - Slack -5% after statement on IBM https://t.co/L71kecX7LL,0,Bearish,0,Bearish,0.9993517994880676,0.0002078180987155065,0.00044041519868187606,0.9993517994880676
+716,"Samenvatting: Japanse NEDO en Panasonic behalen âs werelds hoogste conversie-efficiÃ«ntie van 16,09% voor grootste zonnecelmodule met Perovskite per gebied",2,Neutral,2,Neutral,0.0017824798123911023,0.00033593381522223353,0.9978815913200378,0.9978815913200378
+717,United joins Delta and American in suspending flights between the U.S. and mainland China. United's flight suspensi... https://t.co/5ZtcJXzf7O,0,Bearish,0,Bearish,0.999083399772644,0.0005352924927137792,0.00038140296237543225,0.999083399772644
+718,"$BKE - The Buckle, Inc. (BKE) CEO Dennis Nelson on Q3 2019 Results - Earnings Call Transcript. Get more updates herâ¦ https://t.co/SpnZXsD2Cd",2,Neutral,2,Neutral,4.2276828025933355e-05,1.8280961739947088e-05,0.9999394416809082,0.9999394416809082
+719,$HSC - Harsco Q1 adjusted EBITDA to be above expectations https://t.co/OWUUn34GRf,1,Bullish,1,Bullish,0.001879364368505776,0.995633065700531,0.002487549325451255,0.995633065700531
+720,Chubb to buy stake in China's Huatai Insurance for $1.53 billion #economy #MarketScreener https://t.co/sUAx6evkmj https://t.co/DVUL8EMQ0t,2,Neutral,2,Neutral,0.0020489755552262068,0.0015427455073222518,0.9964082837104797,0.9964082837104797
+721,A Healthy Consumer A Positive For The Economy. Get more updates here: https://t.co/KZX0xmhIm8 #stockmarket #investing #markets,2,Neutral,2,Neutral,0.00045581377344205976,0.00984583143144846,0.9896983504295349,0.9896983504295349
+722,New Schizophrenia Study May Usher in Game-Changing Standard of Care,2,Neutral,2,Neutral,0.002655032789334655,0.003151233773678541,0.9941937327384949,0.9941937327384949
+723,How Chinese tariffs on U.S. imports will stand after February 14 cuts,2,Neutral,2,Neutral,0.003357504028826952,0.0025846369098871946,0.9940578937530518,0.9940578937530518
+724,"Yandex authorizes share repurchase program, shares up 6% premarket",1,Bullish,1,Bullish,0.0003683406102936715,0.9993318915367126,0.0002997319388668984,0.9993318915367126
+725,$COMDX: Energy Settlement Prices https://t.co/JHLtzLJyB0,2,Neutral,2,Neutral,0.0004304501926526427,0.0027088061906397343,0.9968607425689697,0.9968607425689697
+727,Nike gets into the medical footwear game,2,Neutral,2,Neutral,0.0010515416506677866,0.0008375421748496592,0.9981108903884888,0.9981108903884888
+728,"For skiers in search of empty slopes and epic views, this could be the ultimate holiday https://t.co/UniPs948Ai",2,Neutral,2,Neutral,0.000881355837918818,0.0018834416987374425,0.9972352385520935,0.9972352385520935
+729,"Sun Kissed Acquires Hakuna Supply, an Award-Winning Commercial Stage CBD Products Company  https://t.co/8HELNTuPgC",2,Neutral,2,Neutral,0.011359200812876225,0.38191166520118713,0.6067290902137756,0.6067290902137756
+730,Terms of Trade: Let the trade winds of clarity blow https://t.co/AxXyjLSgxG,2,Neutral,2,Neutral,0.0007901107310317457,0.0015067121712490916,0.9977031350135803,0.9977031350135803
+731,$NUGS - Cannabis Strategic Ventures reports Q2 results https://t.co/3oqlSEjs3m,2,Neutral,2,Neutral,1.9365743355592713e-05,2.146216866094619e-05,0.9999591112136841,0.9999591112136841
+732,Wall Street set for higher open as trade deal hopes build,1,Bullish,1,Bullish,0.0008583637536503375,0.9971914887428284,0.0019500844646245241,0.9971914887428284
+733,Maruti Suzuki Says India Not Ready For EVs As Peers Take The Plunge,2,Neutral,2,Neutral,0.1504276990890503,0.002574221696704626,0.8469980955123901,0.8469980955123901
+734,Jumia: continental drift https://t.co/ww84pxa3RN,2,Neutral,2,Neutral,0.0056770481169223785,0.0010888050310313702,0.9932340979576111,0.9932340979576111
+735,Oil kicks off week with gains on fresh hopes for U.S.-China trade talks #economy #MarketScreenerâ¦ https://t.co/8QB6hKz9lI,1,Bullish,1,Bullish,0.005116100423038006,0.9925077557563782,0.0023761691991239786,0.9925077557563782
+736,$BFIN - BankFinancial goes ex-dividend tomorrow https://t.co/pWNv3vUdcj,2,Neutral,2,Neutral,0.002088984241709113,0.002172940643504262,0.9957380294799805,0.9957380294799805
+738,$PVG - Pretium Resources Q4 2019 Earnings Preview https://t.co/OVxJegx0zA,2,Neutral,2,Neutral,7.731938239885494e-06,1.029329087032238e-05,0.9999819993972778,0.9999819993972778
+739,Bank of Jamaica 30-day CD Auction Press Release #economy #MarketScreener https://t.co/GXh2AJS7u7 https://t.co/4tV8ge3FKr,2,Neutral,2,Neutral,0.0001434811420040205,6.42239028820768e-05,0.9997922778129578,0.9997922778129578
+740,How do investors calculate opportunity costs? Enrico Cacciatore (@Ejcacciatore) of @VoyaInvestments joins Nasdaq Châ¦ https://t.co/ScAss7zlzI,2,Neutral,2,Neutral,0.003311782144010067,0.0010226152371615171,0.9956656098365784,0.9956656098365784
+741,Trump's proposed budget would kill a loan program that an electric-truck company is counting on to revive an Ohio fâ¦ https://t.co/fCqbeQJNdE,2,Neutral,2,Neutral,0.003264850936830044,0.0010948533890768886,0.9956402778625488,0.9956402778625488
+742,Transenterix Inc (TRXC): Are Hedge Funds Right About This Stock?,2,Neutral,2,Neutral,0.0009109663078561425,0.00030272366711869836,0.9987862706184387,0.9987862706184387
+743,"The #market is seeing strong #tax-loss selling.
+#Investors who focus on price action are worried.â¦ https://t.co/g677b3iuwY",0,Bearish,0,Bearish,0.9933943152427673,0.001409224234521389,0.005196425598114729,0.9933943152427673
+744,Berry Petroleum downgraded to market perform from outperform at BMO Capital,0,Bearish,0,Bearish,0.9998273849487305,5.927849269937724e-05,0.00011335384624544531,0.9998273849487305
+745,Superior Gold reports Q3 results,2,Neutral,2,Neutral,1.223535309691215e-05,3.9097294575185515e-06,0.9999839067459106,0.9999839067459106
+746,"Fed decision, Lululemon earnings, inflation gauge: 3 things to watch for Wednesday https://t.co/QbjlIImrfD",2,Neutral,2,Neutral,0.00031641742680221796,0.00014456240751314908,0.9995390176773071,0.9995390176773071
+748,One tariff man aloneâeven the U.S. presidentâcan only do so much https://t.co/OXT5ZIxNDL,2,Neutral,2,Neutral,0.0017023012042045593,0.0007854687864892185,0.9975122213363647,0.9975122213363647
+749,Did Changing Sentiment Drive Mountain Province Diamonds's (TSE:MPVD) Share Price Down A Painful 82%?,2,Neutral,2,Neutral,0.0036762806121259928,0.0007672325009480119,0.9955565333366394,0.9955565333366394
+750,$COMDX: Energy Settlement Prices https://t.co/FTQnDmL7t5,2,Neutral,2,Neutral,0.00047641340643167496,0.0026442420203238726,0.9968793392181396,0.9968793392181396
+751,Novoheart Holdings reports Q1 results,2,Neutral,2,Neutral,6.102532665863691e-07,9.463526140507383e-08,0.9999992847442627,0.9999992847442627
+752,"U.S. consumers fear for jobs, debt payments because of coronavirus: New York Fed survey https://t.co/rKzcOAejIE https://t.co/q1H7vftWjJ",0,Bearish,0,Bearish,0.9978367686271667,0.00036875918158330023,0.0017944443970918655,0.9978367686271667
+753,The owners of the New York Mets are in talks to sell up to an 80% stake of the Major League Baseball team to billioâ¦ https://t.co/rG7o7aw2tL,2,Neutral,2,Neutral,0.007097783964127302,0.0018999038729816675,0.9910023808479309,0.9910023808479309
+754,$ISRG - Intuitive Surgical acquires Orpheus Medical https://t.co/Tb9qA8h7Zp,2,Neutral,2,Neutral,0.002381670754402876,0.003506783861666918,0.9941114783287048,0.9941114783287048
+755,What Indiaâs Top Three Mutual Funds Bought and Sold in November,2,Neutral,2,Neutral,0.0002982274745590985,0.00018151952826883644,0.9995203018188477,0.9995203018188477
+756,Myovant conference call tomorrow on late-stage study of relugolix in prostate cancer,2,Neutral,2,Neutral,0.0009722347604110837,0.00024226745881605893,0.9987855553627014,0.9987855553627014
+757,$PTOZF - Plato Gold reports Q3 results https://t.co/3YUY5dXUOk,2,Neutral,2,Neutral,8.87490386958234e-06,5.337752099876525e-06,0.9999858140945435,0.9999858140945435
+758,"JinkoSolar shines with Q3 beat, strong shipments guidance",1,Bullish,1,Bullish,0.0010055237216874957,0.9985583424568176,0.00043619307689368725,0.9985583424568176
+759,"Tiberius Acquisition : CFTC Approves One Final, Two Proposed Rules at December 10 Open Meeting #TiberiusAcquisitionâ¦ https://t.co/XelZOiCiwl",2,Neutral,2,Neutral,0.00022300264390651137,0.00033649164834059775,0.9994404911994934,0.9994404911994934
+760,"Easy Come, Easy Go: How Stratasys (NASDAQ:SSYS) Shareholders Got Unlucky And Saw 82% Of Their Cash Evaporate",2,Neutral,2,Neutral,0.012342248111963272,0.0037313250359147787,0.9839263558387756,0.9839263558387756
+762,Fade The Rip: BofA Warns Bear Market Far From Over Unless We Escape A Recession  https://t.co/Ia791Nmx1l,0,Bearish,0,Bearish,0.9935386776924133,0.002997202333062887,0.0034640931989997625,0.9935386776924133
+763,"Two people in custody after vehicle breaches checkpoints at Trump's Mar-a-Lago resort, police say https://t.co/rz7EV9ncJw",2,Neutral,2,Neutral,0.00046874856343492866,0.00016677759413141757,0.99936443567276,0.99936443567276
+764,"Syanptics raised on forecast, margin strength",1,Bullish,1,Bullish,0.0004507364355958998,0.9989511966705322,0.0005980340065434575,0.9989511966705322
+765,Why Has Creeâs Revenue Jumped 40% In The Past 2 Years?,1,Bullish,1,Bullish,0.002737425034865737,0.9960145950317383,0.0012480001896619797,0.9960145950317383
+767,ADTRAN declares $0.09 dividend,2,Neutral,2,Neutral,7.5063384429086e-05,1.5156937479332555e-05,0.9999097585678101,0.9999097585678101
+768,Telephone and Data Systems declares $0.165 dividend,2,Neutral,2,Neutral,7.607180123159196e-06,9.429943474970059e-07,0.9999914169311523,0.9999914169311523
+769,"TicToc https://t.co/EOsKuYWXOv tarafÄ±ndan â¡ï¸ âIman, the last Sumatran rhinoceros in Malaysia, has died at 25â",2,Neutral,2,Neutral,0.0007699946290813386,0.00012457768025342375,0.9991053938865662,0.9991053938865662
+770,"China's Chip Quest Is All Heart, Not Enough Brain",2,Neutral,2,Neutral,0.012644861824810505,0.0029557927045971155,0.9843993186950684,0.9843993186950684
+771,CAB: Why Assam Is The Epicentre Of Protests Against New Citizenship  Law,2,Neutral,2,Neutral,0.00041674196836538613,0.0005225554923526943,0.9990606904029846,0.9990606904029846
+772,Instant View: Fed launches unprecedented range of credit support https://t.co/3WQX0rnURD https://t.co/YAnONEz11p,2,Neutral,2,Neutral,0.000939691555686295,0.0009426077012903988,0.9981176853179932,0.9981176853179932
+773,"Google launched its cloud gaming service Stadia this week, but is it any good? https://t.co/IElF2d1BUY",2,Neutral,2,Neutral,0.005344376899302006,0.004316891077905893,0.9903387427330017,0.9903387427330017
+774,Nvidia stock climbs after Morgan Stanley turns bullish,1,Bullish,1,Bullish,0.000257967651123181,0.9996527433395386,8.927135786507279e-05,0.9996527433395386
+775,Costco price target raised to $330 vs. $320 at BofA Merrill Lynch,1,Bullish,1,Bullish,0.0005619555013254285,0.999138355255127,0.0002996435796376318,0.999138355255127
+776,Cordy Oilfield Services reports Q3 results,2,Neutral,2,Neutral,1.6545122889510822e-06,4.601632213052653e-07,0.9999978542327881,0.9999978542327881
+777,So you crashed your $3 million Bugatti. Now what? https://t.co/EEsFl8f0Dn,2,Neutral,2,Neutral,0.22197504341602325,0.002819665940478444,0.7752052545547485,0.7752052545547485
+778,Berenberg expects higher offer for LogMeIn,2,Neutral,2,Neutral,0.0010317990090698004,0.0032997578382492065,0.9956684112548828,0.9956684112548828
+779,Credit Suisse chairman says many shareholders back board on CEO exit,2,Neutral,2,Neutral,0.0033017771784216166,0.00026142358547076583,0.9964368343353271,0.9964368343353271
+780,Turkish lira weakens past key 6-per-dollar level,0,Bearish,0,Bearish,0.9993244409561157,0.00020483421394601464,0.0004708067572209984,0.9993244409561157
+781,$KTPPF - Katipult Technology reports Q3 results https://t.co/BldrfJaJy0,2,Neutral,2,Neutral,2.2768956569052534e-06,1.370097947983595e-06,0.9999963045120239,0.9999963045120239
+782,"Dow ends nearly 1,600 points higher on hopes coronavirus peak is near https://t.co/XgNjVJHoqW",1,Bullish,1,Bullish,0.002146842423826456,0.9969910383224487,0.0008621574379503727,0.9969910383224487
+783,Cutera names Fuad Ahmad as interim CFO,2,Neutral,2,Neutral,0.00010177076910622418,3.701812238432467e-05,0.9998612403869629,0.9998612403869629
+784,$ING - ING May Be ThroughÂ The Worst Point Of The Cycle. Read more: https://t.co/wTGUTspx6E #stockmarket #economy #investing,0,Bearish,0,Bearish,0.9980543851852417,0.0005722869536839426,0.0013733857776969671,0.9980543851852417
+785,Boeing to suspend 737 Max production in January,0,Bearish,0,Bearish,0.9914366602897644,0.0008928581373766065,0.007670472376048565,0.9914366602897644
+786,Grupo Aeroportuario reports 10% increase in January traffic,1,Bullish,1,Bullish,0.0052716429345309734,0.9119282364845276,0.08280008286237717,0.9119282364845276
+787,"La Jolla shares fall on CEO departure, clinical trial results",0,Bearish,0,Bearish,0.9994868040084839,4.3188323616050184e-05,0.00047002991777844727,0.9994868040084839
+788,Target steps up same-day delivery options,2,Neutral,2,Neutral,0.009980466216802597,0.11414402723312378,0.8758754730224609,0.8758754730224609
+789,"Would Xiamen International Port Co., Ltd (HKG:3378) Be Valuable To Income Investors?",2,Neutral,2,Neutral,8.144504681695253e-05,4.853812060900964e-05,0.9998699426651001,0.9998699426651001
+791,RingCentral (RNG) Q4 Earnings and Revenues Beat Estimates,1,Bullish,1,Bullish,0.005746650043874979,0.9805179834365845,0.013735407032072544,0.9805179834365845
+792,"The FJ Cruiser was not as popular as it is now when it was first released. So, where's all the hype coming from, anâ¦ https://t.co/xI9KBFtSfj",2,Neutral,2,Neutral,0.4582730829715729,0.02597206085920334,0.5157548785209656,0.5157548785209656
+794,SES shares tumble 20% after FCC chairman voices support for public airwaves sale,0,Bearish,0,Bearish,0.9996392726898193,6.001906149322167e-05,0.0003007095365319401,0.9996392726898193
+795,BREAKING NEWS: AccendoWave Digital Drug Opioid Alternative Releases Home-Use Product https://t.co/O89txp8upn https://t.co/FlW06XoXQV,2,Neutral,2,Neutral,0.001641552778892219,0.003399644745513797,0.9949588179588318,0.9949588179588318
+796,"In this #CNBCClassic clip, Jeff Bezos explained his ambitious vision for Amazon in a 1999 interview: Thereâs no guâ¦ https://t.co/mxAWKJvdVb",2,Neutral,2,Neutral,0.0005023142439313233,0.00020381546346470714,0.9992938041687012,0.9992938041687012
+799,CORRECT: Tapestry Q2 Coach sales up 2% to $1.27 bln; FactSet consensus $1.26 bln,1,Bullish,1,Bullish,0.0014831115258857608,0.9976303577423096,0.0008864653063938022,0.9976303577423096
+801,Here's what @ElonMusk's '200K' tweet is likely hinting at when it comes to the Tesla $TSLA Cybertruck https://t.co/6Me6AP1CCJ,2,Neutral,2,Neutral,0.0014117961982265115,0.00023348716786131263,0.9983547329902649,0.9983547329902649
+803,Europe's LNG imports expected to soar to 100 mln tonnes in 2020 #economy #MarketScreener https://t.co/qHpLYbUTlB https://t.co/MlQzA7HTc3,1,Bullish,1,Bullish,0.026547495275735855,0.9614802002906799,0.011972399428486824,0.9614802002906799
+804,Auto Expo 2020: JBM To Invest Rs 500 Crore In Electric Bus Business,2,Neutral,2,Neutral,7.019814074737951e-05,5.443043482955545e-05,0.9998753070831299,0.9998753070831299
+805,Blackstone CEO Steve Schwarzman says the virus could wipe $5 trillion from GDP https://t.co/Kj4fVW2dRC,0,Bearish,0,Bearish,0.9808030128479004,0.001895237946882844,0.01730174571275711,0.9808030128479004
+806,"UPDATE: U.S. stocks rose Friday, recovering after three consecutive session of losses https://t.co/Hb08wK457g byâ¦ https://t.co/FfDox2BqHt",1,Bullish,1,Bullish,0.0033769591245800257,0.9951300621032715,0.0014929319731891155,0.9951300621032715
+807,"Market Recap: Friday, Dec. 13",2,Neutral,2,Neutral,8.931542106438428e-05,7.922036456875503e-05,0.9998314380645752,0.9998314380645752
+808,Hong Kong Election: Pro-Democracy Candidates Surge Amid Record Turnout; Protest Organizer Wins Seat https://t.co/FWEg7QnzPJ,2,Neutral,2,Neutral,0.00928589329123497,0.1554219126701355,0.8352921605110168,0.8352921605110168
+809,National Grid : Agreement reached with the State of New York #NationalGrid #Stock #MarketScreenerâ¦ https://t.co/5m4ohx0oGk,2,Neutral,2,Neutral,0.0006736350478604436,0.0022802073508501053,0.997046172618866,0.997046172618866
+810,Tesla stock price target raised to $290 from $260 at Deutsche Bank,1,Bullish,1,Bullish,0.00030170162790454924,0.9995417594909668,0.0001565705897519365,0.9995417594909668
+811,Why Kroger Could Deliver Stock Price Growth,1,Bullish,1,Bullish,0.002248109085485339,0.9958529472351074,0.00189893355127424,0.9958529472351074
+812,Amazon Employees Surge Toward 1 Million,1,Bullish,1,Bullish,0.0005052489577792585,0.9992626309394836,0.00023215962573885918,0.9992626309394836
+813,Norway considers attending OPEC+ meeting on April 9 - oil ministry #AkerBP #Stock #MarketScreenerâ¦ https://t.co/KAvIemdXpl,2,Neutral,2,Neutral,0.0007196376682259142,0.0012093536788597703,0.998071014881134,0.998071014881134
+814,"US President Trump's reelection campaign ran more than 6,000 Facebook ads mentioning impeachment during the first wâ¦ https://t.co/9iTISFVTtt",2,Neutral,2,Neutral,0.0022440138272941113,0.0013552488526329398,0.9964007139205933,0.9964007139205933
+815,"Facebook : She Argued Facebook Is a Monopoly. To Her Surprise, People Listened. #Facebook #Stock #MarketScreenerâ¦ https://t.co/6T4Ev2TpEU",2,Neutral,2,Neutral,0.0015920809237286448,0.0016608663136139512,0.9967470169067383,0.9967470169067383
+816,$AQST (+13.1% pre) Aquestive Therapeutics (AQST) Confirms FDA Approval for Exservan Oral Film - SI https://t.co/v1NbWysR1p,1,Bullish,1,Bullish,0.0009101605392061174,0.9987540245056152,0.0003357803507242352,0.9987540245056152
+817,"FT editor David Gardner reviews the book 'The Killing in the Consulateâ, about the death of Saudi journalist Jamalâ¦ https://t.co/w9vCWQBAr9",2,Neutral,2,Neutral,0.0001634114159969613,5.532569412025623e-05,0.9997813105583191,0.9997813105583191
+818,Senate approves defense policy bill that includes Trump's Space Force,2,Neutral,2,Neutral,8.779842028161511e-05,0.00011584883031900972,0.9997963309288025,0.9997963309288025
+819,$PRTA - Prothena (PRTA) Investor Presentation - Slideshow. Read more and get updates on any stock!â¦ https://t.co/sUP1UgLUhE,2,Neutral,2,Neutral,1.477608566347044e-05,2.0682697140728123e-05,0.9999645948410034,0.9999645948410034
+820,ADMA Biologics down 9% premarket after pricing equity offering,0,Bearish,0,Bearish,0.999829888343811,4.4596250518225133e-05,0.00012552292901091278,0.999829888343811
+821,I have some advice for anyone who dares to write about the latest Social Security cost-of-living adjustment: Donât. https://t.co/MFOCzn0Whx,2,Neutral,2,Neutral,0.0009205311071127653,0.0008800241048447788,0.998199462890625,0.998199462890625
+823,$SINT volume Alert !! Big buy blocks. Momentum is coming back to this name. First pivot 50c https://t.co/MU2uyO5JFT,1,Bullish,1,Bullish,0.003124183975160122,0.9929441809654236,0.003931569401174784,0.9929441809654236
+824,What Is Evoqua Water Technologies Corp.'s (NYSE:AQUA) Share Price Doing?,2,Neutral,2,Neutral,0.0011091952910646796,0.0006024819449521601,0.9982883334159851,0.9982883334159851
+825,Ocasio-Cortez smacks Trump with her political resume after the president calls out the âDo Nothing Democratsâ https://t.co/1DDdgmocj6,2,Neutral,2,Neutral,0.0008294679573737085,0.0002604631008580327,0.9989100694656372,0.9989100694656372
+826,"From Farms to Silicon Valley, U.S. Businesses Stand to Gain From USMCA -- Update #economy #MarketScreenerâ¦ https://t.co/fpxwDcClZh",2,Neutral,2,Neutral,0.005863068625330925,0.008856464177370071,0.985280454158783,0.985280454158783
+827,"Capital Environment : (1) RESIGNATION OF EXECUTIVE DIRECTOR, CHANGE OF THE CHAIRMAN, AUTHO... #CapitalEnvironmentâ¦ https://t.co/govFU110Ti",2,Neutral,2,Neutral,0.000367799453670159,0.0003423058660700917,0.999289870262146,0.999289870262146
+828,NXP Semi will resume buybacks,1,Bullish,1,Bullish,0.0019609902519732714,0.9966008067131042,0.0014382513472810388,0.9966008067131042
+829,The Best-Performing CEFs YTD - November 2019. Get more info on Seeking Alpha: https://t.co/IBsfyvpVtd #markets #business #trading,2,Neutral,2,Neutral,0.0001255846000276506,0.000179010268766433,0.9996954202651978,0.9996954202651978
+830,"Tonight's business headlines: âª US markets close higher, but post weekly losses âª Tesla shares down after unveilinâ¦ https://t.co/xdMDJAj4XI",2,Neutral,2,Neutral,0.18505358695983887,0.009321372956037521,0.8056250810623169,0.8056250810623169
+831,Could The Occidental Petroleum Corporation (NYSE:OXY) Ownership Structure Tell Us Something Useful?,2,Neutral,2,Neutral,0.0005452847108244896,0.00016148727445397526,0.9992932081222534,0.9992932081222534
+832,Fortinet stock price target raised to $120 from $110 at Monness Crespi Hardt,1,Bullish,1,Bullish,0.00023810532002244145,0.9996622800827026,9.959671297110617e-05,0.9996622800827026
+833,Royal Gold (NASDAQ:RGLD) Shareholders Booked A 68% Gain In The Last Five Years,1,Bullish,1,Bullish,0.0037610549479722977,0.9945026636123657,0.0017363440711051226,0.9945026636123657
+834,G-7 finance chiefs urge oil-producing nations to support international efforts to stabilize world markets rocked byâ¦ https://t.co/u3kRmEz3qn,2,Neutral,2,Neutral,0.004424605052918196,0.0048419455997645855,0.9907333850860596,0.9907333850860596
+835,Wall Street Breakfast: Merger Monday. Get more updates here: https://t.co/jl4re63yZs #investing #markets #business,2,Neutral,2,Neutral,0.00015973510744515806,0.00031490522087551653,0.9995254278182983,0.9995254278182983
+836,$MLCO - Melco Resorts Finance proposes senior notes offering https://t.co/IBZwYzx7QQ,2,Neutral,2,Neutral,0.00014316262968350202,0.00010782773460960016,0.9997490048408508,0.9997490048408508
+837,WPT Industrial REIT declares $0.0633 dividend,2,Neutral,2,Neutral,9.689312719274312e-05,1.8085271221934818e-05,0.9998849630355835,0.9998849630355835
+838,"Get LIVE #market #analysis, exclusive #investingideas, #earnings coverage and more. Take a #FreeTrial of Briefing Iâ¦ https://t.co/wwze4v8e0y",2,Neutral,2,Neutral,0.00017204161849804223,0.00013398946612142026,0.9996939897537231,0.9996939897537231
+839,Why Fiverr Stock Rose 11% in January,1,Bullish,1,Bullish,0.0008237049332819879,0.9987959861755371,0.00038035260513424873,0.9987959861755371
+840,$RILY - B. Riley offers $50M of senior notes https://t.co/p8Kqe6nSTR,2,Neutral,2,Neutral,0.0007284692255780101,0.0003245047410018742,0.9989470839500427,0.9989470839500427
+841,Modern Monetary Theory: It's an unconventional economic theory made popular by progressive politicians Alexandria Oâ¦ https://t.co/Ymg8sMShOj,2,Neutral,2,Neutral,0.0006752315675839782,0.0005578382406383753,0.9987668991088867,0.9987668991088867
+842,"Gold's haven reputation took a serious beating, with prices tumbling as investors sought to free up cash amid a broâ¦ https://t.co/59kM1nufrI",0,Bearish,0,Bearish,0.9988802075386047,0.00026238395366817713,0.000857377250213176,0.9988802075386047
+843,Here is What Hedge Funds Think About Wipro Limited (WIT),2,Neutral,2,Neutral,0.00047332755639217794,0.00012382888235151768,0.9994028806686401,0.9994028806686401
+845,$SCANX: Large cap notable movers of interest -- Splunk (SPLK) rises following upside third quarter press https://t.co/zPhoZLuGsK,1,Bullish,1,Bullish,0.0018560101743787527,0.9967984557151794,0.0013456380693241954,0.9967984557151794
+846,How is Salesforce $CRM putting its Tableau and Mulesoft acquisitions to work? #DF19 https://t.co/7AyperfESO,2,Neutral,2,Neutral,0.002169391606003046,0.0013987234560772777,0.996431827545166,0.996431827545166
+847,Trump Fed nominee Shelton hits bipartisan skepticism in Senate hearing #economy #MarketScreenerâ¦ https://t.co/4n59nUtFe3,2,Neutral,2,Neutral,0.0004652109055314213,0.0004383335472084582,0.9990965127944946,0.9990965127944946
+848,Seazen : CONTINUING CONNECTED TRANSACTIONS 2020 SERVICES FRAMEWORK AGREEMENT #Seazen #Stock #MarketScreenerâ¦ https://t.co/61yitLx18a,2,Neutral,2,Neutral,0.00010034422302851453,7.478628685930744e-05,0.9998249411582947,0.9998249411582947
+849,Bristol-Myers +3% premarket on Q4 beat,1,Bullish,1,Bullish,0.0006685708067379892,0.999121367931366,0.00021010525233577937,0.999121367931366
+851,Business growth in Dubai stalled while jobs disappeared at the fastest pace in at least a decade in the latest signâ¦ https://t.co/pIYpJqwLGv,0,Bearish,0,Bearish,0.9988425970077515,0.00042957652476616204,0.000727775739505887,0.9988425970077515
+852,Weâve made our daily UK election live updates free to read so everyone â not only FT subscribers â can keep up withâ¦ https://t.co/eJrXGnK5hp,2,Neutral,2,Neutral,0.00040778244147077203,0.0003053606196772307,0.9992868304252625,0.9992868304252625
+855,Comtech Telecommunications Corp. Awarded $1.2 Million Contract for Military Ka-band TWTAs,2,Neutral,2,Neutral,0.00208606687374413,0.006651256699115038,0.991262674331665,0.991262674331665
+856,"When Chinese Consumers Stay Home, the World's Retailers Take Hit",0,Bearish,0,Bearish,0.9929901361465454,0.0005628392682410777,0.0064470199868083,0.9929901361465454
+857,Paul Wolfowitz's NYT Op-Ed: Blatherings Of A Sanctimonious Sicko https://t.co/LkTRWvBgTh,2,Neutral,2,Neutral,0.00031423589098267257,0.00022148383141029626,0.9994643330574036,0.9994643330574036
+858,US-Israel Defense Treaty Gaining Steam After Pompeo & Netanyahu Meet https://t.co/0XrSTij9l0,2,Neutral,2,Neutral,0.0007421603077091277,0.0022219514939934015,0.9970358610153198,0.9970358610153198
+859,Should You Be Pleased About The CEO Pay At American States Water Company's (NYSE:AWR),2,Neutral,2,Neutral,0.0001860586053226143,0.00012565076758619398,0.9996882677078247,0.9996882677078247
+861,GE names Maersk executive as new chief financial officer https://t.co/kMCL6PUoGp,2,Neutral,2,Neutral,0.00033647273085080087,0.00017306377412751317,0.99949049949646,0.99949049949646
+862,Gold Falls After Strong Jobless Report #Silver #Stock #MarketScreener https://t.co/Oc9YF2qFrI https://t.co/02RqJbTnaD,0,Bearish,0,Bearish,0.9996010661125183,0.00017654566909186542,0.0002223546034656465,0.9996010661125183
+863,While market strain triggered by the coronavirus pandemic has eased since the Federal Reserve's historic interventiâ¦ https://t.co/ZFb0jzOH7h,1,Bullish,1,Bullish,0.003871888155117631,0.9937077760696411,0.0024203259963542223,0.9937077760696411
+864,Engineers at @MIT have created a new way to remove carbon dioxide from the air https://t.co/4rzZqzTvEm,2,Neutral,2,Neutral,0.0006401592399924994,0.0010630538454279304,0.9982967972755432,0.9982967972755432
+865,Philip Morris International Inc. Reports 2019 Fourth-Quarter & Full-Year Results,2,Neutral,2,Neutral,4.094074392924085e-05,4.5680455514229834e-05,0.9999133348464966,0.9999133348464966
+868,Agati Fund : NTA Estimate - $0.1975 #AgatiFund #Stock #MarketScreener https://t.co/3FKyrRUzCE https://t.co/6Zu7vETcrU,2,Neutral,2,Neutral,0.001333070918917656,0.0010394572746008635,0.9976274371147156,0.9976274371147156
+869,Kohl's warning sends J.C. Penney and Dillard's lower,0,Bearish,0,Bearish,0.9914058446884155,0.0010838138405233622,0.007510341703891754,0.9914058446884155
+870,Indonesia sells Asia's first 50-year dollar bond to fight pandemic https://t.co/HSBDioxRGc https://t.co/82tVKQHUxw,2,Neutral,2,Neutral,0.003240452613681555,0.001280520111322403,0.9954789876937866,0.9954789876937866
+871,Bloomberg Daybreak: Middle East Full Show (12/15/2019),2,Neutral,2,Neutral,0.0003282547404523939,0.00027014120132662356,0.9994015693664551,0.9994015693664551
+872,$VIVE - Viveve Medical prices unit offering https://t.co/10BKUtJ8Cy,2,Neutral,2,Neutral,0.001261097495444119,0.004160282667726278,0.9945785999298096,0.9945785999298096
+873,Canadian consumers filed the largest number of insolvencies in almost a decade at the end of last year https://t.co/ge8vHcmvBX,0,Bearish,0,Bearish,0.9366402626037598,0.008105210959911346,0.05525447800755501,0.9366402626037598
+874,"Korea Hits New Record of 300,000 Industrial Robots in Operation â IFR Reports",2,Neutral,2,Neutral,0.01834709942340851,0.03604990988969803,0.9456030130386353,0.9456030130386353
+875,"Tallgrass Energy CEO Dehaemers departs, succeeded by Moler",2,Neutral,2,Neutral,0.0005863964324817061,0.00013012222188990563,0.999283492565155,0.999283492565155
+876,This is the largest ever deal in the luxury sector https://t.co/lAkl0AYD8g,2,Neutral,2,Neutral,0.0004880415217485279,0.0006590059492737055,0.9988529682159424,0.9988529682159424
+877,"Becton Dickinson Earnings, Revenue Beat in Q1",1,Bullish,1,Bullish,0.006580145563930273,0.9842851758003235,0.00913455244153738,0.9842851758003235
+878,"ð°ðµ North Korean leader Kim Jong Un has supervised military drills.
+
+We urge North Korea to cease all military actiâ¦ https://t.co/5FSTMEAGXq",2,Neutral,2,Neutral,0.00029120902763679624,0.0007461237837560475,0.9989626407623291,0.9989626407623291
+880,$LASR - nLIGHT (LASR) Investor Presentation - Slideshow. Subscribe to Seeking Alpha for more:â¦ https://t.co/08AyOeTPAD,2,Neutral,2,Neutral,7.073649157973705e-06,5.7120823839795776e-06,0.9999872446060181,0.9999872446060181
+881,The Fed Says 'Helicopter Money' Is Here. https://t.co/JRqmtSRtbf #stocks #business #stockmarket,2,Neutral,2,Neutral,0.0010900653433054686,0.0015441117575392127,0.9973658919334412,0.9973658919334412
+882,"I donât blame them for refusing to cook a Wagyu steak well done. In fact, I applaud that. If you donât like it thenâ¦ https://t.co/SOTqpEwBSh",2,Neutral,2,Neutral,0.0012510769302025437,0.0010560195660218596,0.9976929426193237,0.9976929426193237
+883,Arrow Electronics Forges New Global IoT Solutions Collaboration with Microshare Inc.,2,Neutral,2,Neutral,0.004921611864119768,0.05132618546485901,0.9437522292137146,0.9437522292137146
+884,Advanced Drainage Systems declares $0.09 dividend,2,Neutral,2,Neutral,6.220668728929013e-05,4.2607054638210684e-05,0.9998952150344849,0.9998952150344849
+885,House passes first part of spending package to avert shutdown,2,Neutral,2,Neutral,0.0007246969034895301,0.0003683546674437821,0.9989069700241089,0.9989069700241089
+886,This former top Obama official says one silver bullet would raise $500 billion in personal-income tax https://t.co/DgBplbAdCO,2,Neutral,2,Neutral,0.0019288341281935573,0.001035884371958673,0.9970352649688721,0.9970352649688721
+887,$VRNS - Varonis -6% on wider-than-expected loss forecast https://t.co/bI9ePk3ikY,0,Bearish,0,Bearish,0.9995681643486023,0.00022824657207820565,0.00020368951663840562,0.9995681643486023
+888,IRAQ DIDN'T AGREE TO MORE OIL CUTS DUE TO SAUDI PRESSURE: MIN,2,Neutral,2,Neutral,0.07984169572591782,0.010695592500269413,0.9094627499580383,0.9094627499580383
+889,"'There is more to Europe than the EU.' On #BrexitDay Louis de BerniÃÂ¨res, author of Captain Corelli's Mandolin, offeÃ¢â¬Â¦ https://t.co/d107tKjLZD",2,Neutral,2,Neutral,0.000492227147333324,0.00020775856683030725,0.9993000030517578,0.9993000030517578
+890,Gonna be a bad look when the anchors are all wearing surgical masks,2,Neutral,2,Neutral,0.0023510463070124388,3.297647344879806e-05,0.9976160526275635,0.9976160526275635
+891,Il Governo etiope e il gruppo Alibaba siglano accordi per la creazione di un polo eWTP in Etiopia,2,Neutral,2,Neutral,0.00029300793539732695,5.281760968500748e-05,0.9996541738510132,0.9996541738510132
+892,"What You Must Know About Applied Optoelectronics, Inc.'s (NASDAQ:AAOI) Beta Value",2,Neutral,2,Neutral,0.00025088677648454905,0.0004035724268760532,0.9993454813957214,0.9993454813957214
+893,"Tell your parents not to get their opinions on Facebook, @AOC says https://t.co/lohvEBe93n",2,Neutral,2,Neutral,0.0007148737204261124,0.00035149333416484296,0.9989336133003235,0.9989336133003235
+894,Macyâs Slumps as Website Hack Adds to Department-Store Malaise,0,Bearish,0,Bearish,0.996955394744873,0.00039159556035883725,0.00265304883942008,0.996955394744873
+895,Toronto-Dominion to Own 13% Charles Schwab Stake After Ameritrade Deal #TorontoDominionBank #Stock #MarketScreenerâ¦ https://t.co/8fB54Aedy3,2,Neutral,2,Neutral,0.001046092831529677,0.0007450177799910307,0.9982088804244995,0.9982088804244995
+897,Crown Prince Mohammed bin Salman is reportedly unhappy with progress on the country's move away from oil https://t.co/MQN6G8XlSt,2,Neutral,2,Neutral,0.03924018517136574,0.0011307757813483477,0.9596290588378906,0.9596290588378906
+898,Committee Of Secretaries On Telecom Relief Package Said To Have Disbanded,2,Neutral,2,Neutral,0.0005466857110150158,0.00012997871090192348,0.9993233680725098,0.9993233680725098
+899,Helicopter money is a valid tool for central bankers https://t.co/M0nfifXDoS,2,Neutral,2,Neutral,0.0006103337509557605,0.001460434403270483,0.9979292154312134,0.9979292154312134
+900,Is Orthofix International NV (OFIX) Going to Burn These Hedge Funds?,2,Neutral,2,Neutral,0.0007306248298846185,0.00010383703192928806,0.9991655349731445,0.9991655349731445
+901,$MCCHF - McChip Resources declares C$0.02 dividend https://t.co/FtHfNGnyZj,2,Neutral,2,Neutral,9.572345879860222e-05,1.755075754772406e-05,0.9998867511749268,0.9998867511749268
+902,Estee Lauder to acquire shares of Dr. Jart+ it does not already own,2,Neutral,2,Neutral,0.0028802782762795687,0.001569223590195179,0.9955505132675171,0.9955505132675171
+903,Axonics launches $110M equity offering; shares down 3% after hours,0,Bearish,0,Bearish,0.9988443851470947,0.00020245865744072944,0.0009531838586553931,0.9988443851470947
+904,National Oilwell Varco EPS of -$1.01,0,Bearish,0,Bearish,0.9937912821769714,0.0011515087680891156,0.005057237111032009,0.9937912821769714
+905,$NSP - Insperity Q4 2019 Earnings Preview https://t.co/bhbi9TFrFi,2,Neutral,2,Neutral,9.70934343058616e-06,1.5660918506910093e-05,0.9999746084213257,0.9999746084213257
+906,$SQ - Square's Stock May Retest Its Recent Lows. https://t.co/1hlns1ZopL #trading #stockmarket #markets,0,Bearish,0,Bearish,0.7374815940856934,0.01457742415368557,0.2479410469532013,0.7374815940856934
+908,Attorney General William Barr just announced the U.S. has indicted 4 Chinese hackers in connection with the 2017 Eqâ¦ https://t.co/wBtknfTnOQ,2,Neutral,2,Neutral,0.0019263477297499776,0.00031546593527309597,0.9977582097053528,0.9977582097053528
+909,"Fed warranty: will keep rates unchanged until 2021, or until there is a 5% drop in stocks, whichever comes first",2,Neutral,2,Neutral,0.0042579094879329205,0.002981107449159026,0.9927610158920288,0.9927610158920288
+910,Proto Labs EPS and revenue in-line,1,Bullish,1,Bullish,0.0010483841178938746,0.9975685477256775,0.0013830827083438635,0.9975685477256775
+911,Charles Schwab : Investment Advisers Fear Losing Out in a Schwab-TD Ameritrade Deal #CharlesSchwab #Stockâ¦ https://t.co/Z3dRZSdYgb,2,Neutral,2,Neutral,0.0033937382977455854,0.0006960497121326625,0.9959101676940918,0.9959101676940918
+912,Sizing Up the Fed's Historic Coronavirus Crisis Intervention #Samp;P500 #economy #MarketScreenerâ¦ https://t.co/o4qzaZPUeG,2,Neutral,2,Neutral,0.005160610657185316,0.0016127877170220017,0.9932265877723694,0.9932265877723694
+913,Trump Fed nominee faces bi-partisan doubters #economy #MarketScreener https://t.co/Iup5iHbuWL https://t.co/c7tMWwk3md,2,Neutral,2,Neutral,0.0007006140076555312,0.00032622978324070573,0.9989731311798096,0.9989731311798096
+914,"$WTS - Watts Water Technologies EPS beats by $0.02, beats on revenue https://t.co/kuHw2KxiDC",1,Bullish,1,Bullish,0.0005417535430751741,0.9987402558326721,0.0007180851534940302,0.9987402558326721
+915,"ð¨ð± Clashes erupt in Santiago during ongoing demonstrations in Chile.
+
+President PiÃ±era has acknowledged that excessâ¦ https://t.co/600Dqfgodl",2,Neutral,2,Neutral,0.0003881809825543314,0.0005689298850484192,0.999042809009552,0.999042809009552
+917,Highlight: @EdwardsLifesci CEO Mike Mussallem and @justcapital_ CEO Martin Whittaker on stakeholder capitalism: https://t.co/IXNacCuYAl,2,Neutral,2,Neutral,0.00046506107901223004,0.00013329680950846523,0.9994016885757446,0.9994016885757446
+918,Highlight: @heidi_chung on Uberâs safety report: Uber did come out and disclose these actual figures publiclyâ¦ butâ¦ https://t.co/KJUEs3vDoA,2,Neutral,2,Neutral,0.0025474997237324715,0.0010205797152593732,0.9964319467544556,0.9964319467544556
+919,Thiam gets the boot at Credit Suisse,2,Neutral,2,Neutral,0.18468376994132996,0.0009320976678282022,0.8143841624259949,0.8143841624259949
+920,"Vir Biotechnology EPS misses by $0.52, misses on revenue",0,Bearish,0,Bearish,0.9998176693916321,3.395798921701498e-05,0.00014838975039310753,0.9998176693916321
+922,Formula Systems reports Q3 results,2,Neutral,2,Neutral,3.383897606568098e-08,3.1196276673028933e-09,1.0,1.0
+923,The 5 Best States to Retire in 2020,2,Neutral,2,Neutral,1.3865711480320897e-05,3.870487489621155e-05,0.9999474287033081,0.9999474287033081
+924,"$ABEO as expected, keeps going higher. Cantor doubled its price target this morning to $4",1,Bullish,1,Bullish,0.0003368723264429718,0.9993017911911011,0.00036126255872659385,0.9993017911911011
+925,3 ETFs to Consider as Fed is on Mortgage Bond Buying Spree,2,Neutral,2,Neutral,6.37436896795407e-05,3.1228435545926914e-05,0.999904990196228,0.999904990196228
+928,Alliance Data taps new CEO from Citi,2,Neutral,2,Neutral,0.0007162838592194021,0.00016863193013705313,0.9991150498390198,0.9991150498390198
+929,$NM - Navios Maritime reports Q3 results https://t.co/SvlqrTs9Wq,2,Neutral,2,Neutral,3.22158302878961e-05,2.9485645427484997e-05,0.9999382495880127,0.9999382495880127
+930,"Hong Kong Protesters Get A Win, Setting Stage For Foggy China Relations",2,Neutral,2,Neutral,0.00020497143850661814,8.710929250810295e-05,0.9997078776359558,0.9997078776359558
+931,"A Rising Share Price Has Us Looking Closely At Fortinet, Inc.'s (NASDAQ:FTNT) P/E Ratio",1,Bullish,1,Bullish,0.001910753664560616,0.996921718120575,0.0011674846755340695,0.996921718120575
+932,Target Hospitality Corp. Just Missed EPS By 34%: Here's What Analysts Think Will Happen Next,0,Bearish,0,Bearish,0.9993903636932373,0.0001626191515242681,0.0004470029380172491,0.9993903636932373
+933,"Karvy Case: SAT Asks SEBI To Hear Axis Bankâs Plea, Pass Order Within 15 Days",2,Neutral,2,Neutral,0.00180149229709059,0.000848480558488518,0.9973499774932861,0.9973499774932861
+934,"Fannie Mae, Freddie Mac downgraded to sell, as analyst cites 'unintended consequences' of CARES Act https://t.co/NhiYwphBQd",0,Bearish,0,Bearish,0.9994895458221436,0.00020024829427711666,0.00031012785620987415,0.9994895458221436
+935,CytomX +3.7% as Guggenheim starts at Buy,1,Bullish,1,Bullish,0.00030247209360823035,0.9995726943016052,0.00012488044740166515,0.9995726943016052
+936,Missouri American Water Wins Third Place in St. Louis Green Business Challenge https://t.co/B7FyUEloWx https://t.co/YDMkumghDs,2,Neutral,2,Neutral,0.005915305111557245,0.01369620580226183,0.9803885221481323,0.9803885221481323
+937,"Bristol-Myers Squibb reports 33% jump in Q4 revenue, Opdivo sales fall 2%",2,Neutral,2,Neutral,0.021733874455094337,0.11584925651550293,0.8624168634414673,0.8624168634414673
+939,The World Has Gone Bananas https://t.co/EG73o9djiT,2,Neutral,2,Neutral,0.0008020178065635264,0.004834911786019802,0.9943630695343018,0.9943630695343018
+940,$WWE - WWE -3.1% amid two-notch cut at Wells Fargo https://t.co/bXmi4CknQL,0,Bearish,0,Bearish,0.9979515671730042,0.0003910243103746325,0.001657477580010891,0.9979515671730042
+941,Transat reports Q4 results,2,Neutral,2,Neutral,5.541158429878124e-07,9.053045602058774e-08,0.9999994039535522,0.9999994039535522
+942,Foot On The Gas. Sign up for updates on Seeking Alpha! https://t.co/uCBHO0pNbU #stocks #economy #finance,2,Neutral,2,Neutral,0.001408589188940823,0.0011470085009932518,0.9974443912506104,0.9974443912506104
+943,"Dow up 110 points, 0.4%, at open",1,Bullish,1,Bullish,0.0004724323807749897,0.9993404746055603,0.0001870686828624457,0.9993404746055603
+944,Beware the dawn of the corporate dead https://t.co/b2fYLGY3BI,2,Neutral,2,Neutral,0.0016287927282974124,0.00020637884153984487,0.9981648325920105,0.9981648325920105
+945,"As vegan burgers get more popular, the beef industry is battling to clean up its image as a greenhouse-gas-emittingâ¦ https://t.co/WS1r4JQM1b",2,Neutral,2,Neutral,0.0054503390565514565,0.002564798342064023,0.9919849038124084,0.9919849038124084
+946,"Mahathir Shows No Sign of Handover of Power, Choice of Successor",2,Neutral,2,Neutral,0.0001703498710412532,0.0001423299399903044,0.9996873140335083,0.9996873140335083
+948,Some Nucor (NYSE:NUE) Shareholders Are Down 11%,0,Bearish,0,Bearish,0.9989688396453857,0.0004372376133687794,0.0005938847898505628,0.9989688396453857
+950,National Cattlemen Beef Association of United St : Kansas Corn Encouraged by Bipartisan Ef... #economyâ¦ https://t.co/YFY2qzqpWw,2,Neutral,2,Neutral,0.000822853238787502,0.0009708409197628498,0.9982062578201294,0.9982062578201294
+951,Used Vehicle Market Softens in October as Wholesale Volume Spikes,2,Neutral,2,Neutral,0.07564802467823029,0.2379184365272522,0.6864335536956787,0.6864335536956787
+952,"Amazon Invests Over Rs 2,500 Crore Into Amazon Seller Services, Amazon Data Services India",2,Neutral,2,Neutral,0.00250371266156435,0.0013938675401732326,0.9961024522781372,0.9961024522781372
+953,Endonovo up 35% on evaluations of SofPulse in orthopedic surgeries,1,Bullish,1,Bullish,0.0004234580264892429,0.9994563460350037,0.00012026277545373887,0.9994563460350037
+954,"No 'phase two' U.S.-China deal on the horizon, officials say #economy #MarketScreener https://t.co/WdiEAaZ17F https://t.co/CI7AVxHcTl",2,Neutral,2,Neutral,0.003201482817530632,0.011745747178792953,0.985052764415741,0.985052764415741
+955,UNESCO United Nations Educational Scientific an : Launch of the 2019 SDG 4 Data Digest #UNESCO #economyâ¦ https://t.co/EkNi6jX24I,2,Neutral,2,Neutral,0.00011221411114092916,0.00013233633944764733,0.9997554421424866,0.9997554421424866
+956,Newron nabs RPD tag in U.S. for sarizotan for Rett syndrome,2,Neutral,2,Neutral,0.2223023921251297,0.08896135538816452,0.6887362599372864,0.6887362599372864
+957,CVS Health stock price target raised to $90 from $85 at SunTrust RH,1,Bullish,1,Bullish,0.00025963017833419144,0.9996395111083984,0.00010083206871058792,0.9996395111083984
+958,"Billionaire Investor Bill Ackman Trims Stake In Chipotle, But Is Still Betting Big On Burritos With 5% Stake",2,Neutral,2,Neutral,0.0022524124942719936,0.00044587734737433493,0.9973016977310181,0.9973016977310181
+959,$LB - MKM Partners puts a number on Victoria's Secret https://t.co/VSzHLqLBgE,2,Neutral,2,Neutral,0.00041566634899936616,0.0003029739309567958,0.9992813467979431,0.9992813467979431
+960,Court dismisses Democratic lawmakers' emoluments lawsuit against Trump,2,Neutral,2,Neutral,0.0038273229729384184,0.00011392326996428892,0.9960588216781616,0.9960588216781616
+961,WATCH: Dow drops 500 points as worries grow about the economic impact of the coronavirus. https://t.co/99uEAXIHI7,0,Bearish,0,Bearish,0.9996434450149536,0.0001416663872078061,0.00021482654847204685,0.9996434450149536
+962,Here's the latest on the 2020 presidential race and what to watch today https://t.co/bqcNCYePt3,2,Neutral,2,Neutral,7.321176963159814e-05,6.647400005022064e-05,0.9998602867126465,0.9998602867126465
+964,USDA United States Department of Agriculture : Secretary Perdue Statement on USMCA Agreement #USDA #economyâ¦ https://t.co/1g4vKSv0Bu,2,Neutral,2,Neutral,0.000158458758960478,0.00014189354260452092,0.9996997117996216,0.9996997117996216
+966,"L&T, IdeaForge Sign Pact For Unmanned Systems",2,Neutral,2,Neutral,0.0019004985224455595,0.0004920077626593411,0.9976074695587158,0.9976074695587158
+967,Antares Pharma inks deal with Idorsia Pharma,2,Neutral,2,Neutral,0.0467655211687088,0.028378961607813835,0.9248555302619934,0.9248555302619934
+968,Jefferies warns on L Brands,0,Bearish,0,Bearish,0.9760910868644714,0.00037442665779963136,0.023534424602985382,0.9760910868644714
+969,Malaysia's Mahathir clarifies comments on AirAsia,2,Neutral,2,Neutral,0.00011235027341172099,5.534904630621895e-05,0.999832272529602,0.999832272529602
+970,"We Urge People to Cut Ties With the Violence, Says Democratic Allianceâs Chow",2,Neutral,2,Neutral,0.0006522315088659525,0.0003409240744076669,0.9990069270133972,0.9990069270133972
+971,BlackRock Frontiers Investment Trust : Net Asset Value(s) #BlackRockFrontiersInvestmentTrust #Stock #MarketScreenerâ¦ https://t.co/Af8ZoSZ6Km,2,Neutral,2,Neutral,0.00029759149765595794,0.0004228115431033075,0.9992795586585999,0.9992795586585999
+972,"Most North Sea oil output 'in the money', but decom bill looms - Woodmac https://t.co/UwjPYh1W2z https://t.co/iEre6K0kRt",2,Neutral,2,Neutral,0.03979138284921646,0.038626689463853836,0.9215819239616394,0.9215819239616394
+974,"Taylor Swift sings 'Love Story', 'Blank Space' and more during American Music Awards performance https://t.co/qgEfuSM5xp",2,Neutral,2,Neutral,0.0004958991194143891,0.0004983744001947343,0.9990057349205017,0.9990057349205017
+976,"'We know that there will be very likely some effects on the United States', said the Fed chairman Jay Powell aboutâ¦ https://t.co/eAeVR5GUm2",2,Neutral,2,Neutral,0.0018974131671711802,0.0010507595725357533,0.9970518350601196,0.9970518350601196
+977,$XLF $FAS $FAZ - Fed revives TALF to bolster ABS market https://t.co/0rRXf0aqLC,2,Neutral,2,Neutral,0.0034211508464068174,0.012938405387103558,0.9836404919624329,0.9836404919624329
+978,$FLOW $APO - Apollo near deal to buy SPX Flow power unit for $700M - Bloomberg https://t.co/PQFYbjxRss,2,Neutral,2,Neutral,0.0021441334392875433,0.0036040127743035555,0.9942518472671509,0.9942518472671509
+979,"Franklin Electric Co., Inc. (FELE): Are Hedge Funds Right About This Stock?",2,Neutral,2,Neutral,0.0015552759869024158,0.0005707602831535041,0.9978740215301514,0.9978740215301514
+980,"Hedge Funds Are Dumping ImmunoGen, Inc. (IMGN)",0,Bearish,0,Bearish,0.999146580696106,0.0005056573427282274,0.0003477508435025811,0.999146580696106
+981,Qualcomm provides three-year targets,2,Neutral,2,Neutral,0.0018641481874510646,0.0012926919152960181,0.9968432188034058,0.9968432188034058
+982,"Airlines are facing their biggest ever peacetime crisis because of the coronavirus outbreak, and figures show thatâ¦ https://t.co/7RwQ0lB0eE",0,Bearish,0,Bearish,0.998082160949707,0.0003811763017438352,0.001536599826067686,0.998082160949707
+983,The stricken Bank of Jinzhou will unload $21 billion of assets to the central bank for less than a third of theirÃâÃÂ râ¦ https://t.co/xGuCP9lBlH,2,Neutral,2,Neutral,0.005247543100267649,0.0005435269558802247,0.9942089319229126,0.9942089319229126
+985,Titanium reports Q3 results,2,Neutral,2,Neutral,5.112919552630046e-06,9.496143889009545e-07,0.9999939203262329,0.9999939203262329
+986,Qualcomm Shares Dip Even After Q1 Earnings Beat Over China Coronavirus Outlook,0,Bearish,0,Bearish,0.9691172242164612,0.0022470855619758368,0.02863568626344204,0.9691172242164612
+987,$WRK - WestRock: Strong Tailwinds Supporting The Bull Thesis Despite COVID-19. https://t.co/3IHSi3Thle #trading #stockmarket #economy,1,Bullish,1,Bullish,0.006123524159193039,0.9879729747772217,0.005903508048504591,0.9879729747772217
+988,$ZGNX - FDA OKs Zogenix's Fintepla for Dravet syndrome https://t.co/vdfppIz1AN,1,Bullish,1,Bullish,0.0024583376944065094,0.9941571950912476,0.003384533803910017,0.9941571950912476
+990,"Qatar, the worldâs biggest supplier of liquefied natural gas, plans to boost output capacity by almost two thirds https://t.co/D8XYpUKFl6",1,Bullish,1,Bullish,0.002531093079596758,0.9933542013168335,0.004114761017262936,0.9933542013168335
+991,Natural Gas Price Prediction â Prices Tumble on Warm Weather Forecast,0,Bearish,0,Bearish,0.9896634221076965,0.0008664248744025826,0.009470174089074135,0.9896634221076965
+993,Nearly half of millennials withdraw from their 401K: Survey,2,Neutral,2,Neutral,0.008353588171303272,0.0008978019468486309,0.9907485842704773,0.9907485842704773
+994,$AFB - AllianceBernstein National Municipal Income declares $0.04581 dividend https://t.co/ZlFUm6tlsC,2,Neutral,2,Neutral,0.00023811111168470234,8.486033038934693e-05,0.9996770620346069,0.9996770620346069
+995,Sanofi eyes more EPS growth this year as it narrows focus,1,Bullish,1,Bullish,0.32764124870300293,0.37578707933425903,0.29657167196273804,0.37578707933425903
+996,Quaker Lobby Hails House Passage of Voting Rights Advancement Act https://t.co/qLaupi7SOJ https://t.co/evt6jNr12D,2,Neutral,2,Neutral,0.00036666603409685194,0.0004891466232948005,0.9991441965103149,0.9991441965103149
+997,Rosenberg to Leave Gluskin Sheff to Start Research Firm,2,Neutral,2,Neutral,0.0025611703749746084,0.001504656858742237,0.9959341287612915,0.9959341287612915
+998,"A year after arrest, Ghosn seeks trial date, access to evidence",2,Neutral,2,Neutral,0.002030091593042016,0.0004071987059433013,0.9975627660751343,0.9975627660751343
+999,Credit Suisse's incoming CEO Gottstein looking to grow balance sheet,2,Neutral,2,Neutral,0.002276806393638253,0.011500117368996143,0.986223042011261,0.986223042011261
+1000,Mountain Americaâs Free Adoption Event Saves Over 160 Pets at the Humane Society of Utah  https://t.co/SAkC0zncke,2,Neutral,2,Neutral,0.0008108816109597683,0.0006113157724030316,0.9985778331756592,0.9985778331756592
+1001,Illinois risk seeing its credit rating cut to junk https://t.co/ZXGEAkBeeM,0,Bearish,0,Bearish,0.9978811144828796,0.000722948054317385,0.0013959463685750961,0.9978811144828796
+1002,"3 Top-Performing Mutual Funds to Consider for Your Retirement Portfolio- February 06, 2020",2,Neutral,2,Neutral,2.2366430130205117e-05,5.6597778893774375e-05,0.9999210834503174,0.9999210834503174
+1003,Natural Gas Prices To Trade Sideways With Near-Term Weather Being Variable; Upside Potential Still On Table Longerâ¦ https://t.co/uM9WXN9x2M,2,Neutral,2,Neutral,0.03342746943235397,0.019022155553102493,0.9475502967834473,0.9475502967834473
+1005,Hear it: Elon Musk drops surprise song dubbed 'Don't Doubt ur Vibe' https://t.co/Epep80TEjm,2,Neutral,2,Neutral,0.0006263255490921438,0.0005668665980920196,0.9988068342208862,0.9988068342208862
+1006,Republican and Democratic senators urge Jerome Powell to defend the independence of the Fed https://t.co/JlY4ERQqBi,2,Neutral,2,Neutral,0.0015096167335286736,0.0006032431847415864,0.9978871941566467,0.9978871941566467
+1007,Inovalonâs stock renaissance returns CEO to the billionaire club https://t.co/0ebuLqVjDs,2,Neutral,2,Neutral,0.002075913129374385,0.0003960759786423296,0.9975280165672302,0.9975280165672302
+1008,Fed policymaker says more evidence needed for rate cut https://t.co/bmwrgql7zj,2,Neutral,2,Neutral,0.0007880228222347796,0.0008446123101748526,0.9983673691749573,0.9983673691749573
+1009,"#SpecialOffer: Just in time for the holidays! Take 33% OFF live, streaming #market #analysis & #investing #ideasâ¦ https://t.co/DqHU1PHvv5",2,Neutral,2,Neutral,0.0006770537002012134,0.001170897507108748,0.9981520771980286,0.9981520771980286
+1010,Should You Buy Columbia Banking System Inc (COLB)?,2,Neutral,2,Neutral,4.5640575990546495e-05,1.7875901903607883e-05,0.9999364614486694,0.9999364614486694
+1011,EEX European Energy Exchange : will introduce action limits on gas spot trading #EEX #economy #MarketScreenerâ¦ https://t.co/wZ45KViSj1,2,Neutral,2,Neutral,0.0005398481152951717,0.0010889581171795726,0.9983711838722229,0.9983711838722229
+1012,Pyxus International misses on revenue,0,Bearish,0,Bearish,0.9998310804367065,1.919768692459911e-05,0.00014974440273363143,0.9998310804367065
+1013,Chesapeake Energy's stock drops toward 25-year closing low as oil pulls back,0,Bearish,0,Bearish,0.9996641874313354,0.0001405504735885188,0.0001953480241354555,0.9996641874313354
+1014,"Bloomberg takes untested path to 2020, skipping key contests https://t.co/q6Kk8BhQul",2,Neutral,2,Neutral,0.007002165541052818,0.0013512081932276487,0.9916467070579529,0.9916467070579529
+1016,Terrible call against Cowboys bails out Patriots...never fails In NE,2,Neutral,2,Neutral,0.030037151649594307,0.0015700885560363531,0.9683927297592163,0.9683927297592163
+1017,"The Supreme Cannabis Company, Inc. Consensus Forecasts Have Become A Little Darker Since Its Latest Report",0,Bearish,0,Bearish,0.9562326073646545,0.001956537365913391,0.04181081801652908,0.9562326073646545
+1018,AT&T is raising its quarterly dividend to 52 cents a share,1,Bullish,1,Bullish,0.00029026714037172496,0.9993209838867188,0.0003886667836923152,0.9993209838867188
+1019,Hedge Funds Have Never Been More Bullish On Landec Corporation (LNDC),1,Bullish,1,Bullish,0.0030680024065077305,0.9964160919189453,0.000515874766279012,0.9964160919189453
+1020,"HollyFrontier OKs new $1 billion stock buyback program, to build new renewable diesel unit",1,Bullish,1,Bullish,0.0023328771349042654,0.9852259755134583,0.01244119182229042,0.9852259755134583
+1022,"Art And Cannabis Getting Extra: Crumb's $690,000 Weed Drawing, Keith Haring's Bongs Line",2,Neutral,2,Neutral,0.002236968604847789,0.0029254055116325617,0.9948375821113586,0.9948375821113586
+1023,Whatâs next for IPOs in 2020,2,Neutral,2,Neutral,0.0002706303494051099,0.00018000313139054924,0.9995493292808533,0.9995493292808533
+1024,"Macy's, Coty, American Express: Stocks That Defined the Week #economy #MarketScreener https://t.co/ZvTalqviQm https://t.co/JqxjqEhOFU",2,Neutral,2,Neutral,0.0013356059789657593,0.0017439599614590406,0.9969204664230347,0.9969204664230347
+1025,Just Energy (JE) Tops Q3 Earnings Estimates,1,Bullish,1,Bullish,0.003986150957643986,0.933795154094696,0.06221867352724075,0.933795154094696
+1026,InfraCap REIT Preferred ETF declares $0.12 dividend,2,Neutral,2,Neutral,9.511035023024306e-05,2.0698022126452997e-05,0.9998841285705566,0.9998841285705566
+1027,Mexico cuts its key rate for a 5th time amid economic stagnation https://t.co/HqpKAGRDt7 https://t.co/Jx7BHGv88y,2,Neutral,2,Neutral,0.38395678997039795,0.004089325666427612,0.6119539141654968,0.6119539141654968
+1028,NYSE direct listings proposal rejected by SEC https://t.co/iZofLwXuQX,2,Neutral,2,Neutral,0.0007648437167517841,0.00012080028682248667,0.9991143345832825,0.9991143345832825
+1029,$PBF - PBF Energy: A Mexican Billionaire Can't Get Enough Of This New Jersey Refiner. https://t.co/ouNSD0zChc #markets #finance #trading,2,Neutral,2,Neutral,0.042463939636945724,0.009444438852369785,0.9480915665626526,0.9480915665626526
+1030,Dow stock price target raised to $52 vs. $46 at BofA Merrill Lynch,1,Bullish,1,Bullish,0.00039077457040548325,0.9994031190872192,0.00020605298050213605,0.9994031190872192
+1031,HP Rejects Xerox's Buyout Offer: Experts Debate What's Next,2,Neutral,2,Neutral,0.001310960273258388,0.002990406472235918,0.9956986904144287,0.9956986904144287
+1032,Hereâs the latest on the 2020 presidential race and what to watch today ðºð¸ https://t.co/wTckp0G5yX,2,Neutral,2,Neutral,0.00011768073454732075,6.57662094454281e-05,0.9998165965080261,0.9998165965080261
+1034,Amarin down 6% after Vascepa-stoked run-up; lack of effect in plaque study,0,Bearish,0,Bearish,0.9998401403427124,5.157800478627905e-05,0.00010825921344803646,0.9998401403427124
+1036,Uber shares spike as company says it will reach a key profitability goal sooner than expected,1,Bullish,1,Bullish,0.0012078197905793786,0.9983271956443787,0.00046503072371706367,0.9983271956443787
+1037,Popeyes says firing 7 employees for Wisconsin brawl was only first step,2,Neutral,2,Neutral,0.0025038057938218117,0.00027323191170580685,0.9972230195999146,0.9972230195999146
+1038,Is Luckin Coffee (NASDAQ:LK) A Risky Investment?,2,Neutral,2,Neutral,0.0010322926100343466,0.00028991603176109493,0.9986777901649475,0.9986777901649475
+1039,Netflix downgraded to underperform at Wells Fargo,0,Bearish,0,Bearish,0.9998397827148438,9.183063230011612e-05,6.840660353191197e-05,0.9998397827148438
+1040,"Congress Mulls Reviving Tax Breaks Prized by ADM, Tesla, GM",2,Neutral,2,Neutral,0.000687665247824043,0.0008089431212283671,0.9985034465789795,0.9985034465789795
+1041,$VHC: VirnetX Holding confirms appeals court ruling; affirms infringement with respect to VPN-on-demand feature of.â¦ https://t.co/xCVXpaiLRE,2,Neutral,2,Neutral,0.0025074221193790436,0.0021712970919907093,0.9953213334083557,0.9953213334083557
+1042,"$ZGNX big move w/ news this morning, name with size Jan and Apr bullish call OI",1,Bullish,1,Bullish,0.001918735564686358,0.9967740178108215,0.0013071474386379123,0.9967740178108215
+1043,Victory Bancorp declares $0.025 dividend,2,Neutral,2,Neutral,0.00011083613208029419,3.0854964279569685e-05,0.9998582601547241,0.9998582601547241
+1044,"With so many enticing products out there, itâs easy to lose track of how youâre spending your money. Here are someâ¦ https://t.co/GbIvSPO6Wz",2,Neutral,2,Neutral,0.003172068390995264,0.0005884884740225971,0.996239423751831,0.996239423751831
+1045,Brian Chappatta on Trade Doubts in the Bond Market (Podcast),2,Neutral,2,Neutral,0.0005327053950168192,0.00033451837953180075,0.9991328120231628,0.9991328120231628
+1046,Helen of Troy started at outperform with $210 stock price target at Oppenheimer,1,Bullish,1,Bullish,0.0031958867330104113,0.995585560798645,0.0012184965889900923,0.995585560798645
+1047,How Trader Sentiment On Streaming Stocks Has Changed Since Disney+ Launch,2,Neutral,2,Neutral,0.0017741842893883586,0.0009743609698489308,0.9972514510154724,0.9972514510154724
+1048,Ethereum and Stellarâs Lumen Daily Tech Analysis â 18/11/19,2,Neutral,2,Neutral,0.0005230278475210071,0.00016291128122247756,0.9993140697479248,0.9993140697479248
+1049,NYC pension leader targets three utilities over emissions plans,2,Neutral,2,Neutral,0.0008225839701481164,0.00014756580640096217,0.9990298748016357,0.9990298748016357
+1050,"FLIR Systems to Release Fourth Quarter and Full Year 2019 Financial Results on Thursday, February 27, 2020",2,Neutral,2,Neutral,0.00014329269470181316,0.00021895479585509747,0.9996377229690552,0.9996377229690552
+1052,"Gold is going to $2,500, $3,000 an ounce: investment expert https://t.co/Kc41XEEQLH https://t.co/dyXrizEju8",1,Bullish,1,Bullish,0.024428796023130417,0.967552900314331,0.00801833812147379,0.967552900314331
+1053,"Bitcoin Cash ABC, EOS and Ethereum â Daily Tech Analysis â 15/12/19",2,Neutral,2,Neutral,0.0007666203309781849,0.00025396081036888063,0.998979389667511,0.998979389667511
+1054,It's rate decision day in Israel â here's what to expect https://t.co/FE4SB0Q1fQ https://t.co/6aRqBv5rZl,2,Neutral,2,Neutral,0.0005553534138016403,0.0004893345176242292,0.998955249786377,0.998955249786377
+1056,Do money woes leave you sleepless? Youâre not alone. Here are the money fears that keep people awake at night.â¦ https://t.co/56kJBsl625,2,Neutral,2,Neutral,0.0018440743442624807,0.0005986667238175869,0.9975572824478149,0.9975572824478149
+1057,GM and South Koreaâs LG Chem set $2.3 billion electric-vehicle-battery venture in Ohio. The joint venture is expectâ¦ https://t.co/px1loY3FYe,2,Neutral,2,Neutral,0.005839381832629442,0.0046406155452132225,0.9895199537277222,0.9895199537277222
+1059,Bank Indonesia : The Republic of Indonesia Issues USD4.3 Billion Notes through SEC-Registe... #BankIndonesiaâ¦ https://t.co/P1FoVdlj2k,2,Neutral,2,Neutral,0.0002326406684005633,0.00012309278827160597,0.9996442794799805,0.9996442794799805
+1060,Trump Budget Sets Up Clash With $4 Billion Cut for Warships,2,Neutral,2,Neutral,0.0020831578876823187,0.0025873975828289986,0.9953294992446899,0.9953294992446899
+1061,"$BA - Boeing plane skids off runway in Istanbul, killing one passengerÂ https://t.co/IBHUB8yLOO",2,Neutral,2,Neutral,0.006882344838231802,0.0006037991843186319,0.9925138354301453,0.9925138354301453
+1062,"Tyson Foods, Inc. First-Quarter Results Just Came Out: Here's What Analysts Are Forecasting For Next Year",2,Neutral,2,Neutral,0.007383357267826796,0.009564505890011787,0.983052134513855,0.983052134513855
+1063,RespimatÂ® re-usable inhaler wins 2020 Pharmapack Eco-Design Award,2,Neutral,2,Neutral,0.006857095751911402,0.07849754393100739,0.9146453738212585,0.9146453738212585
+1065,Is Now The Time To Look At Buying Brookdale Senior Living Inc. (NYSE:BKD)?,2,Neutral,2,Neutral,0.00038782734191045165,0.0005485974252223969,0.9990635514259338,0.9990635514259338
+1066,Tupperware Brands among consumer gainers; Unilever leads the losers,2,Neutral,2,Neutral,0.0043549686670303345,0.0004126834392081946,0.9952322840690613,0.9952322840690613
+1068,$TITN - Titan Machinery (TITN) Presents At 2019 Stephens Nashville Investment Conference - Slideshow. Get more infoâ¦ https://t.co/n2mtTU4lCn,2,Neutral,2,Neutral,3.188340269844048e-05,1.6736332327127457e-05,0.9999513626098633,0.9999513626098633
+1069,Continental Announces Investment of New Automotive Manufacturing Location in Texas,2,Neutral,2,Neutral,0.0001286260667257011,0.000769440783187747,0.999101996421814,0.999101996421814
+1070,"New Products, More Stores Won't Fix Pot's Woes: Cannabis Weekly",2,Neutral,2,Neutral,0.03233666345477104,0.0057092951610684395,0.9619540572166443,0.9619540572166443
+1071,Saudi Healthcare Firm Is Said to Seek Up to $700 Million in IPO,2,Neutral,2,Neutral,0.016881825402379036,0.008823984302580357,0.9742942452430725,0.9742942452430725
+1072,"Funko stock plummets 39%, shares downgraded after holiday season weakness",0,Bearish,0,Bearish,0.9998822212219238,4.695841926150024e-05,7.082967204041779e-05,0.9998822212219238
+1073,Ford Mustang Mach-E: The first all-electric Ford is here,2,Neutral,2,Neutral,0.004004891030490398,0.004763063509017229,0.9912319779396057,0.9912319779396057
+1075,"$STE - Steris EPS beats by $0.03, beats on revenue https://t.co/eLU8b642Zv",1,Bullish,1,Bullish,0.00045103259617462754,0.9991406202316284,0.0004083134699612856,0.9991406202316284
+1076,Brazil Pushes Its Great Downsizing and Rakes In $5.2 Billion,2,Neutral,2,Neutral,0.017901800572872162,0.006450815126299858,0.9756473302841187,0.9756473302841187
+1077,"Stock Performance Summary :: Intercontinental Exchange, Inc., (NYSE: ICE) - Times Of New York",2,Neutral,2,Neutral,0.0004620676627382636,0.0005255553405731916,0.9990123510360718,0.9990123510360718
+1078,ACHV,2,Neutral,2,Neutral,0.0039609274826943874,0.001971277641132474,0.9940677881240845,0.9940677881240845
+1079,Amcor goes ex-dividend tomorrow,2,Neutral,2,Neutral,0.0002984579186886549,0.00034528275136835873,0.999356210231781,0.999356210231781
+1080,U.S. to Block Iran's Request to IMF for $5 Billion Loan to Fight Coronavirus -- Update #economy #MarketScreenerâ¦ https://t.co/n3Crpty48r,2,Neutral,2,Neutral,0.003556846873834729,0.004667140543460846,0.9917759895324707,0.9917759895324707
+1081,"Chinaâs rare-earth production boost threatens U.S., Australia growth plans https://t.co/5sKBmYH9yQ",2,Neutral,2,Neutral,0.1994226723909378,0.007527045905590057,0.793050229549408,0.793050229549408
+1083,Grain Futures Rise on U.S.-China Trade Hopes  #Stock #MarketScreener https://t.co/RGHc4FOFhO https://t.co/H8l70569iI,1,Bullish,1,Bullish,0.0018047484336420894,0.9972943663597107,0.0009009747300297022,0.9972943663597107
+1084,U.K. Moves Toward Brexit After Tory Win,2,Neutral,2,Neutral,0.0019210908794775605,0.005095510743558407,0.9929834604263306,0.9929834604263306
+1085,"Meet Adrenaline, the first female hero in the 60-year history of Asterix comics. She made her first appearance inâ¦ https://t.co/LkYFwaxeKt",2,Neutral,2,Neutral,0.00021298500359989703,0.00014012487372383475,0.9996469020843506,0.9996469020843506
+1086,The first big check @Pitbull ever received actually bounced. ð³ https://t.co/aXoNe6DREk (via @CNBCMakeIt) https://t.co/Vsq5Hc3viC,2,Neutral,2,Neutral,0.0075028399005532265,0.0024177576415240765,0.990079402923584,0.990079402923584
+1087,Credit Suisse CEO Tidjane Thiam Resigns,2,Neutral,2,Neutral,0.0009049655636772513,0.0006093038246035576,0.9984857439994812,0.9984857439994812
+1089,"U.S. economy is in a contraction, says Larry Kudlow, adding that it could reopen in four to eight weeks https://t.co/W2mMm5MIVH",0,Bearish,0,Bearish,0.9991831183433533,0.0004525458498392254,0.0003643406380433589,0.9991831183433533
+1091,23 Million Reasons to Doubt This Bank Cleanup,2,Neutral,2,Neutral,0.2694425582885742,0.03581306338310242,0.694744348526001,0.694744348526001
+1092,"Stock-index futures extend gains after jobless claims, productivity data",1,Bullish,1,Bullish,0.0024262298829853535,0.9964733719825745,0.0011003168765455484,0.9964733719825745
+1093,Should You Buy NVIDIA Stock At Its Current Valuation?,2,Neutral,2,Neutral,0.0001655650557950139,0.0001817388110794127,0.9996527433395386,0.9996527433395386
+1094,Cameco on the move after Q4 earnings topper,2,Neutral,2,Neutral,0.005345779471099377,0.0008716821321286261,0.9937825798988342,0.9937825798988342
+1096,News Highlights : Top Energy News of the Day #WTI #Stock #MarketScreener https://t.co/XltkskkpZw https://t.co/g8VHPlAr19,2,Neutral,2,Neutral,7.586328138131648e-05,0.00010412625852040946,0.9998200535774231,0.9998200535774231
+1097,"No Insurance Policy? Lisa Page Sues FBI, DOJ For Unlawful Disclosure Of Strozk Texts https://t.co/0nqyroM0jD",2,Neutral,2,Neutral,0.0033566623460501432,0.0005774055025540292,0.9960659146308899,0.9960659146308899
+1098,"JUST IN: New York City has its first confirmed case of coronavirus in the borough Queens, the New York Daily News r... https://t.co/sdvVn5iNmg",2,Neutral,2,Neutral,0.0005140395951457322,0.0042923325672745705,0.9951935410499573,0.9951935410499573
+1100,$GATX - GATX to sell American Steamship Company business segment https://t.co/AXjJVbiib6,2,Neutral,2,Neutral,0.020974986255168915,0.0056131333112716675,0.9734119176864624,0.9734119176864624
+1101,Well laid plans at the Federal Reserve keep getting blown off course by the trade war (via @RichMiller28 &â¦ https://t.co/ESn0p1N19h,2,Neutral,2,Neutral,0.0017182286828756332,0.00097751896828413,0.9973042011260986,0.9973042011260986
+1102,CRISPR Therapeutics down 5% after hours on equity offering,0,Bearish,0,Bearish,0.9998148083686829,4.4170617911731824e-05,0.000141018521389924,0.9998148083686829
+1103,Russian ruble falls as central bank cuts key rate by 25 basis points to 6%,0,Bearish,0,Bearish,0.9909180402755737,0.002111957175657153,0.006969914305955172,0.9909180402755737
+1104,Did Thermo Fisher Scientific Inc.'s (NYSE:TMO) Recent Earnings Growth Beat The Trend?,2,Neutral,2,Neutral,0.0010932798031717539,0.00038862679502926767,0.9985180497169495,0.9985180497169495
+1105,Google rolls out interpreter to mobile,2,Neutral,2,Neutral,0.003997019957751036,0.005438951775431633,0.9905639886856079,0.9905639886856079
+1106,Canopy Growth up 6% as BofA buys the dip,1,Bullish,1,Bullish,0.0009869729401543736,0.9986114501953125,0.00040154330781660974,0.9986114501953125
+1107,Stride Property : HY20 Interim Report and Results #StrideProperty #Stock #MarketScreener https://t.co/XLYNhr5bs9 https://t.co/zWeNrM8gAO,2,Neutral,2,Neutral,6.823484727647156e-05,9.670384315541014e-05,0.9998350143432617,0.9998350143432617
+1108,Welltower stock price target cut to $90 from $95 at J.P. Morgan,0,Bearish,0,Bearish,0.9997240900993347,9.934559784596786e-05,0.0001765544293448329,0.9997240900993347
+1109,Equity Lifestyle Properties upgraded to outperform at BMO Capital,1,Bullish,1,Bullish,0.00040489694220013916,0.9993457198143005,0.00024936473346315324,0.9993457198143005
+1110,"Trump's Defense Budget Proposal Focuses on Nukes, Research",2,Neutral,2,Neutral,0.00015715969493612647,0.00019730653730221093,0.999645471572876,0.999645471572876
+1111,"January jobs report isn't a 'breakout to the upside', economists say",0,Bearish,0,Bearish,0.9909877181053162,0.0027909339405596256,0.006221292540431023,0.9909877181053162
+1113,$EPD - Enterprise Products Partners (EPD) Presents At RBC Capital Markets Midstream Conference - Slideshow. Followâ¦ https://t.co/1mXgfJmOF2,2,Neutral,2,Neutral,4.550592348095961e-05,2.962985854537692e-05,0.999924898147583,0.999924898147583
+1114,Pershing Square Holdings announces new $100M share buyback program,1,Bullish,1,Bullish,0.0017900823149830103,0.9919583797454834,0.006251524202525616,0.9919583797454834
+1115,TUI and Royal Caribbean Expand Cruise Partnership With $1.3 Billion Deal,2,Neutral,2,Neutral,0.0037151442375034094,0.009200122207403183,0.987084686756134,0.987084686756134
+1116,"Very Optimistic About 2020, Says Bank Albilad CEO",1,Bullish,1,Bullish,0.002099698642268777,0.9665764570236206,0.03132374957203865,0.9665764570236206
+1117,3 Great Semiconductor Stocks to Invest In for 2020,2,Neutral,2,Neutral,3.189340714015998e-05,3.573670983314514e-05,0.9999324083328247,0.9999324083328247
+1119,"In 10 years from now, investors will be looking at & evaluating #ESG scoring as a part of the overall performanceâ¦ https://t.co/RD5kKfb4jn",2,Neutral,2,Neutral,0.004433451686054468,0.006349015515297651,0.9892175197601318,0.9892175197601318
+1120,"STOCKS AT THE OPEN:
+- Dow up 0.21% 
+- Nasdaq up 0.48% 
+- S&P up 0.26% https://t.co/bkFqrriGqI",1,Bullish,1,Bullish,0.0005487361340783536,0.9991046786308289,0.0003466105554252863,0.9991046786308289
+1121,Here's how U.S. doctors discovered the vaping illness that has killed 39 people so far. https://t.co/p3lWGGY71V,2,Neutral,2,Neutral,0.001457625417970121,0.0005343574448488653,0.9980080723762512,0.9980080723762512
+1123,$XPO - XPO Logistics: Why You Shouldn't Let Cyclicality Dictate Investment Decisions. Read more and sign up for updâ¦ https://t.co/mnOOzwmdQy,2,Neutral,2,Neutral,0.002865641377866268,0.004208652302622795,0.992925763130188,0.992925763130188
+1124,$UNFI - United Natural Foods Inc (UNFI) CEO Steve Spinner on Q1 2020 Results - Earnings Call Transcript. Keep readiâ¦ https://t.co/9UbHS6nuQP,2,Neutral,2,Neutral,7.569268200313672e-05,5.722925197915174e-05,0.9998670816421509,0.9998670816421509
+1125,"The âgreat rotationâ will arrive in 2020 and bring another strong year for stocks, JP Morgan says https://t.co/3Aw0ecaK9S",1,Bullish,1,Bullish,0.003698158310726285,0.9555844068527222,0.0407174713909626,0.9555844068527222
+1126,"Chinese importers scoop up Brazilian soybeans amid U.S. trade uncertainty - Reuters
+
+https://t.co/0zdyq5mhHT",2,Neutral,2,Neutral,0.03597121313214302,0.01569538563489914,0.9483333826065063,0.9483333826065063
+1127,Piper on SaaS Lessons from 2008-2009 suggests SaaS billings growth might not bottom for six months after an economic shock,0,Bearish,0,Bearish,0.9992449283599854,0.00033009235630743206,0.00042506741010583937,0.9992449283599854
+1130,Texas manufacturing activity weakens slightly https://t.co/MMbMlGel5P,0,Bearish,0,Bearish,0.9993709921836853,0.00021112198010087013,0.000417956558521837,0.9993709921836853
+1131,Tyson Foods Q1 EPS $1.52 vs. $1.50 a year ago,1,Bullish,1,Bullish,0.004514981992542744,0.9920110106468201,0.0034739901311695576,0.9920110106468201
+1132,"FSIS Issues Public Health Alert for Products Produced with Romaine From the Salinas, California, Growing Region  https://t.co/PXrcPRAXM1",2,Neutral,2,Neutral,0.0004285686882212758,0.0011031065369024873,0.9984683394432068,0.9984683394432068
+1133,4 factors that'll drive economic acceleration in 2020: Goldman Sachs,2,Neutral,2,Neutral,0.0005908312741667032,0.009962865151464939,0.9894463419914246,0.9894463419914246
+1134,If you make your dream a priority long enough... it comes true. https://t.co/mk5TSWxly6,2,Neutral,2,Neutral,0.0018693566089496017,0.016493797302246094,0.9816368222236633,0.9816368222236633
+1135,Yum Brands Q4 adj. EPS $1.00 vs. 40 cents a year ago; FactSet consensus 99 cents,1,Bullish,1,Bullish,0.0032092153560370207,0.9923040270805359,0.00448673265054822,0.9923040270805359
+1136,PennyMac Mortgage Investment Trust CUM RED PFD B declares $0.50 dividend,2,Neutral,2,Neutral,9.232066804543138e-05,1.7753227439243346e-05,0.9998899698257446,0.9998899698257446
+1137,Does OneSpaWorld Holdings (NASDAQ:OSW) Have A Healthy Balance Sheet?,2,Neutral,2,Neutral,0.0006056313286535442,0.0002126036852132529,0.9991818070411682,0.9991818070411682
+1138,"$JEC (+2.5% pre) Jacobs Engineering (JEC) Tops Q4 EPS by 18c, Revenues Beat - SI
+
+https://t.co/ZbreKdJfYU",1,Bullish,1,Bullish,0.0013421502662822604,0.9980675578117371,0.0005901962285861373,0.9980675578117371
+1139,"So far, the train is coming in right on schedule; Dow up 25% off the lows. $BA consolidating its run up.",1,Bullish,1,Bullish,0.005607657600194216,0.9906325340270996,0.003759851912036538,0.9906325340270996
+1140,SOCi Adds Localized Marketing Pioneer Chad Jordan to the Team,2,Neutral,2,Neutral,0.000464426091639325,0.00024463501176796854,0.999290943145752,0.999290943145752
+1141,"$M (+11.7% pre) Macy's finance chief Paula Price to step down in May - SI
+
+https://t.co/qKgwR2a9Ft",1,Bullish,1,Bullish,0.001446189940907061,0.9977484345436096,0.0008053836063481867,0.9977484345436096
+1142,Burger King faces class action over Impossible Whooper,0,Bearish,0,Bearish,0.9369791746139526,0.0013312632218003273,0.061689507216215134,0.9369791746139526
+1143,Can Presidents Abuse Power? Senators Punt to Voters,2,Neutral,2,Neutral,0.00012976898869965225,3.997812018496916e-05,0.9998302459716797,0.9998302459716797
+1144,$PHCEF - PharmaCielo reports Q3 results https://t.co/8l2CVHznGj,2,Neutral,2,Neutral,5.785542271041777e-06,3.931626906705787e-06,0.9999902248382568,0.9999902248382568
+1145,BAE Systems to Provide Intelligence Analysis for Defense Intelligence Agency,2,Neutral,2,Neutral,0.0004550115845631808,0.00302279950119555,0.9965221881866455,0.9965221881866455
+1146,"WeWork names new executives, path to profitability by 2023: report https://t.co/nby7jpZ6xu https://t.co/17hr8mW3VA",2,Neutral,2,Neutral,0.004520901478827,0.00866302102804184,0.9868161082267761,0.9868161082267761
+1147,Pro Pac Packaging : 2019 Annual General Meeting Presentation #ProPacPackaging #Stock #MarketScreenerâ¦ https://t.co/aoWpKrk3PR,2,Neutral,2,Neutral,1.2958847037225496e-05,2.630404196679592e-05,0.9999607801437378,0.9999607801437378
+1148,$OPTT waking up. Possible V-bounce after a non sense selloff last week. https://t.co/CmiiBbootG,1,Bullish,1,Bullish,0.14335897564888,0.8417301774024963,0.014910805970430374,0.8417301774024963
+1150,AM Best Revises Outlooks to Stable for Sublimity Insurance Company https://t.co/WPcVIMko76 https://t.co/glnxmA3iIv,2,Neutral,2,Neutral,0.00390171492472291,0.003739362582564354,0.9923588633537292,0.9923588633537292
+1151,Taiwan Blasts WHO for Saying Itâs Part of China in Virus Report,2,Neutral,2,Neutral,0.00294319330714643,0.0008230101084336638,0.9962337613105774,0.9962337613105774
+1152,Are Investors Undervaluing NRC Group ASA (OB:NRC) By 43%?,2,Neutral,2,Neutral,0.0009257437195628881,0.0004168614686932415,0.9986573457717896,0.9986573457717896
+1153,Fed's bond-buying injecting hope of reprieve to 'fragile' $18 trillion Treasurys market https://t.co/1ypl8QOiqN,2,Neutral,2,Neutral,0.026529327034950256,0.004920343868434429,0.9685503840446472,0.9685503840446472
+1154,Took some $SLS for tomorrow,2,Neutral,2,Neutral,0.3051014542579651,0.11182118207216263,0.5830773711204529,0.5830773711204529
+1155,$PBR - Petrobras expects lower April production; makes oil discovery https://t.co/kSkaXkxlze,0,Bearish,0,Bearish,0.9156371355056763,0.014608805999159813,0.06975402683019638,0.9156371355056763
+1156,Volkswagen +2% after strong deliveries report,1,Bullish,1,Bullish,0.0006302415858954191,0.9991938471794128,0.0001759237638907507,0.9991938471794128
+1157,The 10 Top-Selling Marijuana States in 2019,2,Neutral,2,Neutral,2.039363062067423e-05,5.759426494478248e-05,0.9999220371246338,0.9999220371246338
+1158,Uber stock price target raised to $48 from $46 at HSBC Global,1,Bullish,1,Bullish,0.0003397585533093661,0.9994778037071228,0.00018235539027955383,0.9994778037071228
+1159,Do Hedge Funds Love Kimco Realty Corporation (KIM)?,2,Neutral,2,Neutral,0.00029015765176154673,5.2083552873227745e-05,0.9996577501296997,0.9996577501296997
+1160,$RPAY - Repay Holdings buys Ventanex for up to $50M https://t.co/ubwzgCg3EW,2,Neutral,2,Neutral,0.0038804879877716303,0.010522479191422462,0.9855970740318298,0.9855970740318298
+1161,AbbVie Q1 FactSet EPS consensus $2.12; 2020 consensus $9.45,2,Neutral,2,Neutral,5.2994633733760566e-05,1.7654378098086454e-05,0.9999293088912964,0.9999293088912964
+1162,China Today Is Like Japan In 1989 https://t.co/xsAIxibRYL,2,Neutral,2,Neutral,0.0014995017554610968,0.001798343611881137,0.9967021346092224,0.9967021346092224
+1163,"Payments in high-value deals not a bribe, Mahathir says about AirAsia probe",2,Neutral,2,Neutral,0.0009066063794307411,0.00041914917528629303,0.9986742734909058,0.9986742734909058
+1164,Abiomed down 9% on study questioning value of impella heart pump,0,Bearish,0,Bearish,0.9996968507766724,6.817651592427865e-05,0.00023497747315559536,0.9996968507766724
+1165,"Energy has gone nowhere in the past decade, and it could get worse before it gets better https://t.co/PSDVJKnQ3B",0,Bearish,0,Bearish,0.8922886252403259,0.00595446489751339,0.10175696015357971,0.8922886252403259
+1166,Betsy DeVos: This Memo Will Better Protect Student Loan Borrowers,2,Neutral,2,Neutral,0.0004727813939098269,0.0006467028870247304,0.9988805651664734,0.9988805651664734
+1167,Legere stepping down as T-Mobile CEO,2,Neutral,2,Neutral,0.0003717879590112716,9.549256355967373e-05,0.9995326995849609,0.9995326995849609
+1169,The World Bank plans to lend Uganda $1.9 billion to help finance the East African nation's budget deficit https://t.co/Yxiz7BduSw,2,Neutral,2,Neutral,0.008627771399915218,0.0048160431906580925,0.9865561723709106,0.9865561723709106
+1170,More records in store at the open,2,Neutral,2,Neutral,0.006089191418141127,0.021498044952750206,0.9724127650260925,0.9724127650260925
+1171,Trump proposes selling 15 million barrels of oil from the U.S. emergency stockpile as part of his fiscal 2021 budgeâ¦ https://t.co/Gdwr6I8j4p,2,Neutral,2,Neutral,0.003490740666165948,0.0025486566592007875,0.9939606189727783,0.9939606189727783
+1172,"Earnings Update: Here's Why Analysts Just Lifted Their Aemetis, Inc. Price Target To US$2.25",1,Bullish,1,Bullish,0.0018269524443894625,0.996572732925415,0.0016003395430743694,0.996572732925415
+1173,"Oil Slips After OPEC, EIA Reports Forecast Robust Supply #WTI #Stock #MarketScreener https://t.co/nGNnPy5ook https://t.co/QMqwCWn5Tm",0,Bearish,0,Bearish,0.9978882670402527,0.0008066241862252355,0.001305045560002327,0.9978882670402527
+1174,Better Buy: Home Depot vs. Target,2,Neutral,2,Neutral,0.0009696852648630738,0.0006602621870115399,0.9983701109886169,0.9983701109886169
+1175,$INPX is gaining momentum......,1,Bullish,1,Bullish,0.0010570076992735267,0.9979838132858276,0.0009591371053829789,0.9979838132858276
+1176,VirnetX +5% after appeals court denies Apple bid,1,Bullish,1,Bullish,0.000446939782705158,0.9994454979896545,0.00010759985161712393,0.9994454979896545
+1177,"Form 8.3 - The Vanguard Group, Inc.: Just Eat plc #JEOL #Stock #MarketScreener https://t.co/8L1jtGW1Jo https://t.co/4MYhJInOKz",2,Neutral,2,Neutral,0.0004894320736639202,0.0005142786540091038,0.9989963173866272,0.9989963173866272
+1178,Could The Hamborner REIT AG (ETR:HAB) Ownership Structure Tell Us Something Useful?,2,Neutral,2,Neutral,0.0002443392004352063,6.403201405191794e-05,0.9996916055679321,0.9996916055679321
+1179,$CNHI - CNH Industrial upped to Buy at Deutsche Bank on valuation https://t.co/w8VWmkTwAb,1,Bullish,1,Bullish,0.0004101814702153206,0.9994229078292847,0.00016693805810064077,0.9994229078292847
+1180,$MRLN - Marlin Business Services -3.3% post Q4 results https://t.co/bS3t6QMQYJ,0,Bearish,0,Bearish,0.9909481406211853,0.0006467076018452644,0.008405035361647606,0.9909481406211853
+1181,DocuSign signs off on another solid earnings result https://t.co/YYekdVZrug $DOCU,1,Bullish,1,Bullish,0.0042009311728179455,0.9912222623825073,0.004576859064400196,0.9912222623825073
+1182,Why Reports of Drugs for Coronavirus Are Premature,2,Neutral,2,Neutral,0.0007729912758804858,0.010101089254021645,0.9891259670257568,0.9891259670257568
+1183,$PRGO: Perrigo reports preliminary 1Q20 revenue above consensus estimate; does not modify full-year guidance https://t.co/2YcDQYw1D7,1,Bullish,1,Bullish,0.010144411586225033,0.9403195977210999,0.049536097794771194,0.9403195977210999
+1184,TJX extends gain after guidance update,1,Bullish,1,Bullish,0.001690889010205865,0.997821569442749,0.00048753758892416954,0.997821569442749
+1185,PG&E Appoints Industrial Safety Expert Francisco Benavides as Chief Safety Officer,2,Neutral,2,Neutral,0.00031737101380713284,0.00039583927718922496,0.9992868304252625,0.9992868304252625
+1186,316 my measure on $SPY,2,Neutral,2,Neutral,0.004233357962220907,0.005801066290587187,0.989965558052063,0.989965558052063
+1187,We encourage families to explore virtual #financialliteracy resources. The Federal Reserve Bank of Richmond createâ¦ https://t.co/heJwnQ4RoN,2,Neutral,2,Neutral,0.00040234692278318107,0.0008047127048484981,0.9987928867340088,0.9987928867340088
+1188,Is It Too Late To Consider Buying Brady Corporation (NYSE:BRC)?,2,Neutral,2,Neutral,0.0007075922330841422,0.0004861207271460444,0.9988062381744385,0.9988062381744385
+1189,Goldman Sachs says the impact of the coronavirus will be limited -- global damage could be as low as 0.1 percentaâ¦ https://t.co/Z9M7PN38SZ,2,Neutral,2,Neutral,0.13708747923374176,0.06973619014024734,0.7931763529777527,0.7931763529777527
+1191,PORR : starts into 2020 with successful EUR 150 million hybrid issue #PORR #Stock #MarketScreener... https://t.co/ZaVCLMDGUg,2,Neutral,2,Neutral,0.0021898727864027023,0.02877093479037285,0.9690392017364502,0.9690392017364502
+1192,$FQVLF $RIO - First Quantum pours cold water on takeover talk https://t.co/MsgBAiYuO9,2,Neutral,2,Neutral,0.004359812010079622,0.0015988470986485481,0.994041383266449,0.994041383266449
+1193,The Best CEFs To Buy For 10% Yields In 2020,2,Neutral,2,Neutral,4.275110404705629e-05,4.4754600821761414e-05,0.9999125003814697,0.9999125003814697

@@ -15,13 +15,27 @@ env/
 Thumbs.db
 
 # Generated outputs
-results/
+#results/
 outputs/*
+# Keep root-level result files
 !outputs/*.json
 !outputs/*.jsonl
 !outputs/*.csv
 !outputs/*.png
-!outputs/.gitkeep
+
+# Keep model experiment directories
+!outputs/*/
+!outputs/*/full/
+!outputs/*/seed_synthetic/
+
+# Keep experiment results inside full/ and seed_synthetic/
+!outputs/*/full/*
+!outputs/*/seed_synthetic/*
+
+# Do NOT include trained model directories
+outputs/*/full/best_model/
+outputs/*/seed_synthetic/best_model/
+
 logs/
 checkpoints/
 
