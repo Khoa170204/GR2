@@ -61,7 +61,7 @@ plt.title("Teacher vs Student LLMs: Parameters vs FP16 Weights Memory", fontsize
 plt.grid(True, which="both", linestyle="--", alpha=0.45)
 plt.legend(title="Model Type", loc="upper left")
 plt.tight_layout()
-plt.savefig("../outputs/teacher_vs_student_llms_fp16weights.png", dpi=600)
+plt.savefig("./outputs/teacher_vs_student_llms_fp16weights.png", dpi=600)
 plt.show()
 
 

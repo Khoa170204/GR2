@@ -28,10 +28,29 @@ from transformers import (
 # Config (edit if needed)
 # ----------------------------
 SEED = 24266
-MODEL_DIR = "../outputs/best_model"   # where trainer.save_model() wrote the model
-OUT_DIR   = "../outputs"              # where reports/plots will be saved
+# MODEL_DIR = "../outputs/best_model"   # where trainer.save_model() wrote the model
+# OUT_DIR   = "../outputs"              # where reports/plots will be saved
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../..")
+)
+
+MODEL_DIR = os.path.join(
+    PROJECT_ROOT,
+    "outputs",
+    "modernbert_phrasebank",
+    "full",
+    "best_model"
+)
+
+OUT_DIR = os.path.join(
+    PROJECT_ROOT,
+    "outputs",
+    "modernbert_phrasebank",
+    "full",
+    "evaluation"
+)
 LABEL_NAMES = ["Negative", "Neutral", "Positive"]  # id mapping: 0,1,2
-HF_DATASET = ("takala/financial_phrasebank", "sentences_allagree")  # PhraseBank split
+# HF_DATASET = ("takala/financial_phrasebank", "sentences_allagree")  # PhraseBank split
 
 # ----------------------------
 # Reproducibility
@@ -61,12 +80,54 @@ def clean_text(text):
     text = text.replace('"', "")
     return text.strip()
 
+# def load_phrasebank_df() -> pd.DataFrame:
+#     ds = load_dataset(HF_DATASET[0], HF_DATASET[1], split="train", trust_remote_code=True)
+#     df = pd.DataFrame(ds)
+#     if "sentence" not in df.columns or "label" not in df.columns:
+#         raise ValueError("Dataset missing 'sentence' and/or 'label'.")
+#     df["sentence"] = df["sentence"].apply(clean_text)
+#     return df
+
 def load_phrasebank_df() -> pd.DataFrame:
-    ds = load_dataset(HF_DATASET[0], HF_DATASET[1], split="train", trust_remote_code=True)
-    df = pd.DataFrame(ds)
-    if "sentence" not in df.columns or "label" not in df.columns:
-        raise ValueError("Dataset missing 'sentence' and/or 'label'.")
-    df["sentence"] = df["sentence"].apply(clean_text)
+    path = os.path.join(
+        PROJECT_ROOT,
+        "data",
+        "financial_phrasebank",
+        "FinancialPhraseBank-v1.0",
+        "Sentences_AllAgree.txt"
+    )
+
+    rows = []
+
+    with open(path, "r", encoding="latin-1") as f:
+        for line in f:
+            line = line.strip()
+
+            if not line:
+                continue
+
+            sentence, label = line.rsplit("@", 1)
+
+            rows.append({
+                "sentence": clean_text(sentence),
+                "label": label.strip().lower()
+            })
+
+    df = pd.DataFrame(rows)
+
+    label_map = {
+        "negative": 0,
+        "neutral": 1,
+        "positive": 2
+    }
+
+    df["label"] = df["label"].map(label_map)
+
+    if df["label"].isna().any():
+        raise ValueError("Found unknown labels in PhraseBank.")
+
+    df["label"] = df["label"].astype(int)
+
     return df
 
 def stratified_split(df: pd.DataFrame, seed: int = SEED):
@@ -170,7 +231,12 @@ def main():
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
     # Predict
-    trainer = Trainer(model=model, tokenizer=tokenizer, data_collator=data_collator)
+    # trainer = Trainer(model=model, tokenizer=tokenizer, data_collator=data_collator)
+    trainer = Trainer(
+        model=model,
+        processing_class=tokenizer,
+        data_collator=data_collator
+    )
     print("Running prediction on test set ...")
     pred_output = trainer.predict(test_hf)
     logits = pred_output.predictions

@@ -11,7 +11,7 @@ Pipeline:
 - Run OFF-THE-SHELF FinBERT (ProsusAI/finbert) inference on the test split (no fine-tuning)
 - Compute Accuracy + Macro Precision/Recall/F1
 - Print a classification report
-- Save metrics + report JSON to ../outputs/
+- Save metrics + report JSON to ./outputs/
 
 Requirements:
   pip install -U transformers datasets evaluate torch scikit-learn
@@ -261,18 +261,18 @@ def main():
     print(report_text)
 
     # Save
-    os.makedirs("../outputs", exist_ok=True)
+    os.makedirs("./outputs", exist_ok=True)
     tag = "phrasebank" if EVAL_DATASET == "phrasebank_allagree" else "twitter"
 
-    with open(f"../outputs/finbert_{tag}_test_metrics.json", "w", encoding="utf-8") as f:
+    with open(f"./outputs/finbert_{tag}_test_metrics.json", "w", encoding="utf-8") as f:
         json.dump(metrics, f, indent=2)
 
-    with open(f"../outputs/finbert_{tag}_test_classification_report.json", "w", encoding="utf-8") as f:
+    with open(f"./outputs/finbert_{tag}_test_classification_report.json", "w", encoding="utf-8") as f:
         json.dump(report_dict, f, indent=2)
 
     print("\nSaved:")
-    print(f" - ../outputs/finbert_{tag}_test_metrics.json")
-    print(f" - ../outputs/finbert_{tag}_test_classification_report.json")
+    print(f" - ./outputs/finbert_{tag}_test_metrics.json")
+    print(f" - ./outputs/finbert_{tag}_test_classification_report.json")
 
 
 if __name__ == "__main__":

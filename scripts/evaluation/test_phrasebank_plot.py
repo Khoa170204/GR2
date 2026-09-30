@@ -27,19 +27,19 @@ SHOW_LEGENDS = True   # legends ON
 
 # Preferred local paths (your choices)
 SEED_JSONL_CLUSTERED_CANDIDATES = [
-    "../outputs/seed_data.jsonl"
+    "./outputs/seed_phrasebank_data.jsonl"
 ]
 SEED_JSONL_RANDOM_CANDIDATES = [
-    "../outputs/1seed_data_twitter_random.jsonl"
+    "./outputs/seed_data_phrasebank_random.jsonl"
 ]
 SYN_JSONL_CLUSTERED_CANDIDATES = [
-    "../outputs/synthetic_data_from_Seed.jsonl"
+    "./outputs/synthetic_data_from_Seed.jsonl"
 ]
 SYN_JSONL_RANDOM_CANDIDATES = [
-    "../outputs/1synthetic_data_from_Seed_random.jsonl"
+    "./outputs/2synthetic_data_from_Seed_random.jsonl"
 ]
 
-os.makedirs("../outputs", exist_ok=True)
+os.makedirs("./outputs", exist_ok=True)
 
 def set_seed(seed=24266):
     import random
@@ -148,10 +148,38 @@ def load_synth_jsonl(path):
     return pd.DataFrame(rows)
 
 # === DATA FUNCTIONS ===
+# def load_data():
+#     dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree",
+#                            split="train", trust_remote_code=True)
+#     return pd.DataFrame(dataset)
+
 def load_data():
-    dataset = load_dataset("takala/financial_phrasebank", "sentences_allagree",
-                           split="train", trust_remote_code=True)
-    return pd.DataFrame(dataset)
+    path = "./data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+
+    rows = []
+    with open(path, "r", encoding="latin-1") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+
+            sentence, label = line.rsplit("@", 1)
+            rows.append({
+                "sentence": sentence,
+                "label": label.lower()
+            })
+
+    df = pd.DataFrame(rows)
+
+    label_map = {
+        "negative": 0,
+        "neutral": 1,
+        "positive": 2
+    }
+
+    df["label"] = df["label"].map(label_map)
+
+    return df
 
 def generate_embeddings(sentences):
     model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
@@ -184,7 +212,7 @@ def plot_tsne_projection(df, seed_indices, embeddings):
     _maybe_title("t-SNE Projection of Embeddings with Seed Samples by Class")
     _apply_legend(ax)
     plt.grid(True)
-    plt.savefig("../outputs/tsne_projection_labeled.png", dpi=SAVE_DPI,
+    plt.savefig("./outputs/tsne_projection_labeled.png", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
     return reduced, (x_min, x_max), (y_min, y_max)
@@ -210,7 +238,7 @@ def plot_tsne_projection_per_class(df, seed_indices, reduced, xlim, ylim, file_t
         _maybe_title(f"t-SNE Projection : {LABEL_NAMES[label]}")
         _apply_legend(ax)
         plt.grid(True)
-        fname = f"../outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
+        fname = f"./outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.close()
 
@@ -238,7 +266,7 @@ def plot_tsne_projection_with_given_reduction(df, seed_indices, reduced, xlim, y
     _maybe_title(f"t-SNE Projection of Embeddings with Seed Samples {title_suffix}".strip())
     _apply_legend(ax)
     plt.grid(True)
-    out = f"../outputs/tsne_projection_labeled{outfile_suffix}.png"
+    out = f"./outputs/tsne_projection_labeled{outfile_suffix}.png"
     plt.savefig(out, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
 
@@ -264,7 +292,7 @@ def plot_tsne_projection_per_class_with_given_reduction(df, seed_indices, reduce
         _maybe_title(f"t-SNE Projection : {LABEL_NAMES[label]} ({title_tag})")
         _apply_legend(ax)
         plt.grid(True)
-        fname = f"../outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
+        fname = f"./outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.close()
 
@@ -302,7 +330,7 @@ def plot_tsne_overlay_two_seed_sets(df, reduced, xlim, ylim, seed_idx_random, se
     _maybe_title("t-SNE (fixed) — Random vs Clustered seed overlays")
     _apply_legend(ax, ncol=2)
     plt.grid(True)
-    out = "../outputs/tsne_overlay_random_vs_clustered.png"
+    out = "./outputs/tsne_overlay_random_vs_clustered.png"
     plt.savefig(out, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
 
@@ -329,7 +357,7 @@ def plot_tsne_combined_real_synthetic(real_df, synthetic_df, outname="tsne_proje
     _maybe_title("t-SNE Projection: Real vs. Synthetic Data")
     _apply_legend(ax)
     plt.grid(True)
-    plt.savefig(f"../outputs/{outname}", dpi=SAVE_DPI,
+    plt.savefig(f"./outputs/{outname}", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
 
@@ -359,7 +387,7 @@ def plot_tsne_per_class_real_synthetic(real_df, synthetic_df, file_tag=""):
         _maybe_title(f"t-SNE Projection: {LABEL_NAMES[label]} – Real vs Synthetic")
         _apply_legend(ax)
         plt.grid(True)
-        fname = f"../outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}{file_tag}.png"
+        fname = f"./outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}{file_tag}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.close()
 

@@ -29,8 +29,30 @@ from transformers import (
 # Config
 # ----------------------------
 SEED = 24266
-MODEL_DIR = "../outputs/best_model"   # <- change if needed
-OUT_DIR   = "../outputs"
+# MODEL_DIR = "../outputs/best_model"   # <- change if needed
+# OUT_DIR   = "../outputs"
+
+SEED = 24266
+
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../..")
+)
+
+MODEL_DIR = os.path.join(
+    PROJECT_ROOT,
+    "outputs",
+    "modernbert_twitter",
+    "full",
+    "best_model"
+)
+
+OUT_DIR = os.path.join(
+    PROJECT_ROOT,
+    "outputs",
+    "modernbert_twitter",
+    "full",
+    "evaluation"
+)
 
 # Zeroshot Twitter Financial News label mapping
 # HF ids: 0=Bearish, 1=Bullish, 2=Neutral
@@ -208,7 +230,12 @@ def main():
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
     # Predict
-    trainer = Trainer(model=model, tokenizer=tokenizer, data_collator=data_collator)
+    # trainer = Trainer(model=model, tokenizer=tokenizer, data_collator=data_collator)
+    trainer = Trainer(
+        model=model,
+        processing_class=tokenizer,
+        data_collator=data_collator
+    )
     print("Predicting on Twitter test set ...")
     pred_output = trainer.predict(test_hf)
     logits = pred_output.predictions
