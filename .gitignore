@@ -49,4 +49,4 @@ checkpoints/
 
 # Demo local model folder
 demo/best_model/
-Demo/best_model/
+Demo/best_model/.env

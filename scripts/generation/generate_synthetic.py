@@ -16,13 +16,13 @@ SEED = 24266
 DATASET_CONFIG = {
     "phrasebank": {
         "labels": ["Negative", "Neutral", "Positive"],
-        "default_input": "./outputs/seed_phrasebank_data_clustered.jsonl",
-        "default_output": "./outputs/synthetic_phrasebank_data_seed_clustered_.jsonl",
+        "default_input": "./outputs/seed_data_phrasebank_random.jsonl",
+        "default_output": "./outputs/synthetic_phrasebank_data_seed_random.jsonl",
     },
     "twitter": {
         "labels": ["Bearish", "Bullish", "Neutral"],
-        "default_input": "./outputs/seed_twitter_data_clustered.jsonl",
-        "default_output": "./outputs/synthetic_twitter_data_seed_clustered_.jsonl",
+        "default_input": "./outputs/seed_data_twitter_random.jsonl",
+        "default_output": "./outputs/synthetic_twitter_data_seed_random.jsonl",
     },
 }
 
