@@ -1,0 +1,30 @@
+{
+  "aligned_items": 1194,
+  "dropped_invalid_gpt4o": 0,
+  "accuracy": {
+    "ModernBERT (seed + synthetic)": 0.7688442211055276,
+    "GPT-4o": 0.7185929648241206
+  },
+  "discordant": {
+    "b_A_correct_B_wrong": 244,
+    "c_A_wrong_B_correct": 184,
+    "n_disc": 428,
+    "b_over_bplusc": 0.5700934579439252,
+    "ci_95_b_over_bplusc": [
+      0.5216748434664995,
+      0.6175364962290013
+    ]
+  },
+  "mcnemar": {
+    "chi2_cc": 8.133177570093459,
+    "p_value": 0.0043462510191000225,
+    "method": "exact binomial if n_disc<25 else continuity-corrected chi-square"
+  },
+  "labels": [
+    "Bearish",
+    "Bullish",
+    "Neutral"
+  ],
+  "student_model_dir": "/home/shuni/GR2/efficient-financial-distillation/outputs/modernbert_twitter/seed_synthetic/best_model",
+  "teacher_predictions_json": "/home/shuni/GR2/efficient-financial-distillation/results/chatgpt4o_twitter_predictions.json"
+}
