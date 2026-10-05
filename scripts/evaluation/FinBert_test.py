@@ -37,7 +37,7 @@ MODEL_NAME = "ProsusAI/finbert"
 # Switch dataset here:
 #   "phrasebank_allagree" -> takala/financial_phrasebank (sentences_allagree)
 #   "twitter_financial_news" -> zeroshot/twitter-financial-news-sentiment (train+validation combined)
-EVAL_DATASET = "twitter_financial_news"  # <-- SWITCH HERE
+EVAL_DATASET = "phrasebank_allagree"  # <-- SWITCH HERE
 
 BATCH_SIZE = 64
 MAX_LENGTH = 512  # match your training script token length
@@ -146,12 +146,61 @@ def load_eval_dataset(eval_dataset: str):
       target_names: List[str]
       label_str2id: dict[str,int] (for remap)
     """
+    # if eval_dataset == "phrasebank_allagree":
+    #     ds = load_dataset(PHRASEBANK_DATASET_NAME, PHRASEBANK_CONFIG, split="train", trust_remote_code=True)
+    #     texts = [ex[PHRASEBANK_TEXT_COL] for ex in ds]
+    #     labels = np.array(ds[PHRASEBANK_LABEL_COL], dtype=int)
+    #     dataset_id = f"{PHRASEBANK_DATASET_NAME}/{PHRASEBANK_CONFIG}"
+    #     return texts, labels, dataset_id, PHRASEBANK_TARGET_NAMES, PHRASEBANK_LABEL_STR2ID
+
     if eval_dataset == "phrasebank_allagree":
-        ds = load_dataset(PHRASEBANK_DATASET_NAME, PHRASEBANK_CONFIG, split="train", trust_remote_code=True)
-        texts = [ex[PHRASEBANK_TEXT_COL] for ex in ds]
-        labels = np.array(ds[PHRASEBANK_LABEL_COL], dtype=int)
-        dataset_id = f"{PHRASEBANK_DATASET_NAME}/{PHRASEBANK_CONFIG}"
-        return texts, labels, dataset_id, PHRASEBANK_TARGET_NAMES, PHRASEBANK_LABEL_STR2ID
+
+        PROJECT_ROOT = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "../..")
+        )
+
+        path = os.path.join(
+            PROJECT_ROOT,
+            "data",
+            "financial_phrasebank",
+            "FinancialPhraseBank-v1.0",
+            "Sentences_AllAgree.txt"
+        )
+
+        texts = []
+        labels = []
+
+        label_map = {
+            "negative": 0,
+            "neutral": 1,
+            "positive": 2
+        }
+
+        with open(path, "r", encoding="latin-1") as f:
+            for line in f:
+                line = line.strip()
+
+                if not line:
+                    continue
+
+                sentence, label = line.rsplit("@", 1)
+
+                texts.append(sentence.strip())
+                labels.append(
+                    label_map[label.strip().lower()]
+                )
+
+        labels = np.array(labels, dtype=int)
+
+        dataset_id = "FinancialPhraseBank/Sentences_AllAgree"
+
+        return (
+            texts,
+            labels,
+            dataset_id,
+            PHRASEBANK_TARGET_NAMES,
+            PHRASEBANK_LABEL_STR2ID
+        )
 
     if eval_dataset == "twitter_financial_news":
         ds_train = load_dataset(TWITTER_DATASET_NAME, split="train", trust_remote_code=True)

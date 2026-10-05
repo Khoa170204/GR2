@@ -1,0 +1,15 @@
+{
+  "model": "ProsusAI/finbert",
+  "eval_dataset": "phrasebank_allagree",
+  "dataset": "FinancialPhraseBank/Sentences_AllAgree",
+  "seed": 24266,
+  "split": "stratified 80/10/10 with random_state=24266; evaluate on test only",
+  "n_test": 227,
+  "accuracy": 0.9823788546255506,
+  "macro_precision": 0.9714301399084008,
+  "macro_recall": 0.9835079304977071,
+  "macro_f1": 0.9771236675079603,
+  "batch_size": 64,
+  "max_length": 512,
+  "device": "cpu"
+}

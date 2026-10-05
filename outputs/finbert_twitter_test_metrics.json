@@ -1,0 +1,15 @@
+{
+  "model": "ProsusAI/finbert",
+  "eval_dataset": "twitter_financial_news",
+  "dataset": "zeroshot/twitter-financial-news-sentiment/train+validation",
+  "seed": 24266,
+  "split": "stratified 80/10/10 with random_state=24266; evaluate on test only",
+  "n_test": 1194,
+  "accuracy": 0.7185929648241206,
+  "macro_precision": 0.6521366849887844,
+  "macro_recall": 0.7205024929416712,
+  "macro_f1": 0.6738765471741427,
+  "batch_size": 64,
+  "max_length": 512,
+  "device": "cpu"
+}

@@ -35,10 +35,10 @@ SEED_JSONL_RANDOM_CANDIDATES = [
     "./outputs/seed_data_phrasebank_random.jsonl"
 ]
 SYN_JSONL_CLUSTERED_CANDIDATES = [
-    "./synthetic_twitter_data_seed_clustered.jsonl"
+    "./outputs/synthetic_twitter_data_seed_clustered.jsonl"
 ]
 SYN_JSONL_RANDOM_CANDIDATES = [
-    "./synthetic_twitter_data_seed_random.jsonl"
+    "./outputs/synthetic_twitter_data_seed_random.jsonl"
 ]
 
 os.makedirs("./outputs", exist_ok=True)
