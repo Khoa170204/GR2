@@ -29,7 +29,7 @@ SHOW_LEGENDS = True    # legends ON
 
 # File paths (Twitter defaults)
 SEED_JSONL_CLUSTERED_CANDIDATES = [
-    "./seed_twitter_data_clustered.jsonl"
+    "./outputs/seed_twitter_data_clustered.jsonl"
 ]
 SEED_JSONL_RANDOM_CANDIDATES = [
     "./outputs/seed_data_phrasebank_random.jsonl"
@@ -297,7 +297,7 @@ def plot_tsne_projection(df, seed_indices, embeddings):
     _maybe_title("t-SNE Projection of Embeddings with Seed Samples by Class")
     _apply_legend(ax)
     plt.grid(True)
-    plt.savefig("./outputs/tsne_projection_labeled.png", dpi=SAVE_DPI,
+    plt.savefig("./outputs/test_twitter_img/tsne_projection_labeled.png", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
     return reduced, (x_min, x_max), (y_min, y_max)
@@ -323,7 +323,7 @@ def plot_tsne_projection_per_class(df, seed_indices, reduced, xlim, ylim, file_t
         _maybe_title(f"t-SNE Projection : {LABEL_NAMES[label]}")
         _apply_legend(ax)
         plt.grid(True)
-        fname = f"./outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
+        fname = f"./outputs/test_twitter_img/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.close()
 
@@ -350,7 +350,7 @@ def plot_tsne_projection_with_given_reduction(df, seed_indices, reduced, xlim, y
     _maybe_title(f"t-SNE Projection of Embeddings with Seed Samples {title_suffix}".strip())
     _apply_legend(ax)
     plt.grid(True)
-    out = f"./outputs/tsne_projection_labeled{outfile_suffix}.png"
+    out = f"./outputs/test_twitter_img/tsne_projection_labeled{outfile_suffix}.png"
     plt.savefig(out, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
 
@@ -376,7 +376,7 @@ def plot_tsne_projection_per_class_with_given_reduction(df, seed_indices, reduce
         _maybe_title(f"t-SNE Projection : {LABEL_NAMES[label]} ({title_tag})")
         _apply_legend(ax)
         plt.grid(True)
-        fname = f"./outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
+        fname = f"./outputs/test_twitter_img/tsne_projection_{LABEL_NAMES[label].lower()}_filtered{file_tag}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.close()
 
@@ -414,7 +414,7 @@ def plot_tsne_overlay_two_seed_sets(df, reduced, xlim, ylim, seed_idx_random, se
     _maybe_title("t-SNE (fixed) — Random vs Clustered seed overlays")
     _apply_legend(ax, ncol=2)
     plt.grid(True)
-    out = "./outputs/tsne_overlay_random_vs_clustered.png"
+    out = "./outputs/test_twitter_img/tsne_overlay_random_vs_clustered.png"
     plt.savefig(out, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
 
@@ -440,7 +440,7 @@ def plot_tsne_combined_real_synthetic(real_df, synthetic_df, outname="tsne_proje
     _maybe_title("t-SNE Projection: Real vs. Synthetic Data")
     _apply_legend(ax)
     plt.grid(True)
-    plt.savefig(f"./outputs/{outname}", dpi=SAVE_DPI,
+    plt.savefig(f"./outputs/test_twitter_img/{outname}", dpi=SAVE_DPI,
                 bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
     plt.close()
 
@@ -470,7 +470,7 @@ def plot_tsne_per_class_real_synthetic(real_df, synthetic_df, file_tag=""):
         _maybe_title(f"t-SNE Projection: {LABEL_NAMES[label]} – Real vs Synthetic")
         _apply_legend(ax)
         plt.grid(True)
-        fname = f"./outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}{file_tag}.png"
+        fname = f"./outputs/test_twitter_img/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}{file_tag}.png"
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.close()
 

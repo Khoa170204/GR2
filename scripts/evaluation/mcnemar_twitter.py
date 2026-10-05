@@ -40,10 +40,37 @@ except Exception:
 # CONFIG
 # ----------------------------
 SEED = 24266
-MODEL_DIR = "./outputs/best_model"     # <- path to your saved student model
-GPT4O_JSON = "./results/chatgpt4o_twitter_predictions.json"
-OUT_DIR = "./outputs"
-STUDENT_NAME = "ModernBERT (distilled)"  # label for tables/prints
+# MODEL_DIR = "./outputs/best_model"     # <- path to your saved student model
+# GPT4O_JSON = "./results/chatgpt4o_twitter_predictions.json"
+# OUT_DIR = "./outputs"
+# STUDENT_NAME = "ModernBERT (distilled)"  # label for tables/prints
+# TEACHER_NAME = "GPT-4o"
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../..")
+)
+
+SEED = 24266
+
+MODEL_DIR = os.path.join(
+    PROJECT_ROOT,
+    "outputs",
+    "modernbert_twitter",
+    "seed_synthetic",
+    "best_model"
+)
+
+GPT4O_JSON = os.path.join(
+    PROJECT_ROOT,
+    "results",
+    "chatgpt4o_twitter_predictions.json"
+)
+
+OUT_DIR = os.path.join(
+    PROJECT_ROOT,
+    "outputs"
+)
+
+STUDENT_NAME = "ModernBERT (seed + synthetic)"
 TEACHER_NAME = "GPT-4o"
 
 # HF label mapping (0=Bearish, 1=Bullish, 2=Neutral)
@@ -143,7 +170,7 @@ def load_student_predictions(model_dir: str, test_df: pd.DataFrame) -> np.ndarra
     hf_ds = hf_ds.map(lambda ex: tokenizer(ex["sentence"], truncation=True), batched=True)
     data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-    trainer = Trainer(model=model, tokenizer=tokenizer, data_collator=data_collator)
+    trainer = Trainer(model=model, processing_class=tokenizer, data_collator=data_collator)
     preds = trainer.predict(hf_ds).predictions
     y_pred = np.argmax(preds, axis=1)
     return y_pred
@@ -301,11 +328,11 @@ def main():
     a = int(np.sum((correct_A == 1) & (correct_B == 1)))
     d = int(np.sum((correct_A == 0) & (correct_B == 0)))
     tex = rf"""
-\begin{table}[t]
+\begin{{table}}[t]
 \centering
 \caption{{McNemar comparison on Twitter test set ({STUDENT_NAME} vs {TEACHER_NAME}).}}
 \label{{tab:mcnemar_twitter}}
-\begin{tabular}{{lcc}}
+\begin{{tabular}}{{lcc}}
 \toprule
  & \textbf{{{TEACHER_NAME} Correct}} & \textbf{{{TEACHER_NAME} Wrong}} \\
 \midrule
@@ -314,8 +341,8 @@ def main():
 \midrule
 \multicolumn{{3}}{{l}}{{Aligned items: {len(y_true_aln)}, discordant $b+c={n_disc}$; $p={p_val:.4f}$}}\\
 \bottomrule
-\end{tabular}
-\end{table}
+\end{{tabular}}
+\end{{table}}
 """.strip("\n")
     tex_path = os.path.join(OUT_DIR, "mcnemar_twitter_table.tex")
     with open(tex_path, "w", encoding="utf-8") as f:
