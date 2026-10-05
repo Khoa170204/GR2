@@ -29,16 +29,16 @@ SHOW_LEGENDS = True    # legends ON
 
 # File paths (Twitter defaults)
 SEED_JSONL_CLUSTERED_CANDIDATES = [
-    "./outputs/seed_twitter_data.jsonl"
+    "./seed_twitter_data_clustered.jsonl"
 ]
 SEED_JSONL_RANDOM_CANDIDATES = [
-    "./outputs/seed_data_twitter_random.jsonl"
+    "./outputs/seed_data_phrasebank_random.jsonl"
 ]
 SYN_JSONL_CLUSTERED_CANDIDATES = [
-    "./outputs/synthetic_data_from_Seed.jsonl"
+    "./synthetic_twitter_data_seed_clustered.jsonl"
 ]
 SYN_JSONL_RANDOM_CANDIDATES = [
-    "./outputs/2synthetic_data_from_Seed_random.jsonl"
+    "./synthetic_twitter_data_seed_random.jsonl"
 ]
 
 os.makedirs("./outputs", exist_ok=True)

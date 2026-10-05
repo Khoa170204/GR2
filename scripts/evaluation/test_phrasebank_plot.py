@@ -27,16 +27,16 @@ SHOW_LEGENDS = True   # legends ON
 
 # Preferred local paths (your choices)
 SEED_JSONL_CLUSTERED_CANDIDATES = [
-    "./outputs/seed_phrasebank_data.jsonl"
+    "./outputs/seed_phrasebank_data_clustered.jsonl"
 ]
 SEED_JSONL_RANDOM_CANDIDATES = [
     "./outputs/seed_data_phrasebank_random.jsonl"
 ]
 SYN_JSONL_CLUSTERED_CANDIDATES = [
-    "./outputs/synthetic_data_from_Seed.jsonl"
+    "./outputs/synthetic_phrasebank_data_seed_clustered.jsonl"
 ]
 SYN_JSONL_RANDOM_CANDIDATES = [
-    "./outputs/2synthetic_data_from_Seed_random.jsonl"
+    "./outputs/synthetic_phrasebank_data_seed_random.jsonl"
 ]
 
 os.makedirs("./outputs", exist_ok=True)
