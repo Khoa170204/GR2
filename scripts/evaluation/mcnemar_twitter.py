@@ -41,7 +41,7 @@ except Exception:
 # ----------------------------
 SEED = 24266
 MODEL_DIR = "./outputs/best_model"     # <- path to your saved student model
-GPT4O_JSON = "./outputs/chatgpt4o_twitter_predictions.json"
+GPT4O_JSON = "./results/chatgpt4o_twitter_predictions.json"
 OUT_DIR = "./outputs"
 STUDENT_NAME = "ModernBERT (distilled)"  # label for tables/prints
 TEACHER_NAME = "GPT-4o"
