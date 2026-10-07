@@ -1,5 +1,6 @@
 import os
 import json
+import argparse
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -45,7 +46,33 @@ plt.rcParams.update({
 })
 
 # === LABELS & COLORS ===
-LABEL_NAMES = {0: "Negative", 1: "Neutral", 2: "Positive"}
+DATASET_LABELS = {
+    "phrasebank": {
+        0: "Negative",
+        1: "Neutral",
+        2: "Positive",
+    },
+    "twitter": {
+        0: "Bearish",
+        1: "Bullish",
+        2: "Neutral",
+    },
+}
+
+DATASET_FILES = {
+    "phrasebank": {
+        "seed": "./outputs/seed_phrasebank_data_clustered.jsonl",
+        "synthetic": "./outputs/synthetic_phrasebank_data_seed_clustered.jsonl",
+    },
+    "twitter": {
+        "seed": "./outputs/seed_twitter_data_clustered.jsonl",
+        "synthetic": "./outputs/synthetic_twitter_data_seed_clustered.jsonl",
+    },
+}
+
+DATASET = "phrasebank"
+LABEL_NAMES = DATASET_LABELS[DATASET]
+OUTPUT_DIR = "./outputs"
 COLOR_ALL = {0: 'lightcoral', 1: 'lightblue', 2: 'lightgreen'}
 COLOR_SEED = {0: '#E41A1C', 1: '#377EB8', 2: '#4DAF4A'}
 COLOR_SEED_PC = {0: 'darkred', 1: 'darkblue', 2: 'darkgreen'}
@@ -73,10 +100,80 @@ def _expand_limits(vmin, vmax, frac=LIM_PAD_FRAC):
 #                            split="train", trust_remote_code=True)
 #     return pd.DataFrame(dataset)
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Visualize clustered seed selection"
+    )
+
+    parser.add_argument(
+        "--dataset",
+        choices=["phrasebank", "twitter"],
+        required=True
+    )
+
+    return parser.parse_args()
+
 def load_data():
     print("Loading data...")
 
-    file_path = "data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt"
+    if DATASET == "twitter":
+
+        ds_train = load_dataset(
+            "zeroshot/twitter-financial-news-sentiment",
+            split="train",
+            trust_remote_code=True
+        )
+
+        ds_val = load_dataset(
+            "zeroshot/twitter-financial-news-sentiment",
+            split="validation",
+            trust_remote_code=True
+        )
+
+        train_df = pd.DataFrame(ds_train)
+        val_df = pd.DataFrame(ds_val)
+
+        df = pd.concat(
+            [train_df, val_df],
+            ignore_index=True
+        )
+
+        text_col = (
+            "sentence"
+            if "sentence" in df.columns
+            else "text"
+        )
+
+        def normalize_label(x):
+            if isinstance(x, str):
+                mapping = {
+                    "bearish": 0,
+                    "bullish": 1,
+                    "neutral": 2
+                }
+                return mapping[x.strip().lower()]
+            return int(x)
+
+        data = pd.DataFrame({
+            "sentence": df[text_col].astype(str).str.strip(),
+            "label": df["label"].apply(normalize_label)
+        })
+
+        print(f"Loaded {len(data)} samples")
+        print("\nLabel distribution:")
+        print(data["label"].value_counts().sort_index())
+
+        return data
+
+    # ==========================
+    # PhraseBank
+    # ==========================
+
+    file_path = (
+        "data/financial_phrasebank/"
+        "FinancialPhraseBank-v1.0/"
+        "Sentences_AllAgree.txt"
+    )
 
     label_map = {
         "negative": 0,
@@ -87,7 +184,12 @@ def load_data():
     data = []
 
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(
+            file_path,
+            "r",
+            encoding="utf-8"
+        ) as f:
+
             for line in f:
                 line = line.strip()
 
@@ -102,7 +204,13 @@ def load_data():
                 })
 
     except UnicodeDecodeError:
-        with open(file_path, "r", encoding="latin-1") as f:
+
+        with open(
+            file_path,
+            "r",
+            encoding="latin-1"
+        ) as f:
+
             for line in f:
                 line = line.strip()
 
@@ -123,6 +231,46 @@ def load_data():
     print(df["label"].value_counts().sort_index())
 
     return df
+
+def load_jsonl_data(path):
+    rows = []
+
+    label_to_id = {
+        name.lower(): idx
+        for idx, name in LABEL_NAMES.items()
+    }
+
+    with open(path, "r", encoding="utf-8") as f:
+
+        for line in f:
+            line = line.strip()
+
+            if not line:
+                continue
+
+            obj = json.loads(line)
+
+            # Skip metadata such as {"seed_used": 24266}
+            if "input" not in obj or "output" not in obj:
+                continue
+
+            sentence = str(obj["input"]).strip()
+            label = str(obj["output"]).strip().lower()
+
+            if label not in label_to_id:
+                continue
+
+            rows.append({
+                "sentence": sentence,
+                "label": label_to_id[label]
+            })
+
+    if not rows:
+        raise ValueError(
+            f"No valid rows found in {path}"
+        )
+
+    return pd.DataFrame(rows)
 
 def generate_embeddings(sentences):
     model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
@@ -163,10 +311,17 @@ def plot_distance_histogram(distances):
     plt.xlabel("Euclidean Distance")
     plt.ylabel("Number of Samples")
     plt.grid(True)
-    plt.savefig("./outputs/seed_distance_histogram.png", dpi=SAVE_DPI,
-                bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
+    plt.savefig(
+        os.path.join(
+            OUTPUT_DIR,
+            "seed_distance_histogram.png"
+        ),
+        dpi=SAVE_DPI,
+        bbox_inches=SAVE_BBOX,
+        pad_inches=SAVE_PAD
+    )
     plt.show()
-    print("Saved: ./outputs/seed_distance_histogram.png")
+    print(f"Saved: {os.path.join(OUTPUT_DIR, 'seed_distance_histogram.png')}")
 
 def plot_tsne_projection(df, seed_indices, embeddings):
     reduced = TSNE(n_components=2, random_state=SEED).fit_transform(embeddings)
@@ -194,10 +349,17 @@ def plot_tsne_projection(df, seed_indices, embeddings):
     plt.title("t-SNE Projection of Embeddings with Seed Samples by Class", fontsize=TITLE_FONTSIZE)
     plt.legend(fontsize=LEGEND_FONTSIZE)
     plt.grid(True)
-    plt.savefig("./outputs/tsne_projection_labeled.png", dpi=SAVE_DPI,
-                bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
+    plt.savefig(
+        os.path.join(
+            OUTPUT_DIR,
+            "tsne_projection_labeled.png"
+        ),
+        dpi=SAVE_DPI,
+        bbox_inches=SAVE_BBOX,
+        pad_inches=SAVE_PAD
+    )
     plt.show()
-    print("Saved: ./outputs/tsne_projection_labeled.png")
+    print(f"Saved: {os.path.join(OUTPUT_DIR, 'tsne_projection_labeled.png')}")
 
     # return padded limits for consistency downstream
     return reduced, (x_min, x_max), (y_min, y_max)
@@ -221,7 +383,10 @@ def plot_tsne_projection_per_class(df, seed_indices, reduced, xlim, ylim):
         plt.title(f"t-SNE Projection : {LABEL_NAMES[label]}", fontsize=TITLE_FONTSIZE)
         plt.legend(fontsize=LEGEND_FONTSIZE)
         plt.grid(True)
-        fname = f"./outputs/tsne_projection_{LABEL_NAMES[label].lower()}_filtered.png"
+        fname = os.path.join(
+            OUTPUT_DIR,
+            f"tsne_projection_{LABEL_NAMES[label].lower()}_filtered.png"
+        )
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.show()
         print(f"Saved: {fname}")
@@ -250,10 +415,17 @@ def plot_tsne_combined_real_synthetic(real_df, synthetic_df):
     plt.title("t-SNE Projection: Real vs. Synthetic Data", fontsize=TITLE_FONTSIZE)
     plt.legend(fontsize=LEGEND_FONTSIZE)
     plt.grid(True)
-    plt.savefig("./outputs/tsne_projection_real_vs_synthetic.png", dpi=SAVE_DPI,
-                bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
+    plt.savefig(
+        os.path.join(
+            OUTPUT_DIR,
+            "tsne_projection_real_vs_synthetic.png"
+        ),
+        dpi=SAVE_DPI,
+        bbox_inches=SAVE_BBOX,
+        pad_inches=SAVE_PAD
+    )
     plt.show()
-    print("Saved: ./outputs/tsne_projection_real_vs_synthetic.png")
+    print(f"Saved: {os.path.join(OUTPUT_DIR, 'tsne_projection_real_vs_synthetic.png')}")
 
 def plot_tsne_per_class_real_synthetic(real_df, synthetic_df):
     for label in sorted(real_df['label'].unique()):
@@ -283,7 +455,10 @@ def plot_tsne_per_class_real_synthetic(real_df, synthetic_df):
         plt.title(f"t-SNE Projection: {LABEL_NAMES[label]} – Real vs Synthetic", fontsize=TITLE_FONTSIZE)
         plt.legend(fontsize=LEGEND_FONTSIZE)
         plt.grid(True)
-        fname = f"./outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}.png"
+        fname = os.path.join(
+            OUTPUT_DIR,
+            f"tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}.png"
+        )
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.show()
         print(f"Saved: {fname}")
@@ -328,41 +503,144 @@ def plot_tsne_per_class_real_synthetic_with_seed_overlay(real_df, synthetic_df, 
         plt.title(f"t-SNE Projection: {LABEL_NAMES[label]} – Real, Synthetic, Seed", fontsize=TITLE_FONTSIZE)
         plt.legend(fontsize=LEGEND_FONTSIZE)
         plt.grid(True)
-        fname = f"./outputs/tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}_with_seed_overlay.png"
+        fname = os.path.join(
+            OUTPUT_DIR,
+            f"tsne_projection_real_vs_synthetic_{LABEL_NAMES[label].lower()}_with_seed_overlay.png"
+        )
         plt.savefig(fname, dpi=SAVE_DPI, bbox_inches=SAVE_BBOX, pad_inches=SAVE_PAD)
         plt.show()
         print(f"Saved: {fname}")
 
 # === MAIN ===
 if __name__ == "__main__":
+
+    args = parse_args()
+
+    DATASET = args.dataset
+    LABEL_NAMES = DATASET_LABELS[DATASET]
+    OUTPUT_DIR = os.path.join(
+        "./outputs",
+        f"visualization_{DATASET}_clustered"
+    )
+
+    os.makedirs(
+        OUTPUT_DIR,
+        exist_ok=True
+    )
+
+    print("=" * 60)
+    print(f"Dataset: {DATASET}")
+    print("Method: CLUSTERED")
+    print("=" * 60)
+
+    # -------------------------
+    # Load real data
+    # -------------------------
     print("Loading data...")
     data = load_data()
 
-    print("Selecting seed data...")
-    seed_df, distances, seed_indices, full_embeddings = select_seed_data_with_distance(data)
+    # -------------------------
+    # Load ACTUAL clustered seeds
+    # -------------------------
+    print("Loading clustered seed JSONL...")
 
-    print("Generating visualizations...")
-    plot_distance_histogram(distances)
-    reduced, xlim, ylim = plot_tsne_projection(data, seed_indices, full_embeddings)
-    plot_tsne_projection_per_class(data, seed_indices, reduced, xlim, ylim)
+    seed_path = DATASET_FILES[DATASET]["seed"]
 
-    print("Loading synthetic data...")
-    with open("./outputs/synthetic_data_from_Seed.jsonl", "r", encoding="utf-8") as f:
-        synthetic_lines = [json.loads(line.strip()) for line in f]
+    seed_df = load_jsonl_data(seed_path)
 
-    synthetic_df = pd.DataFrame([
-        {"sentence": d["input"].strip(),
-         "label": {"Negative": 0, "Neutral": 1, "Positive": 2}[d["output"].strip()]}
-        for d in synthetic_lines if "input" in d and "output" in d
-    ])
+    print(
+        f"Loaded clustered seeds: "
+        f"{len(seed_df)}"
+    )
 
-    print("Generating real vs. synthetic t-SNE plot (all classes)...")
-    plot_tsne_combined_real_synthetic(data, synthetic_df)
+    # Match seed sentences to real dataset
+    seed_mask_global = data["sentence"].isin(
+        seed_df["sentence"]
+    )
 
-    print("Generating per-class real vs. synthetic t-SNE plots...")
-    plot_tsne_per_class_real_synthetic(data, synthetic_df)
+    seed_indices = data.index[
+        seed_mask_global
+    ].tolist()
 
-    print("Generating per-class real vs. synthetic t-SNE plots WITH seed...")
-    plot_tsne_per_class_real_synthetic_with_seed_overlay(data, synthetic_df, seed_df)
+    print(
+        f"Matched {len(seed_indices)} "
+        f"seed indices in real data."
+    )
+
+    # -------------------------
+    # Embeddings
+    # -------------------------
+    print(
+        "Generating embeddings..."
+    )
+
+    full_embeddings = generate_embeddings(
+        data["sentence"].tolist()
+    )
+
+    # -------------------------
+    # Visualizations
+    # -------------------------
+    print(
+        "Generating visualizations..."
+    )
+
+    reduced, xlim, ylim = plot_tsne_projection(
+        data,
+        seed_indices,
+        full_embeddings
+    )
+
+    plot_tsne_projection_per_class(
+        data,
+        seed_indices,
+        reduced,
+        xlim,
+        ylim
+    )
+
+    # -------------------------
+    # Synthetic
+    # -------------------------
+    print(
+        "Loading synthetic data..."
+    )
+
+    synthetic_path = (
+        DATASET_FILES[DATASET]["synthetic"]
+    )
+
+    synthetic_df = load_jsonl_data(
+        synthetic_path
+    )
+
+    print(
+        f"Loaded synthetic: "
+        f"{len(synthetic_df)}"
+    )
+
+    # -------------------------
+    # Real vs Synthetic
+    # -------------------------
+    print(
+        "Generating real vs synthetic "
+        "t-SNE plot..."
+    )
+
+    plot_tsne_combined_real_synthetic(
+        data,
+        synthetic_df
+    )
+
+    plot_tsne_per_class_real_synthetic(
+        data,
+        synthetic_df
+    )
+
+    plot_tsne_per_class_real_synthetic_with_seed_overlay(
+        data,
+        synthetic_df,
+        seed_df
+    )
 
     print("Done.")
