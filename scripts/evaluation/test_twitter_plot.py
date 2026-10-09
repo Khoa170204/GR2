@@ -32,7 +32,7 @@ SEED_JSONL_CLUSTERED_CANDIDATES = [
     "./outputs/seed_twitter_data_clustered.jsonl"
 ]
 SEED_JSONL_RANDOM_CANDIDATES = [
-    "./outputs/seed_data_phrasebank_random.jsonl"
+    "./outputs/seed_data_twitter_random.jsonl"
 ]
 SYN_JSONL_CLUSTERED_CANDIDATES = [
     "./outputs/synthetic_twitter_data_seed_clustered.jsonl"
@@ -65,9 +65,17 @@ plt.rcParams.update({
 # COLORS / LABELS
 # ======================
 if DATA_SOURCE.lower().startswith("twit"):
-    LABEL_NAMES = {0: "Bearish", 1: "Neutral", 2: "Bullish"}
+    LABEL_NAMES = {
+        0: "Bearish",
+        1: "Bullish",
+        2: "Neutral"
+    }
 else:
-    LABEL_NAMES = {0: "Negative", 1: "Neutral", 2: "Positive"}
+    LABEL_NAMES = {
+        0: "Negative",
+        1: "Neutral",
+        2: "Positive"
+    }
 COLOR_ALL = {0: 'lightcoral', 1: 'lightblue', 2: 'lightgreen'}
 COLOR_SEED = {0: '#E41A1C', 1: '#377EB8', 2: '#4DAF4A'}
 COLOR_SEED_PC = {0: 'darkred', 1: 'darkblue', 2: 'darkgreen'}
@@ -141,25 +149,36 @@ def _warn_filtered(seeds_df, idx_list, name):
 # JSONL LOADING
 # ======================
 def _label_from_output(out: str):
-    # Accept multiple vocabularies
     m = {
-        # standard
-        "negative": 0, "neg": 0,
-        "neutral": 1,  "neu": 1,
-        "positive": 2, "pos": 2,
-        # capitalization variants
-        "Negative": 0, "Neutral": 1, "Positive": 2,
-        "Neg": 0, "Neu": 1, "Pos": 2,
-        # twitter-specific
-        "Bearish": 0, "bearish": 0,
-        "Neutral": 1, "neutral": 1,
-        "Bullish": 2, "bullish": 2,
+        # PhraseBank
+        "negative": 0,
+        "neg": 0,
+        "neutral": 1,
+        "neu": 1,
+        "positive": 2,
+        "pos": 2,
+
+        # Twitter
+        "bearish": 0,
+        "bullish": 1,
+        "neutral": 2,
     }
-    if out in m:
-        return m[out]
+
+    key = str(out).strip().lower()
+
+    if key in m:
+        return m[key]
+
     try:
-        val = int(out)
-        return {-1: 0, 0: 1, 1: 2, 2: 2}.get(val, None)
+        val = int(key)
+
+        return {
+            -1: 0,
+            0: 0,
+            1: 1,
+            2: 2
+        }.get(val, None)
+
     except Exception:
         return None
 
