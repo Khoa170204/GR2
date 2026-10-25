@@ -3,6 +3,7 @@
 import argparse
 import subprocess
 import sys
+import math
 from pathlib import Path
 
 import numpy as np
@@ -40,7 +41,16 @@ def parse_args():
         '--stages', nargs='+', choices=['E2', 'E3'], default=None,
         help='Run selected stages using an already completed E1. Default: full pipeline.',
     )
+    parser.add_argument(
+        "--learning-rate",
+        type=float,
+        default=None,
+        help="Learning rate for E2/E3; default: inherit from E1.",
+    )
     args = parser.parse_args()
+    if args.learning_rate is not None:
+        if not math.isfinite(args.learning_rate) or args.learning_rate <= 0:
+            parser.error("--learning-rate must be finite and positive.")
     if (
         not 0 < args.weight_min <= args.weight_max
         or args.score_batch_size < 1

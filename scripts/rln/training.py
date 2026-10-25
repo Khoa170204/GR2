@@ -7,7 +7,6 @@ from data_utils import LABELS, fingerprint, read_json, write_json, model_fingerp
 from scoring import release_gpu
 from evaluation import compute_metrics
 
-
 def build_stage_model(args, dataset, checkpoint, config):
     import torch
     from transformers import AutoTokenizer, AutoModelForSequenceClassification, set_seed
@@ -133,6 +132,13 @@ def build_stage_trainer(args, folder, config, frames, train, model, tokenizer):
 
 def train_stage(args, dataset, stage, checkpoint, config, frames, synthetic, weights, contract):
     from transformers.trainer_utils import get_last_checkpoint
+    # Copy cấu hình E1 để không thay đổi cấu hình M0.
+    training_config = dict(config)
+
+    # Chỉ ghi đè learning rate khi chạy E2/E3.
+    if getattr(args, "learning_rate", None) is not None:
+        training_config["learning_rate"] = args.learning_rate
+        
     folder = (
         args.output_root
         / dataset
@@ -143,7 +149,7 @@ def train_stage(args, dataset, stage, checkpoint, config, frames, synthetic, wei
         "stage": stage,
         "input": contract,
         "weights": np.asarray(weights).tolist(),
-        "config": config,
+        "config": training_config,
         "loss": "sum(w*smoothedCE)/sum(w)",
     })
     marker = folder / "stage_contract.json"
@@ -171,13 +177,16 @@ def train_stage(args, dataset, stage, checkpoint, config, frames, synthetic, wei
             "stage": stage,
             "dataset": dataset,
             "m0_config": config,
+            "training_config": training_config,
             "input_contract": contract,
             "initialization": str(checkpoint),
             "loss": "sum(w*smoothedCE)/sum(w)",
             "optimizer_reinitialized": True,
         },
     )
-    model, tokenizer = build_stage_model(args, dataset, checkpoint, config)
+    model, tokenizer = build_stage_model(
+        args, dataset, checkpoint, training_config
+    )
     seed = frames["seed"].copy()
     seed["weight"] = 1.0
     syn = synthetic[['sentence', 'label']].copy()
@@ -186,14 +195,21 @@ def train_stage(args, dataset, stage, checkpoint, config, frames, synthetic, wei
     snapshots = folder / "data_snapshot"
     snapshots.mkdir(exist_ok=True)
     train.to_json(snapshots / 'train.jsonl', orient='records', lines=True, force_ascii=False)
-    trainer = build_stage_trainer(args, folder, config, frames, train, model, tokenizer)
+    trainer = build_stage_trainer(
+        args, folder, training_config, frames, train, model, tokenizer
+    )
     checkpoints = folder / "checkpoints"
     last = (
         get_last_checkpoint(str(checkpoints))
         if checkpoints.exists()
         else None
     )
-    print(f'[{stage.upper()}] Train from M0; resume={last}', flush=True)
+    print(
+        f'[{stage.upper()}] Train from M0; '
+        f'learning_rate={training_config["learning_rate"]}; '
+        f'resume={last}',
+        flush=True,
+    )
     trainer.train(resume_from_checkpoint=last)
     trainer.save_model(str(folder / 'best_model'))
     tokenizer.save_pretrained(str(folder / 'best_model'))
