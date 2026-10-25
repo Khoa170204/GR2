@@ -13,7 +13,7 @@ from data_utils import (
     read_json, write_json, frame_sha256, model_fingerprint,
     check_disjoint, prepare_synthetic,
 )
-from scoring import score_synthetic
+from scoring import score_synthetic, make_weights
 from training import train_stage
 from evaluation import evaluate_test
 
@@ -46,6 +46,12 @@ def parse_args():
         type=float,
         default=None,
         help="Learning rate for E2/E3; default: inherit from E1.",
+    )
+    parser.add_argument(
+        "--rln-variant",
+        choices=["R", "L", "N", "RL", "RN", "LN", "RLN"],
+        default="RLN",
+        help="Components used to calculate synthetic weights.",
     )
     args = parser.parse_args()
     if args.learning_rate is not None:
@@ -171,7 +177,24 @@ def main():
         )
         # E2: mọi mẫu có trọng số bằng 1.
         e2 = args.output_root / dataset / 'uniform' / f'train_seed_{args.train_seed}'
-        e3 = args.output_root / dataset / 'weighted' / f'train_seed_{args.train_seed}'
+        e3_stage = (
+            "weighted"
+            if args.rln_variant == "RLN"
+            else f"weighted_{args.rln_variant}"
+        )
+
+        e3_name = (
+            "E3"
+            if args.rln_variant == "RLN"
+            else f"E3_{args.rln_variant}"
+        )
+
+        e3 = (
+            args.output_root
+            / dataset
+            / e3_stage
+            / f"train_seed_{args.train_seed}"
+        )
         if 'E2' in stages:
             e2 = train_stage(
                 args,
@@ -185,25 +208,67 @@ def main():
                 contract,
             )
         # Chấm RLN bằng M0 cố định.
-        if 'E3' in stages:
-            scored, score_signature = (
-                score_synthetic(args, dataset, checkpoint, frames, synthetic, contract)
+        if "E3" in stages:
+            # Tính hoặc đọc cache R/L/N bằng cùng M0.
+            scored, score_signature = score_synthetic(
+                args, dataset, checkpoint, frames, synthetic, contract
             )
+
             if frame_sha256(scored) != frame_sha256(synthetic):
-                raise ValueError('Scored sample order/content changed.')
-            # E3: khởi tạo lại từ M0, KHÔNG từ E2.
+                raise ValueError("Scored sample order/content changed.")
+
+            variant_scores = scored.copy()
+            train_contract = {
+                **contract,
+                "scoring": score_signature,
+            }
+
+            if args.rln_variant != "RLN":
+                # Thành phần không sử dụng được thay bằng 1.
+                # Ví dụ LN: Q = 1 * L * N.
+                components = [
+                    scored[name].to_numpy(dtype=float)
+                    if name in args.rln_variant
+                    else np.ones(len(scored))
+                    for name in ("R", "L", "N")
+                ]
+
+                q, weights = make_weights(
+                    *components,
+                    args.weight_min,
+                    args.weight_max,
+                )
+
+                variant_scores["Q"] = q
+                variant_scores["weight"] = weights
+                train_contract["rln_variant"] = args.rln_variant
+
+            # RLN đầy đủ giữ nguyên trọng số đã tính trong scoring.py.
+            variant_scores.to_json(
+                prepared / f"weights_{args.rln_variant}.jsonl",
+                orient="records",
+                lines=True,
+                force_ascii=False,
+                double_precision=15,
+            )
+
+            # Mỗi biến thể đều bắt đầu từ cùng M0 của E1.
             e3 = train_stage(
                 args,
                 dataset,
-                "weighted",
+                e3_stage,
                 checkpoint,
                 config,
                 frames,
                 synthetic,
-                scored["weight"].to_numpy(),
-                {**contract, 'scoring': score_signature},
+                variant_scores["weight"].to_numpy(),
+                train_contract,
             )
-        for experiment, folder in (('E1', m0_run), ('E2', e2), ('E3', e3)):
+        for experiment, folder in (
+            ("E1", m0_run),
+            ("E2", e2),
+            (e3_name, e3),
+        ):
             summary = folder / 'summary.json'
             if not summary.is_file() or read_json(summary).get('status') != 'complete':
                 continue
