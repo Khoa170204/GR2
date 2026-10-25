@@ -1,0 +1,14 @@
+{
+  "input": {
+    "m0": "fe9339ec173e503ccc4244a3cbfcdb81cfc7fd6c0c8b100801d2f1c2d9fa579e",
+    "seed": "29a2e5c10aba6dda82811a16cd908bb1dad87c392282ba03adb0c676ec60207b",
+    "validation": "06279c0e96144700c3b4ec55184e42ac30bac536018e2a3f50d474919d0e8f47",
+    "test": "53ccec807fc1dcedb404620051fd79979477cea4a5c0f580bff1b725fb57812d",
+    "synthetic": "3edfb50dd983ce26729372d4e2f25531c9b1acf4f8450759d379f38801a950e5"
+  },
+  "reliability_model": "ProsusAI/finbert",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "minimum": 0.5,
+  "maximum": 2.0,
+  "formula": "Q=R*(1-pM0)*(1-max_cos); w=clip(Q/meanQ)"
+}
