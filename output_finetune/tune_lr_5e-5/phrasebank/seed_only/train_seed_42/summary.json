@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "dataset": "phrasebank",
+  "train_seed": 42,
+  "best_model": "output/tune_lr_5e-5/phrasebank/seed_only/train_seed_42/best_model",
+  "best_validation_macro_f1": 0.8589138682390666,
+  "best_checkpoint": "output/tune_lr_5e-5/phrasebank/seed_only/train_seed_42/checkpoints/checkpoint-92",
+  "test_evaluated": false
+}
