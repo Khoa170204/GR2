@@ -1,9 +1,0 @@
-{
-  "status": "complete",
-  "dataset": "twitter",
-  "train_seed": 42,
-  "best_model": "output/tune_lr_5e-5/twitter/seed_only/train_seed_42/best_model",
-  "best_validation_macro_f1": 0.6482150359490643,
-  "best_checkpoint": "output/tune_lr_5e-5/twitter/seed_only/train_seed_42/checkpoints/checkpoint-32",
-  "test_evaluated": false
-}

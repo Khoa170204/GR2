@@ -1,6 +1,0 @@
-{
-  "status": "complete",
-  "stage": "weighted",
-  "best_validation_macro_f1": 0.9234656009135027,
-  "initialization": "output/full_run_01/phrasebank/seed_only/train_seed_42/best_model"
-}
