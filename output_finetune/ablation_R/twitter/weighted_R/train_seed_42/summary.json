@@ -1,0 +1,6 @@
+{
+  "status": "complete",
+  "stage": "weighted_R",
+  "best_validation_macro_f1": 0.6846375618605439,
+  "initialization": "output/ablation_rln/twitter/seed_only/train_seed_42/best_model"
+}
