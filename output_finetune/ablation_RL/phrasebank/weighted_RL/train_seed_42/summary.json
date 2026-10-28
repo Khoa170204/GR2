@@ -1,6 +1,0 @@
-{
-  "status": "complete",
-  "stage": "weighted_RL",
-  "best_validation_macro_f1": 0.920576921499635,
-  "initialization": "output/ablation_rln/phrasebank/seed_only/train_seed_42/best_model"
-}
