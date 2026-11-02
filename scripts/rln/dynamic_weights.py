@@ -17,7 +17,7 @@ def normalize_q(q, mode):
     if q.ndim != 1 or not len(q) or not np.isfinite(q).all() or (q < 0).any():
         raise ValueError('Q must be a nonempty finite nonnegative vector.')
     low, high = float(q.min()), float(q.max())
-    if mode == 'legacy':
+    if mode in ('legacy', 'dynamic_legacy'):
         _, weights = make_weights(q, np.ones_like(q), np.ones_like(q), 0.5, 2.0)
         equal = False
     else:
@@ -105,7 +105,11 @@ class EpochWeights(TrainerCallback):
         epoch = int(round(state.epoch or 0)) + 1
         if epoch == self.last_epoch:
             return control
-        refresh = self.mode == 'dynamic' and 'L' in self.variant and epoch > 1
+        refresh = (
+            self.mode in ('dynamic', 'dynamic_legacy')
+            and 'L' in self.variant
+            and epoch > 1
+        )
         if refresh:
             self.scores['L'] = 1.0 - student_probabilities(
                 model, self.tokenizer, self.synthetic, self.dataset,

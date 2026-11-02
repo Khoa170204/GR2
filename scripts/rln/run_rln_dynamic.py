@@ -28,8 +28,12 @@ def parse_args():
                         default=['phrasebank', 'twitter'])
     parser.add_argument('--variants', nargs='+', choices=['R', 'L', 'N', 'RL', 'RN', 'LN', 'RLN'],
                         default=['RLN'])
-    parser.add_argument('--modes', nargs='+', choices=['legacy', 'static', 'dynamic'],
-                        default=['legacy', 'static', 'dynamic'])
+    parser.add_argument(
+        '--modes',
+        nargs='+',
+        choices=['legacy', 'static', 'dynamic', 'dynamic_legacy'],
+        default=['legacy', 'static', 'dynamic'],
+    )
     parser.add_argument('--skip-e2', action='store_true')
     parser.add_argument('--output-root', type=Path, default=Path('output/rln_dynamic_01'))
     parser.add_argument('--learning-rate', type=float, default=1e-4)
@@ -83,6 +87,8 @@ def main():
                     for key, value in vars(args).items()}
         write_json(folder / 'run_config.json', {**settings, 'training': config,
                    'normalization_01': '(Q-minQ)/(maxQ-minQ), entire synthetic corpus',
+                   'normalization_legacy': 'clip(Q/meanQ, 0.5, 2), entire synthetic corpus',
+                   'dynamic_L_modes': ['dynamic', 'dynamic_legacy'],
                    'equal_q_policy': 'all weights 1 when range <= 1e-12',
                    'L_refresh': 'before each training epoch; first uses M0',
                    'seed_weight': 1, 'model_saved': False,
@@ -163,10 +169,19 @@ def main():
         synthetic.assign(**scores).to_csv(folder / 'initial_scores.csv', index=False)
         for variant in args.variants:
             for mode in args.modes:
-                if mode == 'dynamic' and 'L' not in variant:
-                    print(f'[SKIP] {variant} has no L; dynamic duplicates static.', flush=True)
+                if mode in ('dynamic', 'dynamic_legacy') and 'L' not in variant:
+                    fixed = 'legacy' if mode == 'dynamic_legacy' else 'static'
+                    print(
+                        f'[SKIP] {variant} has no L; {mode} duplicates {fixed}.',
+                        flush=True,
+                    )
                     continue
-                suffix = {'legacy': 'legacy', 'static': 'static01', 'dynamic': 'dynamic01'}[mode]
+                suffix = {
+                    'legacy': 'legacy',
+                    'static': 'static01',
+                    'dynamic': 'dynamic01',
+                    'dynamic_legacy': 'dynamic052',
+                }[mode]
                 run_stage(f'E3_{variant}_{suffix}', variant, mode, scores)
         del m0, tokenizer, run_stage
         release_gpu()
