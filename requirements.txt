@@ -1,3 +1,4 @@
+python-dotenv
 torch>=2.0.0
 tokenizers==0.21.4
 transformers>=4.36.0
