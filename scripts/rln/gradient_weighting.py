@@ -24,27 +24,71 @@ from transformers import TrainerCallback
 from dynamic_weights import MutableWeights, normalize_q, student_probabilities
 
 
-def reserve_meta(frames, synthetic, per_class=15, seed=24266):
+def reserve_meta(frames, synthetic, per_class=15, seed=24266, source='train_pool'):
+    """Default: additional clean labels from unused train pool; keep old val/test.
+
+    source='validation' explicitly reproduces the earlier reduced-val protocol.
+    Neither option changes seed/synthetic/test membership.
+    """
     key = lambda text: ' '.join(text.casefold().split())
-    validation = frames['validation'].copy()
-    validation['_key'] = validation.sentence.map(key)
-    if validation['_key'].duplicated().any():
-        raise ValueError('Duplicate validation texts after normalization.')
+    if source not in ('train_pool', 'validation'):
+        raise ValueError('Unknown meta source.')
+    pool = frames[source].copy()
+    pool['_key'] = pool.sentence.map(key)
     forbidden = set()
-    for frame in [frames['seed'], frames['test'], synthetic]:
+    blocked = [frames['seed'], frames['test'], synthetic]
+    if source == 'train_pool':
+        blocked.append(frames['validation'])
+    for frame in blocked:
         forbidden.update(frame.sentence.map(key))
-    if set(validation['_key']) & forbidden:
-        raise ValueError('Validation/meta overlaps seed, synthetic, or test.')
+    if source == 'validation':
+        if pool['_key'].duplicated().any() or set(pool['_key']) & forbidden:
+            raise ValueError('Invalid validation pool: duplicate texts or heldout overlap.')
+    else:
+        pool = pool[~pool['_key'].isin(forbidden)]
+        # Only meta candidates are filtered. The original train pool and all
+        # baseline frames are left intact, including their row order.
+        conflicts = pool.groupby('_key').label.nunique()
+        pool = pool[~pool['_key'].isin(conflicts[conflicts > 1].index)]
+        pool = pool.drop_duplicates('_key')
     parts = []
     for label in range(3):
-        pool = validation[validation.label == label]
-        if len(pool) <= per_class:
-            raise ValueError(f'Class {label}: need more than {per_class} validation rows.')
-        parts.append(pool.sample(n=per_class, random_state=seed + label))
+        candidates = pool[pool.label == label]
+        needed = per_class + int(source == 'validation')
+        if len(candidates) < needed:
+            raise ValueError(f'Class {label}: insufficient disjoint {source} meta candidates.')
+        parts.append(candidates.sample(n=per_class, random_state=seed + label))
     meta = pd.concat(parts)
-    remaining = validation.drop(meta.index).drop(columns='_key').reset_index(drop=True)
+    remaining = frames['validation'].copy()
+    if source == 'validation':
+        remaining = remaining.drop(meta.index).reset_index(drop=True)
     return {**frames, 'validation': remaining,
             'meta': meta.drop(columns='_key').reset_index(drop=True)}
+
+
+def check_data_contract(frames, synthetic):
+    """Fail on label/column errors and cross-set overlap; do not modify data."""
+    sets = {name: frames[name] for name in ['seed', 'meta', 'validation', 'test']}
+    sets['synthetic'] = synthetic
+    keys = {}
+    for name, frame in sets.items():
+        if not {'sentence', 'label'}.issubset(frame.columns) or frame.empty:
+            raise ValueError(f'Invalid/empty {name} frame.')
+        if frame.label.isna().any() or not set(frame.label).issubset({0, 1, 2}):
+            raise ValueError(f'Invalid labels in {name}.')
+        if not frame.sentence.map(lambda s: isinstance(s, str) and bool(s.strip())).all():
+            raise ValueError(f'Invalid texts in {name}.')
+        keys[name] = set(frame.sentence.map(lambda s: ' '.join(s.casefold().split())))
+    for i, left in enumerate(keys):
+        for right in list(keys)[i + 1:]:
+            if keys[left] & keys[right]:
+                raise ValueError(f'Data overlap after case/whitespace normalization: {left}/{right}')
+    return {'counts': {n: len(f) for n, f in sets.items()},
+            'class_counts': {n: {int(k): int(v) for k, v in f.label.value_counts().items()}
+                             for n, f in sets.items()},
+            'training_rows_E1': len(frames['seed']),
+            'training_rows_E2_to_E7': len(frames['seed']) + len(synthetic),
+            'cross_set_text_overlap': False}
 
 
 def head_features(model, tokenizer, frame, batch_size=32, max_length=512):

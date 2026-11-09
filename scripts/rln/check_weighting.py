@@ -13,7 +13,7 @@ import torch
 import torch.nn.functional as F
 
 from gradient_weighting import (ren_head_gate, head_gradients, head_features,
-                           adam_directions, reserve_meta)
+                           adam_directions, reserve_meta, check_data_contract)
 
 
 def check_math():
@@ -81,9 +81,22 @@ def check_runner():
               'test': frame('test', 2), 'train_pool': frame('pool', 9)}
     synthetic = frame('synthetic', 3)
     split = reserve_meta(frames, synthetic, 1, 24266)
-    assert len(split['meta']) == 3 and len(split['validation']) == 12
+    assert len(split['meta']) == 3 and len(split['validation']) == 15
+    for name in ['seed', 'validation', 'test']:
+        assert split[name].equals(frames[name])
     assert split['meta'].equals(reserve_meta(frames, synthetic, 1, 24266)['meta'])
     assert set(split['meta'].sentence).isdisjoint(split['validation'].sentence)
+    old_meta_split = reserve_meta(frames, synthetic, 1, 24266, 'validation')
+    assert len(old_meta_split['validation']) == 12
+    contract = check_data_contract(split, synthetic)
+    assert contract['training_rows_E2_to_E7'] == 15
+    leaking = {**split, 'meta': split['seed'].iloc[:3]}
+    try:
+        check_data_contract(leaking, synthetic)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Overlapping meta must be rejected.')
     backend = Tokenizer(WordLevel({'[PAD]': 0, '[UNK]': 1, 'class0': 2,
                                   'class1': 3, 'class2': 4}, unk_token='[UNK]'))
     backend.pre_tokenizer = Whitespace()
@@ -91,6 +104,8 @@ def check_runner():
                   unk_token='[UNK]', model_input_names=['input_ids', 'attention_mask'])
 
     def make_seed(args, output, data):
+        from transformers import set_seed
+        set_seed(args.train_seed)
         cfg = DistilBertConfig(vocab_size=5, n_layers=1, dim=12, hidden_dim=24,
                   n_heads=2, num_labels=3, id2label=LABELS['phrasebank'],
                   label2id={v: k for k, v in LABELS['phrasebank'].items()})
@@ -100,7 +115,7 @@ def check_runner():
                 lambda b: tokenizer(b['sentence'], truncation=True, max_length=32),
                 batched=True, remove_columns=['sentence'])
         train_args = TrainingArguments(output_dir=str(output / 'checkpoints'),
-            eval_strategy='epoch', save_strategy='no', num_train_epochs=2,
+            eval_strategy='epoch', save_strategy='no', num_train_epochs=args.num_epochs,
             per_device_train_batch_size=16, per_device_eval_batch_size=32,
             learning_rate=1e-4, report_to='none', seed=args.train_seed,
             data_seed=args.train_seed, dataloader_num_workers=0, disable_tqdm=True)
@@ -111,7 +126,7 @@ def check_runner():
         model.train()
         rng = torch.get_rng_state().clone()
         original = copy.deepcopy(model.state_dict())
-        head_features(model, tokenizer, data['meta'], 2, 32)
+        head_features(model, tokenizer, data.get('meta', split['meta']), 2, 32)
         assert model.training and torch.equal(rng, torch.get_rng_state())
         assert all(p.grad is None for p in model.parameters())
         for k, v in model.state_dict().items():
@@ -133,11 +148,23 @@ def check_runner():
     old_module = sys.modules.get('sentence_transformers')
     originals = (runner.prepare_data, runner.prepare_synthetic,
                  runner.build_seed_trainer, runner.assigned_label_probabilities)
+    original_test = runner.test_and_save
+    new_states = {}
+    def state_digest(model):
+        digest = hashlib.sha256()
+        for name, tensor in model.state_dict().items():
+            digest.update(name.encode())
+            digest.update(tensor.detach().cpu().contiguous().numpy().tobytes())
+        return digest.hexdigest()
+    def capture_new(trainer, tokenizer, data, config, folder, *args):
+        new_states[folder.name] = state_digest(trainer.model)
+        return original_test(trainer, tokenizer, data, config, folder, *args)
     try:
         runner.prepare_data = lambda **kw: (copy.deepcopy(frames), {'fixture': True})
         runner.prepare_synthetic = lambda *a: (synthetic.copy(), [])
         runner.build_seed_trainer = make_seed
         runner.assigned_label_probabilities = lambda *a: np.full(len(synthetic), 0.8)
+        runner.test_and_save = capture_new
         sys.modules['sentence_transformers'] = SimpleNamespace(SentenceTransformer=FakeEncoder)
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary) / 'results'
@@ -175,6 +202,52 @@ def check_runner():
                 assert weights.adam_moment_source.tolist() == ['M0_best', 'current_branch']
                 assert weights.adam_moment_step.iloc[0] == warmup['optimizer_step']
             print('PASS runner: all E1--E7, 2 epochs, real HF training, predictions, RAM selection.')
+            # Optional end-to-end parity test against the supplied original runner.
+            import importlib.util
+            if importlib.util.find_spec('run_rln_dynamic') is not None:
+                import run_rln_dynamic as legacy
+                legacy_originals = (legacy.prepare_data, legacy.prepare_synthetic,
+                    legacy.build_seed_trainer, legacy.assigned_label_probabilities, legacy.test_and_save)
+                old_states = {}
+                def capture_old(trainer, tokenizer, data, config, folder, *args):
+                    old_states[folder.name] = state_digest(trainer.model)
+                    return original_test(trainer, tokenizer, data, config, folder, *args)
+                try:
+                    legacy.prepare_data = runner.prepare_data
+                    legacy.prepare_synthetic = runner.prepare_synthetic
+                    legacy.build_seed_trainer = make_seed
+                    legacy.assigned_label_probabilities = runner.assigned_label_probabilities
+                    legacy.test_and_save = capture_old
+                    legacy_output = Path(temporary) / 'legacy'
+                    sys.argv = ['run_rln_dynamic.py', '--datasets', 'phrasebank',
+                        '--variants', 'RLN', '--modes', 'legacy', 'dynamic_legacy',
+                        '--train-seed', '42', '--num-epochs', '2', '--patience', '2',
+                        '--output-root', str(legacy_output)]
+                    legacy.main()
+                    old_base = legacy_output / 'phrasebank/train_seed_42'
+                    mapping = {'E1': 'E1', 'E2': 'E2', 'E3': 'E3_RLN_legacy',
+                               'E4': 'E3_RLN_dynamic052'}
+                    for new, old in mapping.items():
+                        assert new_states[new] == old_states[old], (new, 'model parameters')
+                        assert pd.read_csv(base / new / 'test_predictions.csv').equals(
+                            pd.read_csv(old_base / old / 'test_predictions.csv'))
+                        for fn in ['selection.json', 'test_report.json']:
+                            assert json.loads((base/new/fn).read_text()) == json.loads(
+                                (old_base/old/fn).read_text()), (new, fn)
+                        h1 = json.loads((base/new/'training_history.json').read_text())
+                        h2 = json.loads((old_base/old/'training_history.json').read_text())
+                        assert [x['eval_f1'] for x in h1 if 'eval_f1' in x] == [
+                            x['eval_f1'] for x in h2 if 'eval_f1' in x]
+                    for new, old in [('E3', 'E3_RLN_legacy'), ('E4', 'E3_RLN_dynamic052')]:
+                        for epoch_file in (base/new/'weights').glob('*.csv'):
+                            assert pd.read_csv(epoch_file).equals(pd.read_csv(
+                                old_base/old/'weights'/epoch_file.name))
+                    print('PASS legacy parity: E1--E4 model parameters, predictions, selection, epoch F1 and RLN weights identical.')
+                finally:
+                    (legacy.prepare_data, legacy.prepare_synthetic, legacy.build_seed_trainer,
+                     legacy.assigned_label_probabilities, legacy.test_and_save) = legacy_originals
+            else:
+                print('INFO: original run_rln_dynamic.py absent; optional legacy parity check skipped.')
             # Probe the validation-only path and ensure it cannot call test_and_save.
             previous_test = runner.test_and_save
             def forbidden_test(*args, **kwargs):
@@ -195,6 +268,7 @@ def check_runner():
             print('PASS validation-only: no test evaluation, still auto-trains E1/M0.')
     finally:
         sys.argv = old_argv
+        runner.test_and_save = original_test
         (runner.prepare_data, runner.prepare_synthetic, runner.build_seed_trainer,
          runner.assigned_label_probabilities) = originals
         if old_module is None:
@@ -204,7 +278,12 @@ def check_runner():
 
 
 if __name__ == '__main__':
+    from unittest.mock import patch
     torch.set_num_threads(1)
-    check_math()
-    check_runner()
+    # Keep the bitwise baseline regression test on CPU even on Kaggle GPU.
+    # GPU performance/reproducibility must be checked by the real smoke run.
+    with patch('torch.cuda.is_available', return_value=False), \
+         patch('torch.cuda.device_count', return_value=0):
+        check_math()
+        check_runner()
     print('ALL OFFLINE CHECKS PASSED. Tiny CPU fixtures are not research results.')

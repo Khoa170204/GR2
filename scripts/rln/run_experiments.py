@@ -6,10 +6,10 @@ Every branch starts independently from M0. Final-head-only scoring/meta-step;
 existing trainable student parameters still learn through the real weighted loss.
 """
 import os
-os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG', ':4096:8')
 
 import argparse
 import copy
+import json
 import importlib.metadata
 import platform
 import subprocess
@@ -25,9 +25,9 @@ from data_utils import prepare_data, prepare_synthetic, write_json, frame_sha256
 from train_seed import build_seed_trainer
 from training import build_stage_trainer
 from scoring import assigned_label_probabilities, release_gpu
-from dynamic_weights import student_probabilities
+from dynamic_weights import student_probabilities, MutableWeights, EpochWeights
 from run_ablation_ram import fit_in_ram, test_and_save
-from gradient_weighting import (reserve_meta, IndexedWeights, GradientWeighting, install_ren,
+from gradient_weighting import (reserve_meta, check_data_contract, IndexedWeights, GradientWeighting, install_ren,
                            WarmupHeadMoments)
 
 
@@ -44,13 +44,17 @@ def parse_args():
     p.add_argument('--split-seed', type=int, default=24266)
     p.add_argument('--meta-seed', type=int, default=24266)
     p.add_argument('--meta-per-class', type=int, default=15)
+    p.add_argument('--meta-source', choices=['train_pool', 'validation'], default='train_pool',
+                   help='Unused train-pool labels by default: preserve original validation.')
+    p.add_argument('--reference-root', type=Path,
+                   help='Optional old RLN output root; require matching baseline input hashes.')
     p.add_argument('--num-epochs', type=int, default=50)
     p.add_argument('--patience', type=int, default=10)
     p.add_argument('--learning-rate', type=float, default=1e-4)
     p.add_argument('--ren-inner-lr', type=float, default=1e-4)
     p.add_argument('--less-aggregation', choices=['mean', 'max'], default='mean')
     p.add_argument('--score-batch-size', type=int, default=32)
-    p.add_argument('--output-root', type=Path, default=Path('output/weighting_e1_e7_v1'))
+    p.add_argument('--output-root', type=Path, default=Path('output/weighting_e1_e7_v2'))
     p.add_argument('--phrasebank-file', type=Path, default=Path(
         'data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt'))
     p.add_argument('--twitter-train-file', type=Path)
@@ -58,8 +62,8 @@ def parse_args():
     p.add_argument('--prepare-only', action='store_true')
     p.add_argument('--validation-only', action='store_true',
                    help='Save validation results only; never call test evaluation.')
-    p.add_argument('--allow-nondeterministic', action='store_true',
-                   help='Opt out of strict deterministic kernels; recorded in config.')
+    p.add_argument('--strict-determinism', action='store_true',
+                   help='Opt in to stricter CUDA kernels; default follows the original runner.')
     args = p.parse_args()
     if min(args.meta_per_class, args.num_epochs, args.patience, args.score_batch_size) < 1:
         p.error('Counts, epochs, patience and batch size must be positive.')
@@ -139,7 +143,24 @@ def run_one(args, dataset, seed):
     syn, removed = prepare_synthetic(Path('outputs') /
                     f'synthetic_{dataset}_data_seed_clustered.jsonl', dataset, frames)
     old_count = len(frames['validation'])
-    frames = reserve_meta(frames, syn, args.meta_per_class, args.meta_seed)
+    original_hashes = {name: frame_sha256(frames[name]) for name in ['seed', 'validation', 'test']}
+    frames = reserve_meta(frames, syn, args.meta_per_class, args.meta_seed, args.meta_source)
+    contract = check_data_contract(frames, syn)
+    current_hashes = {**{name: frame_sha256(frames[name]) for name in
+                         ['seed', 'meta', 'validation', 'test']}, 'synthetic': frame_sha256(syn)}
+    contract['unchanged_from_original_split'] = {
+        n: current_hashes[n] == original_hashes[n] for n in original_hashes}
+    if args.meta_source == 'train_pool' and not all(contract['unchanged_from_original_split'].values()):
+        raise AssertionError('Default protocol must keep original seed/validation/test frames.')
+    if args.reference_root is not None:
+        reference_path = args.reference_root / dataset / f'train_seed_{seed}' / 'input_sha256.json'
+        reference = json.loads(reference_path.read_text())
+        mismatches = [n for n in ['seed', 'validation', 'test', 'synthetic']
+                      if reference.get(n) != current_hashes[n]]
+        if mismatches:
+            raise ValueError(f'Baseline inputs differ from reference: {mismatches}')
+        contract['reference_hashes_match'] = True
+    write_json(folder / 'data_contract.json', contract)
     snapshot = folder / 'data_snapshot'
     snapshot.mkdir()
     for name in ['seed', 'meta', 'validation', 'test']:
@@ -148,12 +169,11 @@ def run_one(args, dataset, seed):
     syn.to_csv(folder / 'synthetic_samples.csv', index=False)
     write_json(folder / 'data_audit_original_split.json', audit)
     write_json(folder / 'excluded_synthetic.json', removed)
-    write_json(folder / 'input_sha256.json', {**{n: frame_sha256(frames[n]) for n in
-                    ['seed', 'meta', 'validation', 'test']}, 'synthetic': frame_sha256(syn)})
+    write_json(folder / 'input_sha256.json', current_hashes)
     write_json(folder / 'meta_protocol.json', {
         'original_validation_count': old_count, 'meta_count': len(frames['meta']),
         'selection_validation_count': len(frames['validation']),
-        'source': 'reserved from original validation; disjoint',
+        'source': args.meta_source,
         'meta_direct_training': False, 'head_surrogate_only': True,
         'less_aggregation': args.less_aggregation,
         'less_candidate_direction': 'LESS repository m_new/sqrt(v_new+1e-8)',
@@ -161,7 +181,7 @@ def run_one(args, dataset, seed):
         'less_reference': 'normalized ordinary meta gradients',
         'ren': 'eps=0 virtual SGD on synthetic batch, rectified detached meta-gradient',
         'adaptations': 'final classifier only; epoch-wise LESS; RLN prior; bounded final weights',
-        'meta_label_budget_warning': 'E5/E6/E7 access 45 extra clean labels by default.'})
+        'meta_label_budget_warning': f'E5/E6/E7 access {len(frames["meta"])} extra clean labels.'})
     if args.prepare_only:
         print(f'[DATA OK] {dataset}/{seed}: seed={len(frames["seed"])}, '
               f'syn={len(syn)}, meta={len(frames["meta"])}, val={len(frames["validation"])}')
@@ -191,22 +211,24 @@ def run_one(args, dataset, seed):
     del trainer
     release_gpu()
     scores = None
-    if need_scores:
-        r = assigned_label_probabilities('ProsusAI/finbert', syn, dataset, args.score_batch_size, 512)
-        from sentence_transformers import SentenceTransformer
-        encoder = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-        a = encoder.encode(frames['seed'].sentence.tolist(), normalize_embeddings=True,
-                            batch_size=args.score_batch_size)
-        b = encoder.encode(syn.sentence.tolist(), normalize_embeddings=True,
-                            batch_size=args.score_batch_size)
-        n = 1 - np.clip(b @ a.T, -1, 1).max(axis=1)
-        del encoder
-        release_gpu()
-        scores = {'R': r, 'L': l0, 'N': n}
-        syn.assign(**scores).to_csv(folder / 'initial_scores.csv', index=False)
     for experiment in args.experiments:
         if experiment == 'E1':
             continue
+        if experiment != 'E2' and scores is None:
+            # Match original ordering: E2 first, then teacher/novelty scoring,
+            # then reset training RNG before building each weighted branch.
+            r = assigned_label_probabilities('ProsusAI/finbert', syn, dataset, args.score_batch_size, 512)
+            from sentence_transformers import SentenceTransformer
+            encoder = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+            a = encoder.encode(frames['seed'].sentence.tolist(), normalize_embeddings=True,
+                                batch_size=args.score_batch_size)
+            b = encoder.encode(syn.sentence.tolist(), normalize_embeddings=True,
+                                batch_size=args.score_batch_size)
+            n = 1 - np.clip(b @ a.T, -1, 1).max(axis=1)
+            del encoder
+            release_gpu()
+            scores = {'R': r, 'L': l0, 'N': n}
+            syn.assign(**scores).to_csv(folder / 'initial_scores.csv', index=False)
         stage = folder / experiment
         stage.mkdir()
         set_seed(seed)
@@ -221,12 +243,16 @@ def run_one(args, dataset, seed):
             data = IndexedWeights(trainer.train_dataset, len(frames['seed']), len(syn)) \
                    if mode in ('ren', 'combined') else None
             if data is None:
-                from dynamic_weights import MutableWeights
                 data = MutableWeights(trainer.train_dataset, len(frames['seed']), len(syn))
             trainer.train_dataset = data
-            updater = GradientWeighting(data, syn, frames['meta'], tokenizer, scores, mode,
-                stage, dataset, args.score_batch_size, 512, 0.1, args.less_aggregation,
-                warmup_moments)
+            if experiment in ('E3', 'E4'):
+                updater = EpochWeights(data, syn, scores, tokenizer, dataset, 'RLN',
+                    'legacy' if experiment == 'E3' else 'dynamic_legacy', stage,
+                    args.score_batch_size, 512)
+            else:
+                updater = GradientWeighting(data, syn, frames['meta'], tokenizer, scores, mode,
+                    stage, dataset, args.score_batch_size, 512, 0.1, args.less_aggregation,
+                    warmup_moments)
             trainer.add_callback(updater)
             if mode in ('ren', 'combined'):
                 install_ren(trainer, tokenizer, frames['meta'], stage, args.ren_inner_lr,
@@ -234,7 +260,7 @@ def run_one(args, dataset, seed):
         print(f'[TRAIN] {dataset}/{seed}/{experiment}: {mode}, independent M0', flush=True)
         selection = fit_in_ram(trainer, args.patience)
         if updater is not None:
-            trainer.remove_callback(GradientWeighting)
+            trainer.remove_callback(type(updater))
         record(csv_path, dataset, seed, experiment, finish(trainer, tokenizer, frames,
                config, stage, dataset, True, selection, not args.validation_only))
         del trainer, model, updater
@@ -245,9 +271,11 @@ def run_one(args, dataset, seed):
 
 def main():
     args = parse_args()
+    if args.strict_determinism:
+        os.environ.setdefault('CUBLAS_WORKSPACE_CONFIG', ':4096:8')
     if not args.prepare_only and torch.cuda.device_count() > 1:
         raise ValueError('Expose one GPU: env CUDA_VISIBLE_DEVICES=0 python ...')
-    if not args.allow_nondeterministic:
+    if args.strict_determinism:
         torch.use_deterministic_algorithms(True)
         torch.backends.cuda.matmul.allow_tf32 = False
         torch.backends.cudnn.allow_tf32 = False
