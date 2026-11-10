@@ -32,14 +32,16 @@ from gradient_weighting import (reserve_meta, check_data_contract, IndexedWeight
 
 
 EXPERIMENTS = {'E1': 'seed', 'E2': 'uniform', 'E3': 'static', 'E4': 'dynamic',
-               'E5': 'ren', 'E6': 'less', 'E7': 'combined'}
+               'E5': 'ren', 'E6': 'less', 'E7': 'combined',
+               'E4_META': 'dynamic_direct_meta'}
 
 
 def parse_args():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--datasets', nargs='+', choices=['phrasebank', 'twitter'],
                    default=['phrasebank', 'twitter'])
-    p.add_argument('--experiments', nargs='+', choices=list(EXPERIMENTS), default=list(EXPERIMENTS))
+    p.add_argument('--experiments', nargs='+', choices=list(EXPERIMENTS),
+                   default=['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7'])
     p.add_argument('--train-seeds', nargs='+', type=int, default=[42])
     p.add_argument('--split-seed', type=int, default=24266)
     p.add_argument('--meta-seed', type=int, default=24266)
@@ -52,6 +54,8 @@ def parse_args():
     p.add_argument('--patience', type=int, default=10)
     p.add_argument('--learning-rate', type=float, default=1e-4)
     p.add_argument('--ren-inner-lr', type=float, default=1e-4)
+    p.add_argument('--ren-strength', type=float, default=1.0,
+                   help='Ren interpolation: 0=prior only, 1=original E5/E7, e.g. 0.25 or 0.5.')
     p.add_argument('--less-aggregation', choices=['mean', 'max'], default='mean')
     p.add_argument('--score-batch-size', type=int, default=32)
     p.add_argument('--output-root', type=Path, default=Path('output/weighting_e1_e7_v2'))
@@ -65,6 +69,8 @@ def parse_args():
     p.add_argument('--strict-determinism', action='store_true',
                    help='Opt in to stricter CUDA kernels; default follows the original runner.')
     args = p.parse_args()
+    if not np.isfinite(args.ren_strength) or not 0 <= args.ren_strength <= 1:
+        p.error('--ren-strength must be finite and between 0 and 1.')
     if min(args.meta_per_class, args.num_epochs, args.patience, args.score_batch_size) < 1:
         p.error('Counts, epochs, patience and batch size must be positive.')
     if any(not np.isfinite(x) or x <= 0 for x in [args.learning_rate, args.ren_inner_lr]):
@@ -146,6 +152,7 @@ def run_one(args, dataset, seed):
     original_hashes = {name: frame_sha256(frames[name]) for name in ['seed', 'validation', 'test']}
     frames = reserve_meta(frames, syn, args.meta_per_class, args.meta_seed, args.meta_source)
     contract = check_data_contract(frames, syn)
+    contract['training_rows_E4_META'] = len(frames['seed']) + len(frames['meta']) + len(syn)
     current_hashes = {**{name: frame_sha256(frames[name]) for name in
                          ['seed', 'meta', 'validation', 'test']}, 'synthetic': frame_sha256(syn)}
     contract['unchanged_from_original_split'] = {
@@ -174,7 +181,10 @@ def run_one(args, dataset, seed):
         'original_validation_count': old_count, 'meta_count': len(frames['meta']),
         'selection_validation_count': len(frames['validation']),
         'source': args.meta_source,
-        'meta_direct_training': False, 'head_surrogate_only': True,
+        'meta_direct_training': 'E4_META only; unit weight; M0 still seed-only',
+        'head_surrogate_only': True,
+        'ren_strength': args.ren_strength,
+        'ren_weight_rule': '(1-strength)*prior + strength*clip(prior*gate,0.5,2)',
         'less_aggregation': args.less_aggregation,
         'less_candidate_direction': 'LESS repository m_new/sqrt(v_new+1e-8)',
         'less_moments': 'M0-best at epoch 1; current independent branch at later epochs',
@@ -233,19 +243,29 @@ def run_one(args, dataset, seed):
         stage.mkdir()
         set_seed(seed)
         model = copy.deepcopy(m0)
-        train = pd.concat([frames['seed'].assign(weight=1.0),
+        clean = frames['seed'][['sentence', 'label']].copy()
+        if experiment == 'E4_META':
+            clean = pd.concat([clean, frames['meta'][['sentence', 'label']]], ignore_index=True)
+        train = pd.concat([clean.assign(weight=1.0),
                            syn[['sentence', 'label']].assign(weight=1.0)], ignore_index=True)
+        write_json(stage / 'training_contract.json', {
+            'clean_count': len(clean), 'synthetic_count': len(syn),
+            'total_count': len(train), 'clean_weight': 1.0,
+            'meta_direct_training': experiment == 'E4_META',
+            'ren_strength': args.ren_strength if experiment in ('E5', 'E7') else None,
+            'initialization': 'same seed-only M0; fresh optimizer'})
+        train.to_json(stage / 'train_snapshot.jsonl', orient='records', lines=True, force_ascii=False)
         stage_args = SimpleNamespace(**{**vars(args), 'train_seed': seed})
         trainer = build_stage_trainer(stage_args, stage, config, frames, train, model, tokenizer)
         updater = None
         mode = EXPERIMENTS[experiment]
         if experiment != 'E2':
-            data = IndexedWeights(trainer.train_dataset, len(frames['seed']), len(syn)) \
-                   if mode in ('ren', 'combined') else None
+            data = IndexedWeights(trainer.train_dataset, len(clean), len(syn)) \
+                   if mode in ('ren', 'combined') and args.ren_strength > 0 else None
             if data is None:
-                data = MutableWeights(trainer.train_dataset, len(frames['seed']), len(syn))
+                data = MutableWeights(trainer.train_dataset, len(clean), len(syn))
             trainer.train_dataset = data
-            if experiment in ('E3', 'E4'):
+            if experiment in ('E3', 'E4', 'E4_META'):
                 updater = EpochWeights(data, syn, scores, tokenizer, dataset, 'RLN',
                     'legacy' if experiment == 'E3' else 'dynamic_legacy', stage,
                     args.score_batch_size, 512)
@@ -254,9 +274,9 @@ def run_one(args, dataset, seed):
                     stage, dataset, args.score_batch_size, 512, 0.1, args.less_aggregation,
                     warmup_moments)
             trainer.add_callback(updater)
-            if mode in ('ren', 'combined'):
+            if mode in ('ren', 'combined') and args.ren_strength > 0:
                 install_ren(trainer, tokenizer, frames['meta'], stage, args.ren_inner_lr,
-                            batch_size=args.score_batch_size)
+                            batch_size=args.score_batch_size, strength=args.ren_strength)
         print(f'[TRAIN] {dataset}/{seed}/{experiment}: {mode}, independent M0', flush=True)
         selection = fit_in_ram(trainer, args.patience)
         if updater is not None:

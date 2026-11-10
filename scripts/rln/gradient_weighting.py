@@ -287,9 +287,26 @@ class GradientWeighting(TrainerCallback):
         return control
 
 
+def blend_ren_weights(prior, gate, strength=1.0):
+    """Interpolate AFTER clipping: 0 preserves prior, 1 is the original Ren rule."""
+    if not np.isfinite(strength) or not 0 <= strength <= 1:
+        raise ValueError('Ren strength must be between 0 and 1.')
+    proposal = (prior * gate).clamp(0.5, 2.0)
+    if strength == 0:
+        return prior.detach().clone()
+    if strength == 1:
+        return proposal.detach()
+    return ((1 - strength) * prior + strength * proposal).detach()
+
+
 def install_ren(trainer, tokenizer, meta, folder, inner_lr, smoothing=0.1,
-                batch_size=32, max_length=512):
+                batch_size=32, max_length=512, strength=1.0):
     """Replace training loss only; evaluation always uses ordinary weighted CE."""
+    if not np.isfinite(strength) or not 0 <= strength <= 1:
+        raise ValueError('Ren strength must be between 0 and 1.')
+    # Exact no-meta path, including the original forward/RNG behavior.
+    if strength == 0:
+        raise ValueError('For strength=0 the runner must skip install_ren entirely.')
     original_collator = trainer.data_collator
 
     def collate(features):
@@ -327,14 +344,18 @@ def install_ren(trainer, tokenizer, meta, folder, inner_lr, smoothing=0.1,
             my = torch.tensor(meta.label.tolist(), device=labels.device)
             gate, sensitivity, fallback = ren_head_gate(capture[0][mask], labels[mask],
                 mh, my, model.classifier.weight, model.classifier.bias, inner_lr, smoothing)
-            weights[mask] = (prior[mask] * gate).clamp(0.5, 2.0)
+            proposal = (prior[mask] * gate).clamp(0.5, 2.0)
+            weights[mask] = blend_ren_weights(prior[mask], gate, strength)
             weights[~mask] = 1.0
             row = {'step': self.state.global_step, 'epoch': self.state.epoch,
+                   'ren_strength': strength,
                    'synthetic_count': int(mask.sum()), 'all_zero_fallback': fallback,
                    'positive_gate_fraction': float((sensitivity > 0).float().mean()),
                    'prior_mean': float(prior[mask].mean()),
                    'final_mean': float(weights[mask].mean()),
-                   'final_min': float(weights[mask].min()), 'final_max': float(weights[mask].max())}
+                   'final_min': float(weights[mask].min()), 'final_max': float(weights[mask].max()),
+                   'proposal_floor_fraction': float((proposal <= 0.5000001).float().mean()),
+                   'final_floor_fraction': float((weights[mask] <= 0.5000001).float().mean())}
             with log_path.open('a', newline='') as f:
                 writer = csv.DictWriter(f, fieldnames=list(row))
                 if f.tell() == 0:

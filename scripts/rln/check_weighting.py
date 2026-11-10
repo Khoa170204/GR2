@@ -13,10 +13,22 @@ import torch
 import torch.nn.functional as F
 
 from gradient_weighting import (ren_head_gate, head_gradients, head_features,
-                           adam_directions, reserve_meta, check_data_contract)
+                           adam_directions, reserve_meta, check_data_contract, blend_ren_weights)
 
 
 def check_math():
+    prior = torch.tensor([1.8, 0.7, 1.2, 0.5])
+    gate = torch.tensor([0., 0., 3., 1.])
+    proposal = (prior * gate).clamp(0.5, 2.)
+    assert torch.equal(blend_ren_weights(prior, gate, 0), prior)
+    assert torch.equal(blend_ren_weights(prior, gate, 1), proposal)
+    torch.testing.assert_close(blend_ren_weights(prior, gate, 0.25),
+                               torch.tensor([1.475, 0.65, 1.4, 0.5]))
+    for strength in [0, 0.25, 0.5, 1]:
+        mixed = blend_ren_weights(prior, gate, strength)
+        assert not mixed.requires_grad and mixed.ge(0.5).all() and mixed.le(2).all()
+        assert torch.equal(blend_ren_weights(prior, torch.ones_like(prior), strength), prior)
+    print('PASS interpolation: endpoints, fallback, bounds and hand-computed example.')
     torch.manual_seed(7)
     h, mh = torch.randn(6, 5), torch.randn(9, 5)
     y, my = torch.tensor([0, 1, 2, 0, 1, 2]), torch.tensor([0, 1, 2] * 3)
@@ -173,13 +185,13 @@ def check_runner():
                         '--output-root', str(output)]
             runner.main()
             comparison = pd.read_csv(output / 'comparison.csv')
-            assert set(comparison.experiment) == set(runner.EXPERIMENTS)
+            assert set(comparison.experiment) == set(runner.EXPERIMENTS) - {'E4_META'}
             assert len(comparison) == 7
             assert not list(output.rglob('*.safetensors'))
             assert not list(output.rglob('optimizer.pt'))
             base = output / 'phrasebank/train_seed_42'
             reference = None
-            for e in runner.EXPERIMENTS:
+            for e in comparison.experiment:
                 predictions = pd.read_csv(base / e / 'test_predictions.csv')
                 current = predictions[['sentence', 'label']]
                 assert reference is None or reference.equals(current)
@@ -248,6 +260,30 @@ def check_runner():
                      legacy.assigned_label_probabilities, legacy.test_and_save) = legacy_originals
             else:
                 print('INFO: original run_rln_dynamic.py absent; optional legacy parity check skipped.')
+            # Strength zero must follow E4 bit for bit. The direct-meta control
+            # must train on extra clean rows while keeping synthetic/heldouts fixed.
+            probe = Path(temporary) / 'control'
+            sys.argv = ['run_experiments.py', '--datasets', 'phrasebank',
+                '--experiments', 'E5', 'E4_META', '--ren-strength', '0',
+                '--meta-per-class', '1', '--num-epochs', '2', '--patience', '2',
+                '--output-root', str(probe)]
+            runner.main()
+            assert new_states['E5'] == new_states['E4'], 'Strength 0 must equal E4 parameters'
+            pb = probe / 'phrasebank/train_seed_42'
+            assert not (pb / 'E5/ren_batch_history.csv').exists()
+            train = pd.read_json(pb / 'E4_META/train_snapshot.jsonl', lines=True)
+            assert len(train) == 18
+            expected_clean = pd.concat([frames['seed'], split['meta']], ignore_index=True)
+            pd.testing.assert_frame_equal(train.iloc[:9][['sentence', 'label']], expected_clean)
+            assert train.iloc[:9].weight.eq(1).all()
+            history = pd.read_csv(pb / 'E4_META/weight_history.csv')
+            assert history.seed_weight_sum.eq(9).all()
+            pd.testing.assert_frame_equal(pd.read_csv(pb/'E4_META/weights/epoch_001.csv'),
+                                          pd.read_csv(base/'E4/weights/epoch_001.csv'))
+            for name in ['seed', 'meta', 'validation', 'test']:
+                assert (pb/'data_snapshot'/f'{name}.jsonl').read_bytes() == (
+                    base/'data_snapshot'/f'{name}.jsonl').read_bytes()
+            print('PASS strength=0 parity and E4_META: extra clean rows, unit weights, identical heldouts.')
             # Probe the validation-only path and ensure it cannot call test_and_save.
             previous_test = runner.test_and_save
             def forbidden_test(*args, **kwargs):
@@ -256,13 +292,20 @@ def check_runner():
             try:
                 val_output = Path(temporary) / 'validation_only'
                 sys.argv = ['run_experiments.py', '--datasets', 'phrasebank',
-                    '--experiments', 'E7', '--meta-per-class', '1', '--num-epochs', '1',
+                    '--experiments', 'E5', 'E7', '--ren-strength', '0.25',
+                    '--meta-per-class', '1', '--num-epochs', '1',
                     '--validation-only', '--output-root', str(val_output)]
                 runner.main()
                 assert not list(val_output.rglob('test_predictions.csv'))
                 val_table = pd.read_csv(val_output / 'comparison.csv')
-                assert set(val_table.experiment) == {'E1', 'E7'}
+                assert set(val_table.experiment) == {'E1', 'E5', 'E7'}
                 assert 'test_macro_f1' not in val_table.columns
+                for experiment in ['E5', 'E7']:
+                    samples = pd.read_csv(val_output / 'phrasebank/train_seed_42' /
+                                          experiment / 'ren_sample_weights.csv')
+                    proposed = (samples.prior * samples.gate).clip(0.5, 2.)
+                    np.testing.assert_allclose(samples.weight,
+                        0.75 * samples.prior + 0.25 * proposed, atol=2e-7, rtol=1e-6)
             finally:
                 runner.test_and_save = previous_test
             print('PASS validation-only: no test evaluation, still auto-trains E1/M0.')
