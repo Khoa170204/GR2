@@ -28,6 +28,11 @@ DATASET_CONFIG = {
         "default_input": "./outputs/seed_twitter_data_clustered.jsonl",
         "default_output": "./outputs/synthetic_twitter_data_seed_clustered.jsonl",
     },
+        "finsent": {
+        "labels": ["Negative", "Neutral", "Positive"],
+        "default_input": "./outputs/seed_finsent_data_clustered.jsonl",
+        "default_output": "./outputs/synthetic_finsent_data_seed_clustered.jsonl",
+    },
 }
 
 
@@ -69,6 +74,12 @@ def build_generation_prompt(
             "Short English financial tweets or market headlines. "
             "Match the references' brevity, register and abbreviations. "
             "Use tickers or hashtags only when natural; do not force them."
+        ),
+                "finsent": (
+            "Formal English financial analyst report sentences. "
+            "Match the references' length, terminology and level of detail. "
+            "Cover company performance, earnings, margins, valuation and outlook. "
+            "Preserve the references' degree of uncertainty and hedging."
         ),
     }
 
@@ -446,7 +457,7 @@ def generate_synthetic(
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", choices=["phrasebank", "twitter"], required=True)
+    parser.add_argument("--dataset", choices=["phrasebank", "twitter", "finsent"], required=True)
     parser.add_argument("--model", default="gpt-4o")
     parser.add_argument("--input-jsonl", default=None)
     parser.add_argument("--output-jsonl", default=None)

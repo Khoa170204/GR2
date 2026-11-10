@@ -13,6 +13,7 @@ from sklearn.model_selection import train_test_split
 LABELS = {
     "phrasebank": {0: 'Negative', 1: 'Neutral', 2: 'Positive'},
     "twitter": {0: 'Bearish', 1: 'Bullish', 2: 'Neutral'},
+    "finsent": {0: 'Negative', 1: 'Neutral', 2: 'Positive'},
 }
 TEXT_COLUMNS = ('sentence', 'text', 'tweet', 'content', 'document', 'message', 'headline')
 
@@ -213,6 +214,39 @@ def check_disjoint(named_frames):
                 )
 
 
+def load_finsent_prepared(directory, split_seed):
+    """Read exactly the splits saved by SaveSeed_finsent.py; never re-split."""
+    directory = Path(directory)
+    manifest = read_json(directory / 'manifest.json')
+    settings = manifest['settings']
+    if settings['dataset'] != 'FinanceMTEB/FinSent' or settings['split_seed'] != split_seed:
+        raise ValueError('FinSent dataset/split seed mismatch.')
+    if {int(k): v for k, v in settings['label_map'].items()} != LABELS['finsent']:
+        raise ValueError('FinSent label mapping mismatch.')
+    frames, keys = {}, {}
+    for name in ['train_pool', 'validation', 'test']:
+        path = directory / f'{name}.jsonl'
+        if file_sha256(path) != manifest['file_sha256'][path.name]:
+            raise ValueError(f'Frozen FinSent split changed: {path}.')
+        frame = pd.read_json(path, lines=True)
+        if not {'sentence', 'label'}.issubset(frame.columns) or frame.empty:
+            raise ValueError(f'Invalid FinSent split: {name}.')
+        if frame[['sentence', 'label']].isna().any().any() or set(frame.label) != {0, 1, 2}:
+            raise ValueError(f'Invalid FinSent values/labels: {name}.')
+        if len(frame) != manifest['counts'][name]:
+            raise ValueError(f'FinSent count mismatch: {name}.')
+        keys[name] = frame.sentence.map(lambda text: clean_text(text).casefold())
+        if keys[name].duplicated().any():
+            raise ValueError(f'Duplicate FinSent text: {name}.')
+        frames[name] = frame.reset_index(drop=True)
+    names = list(frames)
+    for i, left in enumerate(names):
+        for right in names[i + 1:]:
+            if set(keys[left]) & set(keys[right]):
+                raise ValueError(f'FinSent overlap: {left}/{right}.')
+    return frames['train_pool'], frames['validation'], frames['test']
+
+
 def prepare_data(
     dataset,
     seed_path,
@@ -221,17 +255,25 @@ def prepare_data(
     twitter_train_file=None,
     twitter_validation_file=None,
     expected_seeds=105,
+    finsent_data_dir=Path("data/finsent/prepared"),
 ):
-    if dataset == "phrasebank":
-        full = load_phrasebank(phrasebank_file)
+    if dataset == 'finsent':
+        train_pool, validation, test = load_finsent_prepared(finsent_data_dir, split_seed)
     else:
-        full = load_twitter(twitter_train_file, twitter_validation_file)
-    train_pool, validation, test = make_splits(full, split_seed)
+        if dataset == "phrasebank":
+            full = load_phrasebank(phrasebank_file)
+        elif dataset == 'twitter':
+            full = load_twitter(twitter_train_file, twitter_validation_file)
+        else:
+            raise ValueError(f'Unknown dataset: {dataset}')
+        train_pool, validation, test = make_splits(full, split_seed)
     seeds = read_seed(seed_path, dataset)
     if len(seeds) != expected_seeds:
         raise ValueError(f'Expected {expected_seeds} seeds, got {len(seeds)}.')
     if set(seeds["label"]) != {0, 1, 2}:
         raise ValueError('Seed set must contain all three classes.')
+    if dataset == 'finsent' and not seeds.label.value_counts().eq(35).all():
+        raise ValueError('FinSent requires 35 seeds/class.')
     pool_pairs = set(zip(train_pool['sentence'], train_pool['label']))
     outside = [
         (text, label)
@@ -267,6 +309,9 @@ def prepare_data(
         },
         "sha256": {name: frame_sha256(frame) for name, frame in snapshot.items()},
     }
+    if dataset == 'finsent':
+        audit['split_protocol'] = 'frozen local splits; no resplitting'
+        audit['split_manifest_sha256'] = file_sha256(Path(finsent_data_dir) / 'manifest.json')
     return snapshot, audit
 
 

@@ -1,0 +1,42 @@
+{
+  "settings": {
+    "dataset": "FinanceMTEB/FinSent",
+    "revision": "68ee0f0abf596e371ef6a308f685071e3b737bbb",
+    "split_seed": 24266,
+    "validation_size": 1000,
+    "label_map": {
+      "0": "Negative",
+      "1": "Neutral",
+      "2": "Positive"
+    },
+    "test_protocol": "original official test unchanged"
+  },
+  "counts": {
+    "train_pool": 7996,
+    "validation": 1000,
+    "test": 1000
+  },
+  "class_counts": {
+    "train_pool": {
+      "0": 1475,
+      "1": 3661,
+      "2": 2860
+    },
+    "validation": {
+      "0": 184,
+      "1": 458,
+      "2": 358
+    },
+    "test": {
+      "0": 177,
+      "1": 465,
+      "2": 358
+    }
+  },
+  "file_sha256": {
+    "train_pool.jsonl": "4ea9f702ebfbb19607e4fab67bc3a5092e0ac15c8a5a96d6b8ecdd870a357198",
+    "validation.jsonl": "c8fef4324f3f76b17bfd815aff64eeb8ecd0c13bc4b6ba5b9b662217689c33c3",
+    "test.jsonl": "fba2bb7ecd1fdc0f0b505a15b50d01226ebaf00ccc6e8c821905e3ee6795b91d"
+  },
+  "normalized_cross_set_overlap": false
+}

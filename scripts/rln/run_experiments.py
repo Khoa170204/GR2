@@ -38,7 +38,7 @@ EXPERIMENTS = {'E1': 'seed', 'E2': 'uniform', 'E3': 'static', 'E4': 'dynamic',
 
 def parse_args():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--datasets', nargs='+', choices=['phrasebank', 'twitter'],
+    p.add_argument('--datasets', nargs='+', choices=['phrasebank', 'twitter', 'finsent'],
                    default=['phrasebank', 'twitter'])
     p.add_argument('--experiments', nargs='+', choices=list(EXPERIMENTS),
                    default=['E1', 'E2', 'E3', 'E4', 'E5', 'E6', 'E7'])
@@ -56,6 +56,8 @@ def parse_args():
     p.add_argument('--ren-inner-lr', type=float, default=1e-4)
     p.add_argument('--ren-strength', type=float, default=1.0,
                    help='Ren interpolation: 0=prior only, 1=original E5/E7, e.g. 0.25 or 0.5.')
+    p.add_argument('--ren-strength-e7', type=float, default=None,
+                   help='Optional E7 override, so E5 and E7 can run together at different strengths.')
     p.add_argument('--less-aggregation', choices=['mean', 'max'], default='mean')
     p.add_argument('--score-batch-size', type=int, default=32)
     p.add_argument('--output-root', type=Path, default=Path('output/weighting_e1_e7_v2'))
@@ -63,6 +65,7 @@ def parse_args():
         'data/financial_phrasebank/FinancialPhraseBank-v1.0/Sentences_AllAgree.txt'))
     p.add_argument('--twitter-train-file', type=Path)
     p.add_argument('--twitter-validation-file', type=Path)
+    p.add_argument('--finsent-data-dir', type=Path, default=Path('data/finsent/prepared'))
     p.add_argument('--prepare-only', action='store_true')
     p.add_argument('--validation-only', action='store_true',
                    help='Save validation results only; never call test evaluation.')
@@ -71,6 +74,9 @@ def parse_args():
     args = p.parse_args()
     if not np.isfinite(args.ren_strength) or not 0 <= args.ren_strength <= 1:
         p.error('--ren-strength must be finite and between 0 and 1.')
+    if args.ren_strength_e7 is not None and (
+            not np.isfinite(args.ren_strength_e7) or not 0 <= args.ren_strength_e7 <= 1):
+        p.error('--ren-strength-e7 must be finite and between 0 and 1.')
     if min(args.meta_per_class, args.num_epochs, args.patience, args.score_batch_size) < 1:
         p.error('Counts, epochs, patience and batch size must be positive.')
     if any(not np.isfinite(x) or x <= 0 for x in [args.learning_rate, args.ren_inner_lr]):
@@ -141,13 +147,17 @@ def run_one(args, dataset, seed):
                     source_sha256={p.name: file_sha256(p) for p in
                                    sorted(Path(__file__).parent.glob('*.py'))})
     write_json(folder / 'run_config.json', settings)
+    extra_data_args = {'finsent_data_dir': args.finsent_data_dir} if dataset == 'finsent' else {}
     frames, audit = prepare_data(dataset=dataset,
         seed_path=Path('outputs') / f'seed_{dataset}_data_clustered.jsonl',
         split_seed=args.split_seed, phrasebank_file=args.phrasebank_file,
         twitter_train_file=args.twitter_train_file,
-        twitter_validation_file=args.twitter_validation_file, expected_seeds=105)
+        twitter_validation_file=args.twitter_validation_file, expected_seeds=105, **extra_data_args)
     syn, removed = prepare_synthetic(Path('outputs') /
                     f'synthetic_{dataset}_data_seed_clustered.jsonl', dataset, frames)
+    if dataset == 'finsent':
+        if len(syn) != 945 or removed or not syn.label.value_counts().eq(315).all():
+            raise ValueError('FinSent requires 945 unique synthetic texts, 315/class. Inspect generation/excluded rows.')
     old_count = len(frames['validation'])
     original_hashes = {name: frame_sha256(frames[name]) for name in ['seed', 'validation', 'test']}
     frames = reserve_meta(frames, syn, args.meta_per_class, args.meta_seed, args.meta_source)
@@ -184,6 +194,7 @@ def run_one(args, dataset, seed):
         'meta_direct_training': 'E4_META only; unit weight; M0 still seed-only',
         'head_surrogate_only': True,
         'ren_strength': args.ren_strength,
+        'ren_strength_E7': args.ren_strength if args.ren_strength_e7 is None else args.ren_strength_e7,
         'ren_weight_rule': '(1-strength)*prior + strength*clip(prior*gate,0.5,2)',
         'less_aggregation': args.less_aggregation,
         'less_candidate_direction': 'LESS repository m_new/sqrt(v_new+1e-8)',
@@ -243,6 +254,7 @@ def run_one(args, dataset, seed):
         stage.mkdir()
         set_seed(seed)
         model = copy.deepcopy(m0)
+        ren_strength = args.ren_strength_e7 if experiment == 'E7' and args.ren_strength_e7 is not None else args.ren_strength
         clean = frames['seed'][['sentence', 'label']].copy()
         if experiment == 'E4_META':
             clean = pd.concat([clean, frames['meta'][['sentence', 'label']]], ignore_index=True)
@@ -252,7 +264,7 @@ def run_one(args, dataset, seed):
             'clean_count': len(clean), 'synthetic_count': len(syn),
             'total_count': len(train), 'clean_weight': 1.0,
             'meta_direct_training': experiment == 'E4_META',
-            'ren_strength': args.ren_strength if experiment in ('E5', 'E7') else None,
+            'ren_strength': ren_strength if experiment in ('E5', 'E7') else None,
             'initialization': 'same seed-only M0; fresh optimizer'})
         train.to_json(stage / 'train_snapshot.jsonl', orient='records', lines=True, force_ascii=False)
         stage_args = SimpleNamespace(**{**vars(args), 'train_seed': seed})
@@ -261,7 +273,7 @@ def run_one(args, dataset, seed):
         mode = EXPERIMENTS[experiment]
         if experiment != 'E2':
             data = IndexedWeights(trainer.train_dataset, len(clean), len(syn)) \
-                   if mode in ('ren', 'combined') and args.ren_strength > 0 else None
+                   if mode in ('ren', 'combined') and ren_strength > 0 else None
             if data is None:
                 data = MutableWeights(trainer.train_dataset, len(clean), len(syn))
             trainer.train_dataset = data
@@ -274,9 +286,9 @@ def run_one(args, dataset, seed):
                     stage, dataset, args.score_batch_size, 512, 0.1, args.less_aggregation,
                     warmup_moments)
             trainer.add_callback(updater)
-            if mode in ('ren', 'combined') and args.ren_strength > 0:
+            if mode in ('ren', 'combined') and ren_strength > 0:
                 install_ren(trainer, tokenizer, frames['meta'], stage, args.ren_inner_lr,
-                            batch_size=args.score_batch_size, strength=args.ren_strength)
+                            batch_size=args.score_batch_size, strength=ren_strength)
         print(f'[TRAIN] {dataset}/{seed}/{experiment}: {mode}, independent M0', flush=True)
         selection = fit_in_ram(trainer, args.patience)
         if updater is not None:
