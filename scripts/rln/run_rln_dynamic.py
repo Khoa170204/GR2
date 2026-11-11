@@ -24,7 +24,7 @@ from dynamic_weights import student_probabilities, MutableWeights, EpochWeights
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--datasets', nargs='+', choices=['phrasebank', 'twitter'],
+    parser.add_argument('--datasets', nargs='+', choices=['phrasebank', 'twitter', 'finsent'],
                         default=['phrasebank', 'twitter'])
     parser.add_argument('--variants', nargs='+', choices=['R', 'L', 'N', 'RL', 'RN', 'LN', 'RLN'],
                         default=['RLN'])
