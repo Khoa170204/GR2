@@ -71,6 +71,8 @@ def parse_args():
                    help='Save validation results only; never call test evaluation.')
     p.add_argument('--strict-determinism', action='store_true',
                    help='Opt in to stricter CUDA kernels; default follows the original runner.')
+    p.add_argument("--freeze-layers", type=int, choices=range(7), default=4)
+    p.add_argument("--weight-decay", type=float, default=0.1)
     args = p.parse_args()
     if not np.isfinite(args.ren_strength) or not 0 <= args.ren_strength <= 1:
         p.error('--ren-strength must be finite and between 0 and 1.')
@@ -138,9 +140,9 @@ def run_one(args, dataset, seed):
     folder.mkdir(parents=True)
     config = dict(dataset=dataset, train_seed=seed, split_seed=args.split_seed,
                   learning_rate=args.learning_rate, num_epochs=args.num_epochs,
-                  model='distilbert-base-uncased', model_revision='main', freeze_layers=4,
+                  model='distilbert-base-uncased', model_revision='main', freeze_layers=args.freeze_layers,
                   max_length=512, train_batch_size=16, eval_batch_size=32,
-                  weight_decay=0.1, label_smoothing=0.1,
+                  weight_decay=args.weight_decay, label_smoothing=0.1,
                   early_stopping_patience=args.patience)
     settings = {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()}
     settings.update(training=config, environment=environment(),
