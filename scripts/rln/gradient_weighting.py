@@ -300,7 +300,7 @@ def blend_ren_weights(prior, gate, strength=1.0):
 
 
 def install_ren(trainer, tokenizer, meta, folder, inner_lr, smoothing=0.1,
-                batch_size=32, max_length=512, strength=1.0):
+                batch_size=32, max_length=512, strength=1.0, pure=False):
     """Replace training loss only; evaluation always uses ordinary weighted CE."""
     if not np.isfinite(strength) or not 0 <= strength <= 1:
         raise ValueError('Ren strength must be between 0 and 1.')
@@ -344,18 +344,30 @@ def install_ren(trainer, tokenizer, meta, folder, inner_lr, smoothing=0.1,
             my = torch.tensor(meta.label.tolist(), device=labels.device)
             gate, sensitivity, fallback = ren_head_gate(capture[0][mask], labels[mask],
                 mh, my, model.classifier.weight, model.classifier.bias, inner_lr, smoothing)
-            proposal = (prior[mask] * gate).clamp(0.5, 2.0)
-            weights[mask] = blend_ren_weights(prior[mask], gate, strength)
-            weights[~mask] = 1.0
-            row = {'step': self.state.global_step, 'epoch': self.state.epoch,
-                   'ren_strength': strength,
-                   'synthetic_count': int(mask.sum()), 'all_zero_fallback': fallback,
-                   'positive_gate_fraction': float((sensitivity > 0).float().mean()),
-                   'prior_mean': float(prior[mask].mean()),
-                   'final_mean': float(weights[mask].mean()),
-                   'final_min': float(weights[mask].min()), 'final_max': float(weights[mask].max()),
-                   'proposal_floor_fraction': float((proposal <= 0.5000001).float().mean()),
-                   'final_floor_fraction': float((weights[mask] <= 0.5000001).float().mean())}
+            if pure:
+                positive = sensitivity.clamp_min(0)
+                # Normalize within the synthetic portion of the batch.
+                # Seed examples retain unit weight in the real loss.
+                gate = torch.zeros_like(positive) if fallback else positive / positive.mean()
+                weights[mask] = gate
+                weights[~mask] = 1.0
+                row = {'step': self.state.global_step, 'epoch': self.state.epoch,
+                       'synthetic_count': int(mask.sum()), 'all_zero_gate': fallback,
+                       'zero_weight_count': int((gate == 0).sum()),
+                       'weight_min': float(gate.min()), 'weight_max': float(gate.max())}
+            else:
+                proposal = (prior[mask] * gate).clamp(0.5, 2.0)
+                weights[mask] = blend_ren_weights(prior[mask], gate, strength)
+                weights[~mask] = 1.0
+                row = {'step': self.state.global_step, 'epoch': self.state.epoch,
+                       'ren_strength': strength,
+                       'synthetic_count': int(mask.sum()), 'all_zero_fallback': fallback,
+                       'positive_gate_fraction': float((sensitivity > 0).float().mean()),
+                       'prior_mean': float(prior[mask].mean()),
+                       'final_mean': float(weights[mask].mean()),
+                       'final_min': float(weights[mask].min()), 'final_max': float(weights[mask].max()),
+                       'proposal_floor_fraction': float((proposal <= 0.5000001).float().mean()),
+                       'final_floor_fraction': float((weights[mask] <= 0.5000001).float().mean())}
             with log_path.open('a', newline='') as f:
                 writer = csv.DictWriter(f, fieldnames=list(row))
                 if f.tell() == 0:
