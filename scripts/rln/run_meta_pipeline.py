@@ -2,6 +2,7 @@
 import argparse
 import copy
 import math
+from fractions import Fraction
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -30,6 +31,11 @@ def parse_args():
     p.add_argument('--train-seed', type=int, default=42)
     p.add_argument('--split-seed', type=int, default=24266)
     p.add_argument('--meta-seed', type=int, default=24266)
+    p.add_argument('--meta-method', choices=['clustered', 'coverage', 'random'], default='clustered')
+    p.add_argument('--meta-sweep', action='store_true', help='E5: compare cluster, coverage and random.')
+    p.add_argument('--random-meta-seeds', nargs='+', type=int, default=[42, 43, 44])
+    p.add_argument('--less-balanced-fractions', nargs='+', type=Fraction)
+    p.add_argument('--validation-only', action='store_true')
     p.add_argument('--meta-per-class', type=int, default=15)
     p.add_argument('--less-keep-fraction', type=float, default=1/3)
     p.add_argument('--learning-rate', type=float, default=1e-4)
@@ -60,13 +66,29 @@ def parse_args():
         p.error('Learning rates must be finite and positive.')
     if bool(args.twitter_train_file) != bool(args.twitter_validation_file):
         p.error('Supply both local Twitter files or neither.')
+    if min([args.meta_seed, *args.random_meta_seeds]) < 0:
+        p.error('Meta seeds must be nonnegative.')
+    if args.meta_sweep and set(args.experiments) != {'E5'}:
+        p.error('--meta-sweep requires --experiments E5.')
+    if args.less_balanced_fractions and (set(args.experiments) != {'E6'} or
+            any(not 0 < f <= 1 for f in args.less_balanced_fractions)):
+        p.error('--less-balanced-fractions requires E6 and fractions in (0, 1].')
     return args
 
 
-def select_meta(frames, synthetic, args):
-    from sentence_transformers import SentenceTransformer
-    from sklearn.cluster import KMeans
+def coverage_indices(embeddings, count):
+    center = embeddings.mean(axis=0)
+    chosen = [int(np.square(embeddings - center).sum(axis=1).argmin())]
+    nearest = np.square(embeddings - embeddings[chosen[0]]).sum(axis=1)
+    while len(chosen) < count:
+        nearest[chosen] = -np.inf
+        index = int(nearest.argmax())
+        chosen.append(index)
+        nearest = np.minimum(nearest, np.square(embeddings - embeddings[index]).sum(axis=1))
+    return chosen
 
+
+def select_meta_sets(frames, synthetic, args, specs):
     def key(text):
         return ' '.join(text.casefold().split())
 
@@ -77,23 +99,52 @@ def select_meta(frames, synthetic, args):
     pool = pool[~pool.key.isin(forbidden)]
     conflicts = pool.groupby('key').label.nunique()
     pool = pool[~pool.key.isin(conflicts[conflicts > 1].index)].drop_duplicates('key')
-    encoder = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-    parts = []
+    encoder = None
+    if any(method != 'random' for method, _ in specs):
+        from sentence_transformers import SentenceTransformer
+        encoder = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+    if any(method == 'clustered' for method, _ in specs):
+        from sklearn.cluster import KMeans
+    parts = {spec: [] for spec in specs}
     for label in range(3):
         rows = pool[pool.label == label].reset_index(drop=True)
-        if len(rows) < args.meta_per_class:
+        count = args.meta_per_class
+        if len(rows) < count:
             raise ValueError(f'Class {label} has too few eligible meta examples.')
-        embeddings = encoder.encode(rows.sentence.tolist(), normalize_embeddings=True,
-                                    batch_size=args.score_batch_size)
-        clustering = KMeans(n_clusters=args.meta_per_class, n_init=10,
-                            random_state=args.meta_seed).fit(embeddings)
-        for cluster, center in enumerate(clustering.cluster_centers_):
-            members = np.flatnonzero(clustering.labels_ == cluster)
-            if not len(members):
-                raise ValueError(f'Empty meta cluster in class {label}. Reduce --meta-per-class.')
-            nearest = members[np.square(embeddings[members] - center).sum(axis=1).argmin()]
-            parts.append(rows.iloc[[nearest]].assign(cluster=cluster))
-    return pd.concat(parts, ignore_index=True).drop(columns='key')
+        embeddings = None
+        if encoder is not None:
+            embeddings = encoder.encode(rows.sentence.tolist(), normalize_embeddings=True,
+                                        batch_size=args.score_batch_size)
+        for method, seed in specs:
+            if method == 'random':
+                indices = np.random.default_rng(np.random.SeedSequence([seed, label])).choice(
+                    len(rows), count, replace=False)
+            elif method == 'coverage':
+                indices = coverage_indices(embeddings, count)
+            else:
+                clustering = KMeans(n_clusters=count, n_init=10, random_state=seed).fit(embeddings)
+                indices = []
+                for cluster, center in enumerate(clustering.cluster_centers_):
+                    members = np.flatnonzero(clustering.labels_ == cluster)
+                    if not len(members):
+                        raise ValueError(f'Empty meta cluster in class {label}.')
+                    nearest = np.square(embeddings[members] - center).sum(axis=1).argmin()
+                    indices.append(members[nearest])
+            parts[(method, seed)].append(rows.iloc[indices])
+    return {spec: pd.concat(rows, ignore_index=True).drop(columns='key')
+            for spec, rows in parts.items()}
+
+
+def balanced_selection(ranking, fraction):
+    counts = ranking.label.value_counts()
+    if len(counts) != 3:
+        raise ValueError('Balanced selection requires synthetic candidates in all three labels.')
+    # Common quota based on the smallest available label. Round half up.
+    budget = int(int(counts.min()) * fraction + Fraction(1, 2))
+    if budget < 1:
+        raise ValueError('Fraction is too small to retain one example per label.')
+    return ranking.groupby('label', sort=False).head(budget).sort_values(
+        'synthetic_index').reset_index(drop=True)
 
 
 def rank_synthetic(model, tokenizer, synthetic, meta, args, config):
@@ -169,12 +220,21 @@ def run_dataset(args, dataset):
         if differing:
             raise ValueError(f'{dataset}: inputs differ from baseline: {differing}')
     set_seed(args.train_seed)
-    frames['meta'] = select_meta(frames, synthetic, args)
+    specs = [(args.meta_method, args.meta_seed)]
+    if args.meta_sweep:
+        specs = [('clustered', args.meta_seed), ('coverage', args.meta_seed)]
+        specs.extend(('random', seed) for seed in dict.fromkeys(args.random_meta_seeds))
+    meta_sets = select_meta_sets(frames, synthetic, args, specs)
+    frames['meta'] = meta_sets[specs[0]]
+    for meta in meta_sets.values():
+        check_data_contract({**frames, 'meta': meta}, synthetic)
     release_gpu()
     contract = check_data_contract(frames, synthetic)
     contract.pop('training_rows_E1', None)
     contract.pop('training_rows_E2_to_E7', None)
     folder.mkdir(parents=True)
+    for (method, seed), meta in meta_sets.items():
+        meta.to_csv(folder / f'meta_{method}_{seed}.csv', index=False)
     frames['meta'].to_csv(folder / 'meta_samples.csv', index=False)
     write_json(folder / 'input_sha256.json', {**hashes, 'meta': frame_sha256(frames['meta'])})
     write_json(folder / 'data_contract.json', contract)
@@ -192,7 +252,11 @@ def run_dataset(args, dataset):
                   weight_decay=args.weight_decay, label_smoothing=0.1)
     write_json(folder / 'run_config.json', {
         'training': config,
-        'options': {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
+        'options': {
+            **{k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()
+               if k != 'less_balanced_fractions'},
+            'less_balanced_fractions': [str(f) for f in args.less_balanced_fractions or []],
+        },
         'ranking': 'Offline classifier gradient cosine at M0; mean over balanced meta; no Adam moments',
         'ren': 'Classifier-only virtual SGD on synthetic, rectification and batch-mean normalization',
     })
@@ -203,32 +267,52 @@ def run_dataset(args, dataset):
         m0.to('cuda' if torch.cuda.is_available() else 'cpu')
         ranking = rank_synthetic(m0, tokenizer, synthetic, frames['meta'], args, config)
         m0.cpu()
-        ranking.to_csv(folder / 'synthetic_ranking.csv', index=False)
+        ranking_export = ranking.drop(columns='selected') if args.less_balanced_fractions else ranking
+        ranking_export.to_csv(folder / 'synthetic_ranking.csv', index=False)
         selected = ranking[ranking.selected].sort_values('synthetic_index').reset_index(drop=True)
         release_gpu()
 
+    jobs = []
     for experiment in dict.fromkeys(args.experiments):
-        stage = folder / experiment
+        if args.meta_sweep:
+            jobs.extend((experiment, f'E5_{method}_{seed}', meta, synthetic,
+                         {'meta_method': method, 'meta_seed': seed})
+                        for (method, seed), meta in meta_sets.items())
+        elif args.less_balanced_fractions:
+            for fraction in dict.fromkeys(args.less_balanced_fractions):
+                subset = balanced_selection(ranking, fraction)
+                jobs.append((experiment, f'E6_balanced_{fraction.numerator}_{fraction.denominator}',
+                             frames['meta'], subset,
+                             {'keep_fraction': str(fraction), 'synthetic_per_label': len(subset)//3,
+                              'meta_method': args.meta_method, 'meta_seed': args.meta_seed}))
+        else:
+            jobs.append((experiment, experiment, frames['meta'],
+                         synthetic if experiment == 'E5' else selected, {}))
+
+    for experiment, variant, meta, stage_syn, details in jobs:
+        stage = folder / variant
         stage.mkdir()
-        stage_syn = synthetic if experiment == 'E5' else selected
+        stage_frames = {**frames, 'meta': meta}
         stage_syn.assign(branch_index=np.arange(len(stage_syn))).to_csv(
             stage / 'training_synthetic.csv', index=False)
         clean = frames['seed'][['sentence', 'label']]
         train = pd.concat([clean, stage_syn[['sentence', 'label']]], ignore_index=True).assign(weight=1.)
         set_seed(args.train_seed)
         model = copy.deepcopy(m0)
-        trainer = build_stage_trainer(args, stage, config, frames, train, model, tokenizer)
+        trainer = build_stage_trainer(args, stage, config, stage_frames, train, model, tokenizer)
         trainer.label_names = ['labels']
         if experiment in ('E5', 'E7'):
             trainer.train_dataset = IndexedWeights(trainer.train_dataset, len(clean), len(stage_syn))
-            install_ren(trainer, tokenizer, frames['meta'], stage, args.ren_inner_lr,
+            install_ren(trainer, tokenizer, meta, stage, args.ren_inner_lr,
                         batch_size=args.score_batch_size, max_length=config['max_length'],
                         smoothing=config['label_smoothing'], pure=True)
-        print(f'[TRAIN] {dataset}/{experiment}: seed={len(clean)}, syn={len(stage_syn)}', flush=True)
+        print(f'[TRAIN] {dataset}/{variant}: seed={len(clean)}, syn={len(stage_syn)}', flush=True)
         best = fit_in_ram(trainer, args.patience)
-        metrics = finish(trainer, tokenizer, frames, config, stage, dataset, True, best)
+        metrics = finish(trainer, tokenizer, stage_frames, config, stage, dataset, True, best,
+                         test=not args.validation_only)
         record(args.output_root / 'comparison.csv', dataset, args.train_seed, experiment,
-               {**metrics, 'synthetic_count': len(stage_syn), 'meta_count': len(frames['meta'])})
+               {**metrics, 'variant': variant, **details, 'synthetic_count': len(stage_syn),
+                'meta_count': len(meta)})
         del trainer, model
         release_gpu()
 
