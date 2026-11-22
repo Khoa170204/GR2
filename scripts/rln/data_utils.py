@@ -1,6 +1,5 @@
-"""Data loading, fixed splits, synthetic checks and shared JSON/hash utilities."""
+"""Data loading, fixed splits, synthetic checks."""
 
-import hashlib
 import json
 import numbers
 import re
@@ -8,6 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
+
+from run_io import file_sha256, frame_sha256, read_json
 
 
 LABELS = {
@@ -18,48 +19,8 @@ LABELS = {
 TEXT_COLUMNS = ('sentence', 'text', 'tweet', 'content', 'document', 'message', 'headline')
 
 
-def file_sha256(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
-
-
-def frame_sha256(frame):
-    records = frame[["sentence", "label"]].to_dict("records")
-    content = json.dumps(records, ensure_ascii=False, sort_keys=True).encode('utf-8')
-    return hashlib.sha256(content).hexdigest()
-
-
-def write_json(path, value):
-    Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
-
-def read_json(path):
-    return json.loads(Path(path).read_text(encoding='utf-8'))
-
-
-def fingerprint(value):
-    content = json.dumps(value, sort_keys=True).encode()
-    return hashlib.sha256(content).hexdigest()
-
-
-def model_fingerprint(directory):
-    files = [
-        path
-        for path in Path(directory).iterdir()
-        if (
-            path.is_file()
-            and path.suffix in ('.json', '.safetensors', '.bin')
-        )
-    ]
-    if not any((path.suffix in ('.safetensors', '.bin') for path in files)):
-        raise FileNotFoundError(f'Missing model weights: {directory}')
-    return fingerprint({path.name: file_sha256(path) for path in files})
-
-
 def clean_text(text):
-    """
-    Chỉ dùng cho nhánh RLN mới.
-    Giữ Unicode, dấu câu, ticker và chữ hoa/chữ thường.
-    """
+    """Giữ Unicode, dấu câu, ticker và chữ hoa/chữ thường."""
     if not isinstance(text, str):
         raise ValueError("Text must be a string.")
     text = re.sub(r"\s+", " ", text).strip()
@@ -71,11 +32,7 @@ def clean_text(text):
 def normalize_label(value, dataset):
     """Ánh xạ nhãn theo đúng dataset."""
     if isinstance(value, numbers.Real) and not isinstance(value, bool):
-        if (
-            pd.notna(value)
-            and float(value).is_integer()
-            and int(value) in LABELS[dataset]
-        ):
+        if pd.notna(value) and float(value).is_integer() and int(value) in LABELS[dataset]:
             return int(value)
         raise ValueError(f"Invalid numeric label: {value!r}")
     if isinstance(value, str):
@@ -99,10 +56,7 @@ def read_seed(path, dataset):
         if not line.strip():
             continue
         row = json.loads(line)
-        if (
-            not isinstance(row, dict)
-            or not {"input", "output"}.issubset(row)
-        ):
+        if not isinstance(row, dict) or not {"input", "output"}.issubset(row):
             raise ValueError(f'Seed line {line_number}: expected input/output.')
         records.append({
             "sentence": clean_text(row["input"]),
@@ -146,10 +100,7 @@ def read_local_table(path):
 
 
 def load_twitter(train_file=None, validation_file=None):
-    """
-    Giữ thứ tự ghép của pipeline cũ:
-    original train -> original validation.
-    """
+    """Ghép tập train trước tập validation theo thứ tự gốc."""
     if bool(train_file) != bool(validation_file):
         raise ValueError('Supply both Twitter train and validation files.')
     if train_file:
@@ -293,17 +244,12 @@ def prepare_data(
         "split_seed": split_seed,
         "labels": LABELS[dataset],
         "seed_file_sha256": file_sha256(seed_path),
-        "normalization": (
-            "Collapse whitespace; retain Unicode, "
-            "punctuation and case."
-        ),
+        "normalization": "Collapse whitespace; retain Unicode, punctuation and case.",
         "counts": {name: len(frame) for name, frame in snapshot.items()},
         "class_counts": {
             name: {
                 int(label): int(count)
-                for label, count in (
-                    frame['label'].value_counts().sort_index().items()
-                )
+                for label, count in frame['label'].value_counts().sort_index().items()
             }
             for name, frame in snapshot.items()
         },
@@ -330,15 +276,10 @@ def prepare_synthetic(path, dataset, frames):
     data = pd.DataFrame(records)
     if data.empty:
         raise ValueError('Empty synthetic corpus.')
-    heldout = (
-        set(frames["validation"]["sentence"])
-        | set(frames["test"]["sentence"])
-    )
+    heldout = set(frames["validation"]["sentence"]) | set(frames["test"]["sentence"])
     if set(data["sentence"]) & heldout:
         raise ValueError('Synthetic overlaps validation/test. Stop and inspect data.')
-    counts = (
-        data.groupby('sentence')['label'].nunique()
-    )
+    counts = data.groupby('sentence')['label'].nunique()
     conflicts = set(counts[counts > 1].index)
     seen = set(frames['seed']['sentence'])
     kept = []

@@ -1,0 +1,199 @@
+{
+  "identity": {
+    "dataset": "finsent",
+    "method": "clustered",
+    "seed": 24266,
+    "per_class": 15,
+    "split_seed": 24266,
+    "inputs": {
+      "seed": "0a5ca8e40756a04dc82c2eca4c87cda51a591d7fdbf833d88f49886ec5ec7e0a",
+      "validation": "7ba5768cdb4cf0fa34e1e3eec47b92433968f74b362fe0c71c35a2caa1541530",
+      "test": "5bee7a63354b5d4817fc7df8ce41d6cd194c8b5e73fa94eb8d3e8741caa16396",
+      "synthetic": "c5f787005100a662ef058212f91baea9f8768f701ce33c455b876e34bfa18fe7",
+      "train_pool": "d9b051be1c811b03cd3ec08382603519821959252112f6a45a0dbcb8bfa5512c"
+    }
+  },
+  "sha256": "cbc3042e6f2474ab58eb262b52b3594e0b4721cf69ad455cf27f5f13c28db2a2",
+  "rows": [
+    {
+      "sentence": "Investment Conclusion: We are lowering our rating on Capital One to Hold from Buy based upon valuation and an outlook for declining long-term margins.",
+      "label": 0
+    },
+    {
+      "sentence": "Subsequently, we are also reducing our year 2000 EPS estimate by $0.05 to $1.85.",
+      "label": 0
+    },
+    {
+      "sentence": "We are cutting our 4Q03 estimate by $0.04 to $0.55, which is 2% or a penny better than the $0.54 reported a year ago, due to a charge relating to early debt retirement and lower capitalized credits that management outlined on the call (worth a penny each), and slightly higher fuel assumptions (we are going to $31/bbl in 4Q03 and $27.50/bbl for 2004).",
+      "label": 0
+    },
+    {
+      "sentence": "We believe risks to achieving our 12-month price target include softness in North American and/or global demand, further material cost pressure (given exposure to auto), integration or restructuring mishaps, a tighter or costlier M&A environment, and/or an unwillingness on the part of investors to pay a richer multiple for ITW's blend of automotive and construction end markets..",
+      "label": 0
+    },
+    {
+      "sentence": "Operating margins of 8.2% was in-line with our expectations, and represented a 160 bp y/y decline due to negative prior-year pricing and raw material inflation that more than offset the impact of recent price hikes.",
+      "label": 0
+    },
+    {
+      "sentence": "The competition for aftermarket revenues has escalated even further as product differentiation has diminished.",
+      "label": 0
+    },
+    {
+      "sentence": "Appliances, Plastics, NBC, Industrial, Lighting) will likely remain weak in 2002, reflecting a protracted economic slowdown, with revenue declines of 0-5% and profit declines between 0-10%.",
+      "label": 0
+    },
+    {
+      "sentence": "We believe this will be a more difficult market for Cisco to dominate and, further, we suspect that the overall profitability will be lower in this market.",
+      "label": 0
+    },
+    {
+      "sentence": "That said, we do not believe a merger would bring immediate material benefits.",
+      "label": 0
+    },
+    {
+      "sentence": "Specifically, Investor Services revenues reached $394 million in the third quarter, down 7.9% sequentially and 9.2% from a year ago.",
+      "label": 0
+    },
+    {
+      "sentence": "Our one concern is the continuing pressure from rising energy and raw materials costs, although those problems existed for most of last year, as well.",
+      "label": 0
+    },
+    {
+      "sentence": "This decline was to be expected: Medtronic has been losing share to both Guidant and Boston Scientific and received FDA approval for its next generation GFx II stent platform later than expected (April 8).",
+      "label": 0
+    },
+    {
+      "sentence": "Sales fell 2% excluding a $17M benefit from a weaker dollar.",
+      "label": 0
+    },
+    {
+      "sentence": "We are also lowering our price target to $13 from $15.",
+      "label": 0
+    },
+    {
+      "sentence": "From the numbers laid out in Figures 4 and other comments made by AMD and Intel, - Overall Revenue and Unit Share Shift o AMD said that adding its numbers to what Intel reported, it concluded that total worldwide microprocessor shipments were down about 9% sequentially in the March quarter.",
+      "label": 0
+    },
+    {
+      "sentence": "The Company will continue discussions with the FDA.",
+      "label": 1
+    },
+    {
+      "sentence": "To this end, the companys proprietary vendor communication interface, Retail Link, was introduced in the early 1990s.",
+      "label": 1
+    },
+    {
+      "sentence": "We are now assuming revenue growth of only 9% in 2004 versus our prior estimate of 16%.",
+      "label": 1
+    },
+    {
+      "sentence": "Management did point out that there were several one time incentive payments included in this number.",
+      "label": 1
+    },
+    {
+      "sentence": "Our 2005 target price is $98, implying a P/E multiple of 13.7x our 2005 EPS estimate of $7.16.",
+      "label": 1
+    },
+    {
+      "sentence": "We continue to estimate that the company will earn $1.36 a share this year and $1.67 next year.",
+      "label": 1
+    },
+    {
+      "sentence": "On the product front, the company plans to introduce additional value-oriented sales builders (along the lines of Why Pay More, P'zone and Mia), add relevant new products (i.e., grilled chicken, breakfast and beverage platforms) and expand on recent launches (i.e., Fruitista Freeze and Tuscani pastas).",
+      "label": 1
+    },
+    {
+      "sentence": "Most notably, in 2006, our EPS estimate is adjusted from $1.61 to $1.69.",
+      "label": 1
+    },
+    {
+      "sentence": "At this point, our best assessment is that they would likely capitalize at least one triple-A subsidiary to support Financial Services.",
+      "label": 1
+    },
+    {
+      "sentence": "These figures are basically in line with our estimates of fiscal fourth-quarter 1999 estimates of revenue of $335.0 million, digital set-top box sales of 165,000 units, and EPS of $0.28, and our 2000 EPS estimates of $1.20.",
+      "label": 1
+    },
+    {
+      "sentence": "In 2005 Net Debt was $16B and we now project it to be around $11B after ANR transaction.",
+      "label": 1
+    },
+    {
+      "sentence": "No change to EPS estimates on near-term business or acquisition.",
+      "label": 1
+    },
+    {
+      "sentence": "We believe a final decision on a broader rollout will be made by 2Q05.",
+      "label": 1
+    },
+    {
+      "sentence": "Even so, the pricing trend is likely to hit the radar of investors in coming days.",
+      "label": 1
+    },
+    {
+      "sentence": "This requires relatively large investments in equipment such as rolling mills.",
+      "label": 1
+    },
+    {
+      "sentence": "The company's cash flow is impressive and the balance sheet is strong, in our view.",
+      "label": 2
+    },
+    {
+      "sentence": "On the 4Q07 earnings call, new CEO Jeff Bewkes gave a strategic overview focusing on three initiatives: (1) improve operating performance: this will include cutting corporate costs by 15% (annual run rate savings of $50 million) and streamlining costs at the Newline studios; (2) having the right businesses: TWX announced it has started a formal discussion with TWC over its 84% ownership stake in cable and said it will divide the AOL business into two separate units (access and ad); (3) managing the balance sheet: management wants to maintain healthy leverage (3.0x) and also generate return for shareholders..",
+      "label": 2
+    },
+    {
+      "sentence": "We are slightly raising our FY2000 EPS estimate to $1.69 from $1.68..",
+      "label": 2
+    },
+    {
+      "sentence": "Reiterate our Buy rating We based our $81 target price on 1.50 times projected 1Q'08 book, which is at a slight discount to the average of 1.6 over the past 10 years.",
+      "label": 2
+    },
+    {
+      "sentence": "Other Investment Products: Earnings were $15 million versus $9 million a year ago, up 67%.",
+      "label": 2
+    },
+    {
+      "sentence": "Whether through its online retailing division, which should push sales, or its participation in Worldwide Retail Exchange, a business-to-business consortium of global retailers, which should trim costs, the company will make the most of this new medium, in our view.",
+      "label": 2
+    },
+    {
+      "sentence": "We have been an industry leader in that area for a long time and continue to have multiples of our nearest competitors in terms of the assets that we service.",
+      "label": 2
+    },
+    {
+      "sentence": "The compound has received fast-tract status from the FDA, and Genzyme claims that it has intellectual property protection until 2020, with new patents pending..",
+      "label": 2
+    },
+    {
+      "sentence": "Investors seem to be pricing in both a smooth transition period and a positive long-term view of the new larger company..",
+      "label": 2
+    },
+    {
+      "sentence": "Revenue grew 4%, to $2.40 billion (versus $2.30 billion), and exceeded our $2.25 billion expectation due to better sales across all four segments.",
+      "label": 2
+    },
+    {
+      "sentence": "As in the past, we expect the company to provide a range for top line growth.",
+      "label": 2
+    },
+    {
+      "sentence": "We are now expecting FQ3-04 revenues of $137.6 million, up from previous $136.3 million, and representing 4% sequential growth.",
+      "label": 2
+    },
+    {
+      "sentence": "...And A Near Term Increase In Operating Efficiency.",
+      "label": 2
+    },
+    {
+      "sentence": "Management strongly believes there will be a sequential pick up in the gross margin in the December quarter - and that is certainly consistent with the historical trend and what we have built into our model.",
+      "label": 2
+    },
+    {
+      "sentence": "Operating margin improved significantly to 15.1% in the quarter from 1.3% last year and 8.4% last quarter.",
+      "label": 2
+    }
+  ]
+}

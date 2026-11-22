@@ -1,11 +1,11 @@
-"""Static R/L/N scoring, probabilities, clipped weights and score caching."""
-
+"""Per-example predictions, gradients of the classifier, and RLN normalization."""
 import gc
+import random
 
 import numpy as np
-import pandas as pd
+import torch
 
-from data_utils import read_json, write_json, fingerprint, file_sha256, normalize_label
+from data_utils import normalize_label
 
 
 def release_gpu():
@@ -80,101 +80,73 @@ def make_weights(R, L, N, minimum, maximum):
     return Q, weights
 
 
-def score_synthetic(
-    args,
-    dataset,
-    checkpoint,
-    frames,
-    synthetic,
-    contract,
-):
-    folder = (
-        args.output_root
-        / dataset
-        / "rln_scores"
-        / f"train_seed_{args.train_seed}"
-    )
-    settings = {
-        "input": contract,
-        "reliability_model": (
-            args.reliability_model
-        ),
-        "embedding_model": args.embedding_model,
-        "minimum": args.weight_min,
-        "maximum": args.weight_max,
-        "formula": (
-            "Q=R*(1-pM0)*(1-max_cos); "
-            "w=clip(Q/meanQ)"
-        ),
-    }
-    signature = fingerprint(settings)
-    marker = folder / "complete.json"
-    path = folder / "scored_synthetic.jsonl"
-    if marker.exists():
-        saved = read_json(marker)
-        if (
-            saved["signature"] != signature
-            or file_sha256(path)
-            != saved["file_sha256"]
-        ):
-            raise ValueError('Cached RLN scores do not match this run.')
-        print('[SCORES SKIP] Using cached RLN scores', flush=True)
-        return (pd.read_json(path, lines=True), signature)
-    folder.mkdir(parents=True, exist_ok=True)
-    print('[SCORING] R: reliability checker', flush=True)
-    R = assigned_label_probabilities(
-        args.reliability_model,
-        synthetic,
-        dataset,
-        args.score_batch_size,
-        512,
-    )
-    print('[SCORING] L: initial student M0', flush=True)
-    L = 1.0 - assigned_label_probabilities(
-        checkpoint,
-        synthetic,
-        dataset,
-        args.score_batch_size,
-        512,
-    )
-    print('[SCORING] N: SBERT similarity to seed', flush=True)
-    from sentence_transformers import (
-        SentenceTransformer,
-    )
-    encoder = SentenceTransformer(args.embedding_model)
-    seed_embeddings = encoder.encode(
-        frames["seed"]["sentence"].tolist(),
-        normalize_embeddings=True,
-        batch_size=args.score_batch_size,
-        show_progress_bar=True,
-    )
-    embeddings = encoder.encode(
-        synthetic["sentence"].tolist(),
-        normalize_embeddings=True,
-        batch_size=args.score_batch_size,
-        show_progress_bar=True,
-    )
-    similarity = np.clip(embeddings @ seed_embeddings.T, -1.0, 1.0)
-    N = 1.0 - similarity.max(axis=1)
-    del encoder
-    release_gpu()
-    Q, weights = make_weights(R, L, N, args.weight_min, args.weight_max)
-    scored = synthetic.copy()
-    for name, values in {'R': R, 'L': L, 'N': N, 'Q': Q, 'weight': weights}.items():
-        scored[name] = values
-    scored.to_json(path, orient='records', lines=True, force_ascii=False, double_precision=15)
-    write_json(folder / 'score_config.json', settings)
-    write_json(
-        folder / "score_statistics.json",
-        {
-            name: {
-                "min": float(scored[name].min()),
-                "mean": float(scored[name].mean()),
-                "max": float(scored[name].max()),
-            }
-            for name in ('R', 'L', 'N', 'Q', 'weight')
-        },
-    )
-    write_json(marker, {'signature': signature, 'file_sha256': file_sha256(path)})
-    # Dùng cùng biểu diễn số khi chạy mới và đọc cache.
-    return (pd.read_json(path, lines=True), signature)
+def student_probabilities(model, tokenizer, frame, dataset, batch_size, max_length):
+    """No model moves, no gradients; preserve mode and training RNG states."""
+    device = next(model.parameters()).device
+    columns = {normalize_label(name, dataset): int(index)
+               for index, name in model.config.id2label.items()}
+    if set(columns) != {0, 1, 2}:
+        raise ValueError('Student label mapping is incomplete.')
+    was_training = model.training
+    python_rng, numpy_rng = random.getstate(), np.random.get_state()
+    devices = [device.index if device.index is not None else torch.cuda.current_device()] \
+        if device.type == 'cuda' else []
+    result = []
+    try:
+        with torch.random.fork_rng(devices=devices), torch.no_grad():
+            model.eval()
+            for start in range(0, len(frame), batch_size):
+                batch = frame.iloc[start:start + batch_size]
+                encoded = tokenizer(batch.sentence.tolist(), padding=True, truncation=True,
+                                    max_length=max_length, return_tensors='pt').to(device)
+                probabilities = model(**encoded).logits.float().softmax(-1)
+                indices = torch.tensor([columns[int(label)] for label in batch.label], device=device)
+                result.extend(probabilities.gather(1, indices[:, None]).squeeze(1).cpu().tolist())
+    finally:
+        model.train(was_training)
+        random.setstate(python_rng)
+        np.random.set_state(numpy_rng)
+    values = np.asarray(result, dtype=np.float64)
+    if len(values) != len(frame) or not np.isfinite(values).all():
+        raise ValueError('Invalid student probabilities.')
+    return np.clip(values, 0.0, 1.0)
+
+
+def head_features(model, tokenizer, frame, batch_size=32, max_length=512):
+    """Capture classifier inputs in eval mode; preserve modes, RNG and .grad."""
+    if not isinstance(model.classifier, torch.nn.Linear):
+        raise TypeError('Expected a DistilBERT linear classifier.')
+    device = next(model.parameters()).device
+    modes = [(m, m.training) for m in model.modules()]
+    devices = [device.index or 0] if device.type == 'cuda' else []
+    capture, hidden, logits = [], [], []
+    hook = model.classifier.register_forward_pre_hook(
+        lambda module, args: capture.append(args[0].detach()))
+    try:
+        with torch.random.fork_rng(devices=devices), torch.no_grad():
+            model.eval()
+            for start in range(0, len(frame), batch_size):
+                rows = frame.iloc[start:start + batch_size]
+                tokens = tokenizer(rows.sentence.tolist(), padding=True, truncation=True,
+                                   max_length=max_length, return_tensors='pt').to(device)
+                capture.clear()
+                out = model(**tokens).logits
+                if len(capture) != 1:
+                    raise RuntimeError('Expected one final classifier call.')
+                hidden.append(capture[0].float().cpu())
+                logits.append(out.float().cpu())
+    finally:
+        hook.remove()
+        for module, mode in modes:
+            module.training = mode
+    return torch.cat(hidden), torch.cat(logits)
+
+
+def head_gradients(hidden, logits, labels, smoothing=0.1):
+    p = logits.float().softmax(-1)
+    target = torch.full_like(p, smoothing / p.shape[1])
+    target.scatter_add_(1, labels[:, None], torch.full(
+        (len(labels), 1), 1 - smoothing, device=p.device))
+    residual = p - target
+    return torch.cat([(residual[:, :, None] * hidden[:, None, :]).flatten(1),
+                      residual], dim=1)

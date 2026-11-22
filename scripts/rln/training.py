@@ -1,40 +1,142 @@
-"""E2/E3 model loading, weighted loss, Trainer, resume and stage persistence."""
+"""Construct the seed-only and weighted DistilBERT trainers."""
+import importlib.metadata
 
-import numpy as np
-import pandas as pd
-
-from data_utils import LABELS, fingerprint, read_json, write_json, model_fingerprint
-from scoring import release_gpu
+from data_utils import LABELS
 from evaluation import compute_metrics
+from run_io import write_json
 
-def build_stage_model(args, dataset, checkpoint, config):
+
+def build_seed_trainer(args, output, frames):
     import torch
-    from transformers import AutoTokenizer, AutoModelForSequenceClassification, set_seed
+    from datasets import Dataset
+    from transformers import (
+        DistilBertForSequenceClassification,
+        DistilBertTokenizerFast,
+        Trainer,
+        TrainingArguments,
+        DataCollatorWithPadding,
+        set_seed,
+    )
     set_seed(args.train_seed)
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint, local_files_only=True)
-    model = (
-        AutoModelForSequenceClassification.from_pretrained(checkpoint, local_files_only=True)
+    versions = {
+        package: importlib.metadata.version(package)
+        for package in (
+            "torch",
+            "transformers",
+            "tokenizers",
+            "datasets",
+            "accelerate",
+            "scikit-learn",
+        )
+    }
+    write_json(
+        output / "environment.json",
+        {
+            "versions": versions,
+            "cuda": torch.cuda.is_available(),
+            "gpu": (
+                torch.cuda.get_device_name(0)
+                if torch.cuda.is_available()
+                else None
+            ),
+        },
     )
-    actual = {int(index): name for index, name in model.config.id2label.items()}
-    if actual != LABELS[dataset]:
-        raise ValueError('M0 label mapping mismatch.')
+    print(
+        "Device:",
+        (
+            torch.cuda.get_device_name(0)
+            if torch.cuda.is_available()
+            else "CPU"
+        ),
+        flush=True,
+    )
+    names = LABELS[args.dataset]
+    tokenizer = (
+        DistilBertTokenizerFast.from_pretrained(args.model, revision=args.model_revision)
+    )
+    model = (
+        DistilBertForSequenceClassification
+        .from_pretrained(
+            args.model,
+            revision=args.model_revision,
+            num_labels=3,
+            id2label=names,
+            label2id={label: index for index, label in names.items()},
+        )
+    )
+    if (
+        args.max_length
+        > model.config.max_position_embeddings
+    ):
+        raise ValueError('max-length exceeds model positional limit.')
+    total_layers = len(model.distilbert.transformer.layer)
+    if args.freeze_layers > total_layers:
+        raise ValueError('freeze-layers exceeds model layer count.')
     for layer in (
         model.distilbert.transformer.layer[
-            :config["freeze_layers"]
+            :args.freeze_layers
         ]
     ):
         for parameter in layer.parameters():
             parameter.requires_grad = False
-    return model, tokenizer
+    print(f'Frozen lower layers: {args.freeze_layers}', flush=True)
+    def tokenize(frame):
+        dataset = Dataset.from_pandas(frame[['sentence', 'label']], preserve_index=False)
+        return dataset.map(
+            lambda batch: tokenizer(batch['sentence'], truncation=True, max_length=args.max_length),
+            batched=True,
+            remove_columns=["sentence"],
+        )
+    train_data = tokenize(frames["seed"])
+    validation_data = tokenize(frames['validation'])
+    training_args = TrainingArguments(
+        output_dir=str(output),
+        seed=args.train_seed,
+        data_seed=args.train_seed,
+        eval_strategy="epoch",
+        save_strategy="no",
+        logging_strategy="epoch",
+        learning_rate=args.learning_rate,
+        num_train_epochs=args.num_epochs,
+        per_device_train_batch_size=(
+            args.train_batch_size
+        ),
+        per_device_eval_batch_size=(
+            args.eval_batch_size
+        ),
+        weight_decay=args.weight_decay,
+        label_smoothing_factor=(
+            args.label_smoothing
+        ),
+        load_best_model_at_end=False,
+        metric_for_best_model="f1",
+        greater_is_better=True,
+        save_total_limit=1,
+        report_to="none",
+        fp16=False,
+        dataloader_num_workers=0,
+        optim="adamw_torch",
+        warmup_ratio=0.0,
+    )
+    trainer = Trainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_data,
+        eval_dataset=validation_data,
+        processing_class=tokenizer,
+        data_collator=DataCollatorWithPadding(tokenizer=tokenizer),
+        compute_metrics=compute_metrics,
+    )
+    return trainer, tokenizer, validation_data, tokenize, names
 
 
 def build_stage_trainer(args, folder, config, frames, train, model, tokenizer):
     import torch
     import torch.nn.functional as F
     from datasets import Dataset
-    from transformers import Trainer, TrainingArguments, DataCollatorWithPadding, EarlyStoppingCallback
+    from transformers import Trainer, TrainingArguments, DataCollatorWithPadding
     def tokenize(frame):
         data = Dataset.from_pandas(frame[['sentence', 'label', 'weight']], preserve_index=False)
         return data.map(
@@ -85,11 +187,11 @@ def build_stage_trainer(args, folder, config, frames, train, model, tokenizer):
         frames['validation'].assign(weight=1.0)
     )
     training_args = TrainingArguments(
-        output_dir=str(folder / 'checkpoints'),
+        output_dir=str(folder),
         seed=args.train_seed,
         data_seed=args.train_seed,
         eval_strategy="epoch",
-        save_strategy="epoch",
+        save_strategy="no",
         logging_strategy="epoch",
         learning_rate=config["learning_rate"],
         num_train_epochs=config["num_epochs"],
@@ -101,7 +203,7 @@ def build_stage_trainer(args, folder, config, frames, train, model, tokenizer):
         ),
         weight_decay=config["weight_decay"],
         # Label smoothing được tính trong custom loss.
-        load_best_model_at_end=True,
+        load_best_model_at_end=False,
         metric_for_best_model="f1",
         greater_is_better=True,
         save_total_limit=1,
@@ -122,111 +224,6 @@ def build_stage_trainer(args, folder, config, frames, train, model, tokenizer):
         eval_dataset=tokenize(validation),
         data_collator=collate,
         compute_metrics=compute_metrics,
-        callbacks=[
-            EarlyStoppingCallback(early_stopping_patience=config['early_stopping_patience'])
-        ],
     )
     trainer.model_accepts_loss_kwargs = False
     return trainer
-
-
-def train_stage(args, dataset, stage, checkpoint, config, frames, synthetic, weights, contract):
-    from transformers.trainer_utils import get_last_checkpoint
-    # Copy cấu hình E1 để không thay đổi cấu hình M0.
-    training_config = dict(config)
-
-    # Chỉ ghi đè learning rate khi chạy E2/E3.
-    if getattr(args, "learning_rate", None) is not None:
-        training_config["learning_rate"] = args.learning_rate
-        
-    folder = (
-        args.output_root
-        / dataset
-        / stage
-        / f"train_seed_{args.train_seed}"
-    )
-    signature = fingerprint({
-        "stage": stage,
-        "input": contract,
-        "weights": np.asarray(weights).tolist(),
-        "config": training_config,
-        "loss": "sum(w*smoothedCE)/sum(w)",
-    })
-    marker = folder / "stage_contract.json"
-    if folder.exists():
-        if (
-            not marker.exists()
-            or read_json(marker)["signature"]
-            != signature
-        ):
-            raise ValueError(f'{folder} belongs to another run/script. Do not overwrite it.')
-        summary_path = folder / "summary.json"
-        if (
-            summary_path.exists()
-            and read_json(summary_path)["status"]
-            == "complete"
-        ):
-            model_fingerprint(folder / 'best_model')
-            print(f'[{stage.upper()} SKIP] Already complete', flush=True)
-            return folder
-    folder.mkdir(parents=True, exist_ok=True)
-    write_json(marker, {'signature': signature})
-    write_json(
-        folder / "run_config.json",
-        {
-            "stage": stage,
-            "dataset": dataset,
-            "m0_config": config,
-            "training_config": training_config,
-            "input_contract": contract,
-            "initialization": str(checkpoint),
-            "loss": "sum(w*smoothedCE)/sum(w)",
-            "optimizer_reinitialized": True,
-        },
-    )
-    model, tokenizer = build_stage_model(
-        args, dataset, checkpoint, training_config
-    )
-    seed = frames["seed"].copy()
-    seed["weight"] = 1.0
-    syn = synthetic[['sentence', 'label']].copy()
-    syn["weight"] = np.asarray(weights)
-    train = pd.concat([seed, syn], ignore_index=True)
-    snapshots = folder / "data_snapshot"
-    snapshots.mkdir(exist_ok=True)
-    train.to_json(snapshots / 'train.jsonl', orient='records', lines=True, force_ascii=False)
-    trainer = build_stage_trainer(
-        args, folder, training_config, frames, train, model, tokenizer
-    )
-    checkpoints = folder / "checkpoints"
-    last = (
-        get_last_checkpoint(str(checkpoints))
-        if checkpoints.exists()
-        else None
-    )
-    print(
-        f'[{stage.upper()}] Train from M0; '
-        f'learning_rate={training_config["learning_rate"]}; '
-        f'resume={last}',
-        flush=True,
-    )
-    trainer.train(resume_from_checkpoint=last)
-    trainer.save_model(str(folder / 'best_model'))
-    tokenizer.save_pretrained(str(folder / 'best_model'))
-    write_json(folder / 'training_history.json', trainer.state.log_history)
-    metrics = trainer.evaluate()
-    write_json(folder / 'validation_metrics.json', metrics)
-    write_json(
-        folder / "summary.json",
-        {
-            "status": "complete",
-            "stage": stage,
-            "best_validation_macro_f1": (
-                metrics["eval_f1"]
-            ),
-            "initialization": str(checkpoint),
-        },
-    )
-    del trainer, model, tokenizer
-    release_gpu()
-    return folder

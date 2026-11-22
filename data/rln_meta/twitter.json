@@ -1,0 +1,199 @@
+{
+  "identity": {
+    "dataset": "twitter",
+    "method": "clustered",
+    "seed": 24266,
+    "per_class": 15,
+    "split_seed": 24266,
+    "inputs": {
+      "seed": "29a2e5c10aba6dda82811a16cd908bb1dad87c392282ba03adb0c676ec60207b",
+      "validation": "06279c0e96144700c3b4ec55184e42ac30bac536018e2a3f50d474919d0e8f47",
+      "test": "53ccec807fc1dcedb404620051fd79979477cea4a5c0f580bff1b725fb57812d",
+      "synthetic": "1964165068f5436a128a1f2e66e129957ba821896fb89d8d768da2a6e7c3e327",
+      "train_pool": "8ff3be2bcb47b71d2896b288b0d591e45f1814343cad93ab3d0e8383b89f461d"
+    }
+  },
+  "sha256": "14fa72c60de06702a3741f94310c4c211eb5d530a872add6c14f1dc3c14443f2",
+  "rows": [
+    {
+      "sentence": "UPDATE 1-Influential U.S. doctors group calls for ban on vaping products",
+      "label": 0
+    },
+    {
+      "sentence": "SoftBank Group Corp.’s massive investment in WeWork triggered a multi-billion-dollar writedown and a rare apology f… https://t.co/PogaY0B09Z",
+      "label": 0
+    },
+    {
+      "sentence": "Stocks are plummeting. Fortunately for you, @JimCramer is here to break it all down: https://t.co/1mWoCg5j3S https://t.co/vzGsLact9Z",
+      "label": 0
+    },
+    {
+      "sentence": "JUST RELEASED: Oil Price Dynamics Report Oil prices fell over the past week owing to increased supply.… https://t.co/jmRAgMxruU",
+      "label": 0
+    },
+    {
+      "sentence": "LRAD EPS misses by $0.01, misses on revenue",
+      "label": 0
+    },
+    {
+      "sentence": "Hedge Funds Are Selling AMERCO (UHAL)",
+      "label": 0
+    },
+    {
+      "sentence": "$AQST - Aquestive readies equity offering; shares down 7% after hours https://t.co/mTUhau6lCg",
+      "label": 0
+    },
+    {
+      "sentence": "S&P 500 and Dow down 0.1%",
+      "label": 0
+    },
+    {
+      "sentence": "The last time Chinese stocks performed this poorly, the country was in the middle of a massive market meltdown https://t.co/Kzt3Uj0m4Y",
+      "label": 0
+    },
+    {
+      "sentence": "The longer coronavirus dents China's industrial output, the bigger the risk to global supply chains https://t.co/xz44XU5LQy",
+      "label": 0
+    },
+    {
+      "sentence": "Mitek Systems stock price target cut to $11 from $14 at Benchmark",
+      "label": 0
+    },
+    {
+      "sentence": "$JE - Just Energy reports lower than expected Q3 Base EBITDA and free cash flow; revises 2020 guidance https://t.co/JT06Kd3sDQ",
+      "label": 0
+    },
+    {
+      "sentence": "March 2020 SCE records a substantial deterioration in financial and economic expectations, including sharp declines… https://t.co/fIdRZPXfcI",
+      "label": 0
+    },
+    {
+      "sentence": "Macy's Q3 same-store sales down 3.5%",
+      "label": 0
+    },
+    {
+      "sentence": "ICYMI: Transport for London said Uber $UBER was not \"fit and proper\" to hold an operating license in London after a… https://t.co/6KXYb2e38V",
+      "label": 0
+    },
+    {
+      "sentence": "Hedge Funds Have Never Been This Bullish On Construction Partners, Inc. (ROAD)",
+      "label": 1
+    },
+    {
+      "sentence": "Kemet EPS beats by $0.10, beats on revenue",
+      "label": 1
+    },
+    {
+      "sentence": "Total tops Q4 earnings outlook as production climbs 8%",
+      "label": 1
+    },
+    {
+      "sentence": "$USO $XLE $OIL - OPEC+ confirms deeper oil production cut; crude oil jumps https://t.co/UCQIZjimV9",
+      "label": 1
+    },
+    {
+      "sentence": "Medicines Co. shares jump 17% in premarket after report of potential Novartis offer",
+      "label": 1
+    },
+    {
+      "sentence": "$SPY strong breakout of tight setup on volume. Above 6wk desc tl, last week's high, & ma's. C&H breakout. Higher hi… https://t.co/jlcQjmopO9",
+      "label": 1
+    },
+    {
+      "sentence": "Nasdaq at record high as investors look past coronavirus impact on supply chains https://t.co/e3P2dKgaY9",
+      "label": 1
+    },
+    {
+      "sentence": "$CETX anyone? It seems to be making a bottom. Company announced recently 500% Increase in New Orders for Developmen… https://t.co/UbJepuhDtQ",
+      "label": 1
+    },
+    {
+      "sentence": "Bilibili +2.6% on accelerating revenue growth",
+      "label": 1
+    },
+    {
+      "sentence": "The market bounced back after President Trump said the US and China are “potentially very close” on a trade deal. T… https://t.co/VC5V93JFh4",
+      "label": 1
+    },
+    {
+      "sentence": "Broadcom stock price target raised to $361 vs. $322 at SunTrust Robinson Humphrey",
+      "label": 1
+    },
+    {
+      "sentence": "In 1.60 $NYMT on news 6000 shares. Stock fell 80% and now can run big",
+      "label": 1
+    },
+    {
+      "sentence": "Stock Market Live Updates: S&P 500, Nasdaq, Dow post record closing highs - Yahoo Finance",
+      "label": 1
+    },
+    {
+      "sentence": "Feb. gold climbs $8.90, or 0.6%, to settle at $1,481.20/oz",
+      "label": 1
+    },
+    {
+      "sentence": "Investors are right to be pleased with November’s strong jobs report. But there are also some things to puzzle over. https://t.co/jlVv1dIETY",
+      "label": 1
+    },
+    {
+      "sentence": "$FNMA $FMCC - Fannie and Freddie tap the brakes on backing some riskier loans - WSJ https://t.co/XqbPCKipbu",
+      "label": 2
+    },
+    {
+      "sentence": "Icade : Investor Presentation - November 2019 #Icade #Stock #MarketScreener https://t.co/9OI0H5lNAj https://t.co/vVW9zc9YrM",
+      "label": 2
+    },
+    {
+      "sentence": "$SCANX: Earnings/guidance movers https://t.co/YrPxLxDd6q",
+      "label": 2
+    },
+    {
+      "sentence": "New for subscribers: These stocks are 'good companies at better prices,' Morgan Stanley says… https://t.co/qJ9uZWNjKn",
+      "label": 2
+    },
+    {
+      "sentence": "Highlight: Michael Bloomberg \"is trying to kind of bring the party together— shift the focus a little bit,\"… https://t.co/QJV0meMLmA",
+      "label": 2
+    },
+    {
+      "sentence": "Merger Arbitrage Mondays - Novartis Confirms Acquisition Of The Medicines Company. Get more info on Seeking Alpha:… https://t.co/OJYNKIoTb9",
+      "label": 2
+    },
+    {
+      "sentence": "This Might Be A Short-Term Top (Technically Speaking For The Week Of November 18-22). Continue reading:… https://t.co/JK2IXApPNC",
+      "label": 2
+    },
+    {
+      "sentence": "Highlight: The Fed has launched an unprecedented round of asset purchases. \"The idea here is the Federal Reserve is… https://t.co/9J31vhPbUG",
+      "label": 2
+    },
+    {
+      "sentence": "$CONN - Conn's, Inc. 2020 Q3 - Results - Earnings Call Presentation. Read more and sign up for updates:… https://t.co/oX40naqXia",
+      "label": 2
+    },
+    {
+      "sentence": "Nasdaq CEO: Companies going public need a 'path to profitability' https://t.co/A2AWscsngL by @MaxZahn_ https://t.co/oVEDuvnHy8",
+      "label": 2
+    },
+    {
+      "sentence": "The world's largest oil producers are groping their way toward a deal on who's willing to cut production and by how… https://t.co/zhXJENTilz",
+      "label": 2
+    },
+    {
+      "sentence": "$FGB - First Trust Specialty Finance&Financial Opportunities Fund declares $0.135 dividend https://t.co/n2NZfcESuD",
+      "label": 2
+    },
+    {
+      "sentence": "The U.K. reports a decline in the number of coronavirus-related deaths for the second day in a row https://t.co/RD7dWLp3kE",
+      "label": 2
+    },
+    {
+      "sentence": "Edited Transcript of MSG earnings conference call or presentation 8-Nov-19 3:00pm GMT",
+      "label": 2
+    },
+    {
+      "sentence": "US wants China trade deal but won't turn blind eye to Hong Kong, Trump national security advisor says https://t.co/dvrewpls4T",
+      "label": 2
+    }
+  ]
+}
