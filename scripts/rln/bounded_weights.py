@@ -59,7 +59,7 @@ def initial_scores(experiments, model, tokenizer, frames, synthetic, batch_size,
     return scores
 
 
-def weight_table(experiment, scores, size):
+def weight_table(experiment, scores, size, blend="relative", strength=0.5):
     table = pd.DataFrame({'synthetic_index': np.arange(size)})
     base = np.ones(size)
     if experiment in USE_RLN:
@@ -69,7 +69,17 @@ def weight_table(experiment, scores, size):
     table['base'] = base
     if experiment in USE_GRADIENT:
         table['G'] = scores['G']
-        base = base * (1 + 0.5 * scores['G'])
+        g = scores['G']
+        if blend == "relative":
+            base = base * (1 + strength * g)
+        elif blend == "add":
+            base = base + strength * g
+        elif blend == "product":
+            base = base * g
+        elif blend == "gradient_only":
+            base = strength * g
+        else:
+            raise ValueError(f"Unknown blend: {blend}")
     table['weight'] = np.clip(base, 0.5, 2.0)
     return table
 
@@ -124,7 +134,11 @@ class BoundedWeights(TrainerCallback):
             if self.experiment == 'E8':
                 self.scores['G'] = gradient_scores(model, self.tokenizer, self.synthetic,
                     self.meta, self.batch_size, self.config)
-        table = weight_table(self.experiment, self.scores, len(self.synthetic))
+        table = weight_table(
+            self.experiment, self.scores, len(self.synthetic),
+            blend=self.config.get("blend", "relative"),
+            strength=self.config.get("gradient_strength", 0.5),
+        )
         self.data.update(table.weight.to_numpy())
         table.to_csv(self.folder / f'epoch_{epoch:03}.csv', index=False)
         self.last_epoch = epoch

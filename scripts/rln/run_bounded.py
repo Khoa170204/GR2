@@ -33,7 +33,14 @@ def parse_args():
     parser.add_argument('--outputs-dir', type=Path, default=Path('outputs'))
     parser.add_argument('--output-root', type=Path, default=Path('output/rln_results'))
     parser.add_argument('--validation-only', action='store_true')
+    parser.add_argument(
+        "--blend", choices=["relative", "add", "product", "gradient_only"],
+        default="relative",
+    )
+    parser.add_argument("--gradient-strength", type=float, default=0.5)
     args = parser.parse_args()
+    if not 0 <= args.gradient_strength <= 1:
+        parser.error("--gradient-strength must be between 0 and 1.")
     if bool(args.twitter_train_file) != bool(args.twitter_validation_file):
         parser.error('Provide both local Twitter files.')
     if min(args.num_epochs, args.patience, args.score_batch_size, args.meta_per_class) < 1:
@@ -94,7 +101,9 @@ def run_dataset(args, dataset, folder):
     settings = dict(training=config, input_sha256=hashes, validation_only=args.validation_only,
                     meta_method=args.meta_method, meta_seed=args.meta_seed,
                     meta_per_class=args.meta_per_class, score_batch_size=args.score_batch_size,
-                    gradient_strength=0.5, weight_bounds=[0.5, 2])
+                    gradient_strength=args.gradient_strength, weight_bounds=[0.5, 2])
+    config["blend"] = args.blend
+    config["gradient_strength"] = args.gradient_strength
     manifest = folder / 'run_config.json'
     if manifest.exists():
         previous = read_json(manifest)
